@@ -1,1 +1,48 @@
-[]
+[
+    {
+        "title":  "ACC 파라벤 사용 조건 공식 안내",
+        "scope":  "ingredient",
+        "ingredients":  [
+                            "Methylparaben",
+                            "Ethylparaben",
+                            "Propylparaben",
+                            "Butylparaben",
+                            "Isopropylparaben",
+                            "Isobutylparaben",
+                            "Phenylparaben",
+                            "Benzylparaben",
+                            "Pentylparaben"
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "공식 안내 · 날짜 미확인",
+        "published_at":  null,
+        "effective_at":  null,
+        "transition_end":  null,
+        "summary":  "메틸·에틸파라벤은 ACD 부속서 VI의 한도와 조건에 따라 사용합니다. 프로필·부틸파라벤은 3세 미만 어린이의 기저귀 부위용 씻어내지 않는 제품에 사용할 수 없습니다. 이소프로필·이소부틸·페닐·벤질·펜틸파라벤은 금지됩니다. 발표일과 회원국별 적용일은 이 안내문에서 확인되지 않습니다.",
+        "url":  "https://asean.org/wp-content/uploads/2012/05/Appendix-25-JOS-Parabens-Final.pdf",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    },
+    {
+        "title":  "ACC 안티몬의 의도적 첨가 및 미량 불순물 안내",
+        "scope":  "ingredient",
+        "ingredients":  [
+                            "Antimony"
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "공식 안내 · 날짜 미확인",
+        "published_at":  null,
+        "effective_at":  null,
+        "transition_end":  null,
+        "summary":  "안티몬은 ACD 금지 성분이므로 의도적으로 첨가할 수 없습니다. 미량 불순물은 GMP상 기술적으로 피할 수 없고 소비자 안전에 위험을 주지 않는 조건을 검토해야 합니다. 안내문의 노출평가 예시를 일률적인 허용 한도로 해석하지 않습니다.",
+        "url":  "https://asean.org/wp-content/uploads/2012/05/Appendix-24-JOS-Antimony-Final.pdf",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    }
+]
