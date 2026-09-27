@@ -94,6 +94,15 @@ def reanalyze(product_id):
         flash("새 분석 이력을 저장했습니다. 기존 결과는 보존됩니다.","success")
     return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"],product_id=product_id))
 
+@bp.post("/products/<product_id>/delete")
+@login_required
+def delete_product(product_id):
+    product=store.product_for(g.user["id"],product_id)
+    project=store.project_for(g.user["id"],product["project_id"])
+    store.delete_product(g.user["id"],product_id)
+    flash("제품을 삭제했습니다.","success")
+    return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"]))
+
 @bp.post("/products/<product_id>/tasks")
 @login_required
 def task(product_id):

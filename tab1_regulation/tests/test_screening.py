@@ -111,3 +111,26 @@ def test_eu_split_documents_keep_legacy_completion(app):
     assert task["task_id"] in completed_task_ids([task],states)
     partial={task["legacy_document_key"]:True,task["documents"][0]["key"]:False}
     assert not apply_legacy_document_states(task,partial)
+
+
+def test_product_delete_and_note_controls(app,client,owned):
+    project_id,product_id=owned
+    note=post(client,f"/products/{product_id}/notes",{"notes":"수정할 메모"},headers={"Accept":"application/json"}).json["note"]
+    page=client.get(f"/beauty/jp/regulation?project_id={project_id}&product_id={product_id}")
+    assert page.status_code==200
+    assert f'/products/{product_id}/delete'.encode() in page.data
+    assert f'/products/{product_id}/notes/{note["id"]}/update'.encode() in page.data
+    assert f'/products/{product_id}/notes/{note["id"]}/delete'.encode() in page.data
+    assert b'data-note-form' not in page.data
+
+    assert client.get(f"/products/{product_id}/delete").status_code==405
+    assert client.post(f"/products/{product_id}/delete").status_code==400
+    response=post(client,f"/products/{product_id}/delete")
+    assert response.status_code==302
+    assert f"project_id={project_id}" in response.location
+    assert "product_id=" not in response.location
+    with app.app_context():
+        from platform_core.services.database import get_db
+        assert get_db().execute("SELECT count(*) FROM products WHERE id=?",(product_id,)).fetchone()[0]==0
+        assert get_db().execute("SELECT count(*) FROM product_notes WHERE product_id=?",(product_id,)).fetchone()[0]==0
+        assert get_db().execute("SELECT count(*) FROM projects WHERE id=?",(project_id,)).fetchone()[0]==1
