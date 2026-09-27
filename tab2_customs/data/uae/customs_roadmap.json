@@ -1,11 +1,42 @@
-[{
-  "country_code": "AE",
-  "country_name": "아랍에미리트",
-  "steps": [
-    { "step_order": 1, "title": "Montaji 시스템 제품 사전 등록", "description": "두바이 시청(DM) Montaji 시스템에 전성분 및 시험성적서를 업로드하여 사전 승인을 취득합니다.", "required_documents": ["Montaji 등록 승인서", "자유판매증명서(FSC)", "전성분 분석 성적서(COA)"] },
-    { "step_order": 2, "title": "MoIAT 적합성 인증서(ECAS) 취득", "description": "UAE 연방 화장품 안전 규격에 따라 지정 인증기관을 통해 적합성 인증서(CoC)를 발급받습니다.", "required_documents": ["ECAS 적합성 인증서"] },
-    { "step_order": 3, "title": "세관 포털 수입신고 (Mirsal-2)", "description": "세관 시스템에 화물 통관 신고서를 접수합니다.", "required_documents": ["상업송장", "한-UAE CEPA 원산지증명서"] },
-    { "step_order": 4, "title": "아랍어 라벨 심사 및 현장 검사", "description": "제품 포장에 아랍어 및 영어 병기 라벨이 규정대로 인쇄되어 있는지 검역관이 검사합니다.", "required_documents": ["아랍어 표기 라벨 견본"] },
-    { "step_order": 5, "title": "CEPA 면세 적용 및 VAT 납부", "description": "CEPA에 따라 관세 0%를 적용받고 부가가치세(VAT 5%) 납부 후 세관 반출 승인을 받습니다.", "required_documents": ["세금 납부 확인서", "세관 반출증"] }
-  ]
-}]
+[
+  {
+    "title": "MoIAT 적합성 인증(ECAS) 취득",
+    "description": "UAE 산업첨단기술부(MoIAT)의 연방 화장품 규격에 따라 지정된 인증기관(NB)을 통해 ECAS 적합성 인증서를 발급받아야 합니다.",
+    "required_doc": [
+      "ECAS 적합성 인증서",
+      "공인 시험성적서(GMP 등)"
+    ],
+    "owner": "수출자 및 현지 수입자",
+    "guide_url": "https://moiat.gov.ae/"
+  },
+  {
+    "title": "두바이 시청 Montaji 시스템 사전 등록",
+    "description": "두바이로 수입되는 경우 두바이 시청(Dubai Municipality)의 Montaji 시스템에 전성분 및 패키지 정보를 업로드하여 승인(CPRE)을 받아야 합니다.",
+    "required_doc": [
+      "Montaji 등록 승인서",
+      "자유판매증명서(FSC)"
+    ],
+    "owner": "현지 유통사 (무역 라이선스 보유자)",
+    "guide_url": "https://www.dm.gov.ae/"
+  },
+  {
+    "title": "아랍어 라벨링 및 할랄(선택) 요건 확인",
+    "description": "제품에 아랍어로 표기된 필수 라벨(제품명, 사용법, 경고문구)을 부착해야 하며, 알코올/돼지 유래 성분이 없음을 증명하거나 할랄 인증을 권장합니다.",
+    "required_doc": [
+      "아랍어 라벨 시안",
+      "할랄 인증서 (보유 시)"
+    ],
+    "owner": "수출자",
+    "guide_url": ""
+  },
+  {
+    "title": "GCC 세관 수입신고 및 CEPA 특혜 적용",
+    "description": "세관(Dubai Customs 등)에 수입신고를 하며, 한-UAE CEPA 원산지증명서를 제출하여 관세 면제 혜택을 받고 부가가치세(5%)를 납부합니다.",
+    "required_doc": [
+      "CEPA 원산지증명서",
+      "상업송장(CI) 및 PL"
+    ],
+    "owner": "현지 수입자 및 관세사",
+    "guide_url": "https://www.fca.gov.ae/"
+  }
+]

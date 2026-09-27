@@ -1,1 +1,7 @@
-[]
+[
+  { "origin": "KR", "hs_code": "33041000", "product_name": "Lip make-up (립 메이크업)", "rate_type": "협정·FTA세율", "rate": 0, "rate_unit": "%", "agreement": "한-인니 CEPA", "conditions": "CEPA 원산지증명서 제출 시", "as_of": "2026-03", "source": "한국무역협회(KITA)", "source_url": "https://www.kita.net/" },
+  { "origin": "KR", "hs_code": "33042000", "product_name": "Eye make-up (아이 메이크업)", "rate_type": "협정·FTA세율", "rate": 0, "rate_unit": "%", "agreement": "한-인니 CEPA", "conditions": "CEPA 원산지증명서 제출 시", "as_of": "2026-03", "source": "한국무역협회(KITA)", "source_url": "https://www.kita.net/" },
+  { "origin": "KR", "hs_code": "33043000", "product_name": "Manicure (네일 제품)", "rate_type": "협정·FTA세율", "rate": 0, "rate_unit": "%", "agreement": "한-인니 CEPA", "conditions": "CEPA 원산지증명서 제출 시", "as_of": "2026-03", "source": "한국무역협회(KITA)", "source_url": "https://www.kita.net/" },
+  { "origin": "KR", "hs_code": "33049100", "product_name": "Powders (파우더류)", "rate_type": "협정·FTA세율", "rate": 0, "rate_unit": "%", "agreement": "한-인니 CEPA", "conditions": "CEPA 원산지증명서 제출 시", "as_of": "2026-03", "source": "한국무역협회(KITA)", "source_url": "https://www.kita.net/" },
+  { "origin": "KR", "hs_code": "33049900", "product_name": "Other skin care (기초화장품)", "rate_type": "협정·FTA세율", "rate": 0, "rate_unit": "%", "agreement": "한-인니 CEPA", "conditions": "CEPA 원산지증명서 제출 시", "as_of": "2026-03", "source": "한국무역협회(KITA)", "source_url": "https://www.kita.net/" }
+]
