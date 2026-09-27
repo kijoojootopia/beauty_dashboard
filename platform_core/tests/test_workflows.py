@@ -5,6 +5,24 @@ from urllib.parse import urlsplit,parse_qs
 from conftest import post,signup,write_json
 from platform_core.services.database import get_db
 
+def test_account_requires_login_and_shows_only_current_user(app,client):
+    response=client.get("/account")
+    assert response.status_code==302
+    assert urlsplit(response.location).path=="/login"
+    assert parse_qs(urlsplit(response.location).query)["next"]==["/account?"]
+    signup(client)
+    other=app.test_client()
+    signup(other,"other@example.test")
+    response=client.get("/account?user_id=2")
+    assert response.status_code==200
+    assert "테스트 사용자" in response.text
+    assert "owner@example.test" in response.text
+    assert "other@example.test" not in response.text
+    assert 'href="/account"' in response.text
+    assert "a-long-test-password" not in response.text
+    assert "other@example.test" in other.get("/account").text
+
+
 def test_all_country_tabs_render(client):
     for country in ["eac","eu","uae","us","jp","cn","asean"]:
         for tab in ["regulation","customs","market"]:
