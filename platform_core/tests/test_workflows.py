@@ -1,4 +1,6 @@
 import json
+import sqlite3
+import pytest
 from urllib.parse import urlsplit,parse_qs
 from conftest import post,signup,write_json
 from platform_core.services.database import get_db
@@ -67,6 +69,43 @@ def test_copy_and_bookmarks_and_export(client,owned):
     response=client.get(f"/projects/{pid}/export")
     assert response.headers["Content-Disposition"].startswith("attachment;")
     assert "password" not in response.text
+
+def test_copy_failure_rolls_back(tmp_path):
+    from platform_core.app_factory import create_app
+    from platform_core.services.auth_service import register
+    from platform_core.services import project_service as store
+
+    app = create_app({"TESTING": True, "SECRET_KEY": "tests-only-key",
+                      "DATABASE": str(tmp_path / "copy.sqlite3")})
+    with app.app_context():
+        user_id = register("copy@example.test", "복사 테스트", "a-long-test-password")
+        source_id = store.create_project(user_id, "원본", "jp")
+        for name in ("합성 제품 A", "합성 제품 B"):
+            store.save_product_analysis(user_id, source_id, {
+                "name": name, "product_type": "leave_on",
+                "ingredients": [{"inci_name": "Test Ingredient", "concentration": 1}],
+            }, {"state": "data_pending"})
+
+        db = get_db()
+        tables = ("projects", "products", "analyses")
+        before = {table: [tuple(row) for row in db.execute(f"SELECT * FROM {table}")]
+                  for table in tables}
+        # 첫 제품 저장 후 두 번째 제품에서 실제 DB 오류를 발생시킵니다.
+        db.execute("""CREATE TEMP TRIGGER fail_second_product BEFORE INSERT ON products
+            WHEN (SELECT count(*) FROM products WHERE project_id=NEW.project_id)=1
+            BEGIN SELECT RAISE(ABORT, 'test copy failure'); END""")
+        with pytest.raises(sqlite3.IntegrityError, match="test copy failure"):
+            store.copy_project(user_id, source_id, "실패할 복사", "us", "")
+
+        for table in tables:
+            assert [tuple(row) for row in db.execute(f"SELECT * FROM {table}")] == before[table]
+        assert not db.in_transaction
+
+        db.execute("DROP TRIGGER fail_second_product")
+        copied_id = store.copy_project(user_id, source_id, "재시도", "us", "")
+        assert len(store.products_for(user_id, copied_id)) == 2
+        assert len(store.products_for(user_id, source_id)) == 2
+
 
 def test_invalid_payload_and_data_preserve_previous(client,owned):
     pid,product_id=owned
