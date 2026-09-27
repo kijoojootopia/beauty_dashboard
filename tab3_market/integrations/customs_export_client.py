@@ -44,23 +44,46 @@ def money(value):
 
 
 def period_rows(rows,year,hs):
-    matching=[r for r in rows if str(r.get('hsCd','')).strip()==hs]
+    matching=[r for r in rows if str(r.get('hsCode') or r.get('hsCd','')).strip().startswith(hs)]
     # API는 합계와 월별 행을 함께 반환합니다. 월별 행만 합산해 중복을 막습니다.
     monthly=[r for r in matching if re.fullmatch(str(year)+r'[.\-/]?(0[1-9]|1[0-2])',str(r.get('year','')).strip())]
     annual=[r for r in matching if str(r.get('year','')).strip()==str(year)]
     return monthly or annual
 
 
+def export_amount(rows,year,hs,country=None):
+    details=period_rows(rows,year,hs)
+    summaries=[r for r in rows if str(r.get('hsCode') or r.get('hsCd','')).strip()=='-']
+    if len(summaries)>1: raise IntegrationError('관세청 합계 행이 중복되었습니다.')
+    seen=set();periods=set();codes=set();amount=Decimal(0)
+    for row in details:
+        code=str(row.get('hsCode') or row.get('hsCd','')).strip()
+        period=re.sub(r'[.\-/]','',str(row['year']).strip())
+        if country and row.get('statCd','').strip()!=country:
+            raise IntegrationError('관세청 응답 국가가 조회 국가와 다릅니다.')
+        if (period,code) in seen: raise IntegrationError('관세청 기간·품목이 중복되어 합산을 중단했습니다.')
+        seen.add((period,code));periods.add(period);codes.add(code)
+        amount+=money(row.get('expDlr'))
+    if any(a!=b and b.startswith(a) for a in codes for b in codes):
+        raise IntegrationError('관세청 상위·하위 품목이 중복되어 합산을 중단했습니다.')
+    if summaries:
+        reported=money(summaries[0].get('expDlr'))
+        if reported!=amount: raise IntegrationError('관세청 합계와 상세 수출액이 일치하지 않습니다.')
+        # 국가별 거래가 없는 달을 0으로 추정하지 않고 제공처의 조회 기간 합계를 사용합니다.
+        if country: return reported
+    if not details: return None
+    if periods!={str(year)} and periods!={f'{year}{month:02}' for month in range(1,13)}:
+        if country: raise IntegrationError('국가별 연간 합계가 없어 불완전한 순위를 표시하지 않습니다.')
+        return None
+    return amount
+
+
 def annual_total(year,codes,key):
     total=Decimal(0)
     for hs in codes:
-        rows=period_rows(records(TOTAL_URL,key,year,hs),year,hs)
-        if not rows: return None
-        periods=[r['year'] for r in rows]
-        if len(periods)!=len(set(periods)): raise IntegrationError('관세청 기간이 중복되어 합산을 중단했습니다.')
-        # 12개월 전체 또는 제공처의 연간 합계만 연간 값으로 사용합니다.
-        if len(rows)!=12 and not (len(rows)==1 and rows[0]['year']==str(year)): return None
-        total+=sum((money(r.get('expDlr')) for r in rows),Decimal(0))
+        amount=export_amount(records(TOTAL_URL,key,year,hs),year,hs)
+        if amount is None: return None
+        total+=amount
     return float(total)
 
 
@@ -72,14 +95,10 @@ def rankings(year,codes,key):
             def load():
                 amount=Decimal(0);found=False
                 for hs in codes:
-                    rows=period_rows(records(COUNTRY_URL,key,year,hs,iso),year,hs)
-                    seen=set()
-                    for row in rows:
-                        if row.get('statCd','').strip()!=iso: raise IntegrationError('관세청 응답 국가가 조회 국가와 다릅니다.')
-                        if row['year'] in seen: raise IntegrationError('국가별 수출 통계가 중복되었습니다.')
-                        seen.add(row['year']);amount+=money(row.get('expDlr'));found=True
+                    value=export_amount(records(COUNTRY_URL,key,year,hs,iso),year,hs,iso)
+                    if value is not None: amount+=value;found=True
                 return {'country':iso,'name':reference[iso],'value':float(amount)} if found else None
-            return cached('exports-by-country',[key,year,codes,iso],load)
+            return cached('exports-by-country-v2',[key,year,codes,iso],load)
     # 권역 집계(EU)는 개별 회원국과 중복되므로 국가별 순위에서 제외합니다.
     items=[iso for iso in reference if iso!="EU"]
     # 첫 호출로 인증/서비스 승인을 확인한 뒤 국가별 조회를 진행합니다.
@@ -104,7 +123,7 @@ def fetch(include_rankings=False):
         return {'state':'ready','total_exports':latest['value'],'previous_exports':previous.get('value'),'period':latest['period'],
             'previous_period':previous.get('period'),'series':series,'rankings':[],
             'unit':'USD','source':'관세청 수출입무역통계','source_url':'https://www.data.go.kr/data/15101609/openapi.do','hs_scope':','.join(codes),'coverage':'한국 → 전 세계 · 연간 · FOB · 선택 HS 범위'}
-    result=cached('korea-exports-totals',[key,codes,end,count],load)
+    result=cached('korea-exports-totals-v2',[key,codes,end,count],load)
     if not include_rankings or result.get('state')!='ready': return result
     def load_rankings():
         rank=rankings(int(result['period']),codes,rank_key)
@@ -112,7 +131,7 @@ def fetch(include_rankings=False):
             raise IntegrationError('국가별 집계와 전체 수출액이 일치하지 않아 순위를 표시하지 않습니다.')
         return rank
     try:
-        rank=cached('korea-export-rankings',[key,rank_key,codes,result['period'],result['total_exports']],load_rankings)
-        return {**result,'rankings':rank,'ranking_state':'ready','ranking_message':''}
+        rank=cached('korea-export-rankings-v2',[key,rank_key,codes,result['period'],result['total_exports']],load_rankings)
+        return {**result,'rankings':rank,'ranking_state':'ready' if rank else 'data_pending','ranking_message':'' if rank else '조회된 국가별 수출 통계가 없습니다.'}
     except IntegrationError as error:
         return {**result,'rankings':[],'ranking_state':'data_error','ranking_message':str(error)}
