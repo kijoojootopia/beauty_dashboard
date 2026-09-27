@@ -3,10 +3,10 @@
   "country_code": "EU",
   "country_name": "유럽연합(EU)",
   "tariffs": [
-    { "hs_code": "3304.10.00", "description": "Lip make-up preparations (립 메이크업)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "3304.20.00", "description": "Eye make-up preparations (아이 메이크업)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "3304.30.00", "description": "Manicure or pedicure preparations (네일 제품)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "3304.91.00", "description": "Powders (파우더류)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "3304.99.00", "description": "Other skin care preparations (기타 스킨케어)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" }
+    { "hs_code": "33041000", "description": "Lip make-up preparations (립 메이크업)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
+    { "hs_code": "33042000", "description": "Eye make-up preparations (아이 메이크업)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
+    { "hs_code": "33043000", "description": "Manicure or pedicure preparations (네일 제품)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
+    { "hs_code": "33049100", "description": "Powders (파우더류)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
+    { "hs_code": "33049900", "description": "Other skin care preparations (기타 스킨케어)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" }
   ]
 }]

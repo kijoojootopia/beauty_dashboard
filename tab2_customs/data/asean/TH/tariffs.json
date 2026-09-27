@@ -1,10 +1,10 @@
 [{
   "hs_chapter": "3304", "country_code": "TH", "country_name": "태국",
   "tariffs": [
-    { "hs_code": "3304.10.00", "description": "립 메이크업", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
-    { "hs_code": "3304.20.00", "description": "아이 메이크업", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
-    { "hs_code": "3304.30.00", "description": "네일 제품", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
-    { "hs_code": "3304.91.00", "description": "파우더류", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
-    { "hs_code": "3304.99.00", "description": "기타 스킨케어", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" }
+    { "hs_code": "33041000", "description": "립 메이크업", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
+    { "hs_code": "33042000", "description": "아이 메이크업", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
+    { "hs_code": "33043000", "description": "네일 제품", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
+    { "hs_code": "33049100", "description": "파우더류", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" },
+    { "hs_code": "33049900", "description": "기타 스킨케어", "general_rate": "30%", "fta_rate": "0%", "fta_type": "AKFTA / RCEP", "unit": "kg" }
   ]
 }]
