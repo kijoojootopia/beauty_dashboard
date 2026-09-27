@@ -110,3 +110,57 @@ def test_cache_retains_korean_text(app,tmp_path):
         value=cached('encoding',['fixture'],lambda:{'name':'태국·베트남'})
         def unexpected():raise AssertionError('캐시를 읽어야 합니다.')
         assert cached('encoding',['fixture'],unexpected)==value
+
+
+@pytest.mark.parametrize("text,expected", [
+    ('{"items":[]}', 'data_pending'),
+    ('Search results are available.', 'error'),
+    ('', 'error'),
+    ('{"items":"invalid"}', 'error'),
+    ('{"items":[{"name":"Unsupported","source_url":"https://example.test/unknown","evidence":"unsupported"}]}', 'data_pending'),
+    ('{"items":[{"name":"Sourced","source_url":"https://example.test/company","evidence":"Public evidence","product_types":["leave_on"]}]}', 'ready'),
+])
+def test_distributor_structured_response(monkeypatch, text, expected):
+    from flask import Flask
+    from platform_core.integrations import openai_client as common
+    app = Flask(__name__)
+    app.config.update(TESTING=True, OPENAI_API_KEY='synthetic-only')
+    calls = []
+
+    def response(url, **kwargs):
+        payload = kwargs['body']
+        assert payload['text']['format']['type'] == 'json_schema'
+        assert payload['text']['format']['strict'] is True
+        schema = payload['text']['format']['schema']
+        item_schema = schema['properties']['items']['items']
+        assert item_schema['additionalProperties'] is False
+        assert set(item_schema['required']) == set(item_schema['properties'])
+        assert payload['tools'] == [{'type': 'web_search'}]
+        calls.append(payload)
+        return {'status': 'completed', 'output': [
+            {'type': 'web_search_call', 'action': {'sources': [{'url': 'https://example.test/company/?utm_source=openai'}]}},
+            {'type': 'message', 'content': [{'type': 'output_text', 'text': text}]},
+        ]}
+
+    monkeypatch.setattr(common, 'request_json', response)
+    monkeypatch.setattr(distributors, 'cached', lambda namespace, criteria, loader, ttl: loader())
+    with app.app_context():
+        if expected == 'error':
+            with pytest.raises(IntegrationError, match='유통사 검색'):
+                distributors.fetch('Japan', 'leave_on')
+        else:
+            result = distributors.fetch('Japan', 'leave_on')
+            assert result['state'] == expected
+            assert len(result['items']) == (1 if expected == 'ready' else 0)
+            if expected == 'ready':
+                assert result['items'][0]['matched'] is True
+                assert result['items'][0]['source_url'] == 'https://example.test/company'
+    assert len(calls) == 1
+
+
+def test_distributor_source_identity_preserves_page_and_query():
+    identity = distributors.source_identity
+    assert identity('https://example.test/company/?utm_source=openai') == identity('https://example.test/company')
+    assert identity('https://example.test/company?id=1') != identity('https://example.test/company?id=2')
+    assert identity('https://example.test/company') != identity('https://example.test/other')
+    assert identity('javascript:alert(1)') == identity('https://[') == ''

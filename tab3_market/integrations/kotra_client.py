@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 from platform_core.integrations.http_client import setting,request_bytes,cached,IntegrationError
 import json
 
-URL='https://apis.data.go.kr/B410001/kotra_overseasMarketNews/ovseaMrktNews'
+URL='https://apis.data.go.kr/B410001/kotra_overseasMarketNews/ovseaMrktNews/ovseaMrktNews'
 
 
 def fetch(country_name):
