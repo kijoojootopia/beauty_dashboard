@@ -1,13 +1,21 @@
 {% extends 'platform_core/base.html' %}{% from 'platform_core/macros.html' import icon %}
-{% block styles %}<link rel="stylesheet" href="{{ url_for('platform_core.static',filename='css/home.css') }}">{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('platform_core.static',filename='css/home.css',v='dashboard-5') }}">{% endblock %}
 {% block scripts %}
 <script src="{{ url_for('platform_core.static', filename='vendor/globe.gl.min.js') }}" defer></script>
-<script src="{{ url_for('platform_core.static', filename='js/globe.js') }}" defer></script>
+<script src="{{ url_for('platform_core.static', filename='js/globe.js',v='dashboard-5') }}" defer></script>
 {% endblock %}
 {% block main_class %}home-main{% endblock %}
 {% block content %}
-<section class="home-heading"><div><div class="eyebrow"><span class="live-dot"></span> YOUR NEXT GLOBAL CHAPTER</div><h1>어디로 <span>수출하겠습니까?</span></h1><p>세계로 향하는 K-뷰티. 다음 목적지를 선택하고 수출 준비를 시작하세요.</p></div><a class="quiet-link" href="{{ url_for('platform_core.projects') }}">내 프로젝트 이어하기 {{ icon('arrow') }}</a></section>
-<section class="export-world" aria-label="한국에서 7개 수출 시장으로 연결되는 지도">
+<section class="home-intro" aria-label="다음 수출 시장을 만나보세요">
+<section class="export-world intro-scene" aria-label="한국에서 7개 수출 시장으로 연결되는 지도">
+<div class="intro-shade" aria-hidden="true"></div>
+<div class="intro-copy">
+  <div class="eyebrow">YOUR NEXT GLOBAL CHAPTER</div>
+  <h1>어디로 <span>수출하겠습니까?</span></h1>
+  <p>세계로 향하는 K-뷰티.<br>당신의 제품이 만날 다음 시장을 선택하세요.</p>
+</div>
+<a class="intro-skip" href="#destinations">국가 선택으로 바로 가기 {{ icon('arrow') }}</a>
+<div class="intro-scroll" aria-hidden="true">SCROLL TO EXPLORE <span>↓</span></div>
 <div class="map-topline"><span>{{ icon('globe') }} GLOBAL EXPORT MAP</span><span class="map-legend"><i></i> 대한민국에서 세계로</span></div>
 <div class="globe-wrap">
   <div id="export-globe" data-map-url="{{ url_for('platform_core.static', filename='data/world.json') }}"></div>
@@ -35,7 +43,12 @@
 <g class="korea-marker"><circle cx="725" cy="244" r="17" fill="#8870e8" opacity=".14"/><circle cx="725" cy="244" r="7" fill="#6c50d4" stroke="white" stroke-width="3"/><rect x="691" y="203" width="68" height="25" rx="12" fill="#302b54"/><text x="725" y="220" text-anchor="middle" fill="white" font-size="11">대한민국</text></g>
 {% for c in countries %}<a href="{{ url_for('tab1_regulation.index',country=c.code) }}" class="map-pin" aria-label="{{ c.name }} 선택"><title>{{ c.name }} · {% set ranking=overview.rankings|selectattr('country','equalto',c.code)|first %}{% if ranking %}{{ ranking.value|number }} {{ overview.unit }} · {{ overview.period }}{% else %}수출 데이터 준비 중{% endif %}</title><circle class="pin-halo" cx="{{ c.x }}" cy="{{ c.y }}" r="19"/><circle cx="{{ c.x }}" cy="{{ c.y }}" r="6" fill="#8870e8" stroke="white" stroke-width="3"/><rect class="pin-label-bg" x="{{ c.x-39 }}" y="{{ c.y+13 }}" width="{{ 108 if c.code=='eac' else 78 }}" height="27" rx="13"/><text x="{{ c.x+15 if c.code=='eac' else c.x }}" y="{{ c.y+31 }}" text-anchor="middle">{{ c.name }}</text></a>{% endfor %}
 </svg></div>
-<div class="map-cards"><div class="map-stat-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_fragment') }}">{% include 'platform_core/export_stats.html' %}</div><div class="map-rank-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_rank_card') }}">{% include 'platform_core/export_rank_card.html' %}</div></div><div class="map-bottom"><span id="globe-status" role="status"><span class="live-dot"></span> 지도 또는 아래 국가 카드를 눌러 목적국을 선택하세요</span><span>국가·권역 위치 및 연결선은 안내용</span></div></section>
-<div data-live-section data-live-url="{{ url_for('tab3_market.overview_rankings_fragment') }}">{% include 'platform_core/export_rankings.html' %}</div><section class="destinations"><div class="section-heading"><div><span class="eyebrow">EXPLORE DESTINATIONS</span><h2>당신의 제품이 만날 다음 시장</h2></div><span class="muted mini">7개 국가·지역</span></div><div class="country-grid">{% for c in countries %}<a class="country-card" data-country="{{ c.code }}" href="{{ url_for('tab1_regulation.index',country=c.code) }}"><span class="country-monogram country-{{ c.code }}">{{ 'AS' if c.code=='asean' else c.iso }}</span><span><strong>{{ c.name }}</strong><small>{{ c.english }}</small></span>{{ icon('arrow') }}</a>{% endfor %}</div></section>
+<div class="map-bottom"><span id="globe-status" role="status"><span class="live-dot"></span> 지도 또는 아래 국가 카드를 눌러 목적국을 선택하세요</span><span>국가·권역 위치 및 연결선은 안내용</span></div></section>
+</section>
+<div class="home-heading"><p>다음 목적지를 선택하고 수출 준비를 시작하세요.</p><a class="quiet-link" href="{{ url_for('platform_core.projects') }}">내 프로젝트 이어하기 {{ icon('arrow') }}</a></div>
+<div class="home-dashboard"><section class="export-world home-globe-dock" aria-label="수출 국가 선택 지도"><div class="map-topline">GLOBAL EXPORT MAP</div><div class="map-bottom">드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택</div></section><div class="map-stat-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_fragment') }}">{% include 'platform_core/export_stats.html' %}</div>
+<div class="map-rank-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_rank_card') }}">{% include 'platform_core/export_rank_card.html' %}</div></div>
+<div id="all-export-countries" data-live-section data-live-url="{{ url_for('tab3_market.overview_rankings_fragment') }}">{% include 'platform_core/export_rankings.html' %}</div>
 <div class="home-steps"><span>처음 시작하시나요?</span><p><b>01</b> 국가 선택</p><span>→</span><p><b>02</b> 프로젝트·제품 등록</p><span>→</span><p><b>03</b> 성분 분석·수출 준비</p></div>
+<section class="destinations" id="destinations" tabindex="-1"><div class="section-heading"><div><span class="eyebrow">EXPLORE DESTINATIONS</span><h2>당신의 제품이 만날 다음 시장</h2></div><span class="muted mini">7개 국가·지역</span></div><div class="country-grid">{% for c in countries %}<a class="country-card" data-country="{{ c.code }}" href="{{ url_for('tab1_regulation.index',country=c.code) }}"><span class="country-monogram country-{{ c.code }}">{{ 'AS' if c.code=='asean' else c.iso }}</span><span><strong>{{ c.name }}</strong><small>{{ c.english }}</small></span>{{ icon('arrow') }}</a>{% endfor %}</div></section>
 {% endblock %}

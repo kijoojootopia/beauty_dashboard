@@ -1,1 +1,21 @@
-[]
+[
+    {
+        "title":  "TR CU 009/2011 개정 및 경과조치 결정 채택 확인",
+        "scope":  "administrative",
+        "ingredients":  [
+
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "개정 채택 · 적용일 확인",
+        "published_at":  null,
+        "effective_at":  null,
+        "transition_end":  null,
+        "summary":  "EEC 공식 개정 현황표는 화장품 기술규정 개정 결정 2024-11-29 제114호와 경과조치 결정 2025-03-04 제24호의 채택을 명시합니다. 상세 변경 내용과 시행일·유예 종료일은 해당 결정 원문 확인이 필요합니다.",
+        "url":  "https://eec.eaeunion.org/upload/files/deptexreg/OS/Info_izmTR_44.pdf",
+        "uncertain":  true,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    }
+]

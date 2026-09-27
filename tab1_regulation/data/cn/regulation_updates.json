@@ -1,1 +1,40 @@
-[]
+[
+    {
+        "title":  "화장품 전자 라벨 시범사업 실시",
+        "scope":  "administrative",
+        "ingredients":  [
+
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "시범사업 · 대상 확인",
+        "published_at":  "2025-11-28",
+        "effective_at":  "2026-02-01",
+        "transition_end":  null,
+        "summary":  "베이징·상하이·저장·산둥·광둥·충칭의 선정 기업을 대상으로 3년간 시행하는 사업입니다. 모든 수출기업에 자동 적용되는 의무가 아닙니다. 통지 서명일은 2025-10-16이며 발표일은 공식 영문 게시일입니다.",
+        "url":  "https://english.nmpa.gov.cn/2025-11/28/c_1144383.htm",
+        "uncertain":  true,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    },
+    {
+        "title":  "IECIC 목록 관리 방식 변경: 2025년 제61호",
+        "scope":  "administrative",
+        "ingredients":  [
+
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "공식 공고",
+        "published_at":  "2025-07-21",
+        "effective_at":  null,
+        "transition_end":  null,
+        "summary":  "기존 원료 목록을 목록 I·II로 구분하고 최대 과거 사용량 항목을 삭제합니다. 향후 목록 변경은 NMPA 웹사이트에 공개됩니다. 공고 서명일은 2025-06-23, 발표일은 영문 게시일입니다. 목록 등재만으로 모든 배합 조건의 적합성을 의미하지 않습니다.",
+        "url":  "https://english.nmpa.gov.cn/2025-07/21/c_1118073.htm",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    }
+]

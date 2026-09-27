@@ -103,21 +103,36 @@ async function initializeGlobe() {
     const controls = globe.controls();
     const radius = globe.getGlobeRadius();
     controls.autoRotate = false;
-    controls.enableRotate = true;
-    controls.enableZoom = true;
+    controls.enableRotate = !container.closest('.home-intro');
+    controls.enableZoom = !container.closest('.home-intro');
     controls.enablePan = false;
+    const updateControls = () => {
+      const interactive = Boolean(container.closest('.home-globe-dock'));
+      controls.enableRotate = interactive;
+      controls.enableZoom = interactive;
+      status.textContent = interactive
+        ? '드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택'
+        : '스크롤하여 국가 선택 지도로 이동하세요';
+    };
+    document.addEventListener('globe-dock-change', updateControls);
+    updateControls();
     controls.zoomSpeed = 0.7;
-    controls.minDistance = radius * 1.45;
-    controls.maxDistance = radius * 5;
     controls.minPolarAngle = 0.06;
     controls.maxPolarAngle = Math.PI - 0.06;
 
-    const reset = () => globe.pointOfView({
-      lat: 26, lng: 104, altitude: container.clientWidth < 450 ? 2.1 : 1.75,
-    });
+    const fitGlobe = (resetView = false) => {
+      const vertical = globe.camera().fov * Math.PI / 360;
+      const horizontal = Math.atan(Math.tan(vertical) * container.clientWidth / Math.max(1, container.clientHeight));
+      const distance = radius / Math.sin(Math.min(vertical, horizontal)) * 1.08;
+      controls.minDistance = distance;
+      controls.maxDistance = Math.max(radius * 5, distance * 2);
+      globe.pointOfView({ altitude: distance / radius - 1, ...(resetView ? { lat: 26, lng: 104 } : {}) });
+    };
+    const reset = () => fitGlobe(true);
     const zoom = factor => {
       const { altitude } = globe.pointOfView();
-      globe.pointOfView({ altitude: Math.max(0.45, Math.min(4, (altitude + 1) * factor - 1)) });
+      globe.pointOfView({ altitude: Math.max(controls.minDistance / radius - 1,
+        Math.min(controls.maxDistance / radius - 1, (altitude + 1) * factor - 1)) });
     };
     reset();
     const canvas = container.querySelector('canvas');
@@ -141,6 +156,7 @@ async function initializeGlobe() {
     new ResizeObserver(() => {
       if (container.clientWidth && container.clientHeight) {
         globe.width(container.clientWidth).height(container.clientHeight);
+        fitGlobe();
       }
     }).observe(container);
 
@@ -156,7 +172,9 @@ async function initializeGlobe() {
     }).observe(container);
     document.addEventListener('visibilitychange', updateAnimation);
     wrapper.classList.add('is-ready');
-    status.textContent = '드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택';
+    status.textContent = container.closest('.home-intro')
+      ? '국가 이름 또는 아래 국가 카드를 눌러 선택'
+      : '드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택';
   } catch (error) {
     showFallback();
     console.warn('지구본 대신 기존 지도와 국가 카드를 표시합니다.', error);
@@ -164,3 +182,51 @@ async function initializeGlobe() {
 }
 
 initializeGlobe();
+
+// Native scrolling drives only the heading; WebGL loading is independent.
+function initializeHomeIntro() {
+  const intro = document.querySelector('.home-intro');
+  if (!intro) return;
+  const copy = intro.querySelector('.intro-copy');
+  const shade = intro.querySelector('.intro-shade');
+  const scene = intro.querySelector('.intro-scene');
+  const wrapper = intro.querySelector('.globe-wrap');
+  const dock = document.querySelector('.home-globe-dock');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let pending = false;
+  const update = () => {
+    pending = false;
+    const distance = Math.max(1, intro.offsetHeight - intro.querySelector('.intro-scene').offsetHeight);
+    const bounds = intro.getBoundingClientRect();
+    const docked = bounds.bottom <= window.innerHeight * 0.6;
+    if (dock && wrapper.parentElement !== (docked ? dock : scene)) {
+      (docked ? dock : scene).append(wrapper);
+      document.dispatchEvent(new Event('globe-dock-change'));
+    }
+    intro.classList.toggle('is-past-intro', bounds.bottom <= 0);
+    intro.classList.toggle('has-scrolled', bounds.top < -16);
+    const progress = Math.max(0, Math.min(1, -bounds.top / distance));
+    // Keep a faint globe visible before scrolling reveals the central heading.
+    const reveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (progress - 0.28) / 0.35));
+    shade.style.opacity = reducedMotion.matches ? 0.8 : 0.8 - Math.min(1, progress / 0.45) * 0.3;
+    copy.style.opacity = reveal;
+    copy.style.transform = `translateY(${(1 - reveal) * 48}px)`;
+    // Blend the departing dark scene into the page over a short scroll distance.
+    const exit = reducedMotion.matches ? 0 : Math.max(0, Math.min(1,
+      (window.innerHeight * 0.35 - bounds.bottom) / (window.innerHeight * 0.25)));
+    scene.style.opacity = 1 - exit;
+    scene.style.filter = exit > 0 ? `blur(${exit * 10}px)` : 'none';
+  };
+  const schedule = () => {
+    if (!pending) {
+      pending = true;
+      requestAnimationFrame(update);
+    }
+  };
+  intro.classList.add('is-scroll-ready');
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  reducedMotion.addEventListener('change', schedule);
+  update();
+}
+initializeHomeIntro();

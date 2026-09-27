@@ -1,1 +1,31 @@
-<details class="panel export-all"><summary>전체 수출 대상국 보기 · {{ overview.period or '기간 미등록' }} · {{ overview.rankings|length }}개 국가</summary><p class="mini muted">HS {{ overview.hs_scope }} · {{ overview.unit }} · {{ overview.source or '관세청' }}</p>{% if overview.rankings %}<div class="table-scroll"><table><thead><tr><th>순위</th><th>국가</th><th>한국 화장품 수출액 (USD)</th></tr></thead><tbody>{% for item in overview.rankings %}<tr><td>{{ loop.index }}</td><td>{{ item.name or item.country }}</td><td>{{ item.value|number }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<p>{{ overview.ranking_message or overview.message or '수출 대상국 데이터 준비 중' }}</p>{% endif %}</details>
+<details class="panel export-all" data-export-pages data-current-page="1">
+  <summary><span>전체 수출 대상국 보기</span><span>{{ overview.period or '기간 미등록' }} · {{ overview.rankings|length }}개 국가</span></summary>
+  <p class="mini muted">HS {{ overview.hs_scope }} · 수출액(천 USD) · {{ overview.source or '관세청' }}
+    {% if exchange %}<br>원화 환산 기준 · 1 USD = {{ exchange.rate|number }} KRW · {{ exchange.as_of }} · {{ exchange.source }}
+    {% else %}<br>원화 환산 환율을 확인할 수 없습니다.{% endif %}
+  </p>
+  {% if overview.rankings %}
+  {% set total = overview.rankings|length %}
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">순위</th><th scope="col">국가</th><th scope="col">수출액(천 USD)<br><small>원화 환산</small></th></tr></thead>
+      <tbody>
+      {% for item in overview.rankings %}
+        <tr data-export-row{% if loop.index > 50 %} hidden{% endif %}>
+          <td>{{ loop.index }}</td><td>{{ item.name or item.country }}</td>
+          <td><strong>{{ item.thousand_usd|number if item.thousand_usd is defined else (item.value / 1000)|number }} 천 USD</strong>{% if exchange %}<small>약 {{ item.krw_label }}</small>{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="export-pagination">
+    <p data-export-range role="status">전체 {{ total }}개국 중 1–{{ [50, total]|min }}위</p>
+    <nav aria-label="수출 대상국 페이지">
+      {% for page in range(1, (total + 49) // 50 + 1) %}
+      <button type="button" data-export-page="{{ page }}" aria-label="{{ page }}페이지"{% if page == 1 %} aria-current="page"{% endif %}>{{ page }}</button>
+      {% endfor %}
+    </nav>
+  </div>
+  {% else %}<p>{{ overview.ranking_message or overview.message or '수출 대상국 데이터 준비 중' }}</p>{% endif %}
+</details>
