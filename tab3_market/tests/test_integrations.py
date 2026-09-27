@@ -15,6 +15,7 @@ def export_app(tmp_path):
     from flask import Flask
     app=Flask(__name__)
     app.config.update(TESTING=True,API_CACHE_DIR=tmp_path/'cache',DATABASE=str(tmp_path/'unused.sqlite3'))
+    app.config['CUSTOMS_DATA_ROOT']=tmp_path/'missing-customs'
     return app
 
 

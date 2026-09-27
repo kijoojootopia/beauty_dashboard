@@ -1,6 +1,6 @@
 import json
 from decimal import Decimal, ROUND_HALF_UP
-from flask import Blueprint, Response, abort, flash, g, redirect, render_template, request, session, url_for
+from flask import Blueprint, Response, abort, current_app, flash, g, redirect, render_template, request, session, url_for
 from .services.auth_service import register, authenticate, login_required, safe_next
 from .services.country_service import get_country
 from .services import project_service as store
@@ -17,19 +17,47 @@ def export_overview_context(live=True,include_rankings=False):
     from tab3_market.services.market_service import overview
     data=overview(live=live,include_rankings=include_rankings)
     exchange=None
+    exchange_message=None
     try:
         from tab2_customs.services.customs_service import calculate_exchange
         rate=calculate_exchange("1","USD","KRW")
         exchange={"rate":Decimal(rate["rate"]),"as_of":rate["as_of"],"source":rate["source"]}
-    except (ValueError,KeyError,TypeError):
-        pass
+    except (ValueError,KeyError,TypeError) as error:
+        exchange_message=str(error) if isinstance(error,ValueError) else '환율 자료의 필수 항목을 확인해 주세요.'
+        # Prefer the latest valid reference date, never the cache file timestamp.
+        from pathlib import Path
+        from datetime import date, datetime, timedelta, timezone
+        from .services.data_loader import read_file
+        from tab2_customs.services.customs_service import convert_currency
+        saved=read_file(Path(current_app.config['CUSTOMS_DATA_ROOT'])/'exchange_rates.json',dict)['data']
+        candidates=[saved]
+        cache_dir=Path(current_app.config.get('API_CACHE_DIR',Path(current_app.config.get('DATABASE','instance/beauty.sqlite3')).parent/'api_cache'))
+        for path in cache_dir.glob('*.json'):
+            cached=read_file(path,dict)['data'].get('data')
+            if isinstance(cached,dict) and cached.get('state')=='ready':
+                payload=cached.get('data')
+                if isinstance(payload,dict) and isinstance(payload.get('rates'),list):
+                    candidates.append(payload)
+        today=datetime.now(timezone(timedelta(hours=9))).date()
+        for candidate in candidates:
+            try:
+                reference_date=date.fromisoformat(candidate['as_of'])
+                if reference_date>today or not candidate.get('source'):
+                    continue
+                usd=next(row for row in candidate.get('rates',[]) if isinstance(row,dict) and row.get('currency')=='USD')
+                rate=convert_currency(1,usd['krw_rate'],1,usd['unit'],1)
+                if exchange is None or reference_date>date.fromisoformat(exchange['as_of']):
+                    exchange={'rate':rate,'as_of':reference_date.isoformat(),'source':candidate['source'],
+                              'source_url':candidate.get('source_url'),'registered':True}
+            except (ValueError,KeyError,TypeError,StopIteration):
+                continue
     for item in data.get("rankings",[]):
         item["thousand_usd"]=item["value"]/1000
         if exchange:
             item["krw_label"]=_won_label(item["value"],exchange["rate"])
     if exchange:
         data["total_krw"]=_won_label(data.get("total_exports"),exchange["rate"])
-    return {"overview":data,"exchange":exchange}
+    return {"overview":data,"exchange":exchange,"exchange_message":exchange_message}
 
 def _won_label(usd,rate):
     if usd is None:
