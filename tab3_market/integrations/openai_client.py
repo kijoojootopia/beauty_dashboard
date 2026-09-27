@@ -74,4 +74,4 @@ def fetch(country_name,product_type=''):
                 row[field]=str(row.get(field,'') or '')[:2000]
             items.append({**row,'matched':bool(product_type and product_type in row['product_types']),'verified_at':datetime.now(timezone.utc).date().isoformat(),'ai_candidate':True})
         return {'state':'ready' if items else 'data_pending','items':items,'message':'' if items else '검색 근거를 확인할 수 있는 유통사 후보가 없습니다.'}
-    return cached('distributors',['structured-v2',key,setting('OPENAI_MODEL','gpt-4.1-mini'),country_name,product_type],load,ttl=86400)
+    return cached('distributors',['structured-v3',key,setting('OPENAI_MODEL','gpt-4.1-mini'),country_name,product_type],load,ttl=300)

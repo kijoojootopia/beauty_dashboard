@@ -57,14 +57,29 @@ def test_fx_weekend_fallback_and_100_unit(app,monkeypatch):
     assert len(calls)==2
 
 
-def test_kotra_real_response_mapping(app,monkeypatch):
+@pytest.mark.parametrize('country_name,search_name',[
+    ('베트남','베트남'),('UAE','아랍에미리트'),('러시아(EAEU)','러시아'),
+])
+def test_kotra_real_response_mapping(app,monkeypatch,country_name,search_name):
     app.config.update(KOTRA_API_KEY='test-only')
     def response(url,params):
-        assert params['search1']=='베트남' and params['search2']=='화장품'
+        assert params['search1']==search_name and params['search2']=='화장품'
         return b'{"response":{"header":{"resultCode":"00"},"body":{"itemList":{"item":{"newsTitl":"Example","kotraNewsUrl":"https://example.test/news","othbcDt":"20250901"}}}}}'
     monkeypatch.setattr(kotra,'request_bytes',response)
     with app.app_context():
-        result=kotra.fetch('베트남');assert result['items'][0]['url']=='https://example.test/news'
+        result=kotra.fetch(country_name);assert result['items'][0]['url']=='https://example.test/news'
+
+
+def test_kotra_title_decodes_html_entities(app,monkeypatch):
+    import json
+    app.config.update(KOTRA_API_KEY='synthetic-only')
+    title='화장품을 넘어서&hellip; 일본에서 &lsquo;K-피부관리&rsquo; 수요 &amp; 성장 &#39;기회&#39;'
+    payload={'response':{'header':{'resultCode':'00'},'body':{'itemList':{'item':[
+        {'newsTitl':title,'kotraNewsUrl':'https://example.test/article'}]}}}}
+    monkeypatch.setattr(kotra,'request_bytes',lambda *args,**kwargs:json.dumps(payload).encode())
+    with app.app_context():
+        result=kotra.fetch('일본')
+    assert result['items'][0]['title']=='화장품을 넘어서… 일본에서 ‘K-피부관리’ 수요 & 성장 \'기회\''
 
 
 def test_distributors_must_have_search_evidence(app,monkeypatch):
@@ -201,3 +216,36 @@ def test_distributor_recovers_format_using_original_search_sources(monkeypatch):
         result = distributors.fetch('United States', '')
     assert len(calls) == 2 and result['state'] == 'ready'
     assert [row['source_url'] for row in result['items']] == ['https://example.test/company']
+
+
+def test_empty_market_results_are_retried_after_five_minutes(app,monkeypatch):
+    import json
+    from platform_core.integrations import http_client
+    clock=[1000]
+    monkeypatch.setattr(http_client.time,'time',lambda:clock[0])
+    app.config.update(KOTRA_API_KEY='synthetic-only',OPENAI_API_KEY='synthetic-only')
+    news_calls=[]
+    distributor_calls=[]
+
+    def news_response(url,params):
+        news_calls.append(params)
+        items=[] if len(news_calls)==1 else [{'newsTitl':'Synthetic article','kotraNewsUrl':'https://example.test/news'}]
+        return json.dumps({'response':{'header':{'resultCode':'00'},'body':{'itemList':{'item':items}}}}).encode()
+
+    def distributor_response(*args,**kwargs):
+        distributor_calls.append(kwargs)
+        items=[] if len(distributor_calls)==1 else [{
+            'name':'Synthetic company','source_url':'https://example.test/company','evidence':'Synthetic evidence'}]
+        return json.dumps({'items':items}),{'output':[{
+            'type':'web_search_call','action':{'sources':[{'url':'https://example.test/company'}]}}]}
+
+    monkeypatch.setattr(kotra,'request_bytes',news_response)
+    monkeypatch.setattr(distributors,'respond',distributor_response)
+    with app.app_context():
+        assert kotra.fetch('UAE')['state']=='data_pending'
+        assert distributors.fetch('United States')['state']=='data_pending'
+        clock[0]+=301
+        assert len(kotra.fetch('UAE')['items'])==1
+        assert len(distributors.fetch('United States')['items'])==1
+    assert len(news_calls)==len(distributor_calls)==2
+    assert news_calls[0]['search1']=='아랍에미리트'

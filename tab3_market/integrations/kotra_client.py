@@ -1,4 +1,5 @@
 import re
+from html import unescape
 import xml.etree.ElementTree as ET
 from platform_core.integrations.http_client import setting,request_bytes,cached,IntegrationError
 import json
@@ -9,6 +10,7 @@ URL='https://apis.data.go.kr/B410001/kotra_overseasMarketNews/ovseaMrktNews/ovse
 def fetch(country_name):
     key=setting('KOTRA_API_KEY')
     if not key: return {'state':'data_pending','message':'KOTRA API 키를 설정하면 시장 기사를 불러옵니다.','items':[]}
+    country_name={'UAE':'아랍에미리트','러시아(EAEU)':'러시아'}.get(country_name,country_name)
     def load():
         raw=request_bytes(URL,params={'serviceKey':key,'type':'json','pageNo':1,'numOfRows':30,'search1':country_name,'search2':'화장품'})
         try:
@@ -26,7 +28,7 @@ def fetch(country_name):
         for item in items:
             title=item.get('newsTitl');url=item.get('kotraNewsUrl')
             if title and str(url).startswith(('http://','https://')):
-                result.append({'title':re.sub('<[^>]+>','',title),'url':url,'source':'KOTRA 해외시장뉴스','published_at':item.get('othbcDt',''),'country':item.get('natn'),'license':item.get('dataType','')})
+                result.append({'title':unescape(re.sub('<[^>]+>','',title)),'url':url,'source':'KOTRA 해외시장뉴스','published_at':item.get('othbcDt',''),'country':item.get('natn'),'license':item.get('dataType','')})
         result.sort(key=lambda row:row['published_at'],reverse=True)
         return {'state':'ready' if result else 'data_pending','message':'' if result else '선택한 목적국의 화장품 기사가 없습니다.','items':result[:12]}
-    return cached('kotra',[key,country_name],load)
+    return cached('kotra',['decoded-titles',key,country_name],load,ttl=300)
