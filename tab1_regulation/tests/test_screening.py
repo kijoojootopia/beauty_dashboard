@@ -19,10 +19,40 @@ def test_limit_scope_cas_and_unknown():
     assert screen_rows([{"inci_name":"test","concentration":1}],[],[rule])[0]["result"]=="적합"
     assert screen_rows([{"inci_name":"test","concentration":1.1}],[],[rule])[0]["result"]=="부적합"
     assert screen_rows([{"inci_name":"test"}],[],[rule])[0]["result"]=="확인 필요"
-    assert screen_rows([{"inci_name":"test","cas_no":"999-99-9"}],[],[rule])[0]["result"]=="해당 없음"
+    assert screen_rows([{"inci_name":"test","cas_no":"999-99-9"}],[],[rule])[0]["result"]=="확인 필요"
     assert screen_rows([{"inci_name":"test","concentration":0.1}],[rule],[])[0]["result"]=="부적합"
     scoped={**rule,"product_type_scope":"rinse only","applicable_product_scopes":["rinse_off"]}
     assert screen_rows([{"inci_name":"test"}],[scoped],[],"leave_on")[0]["result"]=="해당 없음"
+
+
+def test_three_identifier_paths_and_unidentified_rules():
+    rule={"inci_name":"Test Acid","kr_name":"테스트산","cas_no":"111-11-1","product_type_scope":"ALL","max_concentration":1}
+    cas_only=screen_rows([{"cas_no":"111-11-1","concentration":0.5}],[],[rule])[0]
+    assert (cas_only["result"],cas_only["resolved_name"])==("적합","Test Acid")
+    name_only=screen_rows([{"inci_name":"테스트산","concentration":0.5}],[],[rule])[0]
+    assert (name_only["result"],name_only["resolved_cas"])==("적합","111-11-1")
+    assert screen_rows([{"inci_name":"Test Acid","cas_no":"111-11-1","concentration":0.5}],[],[rule])[0]["result"]=="적합"
+    assert screen_rows([{"inci_name":"Wrong Name","cas_no":"111-11-1","concentration":0.5}],[],[rule])[0]["result"]=="확인 필요"
+    other={**rule,"inci_name":"Other Acid","cas_no":"222-22-2"}
+    assert screen_rows([{"inci_name":"Test Acid","cas_no":"111-11-1"}],[rule,other],[])[0]["result"]=="부적합"
+    assert screen_rows([{"inci_name":"Test Acid","cas_no":"222-22-2"}],[rule,other],[])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"Test Acid"}],[],[rule,{**rule,"cas_no":"333-33-3"}])[0]["result"]=="확인 필요"
+    assert screen_rows([{"cas_no":"111-11-1"}],[],[rule,{**rule,"inci_name":"Another Acid"}])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"Test Acdi","concentration":0.5}],[],[rule])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"Test Acdi","cas_no":"999-99-9","concentration":0.5}],[],[rule])[0]["result"]=="해당 없음"
+    unidentified={"inci_name":"","cas_no":"","regulation_source":"Annex 1/10"}
+    assert screen_rows([{"inci_name":"Water"}],[unidentified],[rule])[0]["result"]=="해당 없음"
+    assert screen_rows([{"inci_name":"Test Acid","concentration":2}],[unidentified],[rule])[0]["result"]=="부적합"
+
+
+def test_unidentified_rules_do_not_break_loader(app,rules):
+    with app.app_context():
+        write_json(rules/"prohibited_ingredients.json",[{"inci_name":"","cas_no":"","regulation_source":"Annex 1/10"}])
+        dataset=load_regulations("jp")
+        assert dataset["state"]=="ready"
+        assert dataset["unidentified"]==[{"type":"금지","source":"Annex 1/10"}]
+        result=analyze("jp",[{"inci_name":"Water"}])
+        assert result["results"][0]["result"]=="해당 없음"
 
 def test_natural_conditions_null_and_scope_need_review():
     base={"inci_name":"TEST","product_type_scope":"ALL","max_concentration":1}

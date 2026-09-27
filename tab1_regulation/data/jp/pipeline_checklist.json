@@ -3,7 +3,13 @@
     "stage_step": 1,
     "task_id": "JP_PRODUCT_CLASSIFICATION",
     "task_name": "제품 분류 및 판매 효능 확정",
-    "required_doc": "제품 규격서, 제품 용도·사용법, 판매 예정 SKU 목록, 효능·광고 문구 초안",
+    "required_doc": [
+      "제품 규격서",
+      "제품 용도·사용법 자료",
+      "판매 예정 SKU 목록",
+      "효능·광고 문구 초안"
+    ],
+    "legacy_required_doc": "제품 규격서, 제품 용도·사용법, 판매 예정 SKU 목록, 효능·광고 문구 초안",
     "estimated_days": null,
     "is_mandatory": true,
     "guide_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/keshouhin/index.html"
@@ -12,7 +18,15 @@
     "stage_step": 2,
     "task_id": "JP_INGREDIENT_SCREENING",
     "task_name": "일본 기준 원료 성분 사전 스크리닝",
-    "required_doc": "정량 전성분표, 성분 식별 자료(INCI명·일본어 표시명·확인 가능한 CAS 번호), 원료 규격서, 필요 시 SDS 및 시험자료",
+    "required_doc": [
+      "정량 전성분표",
+      "성분 식별 자료(INCI명·일본어 표시명·확인 가능한 CAS 번호)",
+      "원료 규격서",
+      "물질안전보건자료(SDS)",
+      "원료 시험자료"
+    ],
+    "legacy_required_doc": "정량 전성분표, 성분 식별 자료(INCI명·일본어 표시명·확인 가능한 CAS 번호), 원료 규격서, 필요 시 SDS 및 시험자료",
+    "guidance_text": "물질안전보건자료(SDS)와 원료 시험자료는 필요 시 준비합니다.",
     "estimated_days": null,
     "is_mandatory": true,
     "guide_url": "https://www.mhlw.go.jp/web/t_doc?dataId=81aa1263&dataType=0&pageNo=1"
@@ -21,7 +35,13 @@
     "stage_step": 3,
     "task_id": "JP_MAH_APPOINTMENT",
     "task_name": "일본 현지 책임판매업자(MAH) 선정 및 계약",
-    "required_doc": "화장품 제조판매업 허가증 사본, 역할·책임 및 품질·안전관리 범위를 정한 계약서, 필요 시 위임장",
+    "required_doc": [
+      "화장품 제조판매업 허가증 사본",
+      "역할·책임 및 품질·안전관리 범위 계약서",
+      "위임장"
+    ],
+    "legacy_required_doc": "화장품 제조판매업 허가증 사본, 역할·책임 및 품질·안전관리 범위를 정한 계약서, 필요 시 위임장",
+    "guidance_text": "위임장은 필요 시 준비합니다.",
     "estimated_days": null,
     "is_mandatory": true,
     "guide_url": "https://www.hokeniryo.metro.tokyo.lg.jp/anzen/iyaku/koukokukisei/zenpanfrima/kojinyunyuutenbaing"
@@ -30,7 +50,18 @@
     "stage_step": 4,
     "task_id": "JP_PRODUCT_QUALITY_DOCUMENTS",
     "task_name": "제품·품질 자료 패키지 준비",
-    "required_doc": "제품 규격서, 정량 전성분표, 제조사·제조소 정보, 제조 공정 자료, 품질검사 결과 및 COA, 제품 특성 및 MAH 요구에 따른 안전성·안정성 자료",
+    "required_doc": [
+      "제품 규격서",
+      "정량 전성분표",
+      "제조사·제조소 정보 자료",
+      "제조 공정 자료",
+      "품질검사 결과보고서",
+      "시험성적서(COA)",
+      "안전성 자료",
+      "안정성 자료"
+    ],
+    "legacy_required_doc": "제품 규격서, 정량 전성분표, 제조사·제조소 정보, 제조 공정 자료, 품질검사 결과 및 COA, 제품 특성 및 MAH 요구에 따른 안전성·안정성 자료",
+    "guidance_text": "안전성·안정성 자료의 범위는 제품 특성과 책임판매업자(MAH)의 요구에 따라 확인합니다.",
     "estimated_days": null,
     "is_mandatory": true,
     "guide_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/keshouhin/index.html"
@@ -39,7 +70,15 @@
     "stage_step": 5,
     "task_id": "JP_FOREIGN_MANUFACTURER_PRODUCT_NOTIFICATION",
     "task_name": "외국 제조업자 관련 신고 및 제품별 제조판매 신고",
-    "required_doc": "해당 외국 제조판매업자·제조업자 신고서(C73), 제품별 화장품 제조판매 신고서, 제조소 정보, 품목 목록, 필요 시 추가 승인 관련 자료",
+    "required_doc": [
+      "해당 외국 제조판매업자·제조업자 신고서(C73)",
+      "제품별 화장품 제조판매 신고서",
+      "제조소 정보 자료",
+      "품목 목록",
+      "추가 승인 관련 자료"
+    ],
+    "legacy_required_doc": "해당 외국 제조판매업자·제조업자 신고서(C73), 제품별 화장품 제조판매 신고서, 제조소 정보, 품목 목록, 필요 시 추가 승인 관련 자료",
+    "guidance_text": "추가 승인 관련 자료는 필요 시 준비합니다.",
     "estimated_days": null,
     "is_mandatory": true,
     "guide_url": "https://www.pmda.go.jp/review-services/drug-reviews/foreign-mfr/0004.html"
@@ -48,18 +87,18 @@
     "stage_step": 6,
     "task_id": "JP_LABEL_ADVERTISING_REVIEW",
     "task_name": "일본어 라벨 및 광고 문구 검토",
-    "required_doc": "일본어 라벨 원안, 일본어 전성분 표시 목록, 신고 판매명, 책임판매업자 정보, 용량·로트·원산지·주의사항 등 표시 자료, 광고 문구 및 효능 근거 자료",
+    "required_doc": [
+      "일본어 라벨 원안",
+      "일본어 전성분 표시 목록",
+      "신고 판매명 자료",
+      "책임판매업자 정보 자료",
+      "용량·로트·원산지·주의사항 표시 자료",
+      "광고 문구안",
+      "효능 근거 자료"
+    ],
+    "legacy_required_doc": "일본어 라벨 원안, 일본어 전성분 표시 목록, 신고 판매명, 책임판매업자 정보, 용량·로트·원산지·주의사항 등 표시 자료, 광고 문구 및 효능 근거 자료",
     "estimated_days": null,
     "is_mandatory": true,
     "guide_url": "https://www.mhlw.go.jp/web/t_doc?dataId=81004000&dataType=0&pageNo=3"
-  },
-  {
-    "stage_step": 7,
-    "task_id": "JP_IMPORT_RELEASE_POST_MARKET",
-    "task_name": "통관·출하 및 사후 안전관리",
-    "required_doc": "인보이스, 패킹리스트, 운송서류, 통관업자가 확인한 허가·신고 관련 자료, 해당 시 일본 내 제조업 허가 자료, 출하·로트 추적 기록, 불만·이상사례·회수 대응 절차",
-    "estimated_days": null,
-    "is_mandatory": true,
-    "guide_url": "https://www.mhlw.go.jp/web/t_doc?dataId=81004000"
   }
 ]
