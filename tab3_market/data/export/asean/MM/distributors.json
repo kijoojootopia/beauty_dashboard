@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "미얀마 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "City Mart Holding (City Care)",
+      "type": "Mega Retail Group",
+      "description": "미얀마 최대 유통 그룹으로 현대식 드럭스토어 체인 City Care 운영",
+      "product_types": ["스킨케어", "선케어", "클렌징", "더마케어"],
+      "channels": ["City Care Drugstores", "City Mart Supermarkets"],
+      "brands": ["로레알", "가르니에", "메디힐"],
+      "source_url": "https://cmhl.com.mm/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Bella Cosmetics",
+      "type": "Local Beauty Conglomerate",
+      "description": "미얀마 1위 로컬 브랜드사이자 해외 브랜드를 라이선싱/사입하여 전역에 공급하는 유통사",
+      "product_types": ["색조메이크업", "베이스메이크업", "기초화장품"],
+      "channels": ["Nationwide Traditional Markets", "Beauty Stores"],
+      "brands": ["Bella Myanmar", "라이선스 뷰티 브랜드"],
+      "source_url": "https://bellamyanmar.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "K-Market Myanmar",
+      "type": "Korean Consumer Goods Importer",
+      "description": "양곤 중심 한국 소비재 및 스킨케어를 전문으로 수입·유통하는 전문 상사",
+      "product_types": ["스킨케어", "마스크팩", "바디케어"],
+      "channels": ["K-Market Stores in Yangon", "Social Commerce"],
+      "brands": ["이니스프리", "미샤", "한국 인디 화장품"],
+      "source_url": "https://facebook.com/kmarketmyanmar",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

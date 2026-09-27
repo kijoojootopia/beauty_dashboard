@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "라오스 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Phongsavanh Group",
+      "type": "Conglomerate Trading Division",
+      "description": "라오스 유력 대기업으로 소비재·화장품 통관 및 전역 유통 공급망 총괄",
+      "product_types": ["스킨케어", "바디케어", "일반 화장품"],
+      "channels": ["Wholesale Centers", "Local Malls"],
+      "brands": ["수입 라이선스 화장품", "FMCG 제품군"],
+      "source_url": "https://phongsavanhgroup.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Parkson Laos",
+      "type": "Department Store",
+      "description": "비엔티안 중심에 위치한 현대식 백화점으로 수입 브랜드 뷰티 전용 매대 운영",
+      "product_types": ["스킨케어", "색조메이크업", "선케어"],
+      "channels": ["Parkson Vientiane Center"],
+      "brands": ["더페이스샵", "스킨푸드", "수입 뷰티 브랜드"],
+      "source_url": "https://www.parkson.com.vn/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "K-Plaza Laos",
+      "type": "Korean Products Wholesaler",
+      "description": "비엔티안 소재 한국 화장품 및 소비재 전문 도소매상으로 로컬 숍에 물량 재공급",
+      "product_types": ["스킨케어", "마스크팩", "클렌징"],
+      "channels": ["K-Plaza Vientiane Outlets", "Social Channels"],
+      "brands": ["메디힐", "미샤", "아누아"],
+      "source_url": "https://facebook.com/kplazalaos",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

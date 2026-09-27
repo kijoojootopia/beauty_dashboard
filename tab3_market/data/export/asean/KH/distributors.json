@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "캄보디아 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Aeon Cambodia (Glam Beautique)",
+      "type": "Japanese Mall Retail Operator",
+      "description": "프놈펜 주요 대형 이온몰 내 Glam Beautique(뷰티 전문관) 직영 유통 및 브랜드 사입",
+      "product_types": ["스킨케어", "선케어", "클렌징", "메이크업"],
+      "channels": ["Aeon Mall 1/2/3 Glam Beautique"],
+      "brands": ["시세이도", "코스알엑스", "라네즈"],
+      "source_url": "https://aeoncambodia.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "U-Care Pharmacy",
+      "type": "Modern Pharmacy Chain",
+      "description": "캄보디아 1위 프랑스계 현대식 드럭스토어로 더마/스킨케어 전문 유통망 보유",
+      "product_types": ["더마코스메틱", "민감성 스킨케어", "선크림"],
+      "channels": ["U-Care Stores Nationwide"],
+      "brands": ["라로슈포제", "유리아쥬", "바이오더마"],
+      "source_url": "https://ucarepharmacy.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "DFI Lucky Private Ltd",
+      "type": "Leading FMCG Importer & Supermarket",
+      "description": "캄보디아 최대 소비재 수입 유통망으로 전국적인 B2B 물류 네트워크 보유",
+      "product_types": ["스킨케어", "바디케어", "마스크팩"],
+      "channels": ["Lucky Supermarkets", "Lucky Department Stores"],
+      "brands": ["존슨앤드존슨", "니베아", "한국 보급형 뷰티"],
+      "source_url": "https://dfilucky.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

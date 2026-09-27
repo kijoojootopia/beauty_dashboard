@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "말레이시아 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Sasa Malaysia",
+      "type": "Beauty Specialty Retail Chain",
+      "description": "말레이시아 전역 메이저 쇼핑몰에 K-뷰티를 대규모 유통하는 대표 뷰티 셀렉트숍",
+      "product_types": ["스킨케어", "메이크업", "마스크팩", "선케어"],
+      "channels": ["Sasa Stores Nationwide", "Sasa Online"],
+      "brands": ["닥터자르트", "클리오", "메디힐"],
+      "source_url": "https://www.sasa.com.my/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Caring Pharmacy",
+      "type": "Pharmacy & Personal Care Chain",
+      "description": "더마코스메틱 및 고기능성 스킨케어 매대 비중이 매우 높은 대표 약국 체인",
+      "product_types": ["더마코스메틱", "민감성 스킨케어", "선크림"],
+      "channels": ["200+ Caring Pharmacy Stores"],
+      "brands": ["세타필", "유세린", "라운드랩"],
+      "source_url": "https://caring2u.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Watsons Malaysia",
+      "type": "No.1 H&B Retail Chain",
+      "description": "말레이시아 뷰티 리테일 점유율 1위 체인으로 트렌디한 K-뷰티 섹션 상시 운영",
+      "product_types": ["스킨케어", "색조메이크업", "클렌징"],
+      "channels": ["700+ Watsons Stores Across Malaysia"],
+      "brands": ["롬앤", "코스알엑스", "스킨1004"],
+      "source_url": "https://www.watsons.com.my/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

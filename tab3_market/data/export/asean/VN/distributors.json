@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "베트남 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Beauty Box (HSV Group)",
+      "type": "K-Beauty Master Distributor & Chain",
+      "description": "베트남 전역 쇼핑몰에 50개 이상의 K-뷰티 전문 멀티숍을 운영하는 대형 수입 총판사",
+      "product_types": ["스킨케어", "베이스메이크업", "클렌징", "선케어"],
+      "channels": ["Beauty Box Retail Chain", "Aeon Mall", "Vincom Centers"],
+      "brands": ["클리오", "페리페라", "바닐라코", "아누아"],
+      "source_url": "https://beautybox.com.vn/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Hasaki (하사키)",
+      "type": "Drugstore Chain & Spa",
+      "description": "베트남 전역에 100개 이상의 매장을 보유한 최대 뷰티·스파 프랜차이즈 및 드럭스토어",
+      "product_types": ["더마코스메틱", "스킨케어", "여드름케어", "선크림"],
+      "channels": ["Hasaki Stores Nationwide", "Hasaki Online"],
+      "brands": ["라로슈포제", "코스알엑스", "스킨1004", "썸바이미"],
+      "source_url": "https://hasaki.vn/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Guardian Vietnam (가디언)",
+      "type": "H&B Retail Chain",
+      "description": "DFI 리테일 그룹 산하의 H&B 체인으로 안정적인 오프라인 매대 유통망 보유",
+      "product_types": ["스킨케어", "마스크팩", "바디케어"],
+      "channels": ["Guardian Stores across Vietnam"],
+      "brands": ["센카", "메디힐", "이니스프리"],
+      "source_url": "https://www.guardian.com.vn/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

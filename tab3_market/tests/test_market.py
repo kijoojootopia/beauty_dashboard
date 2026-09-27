@@ -1,6 +1,7 @@
 import pytest
 from conftest import write_json
 from tab3_market.services.market_service import growth_rate,import_share,market_summary
+from tab3_market.services.distributor_service import candidates
 
 def test_growth_share_and_unavailable():
     assert growth_rate(120,100)==20
@@ -27,6 +28,46 @@ def test_reporting_units_period_and_source_validation(app):
         assert market_summary("jp")["state"]=="data_error"
         write_json(target,{"series":[{**row,"export_source":None}]})
         assert market_summary("jp")["state"]=="data_error"
+
+
+def test_distributors_use_country_json_for_initial_and_live_views(app, monkeypatch):
+    from tab3_market import routes as market_routes
+
+    root = app.config["MARKET_DATA_ROOT"]
+    row = {"name": "Synthetic Vietnam Distributor", "type": "Test distributor",
+           "description": "합성 유통사 설명", "product_types": ["스킨케어"],
+           "channels": ["Test channel"], "brands": ["Test brand"],
+           "source_url": "https://example.test/distributor", "verified_at": "2026-01-01"}
+    write_json(root/"asean"/"VN"/"distributors.json", {"state": "ready", "message": "베트남 자료", "data": [row]})
+    write_json(root/"asean"/"SG"/"distributors.json", {"state": "ready", "message": "싱가포르 자료", "data": []})
+    product = {"id": "test-product", "name": "테스트 제품", "product_type": "스킨케어"}
+    with app.app_context():
+        for live in (False, True):
+            result = candidates("asean", product, "VN", live=live)
+            assert result["state"] == "ready"
+            assert [item["name"] for item in result["items"]] == [row["name"]]
+            assert result["items"][0]["matched"] is True
+        assert candidates("asean", product, "SG")["items"] == []
+
+    monkeypatch.setattr(market_routes, "workspace_context", lambda country: {
+        "country": {"code": country}, "project": None,
+        "selected_product": product, "member_state": "VN"})
+    response = app.test_client().get("/api/market/asean/distributors/fragment")
+    assert response.status_code == 200
+    assert row["name"] in response.text
+    assert row["description"] in response.text
+    assert row["type"] in response.text
+    assert "스킨케어" in response.text
+    assert "웹 검색 출처" not in response.text
+
+
+def test_distributor_json_errors_and_missing_members(app):
+    root = app.config["MARKET_DATA_ROOT"]
+    with app.app_context():
+        assert candidates("asean", None)["state"] == "data_pending"
+        assert candidates("eu", None, "FR")["state"] == "data_pending"
+        write_json(root/"jp"/"distributors.json", {"state": "ready", "data": "invalid"})
+        assert candidates("jp", None)["state"] == "data_error"
 
 
 @pytest.mark.parametrize("section", ["distributors", "news"])

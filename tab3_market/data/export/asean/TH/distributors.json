@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "태국 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Konvy (콘비)",
+      "type": "Beauty E-Commerce & Brand Incubator",
+      "description": "태국 1위 뷰티 전문 이커머스로 현지 직수입 및 B2B 인큐베이팅 지원",
+      "product_types": ["스킨케어", "선케어", "클렌징", "메이크업"],
+      "channels": ["Konvy App", "TikTok Shop Thailand", "Offline Pop-up"],
+      "brands": ["이니스프리", "라네즈", "코스알엑스"],
+      "source_url": "https://www.konvy.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "EVEANDBOY (이브앤보이)",
+      "type": "Multi-Brand Beauty Retail Chain",
+      "description": "태국 2030 여성 뷰티 쇼핑의 성지 역할을 하는 대형 트렌드 멀티숍 체인",
+      "product_types": ["스킨케어", "색조화장품", "바디케어"],
+      "channels": ["EVEANDBOY Flagship Stores", "Major Shopping Malls"],
+      "brands": ["3CE", "롬앤", "페리페라"],
+      "source_url": "https://www.eveandboy.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Beautrium (뷰트리움)",
+      "type": "Omni-Channel Beauty Retailer",
+      "description": "방콕 및 주요 도시 중심 쇼핑몰에 거점을 둔 대표적 뷰티 멀티스토어",
+      "product_types": ["스킨케어", "더마코스메틱", "마스크팩"],
+      "channels": ["Beautrium Stores", "Online Store"],
+      "brands": ["닥터자르트", "메디힐", "아누아"],
+      "source_url": "https://thebeautrium.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

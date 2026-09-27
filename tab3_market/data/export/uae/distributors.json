@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "UAE 및 중동 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Chalhoub Group (샬후브)",
+      "type": "Luxury Retailer & Master Distributor",
+      "description": "중동 14개국 전역에서 세포라 ME 및 글로벌 럭셔리 브랜드를 독점 운영하는 최대 유통 그룹",
+      "product_types": ["프리미엄 스킨케어", "향수", "럭셔리 메이크업"],
+      "channels": ["Sephora Middle East", "Department Stores", "Standalone Boutiques"],
+      "brands": ["Dior Beauty", "YSL Beauty", "Sulwhasoo"],
+      "source_url": "https://www.chalhoubgroup.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Al Tayer Group (알 테이어)",
+      "type": "Prestige Retail & Department Stores",
+      "description": "GCC 프리미엄 백화점 및 하이엔드 뷰티 이커머스를 주도하는 메이저 리테일 파트너",
+      "product_types": ["스킨케어", "클린뷰티", "하이엔드 코스메틱"],
+      "channels": ["Bloomingdale's ME", "Harvey Nichols Dubai", "Ounass"],
+      "brands": ["Giorgio Armani", "Kiehl's", "Prestige K-Beauty"],
+      "source_url": "https://www.altayer.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Faces (Wojooh)",
+      "type": "Beauty Specialty Retail Chain",
+      "description": "중동 현지 로컬 소비자 침투율이 가장 높은 대표 멀티 뷰티 스토어 체인",
+      "product_types": ["스킨케어", "선케어", "색조메이크업"],
+      "channels": ["Faces Stores Across GCC", "Faces Online"],
+      "brands": ["Huda Beauty", "Fenty Beauty", "Korean Skincare"],
+      "source_url": "https://www.faces.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}
