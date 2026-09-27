@@ -18,7 +18,35 @@ document.querySelectorAll('[data-note-form]').forEach(form=>form.addEventListene
  }catch(error){status.textContent=error.message;}finally{button.disabled=false;}
 }));
 
+function showExportPage(panel,page){
+ const rows=[...panel.querySelectorAll('[data-export-row]')];
+ if(!rows.length)return;
+ page=Math.max(1,Math.min(Number(page)||1,Math.ceil(rows.length/50)));
+ const start=(page-1)*50;
+ rows.forEach((row,index)=>{row.hidden=index<start||index>=start+50;});
+ panel.dataset.currentPage=String(page);
+ panel.querySelectorAll('[data-export-page]').forEach(button=>{
+  if(Number(button.dataset.exportPage)===page)button.setAttribute('aria-current','page');
+  else button.removeAttribute('aria-current');
+ });
+ panel.querySelector('[data-export-range]').textContent=`전체 ${rows.length}개국 중 ${start+1}–${Math.min(start+50,rows.length)}위`;
+}
+document.addEventListener('click',event=>{
+ const button=event.target.closest('[data-export-page]');
+ if(!button)return;
+ const panel=button.closest('[data-export-pages]');
+ showExportPage(panel,button.dataset.exportPage);
+ panel.querySelector('summary').focus({preventScroll:true});
+ panel.scrollIntoView({block:'start'});
+});
+
 document.querySelectorAll('[data-live-section]').forEach(async container=>{
  const status=document.createElement('p');status.className='live-status';status.setAttribute('role','status');status.textContent='최신 자료를 불러오는 중입니다…';container.append(status);
- try{const response=await fetch(container.dataset.liveUrl,{headers:{Accept:'text/html'}});if(!response.ok)throw new Error();const html=await response.text();container.innerHTML=html;}catch{status.textContent='자료를 불러오지 못했습니다. 새로고침해 다시 시도해 주세요.';}
+ try{const response=await fetch(container.dataset.liveUrl,{headers:{Accept:'text/html'}});if(!response.ok)throw new Error();const html=await response.text();
+ const previous=container.querySelector('[data-export-pages]');
+ const page=previous?.dataset.currentPage||1,open=previous?.open;
+ container.innerHTML=html;
+ const panel=container.querySelector('[data-export-pages]');
+ if(panel){panel.open=Boolean(open);showExportPage(panel,page);}
+ }catch{status.textContent='자료를 불러오지 못했습니다. 새로고침해 다시 시도해 주세요.';}
 });

@@ -141,6 +141,7 @@ def test_export_rejects_duplicate_wrong_country_and_inconsistent_summary():
 
 
 def test_export_overview_real_shape_and_home_fragments(export_app,monkeypatch):
+    from html.parser import HTMLParser
     from pathlib import Path
     from jinja2 import FileSystemLoader
     from tab3_market.routes import bp
@@ -164,9 +165,22 @@ def test_export_overview_real_shape_and_home_fragments(export_app,monkeypatch):
     assert result['state']==result['ranking_state']=='ready'
     assert result['total_exports']==2400 and result['growth']==100
     assert result['rankings'][0]['country']=='US'
-    assert '2,400' in client.get('/api/exports/fragment').text
-    assert '2,400' in client.get('/api/exports/rank-card').text
-    assert '2,400' in client.get('/api/exports/rankings-fragment').text
+    assert result['rankings'][0]['value']==2400
+
+    class VisibleText(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.parts=[]
+
+        def handle_data(self,text):
+            self.parts.append(text)
+
+    for endpoint in ('fragment','rank-card','rankings-fragment'):
+        response=client.get('/api/exports/'+endpoint)
+        assert response.status_code==200
+        text=VisibleText()
+        text.feed(response.text)
+        assert '2.4 천 USD' in ' '.join(' '.join(text.parts).split())
 
 
 def test_cache_retains_korean_text(app,tmp_path):

@@ -169,3 +169,96 @@ a.globe-marker:focus-visible {
 .scene-container canvas:focus {
   outline: none;
 }
+
+/* Home statistics use normal grid flow, including after live fragment updates. */
+.home-dashboard { display:grid; grid-template-columns:minmax(0,2fr) minmax(320px,1fr); gap:24px; }
+.home-dashboard .map-stat-layer,.home-dashboard .map-rank-layer { display:contents; }
+.home-dashboard .map-stat { position:static; width:auto; min-width:0; height:auto; min-height:0; max-height:none; margin:0; padding:26px; overflow:visible; border:1px solid #e7e1f4; }
+.home-dashboard .stat-exports { grid-column:1; grid-row:1; }
+.home-dashboard .stat-growth { grid-column:2; grid-row:1; }
+.home-dashboard .stat-trend { grid-column:1; grid-row:4; }
+.home-dashboard .stat-rank { grid-column:2; grid-row:4; }
+.home-dashboard .destinations { grid-column:1/-1; grid-row:3; margin:0 0 12px; }
+.home-dashboard .export-world { grid-column:1/-1; grid-row:2; min-height:0; height:490px; }
+.home-dashboard .globe-wrap { inset:50px 12% 55px; height:auto; }
+.home-dashboard .stat-icon { display:none; }
+.home-dashboard .map-stat h2 { font-size:20px; margin:0; letter-spacing:-.5px; }
+.home-dashboard .map-stat p { font-size:15px; }
+.home-dashboard .stat-exports strong,.home-dashboard .stat-growth strong { font-size:clamp(27px,3vw,38px); margin:10px 0; white-space:normal; overflow-wrap:anywhere; font-variant-numeric:tabular-nums; }
+.home-dashboard .stat-exports strong small { display:inline-block; font-size:16px; color:#665b78; }
+.home-dashboard .stat-unit,.home-dashboard .stat-foot,.home-dashboard .mini { display:block; font-size:13px; }
+.home-dashboard .stat-foot { display:flex; flex-wrap:wrap; }
+.home-dashboard .export-trend { height:260px; margin:20px 0 0; }
+.home-dashboard .export-trend text { font-size:22px; fill:#665b78; }
+.home-dashboard .trend-values { display:grid; grid-template-columns:repeat(auto-fit,minmax(105px,1fr)); gap:12px; margin:0 0 22px; }
+.home-dashboard .trend-values dt { font-size:13px; }
+.home-dashboard .trend-values dd { margin:5px 0 0; font-size:15px; font-weight:600; font-variant-numeric:tabular-nums; }
+.home-dashboard .section-line { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.home-dashboard .section-line a { display:inline-flex; align-items:center; gap:5px; font-size:13px; color:var(--purple-deep); }
+.home-dashboard .rank-item { display:grid; grid-template-columns:24px minmax(0,1fr) auto; gap:10px; padding:14px 0 8px; font-size:15px; }
+.home-dashboard .rank-item b { grid-column:auto; margin:0; font-size:16px; font-variant-numeric:tabular-nums; }
+.home-dashboard .rank-item b small { font-size:12px; line-height:1.7; }
+.home-dashboard .rank-bar { margin:0 0 8px; }
+.home-dashboard .live-status { position:static; grid-column:1/-1; max-width:none; font-size:13px; }
+.home-dashboard .krw-value { font-size:20px; }
+.home-dashboard .exchange-meta { font-size:13px; }
+#all-export-countries { scroll-margin-top:24px; }
+@media(max-width:900px) {
+  .home-dashboard { grid-template-columns:minmax(0,1fr); gap:16px; }
+  .home-dashboard .stat-exports { grid-column:1; grid-row:1; }
+  .home-dashboard .stat-growth { grid-column:1; grid-row:2; }
+  .home-dashboard .export-world { grid-column:1; grid-row:3; height:400px; }
+  .home-dashboard .destinations { grid-column:1; grid-row:4; }
+  .home-dashboard .stat-trend { grid-column:1; grid-row:5; }
+  .home-dashboard .stat-rank { grid-column:1; grid-row:6; }
+  .home-dashboard .globe-wrap { inset:48px 0 60px; }
+}
+@media(max-width:650px) {
+  .home-dashboard .map-stat { padding:20px; }
+  .home-dashboard .map-stat h2 { font-size:18px; }
+  .home-dashboard .export-world { height:370px; }
+  .home-dashboard .export-trend { height:180px; margin-top:12px; }
+  .home-dashboard .export-trend text { display:none; }
+  .home-dashboard .trend-values { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .home-dashboard .rank-item { grid-template-columns:22px minmax(0,1fr); }
+  .home-dashboard .rank-item b { grid-column:2; text-align:left; }
+  .home-dashboard .rank-item b small { display:inline-block; margin-left:6px; }
+  .home-dashboard .rank-item b .rank-krw { display:block; margin-left:0; }
+  .home-dashboard .map-bottom { font-size:12px; }
+}
+
+.krw-value { margin-top: 9px; color: #423565; font-size: 17px; font-weight: 650; }
+.exchange-meta { margin-top: 5px; color: #786e89; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+.stat-exports .stat-unit { display: block; line-height: 1.6; }
+.stat-rank .section-line small { font-size: 11px; letter-spacing: 0; }
+.rank-item b { text-align: right; }
+.rank-item b small { display: block; font-size: 10px; font-weight: 450; color: #685d7c; }
+.rank-item b small.rank-krw { color: #8870e8; }
+.export-all summary { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
+.export-all summary span:last-child { color: #675b80; font-weight: 450; }
+.export-all th, .export-all td { font-size: 13px; }
+.export-all th:last-child,.export-all td:last-child { text-align: right; white-space: nowrap; }
+.export-all .table-scroll { max-height:none; overflow:visible; }
+.export-all th:first-child { width:70px; }
+.export-all { scroll-margin-top:24px; }
+.export-pagination { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; margin-top:24px; }
+.export-pagination p { font-size:14px; color:#665b78; }
+.export-pagination nav { display:flex; flex-wrap:wrap; gap:8px; }
+.export-pagination button { min-width:44px; min-height:44px; border:1px solid #ded5ee; border-radius:8px; background:#fff; color:#423565; font-size:15px; cursor:pointer; }
+.export-pagination button[aria-current="page"] { background:var(--purple-deep); border-color:var(--purple-deep); color:#fff; font-weight:600; }
+.export-pagination button:focus-visible { outline:2px solid var(--purple-deep); outline-offset:3px; }
+.export-all td strong { display: block; }
+.export-all td small { font-size: 12px; }
+@media (max-width: 650px) {
+  .krw-value { font-size: 15px; }
+  .exchange-meta { font-size: 10px; }
+  .rank-item b small { font-size: 10px; }
+  .export-all summary { display: grid; font-size: 14px; }
+  .export-all .table-scroll { overflow: visible; }
+  .export-all table, .export-all tbody, .export-all tr { display: block; width: 100%; }
+  .export-all thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+  .export-all tr { padding: 12px 0; border-bottom: 1px solid #f0edf6; }
+  .export-all td { display: inline-block; padding: 3px 8px 3px 0; border: 0; text-align: left !important; white-space: normal !important; }
+  .export-all td:first-child { color: #756a87; }
+  .export-all td:last-child { display: block; padding-top: 7px; }
+}
