@@ -8,7 +8,6 @@ async function initializeGlobe() {
 
   const wrapper = container.closest('.globe-wrap');
   const status = document.getElementById('globe-status');
-  const toolbar = wrapper.querySelector('.globe-controls');
   const coordinates = {
     eac: [56, 62], eu: [50, 12], uae: [25.2, 55.3], us: [38, -98],
     jp: [36, 140], cn: [33, 104], asean: [9, 106],
@@ -25,7 +24,6 @@ async function initializeGlobe() {
     globe?.pauseAnimation();
     wrapper.classList.remove('is-ready');
     container.replaceChildren();
-    toolbar.hidden = true;
     status.textContent = '지구본을 불러오지 못했습니다. 지도 또는 아래 국가 카드를 눌러 선택하세요.';
   }
 
@@ -122,9 +120,6 @@ async function initializeGlobe() {
       globe.pointOfView({ altitude: Math.max(0.45, Math.min(4, (altitude + 1) * factor - 1)) });
     };
     reset();
-    toolbar.querySelector('[data-globe-reset]').addEventListener('click', reset);
-    toolbar.querySelector('[data-globe-in]').addEventListener('click', () => zoom(0.8));
-    toolbar.querySelector('[data-globe-out]').addEventListener('click', () => zoom(1.25));
     const canvas = container.querySelector('canvas');
     canvas.tabIndex = 0;
     canvas.setAttribute('role', 'group');
@@ -161,7 +156,6 @@ async function initializeGlobe() {
     }).observe(container);
     document.addEventListener('visibilitychange', updateAnimation);
     wrapper.classList.add('is-ready');
-    toolbar.hidden = false;
     status.textContent = '드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택';
   } catch (error) {
     showFallback();
