@@ -135,7 +135,10 @@ def test_distributor_structured_response(monkeypatch, text, expected):
         item_schema = schema['properties']['items']['items']
         assert item_schema['additionalProperties'] is False
         assert set(item_schema['required']) == set(item_schema['properties'])
-        assert payload['tools'] == [{'type': 'web_search'}]
+        if not calls:
+            assert payload['tools'] == [{'type': 'web_search'}]
+        else:
+            assert 'tools' not in payload
         calls.append(payload)
         return {'status': 'completed', 'output': [
             {'type': 'web_search_call', 'action': {'sources': [{'url': 'https://example.test/company/?utm_source=openai'}]}},
@@ -155,7 +158,7 @@ def test_distributor_structured_response(monkeypatch, text, expected):
             if expected == 'ready':
                 assert result['items'][0]['matched'] is True
                 assert result['items'][0]['source_url'] == 'https://example.test/company'
-    assert len(calls) == 1
+    assert len(calls) == (2 if text == 'Search results are available.' else 1)
 
 
 def test_distributor_source_identity_preserves_page_and_query():
@@ -164,3 +167,37 @@ def test_distributor_source_identity_preserves_page_and_query():
     assert identity('https://example.test/company?id=1') != identity('https://example.test/company?id=2')
     assert identity('https://example.test/company') != identity('https://example.test/other')
     assert identity('javascript:alert(1)') == identity('https://[') == ''
+
+
+def test_distributor_recovers_format_using_original_search_sources(monkeypatch):
+    import json
+    from flask import Flask
+    from platform_core.integrations import openai_client as common
+    app = Flask(__name__)
+    app.config.update(TESTING=True, OPENAI_API_KEY='synthetic-only')
+    calls = []
+    malformed = '{"items":[{"name":"Synthetic company"'
+
+    def response(url, **kwargs):
+        body = kwargs['body']
+        calls.append(body)
+        if len(calls) == 1:
+            assert body['tools'] == [{'type': 'web_search'}]
+            return {'status': 'completed', 'output': [
+                {'type': 'web_search_call', 'action': {'sources': [{'url': 'https://example.test/company?utm_source=openai'}]}},
+                {'type': 'message', 'content': [{'type': 'output_text', 'text': malformed}]},
+            ]}
+        assert len(calls) == 2 and 'tools' not in body
+        assert json.loads(body['input'])['search_response'] == malformed
+        rows = [{'name': 'Synthetic company', 'source_url': link, 'evidence': 'Synthetic evidence'}
+                for link in ['https://example.test/company', 'https://example.test/unsupported']]
+        return {'status': 'completed', 'output': [
+            {'type': 'message', 'content': [{'type': 'output_text', 'text': json.dumps({'items': rows})}]},
+        ]}
+
+    monkeypatch.setattr(common, 'request_json', response)
+    monkeypatch.setattr(distributors, 'cached', lambda namespace, criteria, loader, ttl: loader())
+    with app.app_context():
+        result = distributors.fetch('United States', '')
+    assert len(calls) == 2 and result['state'] == 'ready'
+    assert [row['source_url'] for row in result['items']] == ['https://example.test/company']
