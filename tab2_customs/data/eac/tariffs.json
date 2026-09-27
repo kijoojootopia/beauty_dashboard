@@ -1,12 +1,67 @@
-[{
-  "hs_chapter": "3304",
-  "country_code": "RU",
-  "country_name": "러시아(EAEU)",
-  "tariffs": [
-    { "hs_code": "330410000", "description": "Средства для макияжа губ (립 메이크업)", "general_rate": "6.5%", "fta_rate": "6.5%", "fta_type": "협정 없음 (기본세율 적용)", "unit": "kg" },
-    { "hs_code": "330420000", "description": "Средства для макияжа глаз (아이 메이크업)", "general_rate": "6.5%", "fta_rate": "6.5%", "fta_type": "협정 없음 (기본세율 적용)", "unit": "kg" },
-    { "hs_code": "330430000", "description": "Средства для маникюра (네일 제품)", "general_rate": "6.5%", "fta_rate": "6.5%", "fta_type": "협정 없음 (기본세율 적용)", "unit": "kg" },
-    { "hs_code": "330491000", "description": "Пудры (파우더류)", "general_rate": "6.5%", "fta_rate": "6.5%", "fta_type": "협정 없음 (기본세율 적용)", "unit": "kg" },
-    { "hs_code": "330499000", "description": "Прочие косметические средства (기타 스킨케어)", "general_rate": "6.5%", "fta_rate": "6.5%", "fta_type": "협정 없음 (기본세율 적용)", "unit": "kg" }
-  ]
-}]
+[
+  {
+    "origin": "KR",
+    "hs_code": "33041000",
+    "product_name": "Средства для макияжа губ (립 메이크업)",
+    "rate_type": "기본 관세 (MFN)",
+    "rate": 6.5,
+    "rate_unit": "%",
+    "agreement": "협정 없음",
+    "conditions": "EAEU 공통 관세 적용",
+    "as_of": "2026-06",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33042000",
+    "product_name": "Средства для макияжа глаз (아이 메이크업)",
+    "rate_type": "기본 관세 (MFN)",
+    "rate": 6.5,
+    "rate_unit": "%",
+    "agreement": "협정 없음",
+    "conditions": "EAEU 공통 관세 적용",
+    "as_of": "2026-06",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33043000",
+    "product_name": "Средства для маникюра (네일 제품)",
+    "rate_type": "기본 관세 (MFN)",
+    "rate": 6.5,
+    "rate_unit": "%",
+    "agreement": "협정 없음",
+    "conditions": "EAEU 공통 관세 적용",
+    "as_of": "2026-06",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33049100",
+    "product_name": "Пудры (파우더류)",
+    "rate_type": "기본 관세 (MFN)",
+    "rate": 6.5,
+    "rate_unit": "%",
+    "agreement": "협정 없음",
+    "conditions": "EAEU 공통 관세 적용",
+    "as_of": "2026-06",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33049900",
+    "product_name": "Прочие косметические средства (기타 스킨케어)",
+    "rate_type": "기본 관세 (MFN)",
+    "rate": 6.5,
+    "rate_unit": "%",
+    "agreement": "협정 없음",
+    "conditions": "EAEU 공통 관세 적용",
+    "as_of": "2026-06",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  }
+]
