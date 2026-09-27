@@ -117,25 +117,24 @@ async function initializeGlobe() {
     document.addEventListener('globe-dock-change', updateControls);
     updateControls();
     controls.zoomSpeed = 0.7;
-    controls.minDistance = radius * 1.45;
-    controls.maxDistance = radius * 5;
     controls.minPolarAngle = 0.06;
     controls.maxPolarAngle = Math.PI - 0.06;
 
-    const reset = () => globe.pointOfView({
-      lat: 26, lng: 104, altitude: container.clientWidth < 450 ? 1.9 : 1.6,
-    });
+    const fitGlobe = (resetView = false) => {
+      const vertical = globe.camera().fov * Math.PI / 360;
+      const horizontal = Math.atan(Math.tan(vertical) * container.clientWidth / Math.max(1, container.clientHeight));
+      const distance = radius / Math.sin(Math.min(vertical, horizontal)) * 1.08;
+      controls.minDistance = distance;
+      controls.maxDistance = Math.max(radius * 5, distance * 2);
+      globe.pointOfView({ altitude: distance / radius - 1, ...(resetView ? { lat: 26, lng: 104 } : {}) });
+    };
+    const reset = () => fitGlobe(true);
     const zoom = factor => {
       const { altitude } = globe.pointOfView();
-      globe.pointOfView({ altitude: Math.max(0.45, Math.min(4, (altitude + 1) * factor - 1)) });
+      globe.pointOfView({ altitude: Math.max(controls.minDistance / radius - 1,
+        Math.min(controls.maxDistance / radius - 1, (altitude + 1) * factor - 1)) });
     };
     reset();
-    document.querySelectorAll('[data-globe-action]').forEach(button => {
-      button.addEventListener('click', () => {
-        if (button.dataset.globeAction === 'reset') reset();
-        else zoom(button.dataset.globeAction === 'in' ? 0.8 : 1.25);
-      });
-    });
     const canvas = container.querySelector('canvas');
     canvas.tabIndex = 0;
     canvas.setAttribute('role', 'group');
@@ -157,6 +156,7 @@ async function initializeGlobe() {
     new ResizeObserver(() => {
       if (container.clientWidth && container.clientHeight) {
         globe.width(container.clientWidth).height(container.clientHeight);
+        fitGlobe();
       }
     }).observe(container);
 

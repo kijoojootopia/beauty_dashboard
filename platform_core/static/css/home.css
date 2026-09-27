@@ -344,7 +344,7 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 }
 /* Statistics surround the same interactive globe on a single light surface. */
 .home-main .home-dashboard {
-  display:grid; grid-template-columns:minmax(260px,1fr) minmax(440px,2fr) minmax(260px,1fr);
+  display:grid; grid-template-columns:minmax(260px,1fr) minmax(440px,2.3fr) minmax(260px,1fr);
   grid-template-rows:auto 1fr; gap:20px; padding:24px;
   background:radial-gradient(ellipse at center,#fff 15%,#edf7fc 53%,#f4f0fb 100%);
   border:1px solid #e3deef; border-radius:24px; align-items:start;
@@ -354,14 +354,15 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 .home-dashboard .stat-growth { grid-column:3; grid-row:1; }
 .home-dashboard .stat-rank { grid-column:3; grid-row:2; }
 .home-main .home-dashboard .home-globe-dock {
-  grid-column:2; grid-row:1 / 3; align-self:center; width:100%; height:680px;
+  grid-column:2; grid-row:1 / 3; align-self:center; width:100%; height:740px;
   max-width:none; min-height:0; margin:0; border:0; border-radius:0; background:transparent;
 }
-.home-dashboard .home-globe-dock .globe-wrap { inset:26px -3% 75px; height:auto; }
+.home-dashboard .home-globe-dock .globe-wrap { inset:26px 0 38px; height:auto; }
 .home-dashboard .home-globe-dock .map-topline { inset:5px 0 auto; justify-content:center; font-size:10px; }
 .home-dashboard .home-globe-dock .map-bottom { inset:auto 0 8px; font-size:11px; text-align:center; }
 .home-dashboard .home-globe-dock .globe-controls { bottom:38px; }
-.home-dashboard .map-stat { padding:20px; border-color:#e5dfef; background:#ffffffed; box-shadow:0 8px 28px #42356506; }
+.home-dashboard .map-stat { padding:20px; border-color:#e5dfef; background:rgba(255,255,255,.72); box-shadow:0 8px 28px #42356506; }
+.home-main .country-card,.home-main .export-all { background:rgba(255,255,255,.72); }
 .home-dashboard .map-stat h2 { font-size:17px; }
 .home-dashboard .map-stat p { font-size:13px; }
 .home-dashboard .stat-exports strong { font-size:clamp(24px,1.8vw,32px); }
@@ -397,7 +398,7 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 @media(max-width:650px) {
   .home-main .home-dashboard { grid-template-columns:minmax(0,1fr); padding:14px; gap:14px; }
   .home-main .home-dashboard .home-globe-dock { grid-column:1; grid-row:1; height:440px; }
-  .home-dashboard .home-globe-dock .globe-wrap { inset:28px 0 80px; }
+  .home-dashboard .home-globe-dock .globe-wrap { inset:28px 0 38px; }
   .home-dashboard .stat-exports { grid-column:1; grid-row:2; }
   .home-dashboard .stat-growth { grid-column:1; grid-row:3; }
   .home-dashboard .stat-trend { grid-column:1; grid-row:4; }
