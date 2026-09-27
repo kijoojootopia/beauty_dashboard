@@ -1,1 +1,10 @@
-[]
+[{
+  "country_code": "EU",
+  "country_name": "유럽연합(EU)",
+  "steps": [
+    { "step_order": 1, "title": "역내 책임자(RP) 선임 및 CPNP 등록", "description": "EU 역내 법인/개인을 책임자(RP)로 지정하고, 안전성 평가서(CPSR)를 완비해 CPNP 시스템에 전산 등록합니다.", "required_documents": ["CPNP 등록 번호", "화장품 안전성 평가 보고서(CPSR)"] },
+    { "step_order": 2, "title": "EORI 기반 EU 세관 도착 및 수입 신고", "description": "수입자의 세관 식별 번호(EORI)를 통해 단일행정서류(SAD)를 접수합니다.", "required_documents": ["단일행정서류(SAD)", "상업송장"] },
+    { "step_order": 3, "title": "한-EU FTA 원산지 검증 및 관세 면제", "description": "6,000유로 초과 시 한국 세관의 '원산지 인증수출자 번호'가 기재된 송장으로 관세 0%를 적용받습니다.", "required_documents": ["인증수출자 번호 기재 상업송장"] },
+    { "step_order": 4, "title": "수입 회원국 부가가치세(VAT) 납부", "description": "관세는 0%이나 도착 회원국의 부가가치세(독일 19%, 프랑스 20% 등)를 납부한 뒤 방면 허가를 받습니다.", "required_documents": ["회원국 세금 납부 증빙서", "통관필증"] }
+  ]
+}]

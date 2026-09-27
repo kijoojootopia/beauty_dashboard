@@ -1,1 +1,12 @@
-[]
+[{
+  "hs_chapter": "3304",
+  "country_code": "AE",
+  "country_name": "아랍에미리트",
+  "tariffs": [
+    { "hs_code": "33041000", "description": "Lip make-up preparations (립 메이크업)", "general_rate": "5%", "fta_rate": "0%", "fta_type": "한-UAE CEPA", "unit": "kg" },
+    { "hs_code": "33042000", "description": "Eye make-up preparations (아이 메이크업)", "general_rate": "5%", "fta_rate": "0%", "fta_type": "한-UAE CEPA", "unit": "kg" },
+    { "hs_code": "33043000", "description": "Manicure or pedicure preparations (네일 제품)", "general_rate": "5%", "fta_rate": "0%", "fta_type": "한-UAE CEPA", "unit": "kg" },
+    { "hs_code": "33049100", "description": "Powders (파우더류)", "general_rate": "5%", "fta_rate": "0%", "fta_type": "한-UAE CEPA", "unit": "kg" },
+    { "hs_code": "33049900", "description": "Other skin care preparations (기타 스킨케어)", "general_rate": "5%", "fta_rate": "4.5%", "fta_type": "한-UAE CEPA", "unit": "kg" }
+  ]
+}]
