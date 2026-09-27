@@ -268,13 +268,20 @@ a.globe-marker:focus-visible {
 .home-main > :not(.home-intro) { margin-left:clamp(16px,4vw,55px); margin-right:clamp(16px,4vw,55px); }
 body:has(.home-intro) .topbar { position:absolute; top:0; left:76px; right:0; z-index:8; background:#000; border-color:#222; color:#fff; }
 body:has(.home-intro) .rail { background:#000; border-color:#222; }
+body:has(.home-intro:not(.is-past-intro)) .rail { visibility:hidden; pointer-events:none; }
 body:has(.home-intro.is-past-intro) .rail { background:#fff; border-color:var(--line); }
 body:has(.home-intro:not(.has-scrolled)) .topbar,
 body:has(.home-intro:not(.has-scrolled)) .rail > *,
 .home-intro:not(.has-scrolled) .intro-skip { visibility:hidden; }
 body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
-.home-intro { position:relative; margin-bottom:32px; background:#000; }
-.home-intro.is-scroll-ready { height:240svh; }
+.home-intro { position:relative; margin:0 0 20px -76px; background:var(--bg); }
+.home-intro::after {
+  content:""; position:absolute; inset:auto 0 -1px; height:140px; z-index:7;
+  background:linear-gradient(to bottom,transparent,var(--bg));
+  backdrop-filter:blur(12px); mask-image:linear-gradient(to bottom,transparent,#000 85%);
+  pointer-events:none;
+}
+.home-intro.is-scroll-ready { height:200svh; }
 .home-intro .intro-scene {
   position:sticky; top:0; height:100svh; min-height:480px;
   border:0; border-radius:0; background:#000;
@@ -325,6 +332,8 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   .home-dashboard .stat-rank { grid-row:5; }
 }
 @media(max-width:650px) {
+  .home-intro { margin-left:-50px; }
+  .home-intro::after { height:100px; }
   .home-main .home-globe-dock { height:400px; width:calc(100% - 32px); }
   .home-globe-dock .globe-wrap { inset:40px 0 80px; }
   .home-globe-dock .map-bottom { font-size:10px; }
