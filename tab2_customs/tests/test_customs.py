@@ -15,6 +15,8 @@ def test_invalid_exchange(amount,rate):
 def test_missing_rates_and_true_zero_tariff(app):
     with app.app_context():
         with pytest.raises(ValueError,match="준비 중"):calculate_exchange(100,"KRW","JPY")
+        # 실제 등록 데이터 대신 임시 복사본으로 빈 데이터 상태를 구성합니다.
+        write_json(app.config["CUSTOMS_DATA_ROOT"]/"jp/tariffs.json",[])
         assert lookup_tariffs("jp","KR","330499")["state"]=="data_pending"
         write_json(app.config["CUSTOMS_DATA_ROOT"]/"jp/tariffs.json",[{"origin":"KR","hs_code":"3304990000","rate":0,"rate_type":"test-only","rate_unit":"%"}])
         result=lookup_tariffs("jp","KR","330499")

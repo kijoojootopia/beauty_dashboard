@@ -1,7 +1,27 @@
 import json
+import sqlite3
+import pytest
 from urllib.parse import urlsplit,parse_qs
 from conftest import post,signup,write_json
 from platform_core.services.database import get_db
+
+def test_account_requires_login_and_shows_only_current_user(app,client):
+    response=client.get("/account")
+    assert response.status_code==302
+    assert urlsplit(response.location).path=="/login"
+    assert parse_qs(urlsplit(response.location).query)["next"]==["/account?"]
+    signup(client)
+    other=app.test_client()
+    signup(other,"other@example.test")
+    response=client.get("/account?user_id=2")
+    assert response.status_code==200
+    assert "테스트 사용자" in response.text
+    assert "owner@example.test" in response.text
+    assert "other@example.test" not in response.text
+    assert 'href="/account"' in response.text
+    assert "a-long-test-password" not in response.text
+    assert "other@example.test" in other.get("/account").text
+
 
 def test_all_country_tabs_render(client):
     for country in ["eac","eu","uae","us","jp","cn","asean"]:
@@ -67,6 +87,43 @@ def test_copy_and_bookmarks_and_export(client,owned):
     response=client.get(f"/projects/{pid}/export")
     assert response.headers["Content-Disposition"].startswith("attachment;")
     assert "password" not in response.text
+
+def test_copy_failure_rolls_back(tmp_path):
+    from platform_core.app_factory import create_app
+    from platform_core.services.auth_service import register
+    from platform_core.services import project_service as store
+
+    app = create_app({"TESTING": True, "SECRET_KEY": "tests-only-key",
+                      "DATABASE": str(tmp_path / "copy.sqlite3")})
+    with app.app_context():
+        user_id = register("copy@example.test", "복사 테스트", "a-long-test-password")
+        source_id = store.create_project(user_id, "원본", "jp")
+        for name in ("합성 제품 A", "합성 제품 B"):
+            store.save_product_analysis(user_id, source_id, {
+                "name": name, "product_type": "leave_on",
+                "ingredients": [{"inci_name": "Test Ingredient", "concentration": 1}],
+            }, {"state": "data_pending"})
+
+        db = get_db()
+        tables = ("projects", "products", "analyses")
+        before = {table: [tuple(row) for row in db.execute(f"SELECT * FROM {table}")]
+                  for table in tables}
+        # 첫 제품 저장 후 두 번째 제품에서 실제 DB 오류를 발생시킵니다.
+        db.execute("""CREATE TEMP TRIGGER fail_second_product BEFORE INSERT ON products
+            WHEN (SELECT count(*) FROM products WHERE project_id=NEW.project_id)=1
+            BEGIN SELECT RAISE(ABORT, 'test copy failure'); END""")
+        with pytest.raises(sqlite3.IntegrityError, match="test copy failure"):
+            store.copy_project(user_id, source_id, "실패할 복사", "us", "")
+
+        for table in tables:
+            assert [tuple(row) for row in db.execute(f"SELECT * FROM {table}")] == before[table]
+        assert not db.in_transaction
+
+        db.execute("DROP TRIGGER fail_second_product")
+        copied_id = store.copy_project(user_id, source_id, "재시도", "us", "")
+        assert len(store.products_for(user_id, copied_id)) == 2
+        assert len(store.products_for(user_id, source_id)) == 2
+
 
 def test_invalid_payload_and_data_preserve_previous(client,owned):
     pid,product_id=owned

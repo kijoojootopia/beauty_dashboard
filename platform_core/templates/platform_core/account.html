@@ -1,0 +1,14 @@
+{% extends 'platform_core/base.html' %}
+{% block content %}
+<div class="workspace-heading">
+  <div><span class="eyebrow">MY ACCOUNT</span><h1>내 정보</h1><p>현재 로그인한 계정 정보입니다.</p></div>
+  <a class="button secondary" href="{{ url_for('platform_core.projects') }}">내 프로젝트</a>
+</div>
+<section class="panel" aria-labelledby="account-heading">
+  <h2 id="account-heading">계정 정보</h2>
+  <div class="form-stack">
+    <div><h3>이름</h3><p class="preserve-lines">{{ g.user.name }}</p></div>
+    <div><h3>이메일</h3><p class="preserve-lines">{{ g.user.email }}</p></div>
+  </div>
+</section>
+{% endblock %}

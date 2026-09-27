@@ -3,7 +3,7 @@ from conftest import write_json,post
 from tab1_regulation.services.ingredient_parser import parse_csv,parse_text,percentage
 from tab1_regulation.services.screening_service import screen_rows,analyze
 from tab1_regulation.services.regulation_loader import load_regulations
-from tab1_regulation.services.roadmap_service import load_roadmap
+from tab1_regulation.services.roadmap_service import apply_legacy_document_states,completed_task_ids,load_roadmap
 
 def test_csv_and_text_preserve_comma_names():
     rows=parse_csv('inci_name,cas_no,concentration\n"1,2-Hexanediol",6920-22-5,0.5\n')
@@ -61,5 +61,23 @@ def test_roadmap_preserves_document_string(app,rules,client,owned):
     assert roadmap["tasks"][0]["duration_label"]=="기간 확인 필요"
     key=roadmap["tasks"][0]["documents"][0]["key"]
     pid,product_id=owned
-    assert post(client,f"/products/{product_id}/tasks",{"task_id":key,"completed":"1"}).status_code==302
+    response=post(client,f"/products/{product_id}/tasks",{"task_id":key,"completed":"1"})
+    assert response.status_code==302
+    assert response.location.endswith("#task-1")
     assert post(client,f"/products/{product_id}/tasks",{"task_id":"invented","completed":"1"}).status_code==400
+
+def test_eu_split_documents_keep_legacy_completion(app):
+    with app.app_context():
+        roadmap=load_roadmap("eu")
+    tasks={task["stage_step"]:task for task in roadmap["tasks"]}
+    assert len(tasks[2]["documents"])==3
+    assert len(tasks[3]["documents"])==1
+    assert len(tasks[5]["documents"])==4
+    assert tasks[6]["documents"]==[] and tasks[6]["guidance_text"]
+    task=tasks[2]
+    states={task["legacy_document_key"]:True}
+    assert apply_legacy_document_states(task,states)
+    assert all(states[document["key"]] for document in task["documents"])
+    assert task["task_id"] in completed_task_ids([task],states)
+    partial={task["legacy_document_key"]:True,task["documents"][0]["key"]:False}
+    assert not apply_legacy_document_states(task,partial)

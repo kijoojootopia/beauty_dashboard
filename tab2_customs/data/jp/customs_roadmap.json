@@ -1,1 +1,10 @@
-[]
+[{
+  "country_code": "JP",
+  "country_name": "일본",
+  "steps": [
+    { "step_order": 1, "title": "수입자 제조판매업 허가 및 수입신고", "description": "수입업자가 도도부현 지사로부터 화장품 제조판매업 허가를 보유해야 하며, 제품별 수입신고서를 사전 제출합니다.", "required_documents": ["제조판매업 허가증 사본", "전성분 분량표"] },
+    { "step_order": 2, "title": "전자 수입신고 (NACCS)", "description": "통관 정보처리시스템(NACCS)을 통해 수입신고서를 세관에 전송합니다.", "required_documents": ["수입신고서", "상업송장", "B/L"] },
+    { "step_order": 3, "title": "후생노동성 서류 심사 및 세관 검사", "description": "약기법(PMD Act) 기준 성분 배합한도를 대조하고, 포장 외부 일본어 법정 표시를 심사합니다.", "required_documents": ["일본어 법정 라벨 견본"] },
+    { "step_order": 4, "title": "소비세 납부 및 수입허가(Permit)", "description": "한국산은 무세(Free)가 적용되며, 일본 국내 소비세(10%) 납부 후 '수입허가서'가 교부됩니다.", "required_documents": ["소비세 영수증", "수입허가서"] }
+  ]
+}]

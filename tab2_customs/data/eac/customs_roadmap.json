@@ -1,1 +1,11 @@
-[]
+[{
+  "country_code": "RU",
+  "country_name": "러시아(EAEU)",
+  "steps": [
+    { "step_order": 1, "title": "EAEU TR CU 적합성 평가 등록", "description": "EAEU 화장품 규정에 따라 적합성 선언(DoC) 또는 국가등록(SGR)을 완료합니다.", "required_documents": ["EAC 적합성 선언서(DoC)", "공인 시험성적서"] },
+    { "step_order": 2, "title": "EAC 마크 및 체스트니 즈낙(디지털 식별) 부착", "description": "제품에 EAC 규격 마크, 러시아어 라벨, 유통 이력 추적을 위한 체스트니 즈낙 바코드를 라벨링합니다.", "required_documents": ["러시아어 제품 라벨안", "식별 마킹 코드"] },
+    { "step_order": 3, "title": "연방관세청(FTS) 전자 수입신고", "description": "러시아 전자 통관 포털에 수입신고서(DT)를 제출합니다.", "required_documents": ["전자 수입신고서(DT)", "상업송장"] },
+    { "step_order": 4, "title": "EAEU 공통 관세 및 부가가치세(VAT) 납부", "description": "EAEU 공통 관세(6.5%)와 러시아 현지 부가가치세(VAT 20%)를 세관 계좌로 전자 납부합니다.", "required_documents": ["관세/세금 납부 영수증"] },
+    { "step_order": 5, "title": "세관 심사 완료 및 반출", "description": "심사가 종결되면 세관에서 '반출 허가'인을 날인하며 유통이 가능해집니다.", "required_documents": ["수입신고필증"] }
+  ]
+}]

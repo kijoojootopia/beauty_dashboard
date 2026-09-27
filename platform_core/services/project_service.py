@@ -17,14 +17,19 @@ def list_projects(user_id):
     return [dict(r) for r in get_db().execute("SELECT p.*, (SELECT count(*) FROM products WHERE project_id=p.id) AS product_count FROM projects p WHERE user_id=? ORDER BY created_at DESC",(user_id,))]
 
 def create_project(user_id, name, country, member_state=""):
+    with get_db() as db:
+        return _insert_project(db, user_id, name, country, member_state)
+
+
+def _insert_project(db, user_id, name, country, member_state):
+    """검증과 삽입을 재사용하고, 저장 확정은 호출한 작업에서 처리합니다."""
     get_country(country)
     if not name.strip() or len(name.strip())>100:
         raise ValueError("프로젝트명은 1~100자로 입력해 주세요.")
     if country in MEMBER_GROUPS and member_state not in MEMBER_GROUPS[country]:
         raise ValueError(("EU" if country=="eu" else "ASEAN")+" 수출 목적 회원국을 선택해 주세요.")
     pid=uuid4().hex
-    with get_db() as db:
-        db.execute("INSERT INTO projects VALUES(?,?,?,?,?,?)",(pid,user_id,name.strip(),country,member_state if country in MEMBER_GROUPS else "",now()))
+    db.execute("INSERT INTO projects VALUES(?,?,?,?,?,?)",(pid,user_id,name.strip(),country,member_state if country in MEMBER_GROUPS else "",now()))
     return pid
 
 def unpack_product(row):
@@ -106,8 +111,8 @@ def delete_project(user_id, project_id):
 
 def copy_project(user_id, project_id, name, country, member_state):
     source=products_for(user_id,project_id)
-    pid=create_project(user_id,name,country,member_state)
     with get_db() as db:
+        pid=_insert_project(db,user_id,name,country,member_state)
         for p in source:
             db.execute("INSERT INTO products VALUES(?,?,?,?,?,?,?,?)",(uuid4().hex,pid,p["name"],p["product_type"],p["hs_code"],json.dumps(p["ingredients"],ensure_ascii=False),"",now()))
     return pid

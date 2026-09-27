@@ -5,7 +5,7 @@ from platform_core.services import project_service as store
 from .services.ingredient_parser import parse_csv, parse_text, normalize_row
 from .services.screening_service import analyze
 from .services.regulation_loader import load_regulations
-from .services.roadmap_service import load_roadmap
+from .services.roadmap_service import apply_legacy_document_states, completed_task_ids, load_roadmap
 from .services.regulation_feed import load_feed
 
 bp=Blueprint("tab1_regulation",__name__,template_folder="templates",static_folder="static",static_url_path="/regulation-assets")
@@ -23,7 +23,11 @@ def index(country):
         history=store.analyses_for(g.user["id"],product["id"])
         cards.append({"product":product,"history":history,"latest":history[0] if history else None})
     selected=ctx["selected_product"]
+    roadmap=load_roadmap(country,selected["product_type"] if selected else None)
     task_states=store.tasks_for(g.user["id"],selected["id"]) if selected else {}
+    for task_data in roadmap["tasks"]:
+        apply_legacy_document_states(task_data,task_states)
+    completed_stages=completed_task_ids(roadmap["tasks"],task_states)
     editing=None
     if request.args.get("edit"):
         if not g.user:
@@ -32,7 +36,7 @@ def index(country):
         if not ctx["project"] or editing["project_id"]!=ctx["project"]["id"]:
             abort(404)
     return render_template("tab1_regulation/index.html",**ctx,tab="regulation",cards=cards,editing=editing,
-        product_types=PRODUCT_TYPES,roadmap=load_roadmap(country),task_states=task_states,
+        product_types=PRODUCT_TYPES,roadmap=roadmap,task_states=task_states,completed_stages=completed_stages,
         notes=store.notes_for(g.user["id"],selected["id"]) if selected else [],dataset=load_regulations(country),feed=load_feed(country,selected),summary=market_summary(country,ctx["member_state"],live=False))
 
 @bp.post("/projects/<project_id>/products/analyze")
@@ -96,13 +100,31 @@ def task(product_id):
     product=store.product_for(g.user["id"],product_id)
     project=store.project_for(g.user["id"],product["project_id"])
     g.destination_member=project["member_state"]
-    roadmap=load_roadmap(project["country"])
-    valid={t["task_id"] for t in roadmap["tasks"]}|{d["key"] for t in roadmap["tasks"] for d in t["documents"]}
+    roadmap=load_roadmap(project["country"],product["product_type"])
+    anchors={}
+    for index,task_data in enumerate(roadmap["tasks"],1):
+        anchor=f"task-{index}"
+        anchors[task_data["task_id"]]=anchor
+        anchors.update({doc["key"]:anchor for doc in task_data["documents"]})
     key=request.form.get("task_id")
-    if key not in valid:
+    if key not in anchors:
         abort(400,description="현재 로드맵에 없는 항목입니다.")
+    task_data=next(task_data for task_data in roadmap["tasks"] if key==task_data["task_id"] or any(document["key"]==key for document in task_data["documents"]))
+    if key!=task_data["task_id"]:
+        task_states=store.tasks_for(g.user["id"],product_id)
+        if apply_legacy_document_states(task_data,task_states):
+            for document in task_data["documents"]:
+                if document["key"]!=key:
+                    store.save_task(g.user["id"],product_id,document["key"],True)
     store.save_task(g.user["id"],product_id,key,request.form.get("completed")=="1")
-    return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"],product_id=product_id,_anchor="roadmap"))
+    if request.headers.get("X-Requested-With")=="XMLHttpRequest" or request.accept_mimetypes.best == "application/json":
+        from flask import jsonify
+        task_states=store.tasks_for(g.user["id"],product_id)
+        return jsonify(
+            states={state_key:task_states.get(state_key,False) for state_key in [task_data["task_id"], *(doc["key"] for doc in task_data["documents"])]},
+            task_completed=task_data["task_id"] in completed_task_ids([task_data],task_states),
+        )
+    return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"],product_id=product_id,_anchor=anchors[key]))
 
 @bp.post("/api/ingredients/preview")
 @login_required

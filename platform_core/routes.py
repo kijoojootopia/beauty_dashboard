@@ -42,6 +42,11 @@ def signup():
             flash(str(error),"error")
     return render_template("platform_core/auth.html",mode="signup",next_url=next_url)
 
+@bp.get("/account")
+@login_required
+def account():
+    return render_template("platform_core/account.html")
+
 @bp.post("/logout")
 def logout():
     session.clear()

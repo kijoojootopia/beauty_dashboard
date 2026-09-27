@@ -1,1 +1,11 @@
-[]
+[{
+  "country_code": "CN",
+  "country_name": "중국",
+  "steps": [
+    { "step_order": 1, "title": "NMPA 위생허가·등록 및 책임회사 지정", "description": "중국 국가약품감독관리국(NMPA)에 재중책임회사를 선임하고 화장품 사전 등록 또는 행정허가를 취득합니다.", "required_documents": ["NMPA 위생허가증", "재중책임회사 위임장"] },
+    { "step_order": 2, "title": "해관 단일창구(Single Window) 신고", "description": "해관총서 시스템에 수입신고서를 접수하고 수입 화장품 수화인 등록을 확인합니다.", "required_documents": ["수입신고서", "한-중 FTA 원산지증명서"] },
+    { "step_order": 3, "title": "CIQ 현장 검사 및 중문 라벨 심사", "description": "포장 용기의 중문 라벨 부착 여부와 성분 표기를 전수/표본 대조합니다.", "required_documents": ["중문 라벨 견본", "안전성 평가 보고서"] },
+    { "step_order": 4, "title": "관세 및 증치세/소비세 납부", "description": "협정세율(0%)을 적용받고, 증치세(13%) 및 고가 화장품인 경우 소비세(15%)를 납부합니다.", "required_documents": ["해관 세금납부고지서"] },
+    { "step_order": 5, "title": "CIQ 합격증명서 발급 및 유통", "description": "모든 검역이 완료되면 '수입화물 검험검역합격증명'이 발급되어 중국 내 정식 판매가 가능해집니다.", "required_documents": ["수입화물 검험검역합격증명(检验检疫合格证明)"] }
+  ]
+}]

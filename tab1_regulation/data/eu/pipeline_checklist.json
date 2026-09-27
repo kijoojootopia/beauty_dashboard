@@ -12,7 +12,12 @@
     "stage_step": 2,
     "task_id": "EU_SAFETY_ASSESSMENT",
     "task_name": "제품 테스트 및 안전성 평가 (CPSR 준비)",
-    "required_doc": "전성분(INCI) 검토 성적서, 미생물/방부력/중금속 테스트 결과, 제품 안전성 보고서(CPSR 파트 1·2)",
+    "required_doc": [
+      "전성분(INCI) 검토 성적서",
+      "미생물/방부력/중금속 테스트 결과",
+      "제품 안전성 보고서(CPSR 파트 1·2)"
+    ],
+    "legacy_required_doc": "전성분(INCI) 검토 성적서, 미생물/방부력/중금속 테스트 결과, 제품 안전성 보고서(CPSR 파트 1·2)",
     "estimated_days": 42,
     "is_mandatory": true,
     "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
@@ -39,7 +44,13 @@
     "stage_step": 5,
     "task_id": "EU_CPNP_NOTIFY",
     "task_name": "CPNP 온라인 포털 등록",
-    "required_doc": "화장품 안전성 보고서(CPSR), 제품 정보 파일(PIF), 라벨 원안, 포털 입력 정보",
+    "required_doc": [
+      "화장품 안전성 보고서(CPSR)",
+      "제품 정보 파일(PIF)",
+      "라벨 원안",
+      "포털 입력 정보"
+    ],
+    "legacy_required_doc": "화장품 안전성 보고서(CPSR), 제품 정보 파일(PIF), 라벨 원안, 포털 입력 정보",
     "estimated_days": 2,
     "is_mandatory": true,
     "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
@@ -48,7 +59,8 @@
     "stage_step": 6,
     "task_id": "EU_POST_MARKET_MGMT",
     "task_name": "[수출 후] 사후 관리 및 규정 모니터링",
-    "required_doc": "변경 관리 이력, 최신 EU 규정 모니터링 보고서",
+    "required_doc": [],
+    "guidance_text": "수출 후 제품 변경 기록과 최신 EU 규정 변경 및 사후관리 의무를 공식 자료에서 확인하세요.",
     "estimated_days": 0,
     "is_mandatory": true,
     "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
