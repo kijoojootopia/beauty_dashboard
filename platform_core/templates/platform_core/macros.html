@@ -1,0 +1,23 @@
+{% macro icon(name, cls='') -%}
+<svg class="icon {{ cls }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{% if name=='globe' %}<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/>
+{% elif name=='grid' %}<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>
+{% elif name=='arrow' %}<path d="M5 12h14m-6-6 6 6-6 6"/>
+{% elif name=='folder' %}<path d="M3 7V5a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+{% elif name=='shield' %}<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8 12 3 3 5-6"/>
+{% elif name=='truck' %}<path d="M3 5h12v13H3zM15 10h4l3 5v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>
+{% elif name=='chart' %}<path d="M4 3v17h17M8 15l4-5 4 2 5-7"/>
+{% elif name=='check' %}<path d="m5 12 4 4L19 6"/>
+{% elif name=='plus' %}<path d="M12 5v14M5 12h14"/>
+{% elif name=='file' %}<path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/>
+{% elif name=='user' %}<circle cx="12" cy="8" r="4"/><path d="M4 21v-3a8 8 0 0 1 16 0v3"/>
+{% elif name=='save' %}<path d="M5 3h12l4 4v14H3V3zM7 3v6h10V3M7 21v-8h10v8"/>
+{% elif name=='link' %}<path d="M14 3h7v7m0-7L10 14M10 4H4v16h16v-6"/>
+{% else %}<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>{% endif %}</svg>
+{%- endmacro %}
+{% macro csrf() %}<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">{% endmacro %}
+{% macro empty(title='데이터 준비 중',message='확인한 데이터를 등록하면 이곳에 표시됩니다.',kind='file') %}
+<div class="empty-state"><span class="empty-icon">{{ icon(kind) }}</span><strong>{{ title }}</strong><p>{{ message }}</p></div>
+{% endmacro %}
+{% macro status(value) %}<span class="status {% if value=='적합' %}good{% elif value=='부적합' %}bad{% elif value=='확인 필요' %}warning{% else %}neutral{% endif %}">{{ value }}</span>{% endmacro %}
+{% macro bookmark(project,kind,title,url) %}{% if project and url|safe_url %}<form method="post" action="{{ url_for('platform_core.bookmark',project_id=project.id) }}">{{ csrf() }}<input type="hidden" name="kind" value="{{ kind }}"><input type="hidden" name="title" value="{{ title }}"><input type="hidden" name="url" value="{{ url }}"><input type="hidden" name="next" value="{{ request.full_path }}"><button class="button subtle small">{{ icon('save') }} 관심 정보 저장</button></form>{% endif %}{% endmacro %}

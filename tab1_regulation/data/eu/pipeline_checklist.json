@@ -1,0 +1,56 @@
+[
+  {
+    "stage_step": 1,
+    "task_id": "EU_RP_APPOINTMENT",
+    "task_name": "책임판매업체(RP) 지정",
+    "required_doc": "현지 책임판매업체(RP) 계약서 및 연락처 정보",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
+  },
+  {
+    "stage_step": 2,
+    "task_id": "EU_SAFETY_ASSESSMENT",
+    "task_name": "제품 테스트 및 안전성 평가 (CPSR 준비)",
+    "required_doc": "전성분(INCI) 검토 성적서, 미생물/방부력/중금속 테스트 결과, 제품 안전성 보고서(CPSR 파트 1·2)",
+    "estimated_days": 42,
+    "is_mandatory": true,
+    "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
+  },
+  {
+    "stage_step": 3,
+    "task_id": "EU_PIF_PREPARATION",
+    "task_name": "제품 정보 파일(PIF) 구축",
+    "required_doc": "전성분표, 제조 공정 개요, 시험 성적서, CPSR 문서 포함 통합 PIF 패키지",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
+  },
+  {
+    "stage_step": 4,
+    "task_id": "EU_LABEL_COMPLIANCE",
+    "task_name": "라벨링 및 포장 규정 준수 검토",
+    "required_doc": "EU 규정(EC No 1223/2009) 필수 표기사항(사용법, 경고 문구, RP 정보 등) 반영 라벨 원안",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
+  },
+  {
+    "stage_step": 5,
+    "task_id": "EU_CPNP_NOTIFY",
+    "task_name": "CPNP 온라인 포털 등록",
+    "required_doc": "화장품 안전성 보고서(CPSR), 제품 정보 파일(PIF), 라벨 원안, 포털 입력 정보",
+    "estimated_days": 2,
+    "is_mandatory": true,
+    "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
+  },
+  {
+    "stage_step": 6,
+    "task_id": "EU_POST_MARKET_MGMT",
+    "task_name": "[수출 후] 사후 관리 및 규정 모니터링",
+    "required_doc": "변경 관리 이력, 최신 EU 규정 모니터링 보고서",
+    "estimated_days": 0,
+    "is_mandatory": true,
+    "guide_url": "https://cdri.pro/faq/cosmetic-export-to-europe-cpnp"
+  }
+]

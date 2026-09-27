@@ -1,0 +1,35 @@
+{% extends 'platform_core/base.html' %}{% from 'platform_core/macros.html' import icon %}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('platform_core.static',filename='css/home.css') }}">{% endblock %}
+{% block main_class %}home-main{% endblock %}
+{% block content %}
+<section class="home-heading"><div><div class="eyebrow"><span class="live-dot"></span> YOUR NEXT GLOBAL CHAPTER</div><h1>어디로 <span>수출하겠습니까?</span></h1><p>세계로 향하는 K-뷰티. 다음 목적지를 선택하고 수출 준비를 시작하세요.</p></div><a class="quiet-link" href="{{ url_for('platform_core.projects') }}">내 프로젝트 이어하기 {{ icon('arrow') }}</a></section>
+<section class="export-world" aria-label="한국에서 7개 수출 시장으로 연결되는 지도">
+<div class="map-topline"><span>{{ icon('globe') }} GLOBAL EXPORT MAP</span><span class="map-legend"><i></i> 대한민국에서 세계로</span></div>
+<div class="globe-wrap"><svg class="world-map" viewBox="0 0 900 540" role="img" aria-labelledby="map-title"><title id="map-title">한국에서 미국, 유럽, 러시아, UAE, 중국, 일본, ASEAN으로 연결되는 개략 지도</title><defs><radialGradient id="ocean" cx="35%" cy="25%" r="80%"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#f2effc"/><stop offset="1" stop-color="#cec9e7"/></radialGradient><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#dbd6ed"/></linearGradient><clipPath id="globe-clip"><ellipse cx="455" cy="278" rx="405" ry="242"/></clipPath><filter id="land-shadow"><feDropShadow dx="1" dy="4" stdDeviation="3" flood-color="#a39bbc" flood-opacity=".25"/></filter></defs>
+<ellipse cx="455" cy="508" rx="225" ry="13" fill="#c9c2df" opacity=".32"/><ellipse cx="455" cy="278" rx="405" ry="242" fill="url(#ocean)" stroke="#fff" stroke-width="2"/>
+<g clip-path="url(#globe-clip)"><g class="graticule"><ellipse cx="455" cy="278" rx="300" ry="242"/><ellipse cx="455" cy="278" rx="155" ry="242"/><path d="M455 35v485M50 278h810M72 200Q455 140 838 200M72 356Q455 415 838 356M140 119Q455 70 770 119M140 440Q455 475 770 440"/></g>
+<g fill="url(#land)" stroke="#c7c1dd" stroke-width="1.2" filter="url(#land-shadow)">
+<path d="M74 166 112 126 151 112 175 129 209 103 249 116 278 100 310 126 293 161 266 171 253 191 228 200 226 231 213 246 205 261 178 260 177 273 159 251 131 236 115 212 83 207 62 186Z"/>
+<path d="M174 263 196 263 215 291 232 298 240 317 216 312 205 293 185 281Z"/>
+<path d="M239 312 269 320 291 346 309 358 310 380 295 400 282 428 270 451 256 468 252 448 244 413 228 386 220 351Z"/>
+<path d="M285 64 329 69 342 91 321 133 296 150 279 120 275 94Z"/>
+<path d="M416 180 428 146 451 128 464 152 480 166 476 186 452 204 431 204Z"/>
+<path d="M433 207 469 206 487 220 495 244 480 253 478 241 467 228 460 242 445 230 429 231 417 218Z"/>
+<path d="M469 161 500 123 529 111 554 118 592 95 632 92 664 107 697 106 730 117 756 145 781 161 805 177 787 199 749 210 737 234 714 246 701 272 679 290 660 280 643 297 627 301 611 284 579 276 561 256 531 248 512 223 490 207 484 181Z"/>
+<path d="M438 245 470 241 505 259 521 286 509 312 493 329 482 363 464 393 446 375 437 342 420 313 407 287 420 260Z"/>
+<path d="M513 263 539 269 563 294 552 305 529 293Z"/>
+<path d="M580 287 610 290 607 320 596 342 582 320Z"/>
+<path d="M642 296 660 302 665 327 684 344 678 363 660 344 652 329 639 336 632 322Z"/>
+<path d="M716 237 726 246 723 259 715 254Z"/><path d="M759 237 766 247 756 267 745 278 740 272 751 255Z"/>
+<path d="M651 376 672 385 689 390 708 396 715 405 684 402 665 391Z"/><path d="M704 339 712 354 708 369 701 358Z"/>
+<path d="M714 414 750 399 788 414 806 442 787 466 753 459 728 465 711 445Z"/>
+<path d="M835 459 843 473 831 490 823 486Z"/><path d="M519 354 526 362 519 384 511 378Z"/>
+</g></g>
+<g class="map-routes">{% for c in countries %}<path d="M725 244 Q{{ (725+c.x)/2 }} {{ [c.y-140,35]|max }} {{ c.x }} {{ c.y }}"/>{% endfor %}</g>
+<g class="korea-marker"><circle cx="725" cy="244" r="17" fill="#8870e8" opacity=".14"/><circle cx="725" cy="244" r="7" fill="#6c50d4" stroke="white" stroke-width="3"/><rect x="691" y="203" width="68" height="25" rx="12" fill="#302b54"/><text x="725" y="220" text-anchor="middle" fill="white" font-size="11">대한민국</text></g>
+{% for c in countries %}<a href="{{ url_for('tab1_regulation.index',country=c.code) }}" class="map-pin" aria-label="{{ c.name }} 선택"><title>{{ c.name }} · {% set ranking=overview.rankings|selectattr('country','equalto',c.code)|first %}{% if ranking %}{{ ranking.value|number }} {{ overview.unit }} · {{ overview.period }}{% else %}수출 데이터 준비 중{% endif %}</title><circle class="pin-halo" cx="{{ c.x }}" cy="{{ c.y }}" r="19"/><circle cx="{{ c.x }}" cy="{{ c.y }}" r="6" fill="#8870e8" stroke="white" stroke-width="3"/><rect class="pin-label-bg" x="{{ c.x-39 }}" y="{{ c.y+13 }}" width="{{ 108 if c.code=='eac' else 78 }}" height="27" rx="13"/><text x="{{ c.x+15 if c.code=='eac' else c.x }}" y="{{ c.y+31 }}" text-anchor="middle">{{ c.name }}</text></a>{% endfor %}
+</svg></div>
+<div class="map-cards"><div class="map-stat-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_fragment') }}">{% include 'platform_core/export_stats.html' %}</div><div class="map-rank-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_rank_card') }}">{% include 'platform_core/export_rank_card.html' %}</div></div><div class="map-bottom"><span><span class="live-dot"></span> 마커를 눌러 목적국을 선택하세요</span><span>개략 지도 · 위치 및 연결선은 안내용</span></div></section>
+<div data-live-section data-live-url="{{ url_for('tab3_market.overview_rankings_fragment') }}">{% include 'platform_core/export_rankings.html' %}</div><section class="destinations"><div class="section-heading"><div><span class="eyebrow">EXPLORE DESTINATIONS</span><h2>당신의 제품이 만날 다음 시장</h2></div><span class="muted mini">7개 국가·지역</span></div><div class="country-grid">{% for c in countries %}<a class="country-card" href="{{ url_for('tab1_regulation.index',country=c.code) }}"><span class="country-monogram country-{{ c.code }}">{{ 'AS' if c.code=='asean' else c.iso }}</span><span><strong>{{ c.name }}</strong><small>{{ c.english }}</small></span>{{ icon('arrow') }}</a>{% endfor %}</div></section>
+<div class="home-steps"><span>처음 시작하시나요?</span><p><b>01</b> 국가 선택</p><span>→</span><p><b>02</b> 프로젝트·제품 등록</p><span>→</span><p><b>03</b> 성분 분석·수출 준비</p></div>
+{% endblock %}

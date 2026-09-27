@@ -1,0 +1,102 @@
+[
+  {
+    "cas_no": "97-18-7",
+    "inci_name": "Bithionol",
+    "kr_name": "비티오놀",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "ALL",
+    "conditions": "FDA 21 CFR 700.11에 따라 화장품 사용 전면 금지 (광독성 및 교차 감작성)",
+    "regulation_source": "FDA 21 CFR 700.11"
+  },
+  {
+    "cas_no": "",
+    "inci_name": "Chlorofluorocarbon propellants",
+    "kr_name": "클로로플루오로카본 분사제",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "AEROSOL",
+    "conditions": "내수용 에어로졸 화장품에 사용 전면 금지",
+    "regulation_source": "FDA 21 CFR 700.23"
+  },
+  {
+    "cas_no": "67-66-3",
+    "inci_name": "Chloroform",
+    "kr_name": "클로로포름",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "ALL",
+    "conditions": "동물 발암성 및 인체 유해성으로 화장품 사용 전면 금지 (단, 제조 공정상 불가피한 잔류물은 예외)",
+    "regulation_source": "FDA 21 CFR 700.18"
+  },
+  {
+    "cas_no": "",
+    "inci_name": "Halogenated salicylanilides",
+    "kr_name": "할로젠화 살리실아닐라이드",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "ALL",
+    "conditions": "심각한 피부 질환 유발 위험으로 화장품 사용 전면 금지 (di-, tri-, metabromsalan 및 tetrachlorosalicylanilide 포함)",
+    "regulation_source": "FDA 21 CFR 700.15"
+  },
+  {
+    "cas_no": "70-30-4",
+    "inci_name": "Hexachlorophene",
+    "kr_name": "헥사클로로펜",
+    "status": "RESTRICTED",
+    "max_concentration": "0.1%",
+    "product_type_scope": "GENERAL",
+    "conditions": "독성 및 피부 침투성 문제로 다른 방부제 대안이 없을 때만 0.1% 이하로 사용 가능. [Lipsticks] No / [Mucous Membranes] No",
+    "regulation_source": "FDA 21 CFR 250.250"
+  },
+  {
+    "cas_no": "7439-97-6",
+    "inci_name": "Mercury compounds",
+    "kr_name": "수은 화합물",
+    "status": "RESTRICTED",
+    "max_concentration": "0.0065%",
+    "product_type_scope": "GENERAL",
+    "conditions": "눈가(Eye area) 화장품에 한해 다른 안전한 방부제가 없을 경우 금속 수은 기준 65ppm(0.0065%) 이하 허용. 그 외 모든 화장품은 전면 금지",
+    "regulation_source": "FDA 21 CFR 700.13"
+  },
+  {
+    "cas_no": "75-09-2",
+    "inci_name": "Methylene chloride",
+    "kr_name": "다이클로로메테인 (염화메틸렌)",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "ALL",
+    "conditions": "동물 발암성 및 인체 유해성으로 화장품 사용 전면 금지",
+    "regulation_source": "FDA 21 CFR 700.19"
+  },
+  {
+    "cas_no": "",
+    "inci_name": "Prohibited cattle materials",
+    "kr_name": "소 유래 금지 물질",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "ALL",
+    "conditions": "광우병(BSE) 예방을 위해 특정 위험 부위 등 사용 전면 금지 (단, 탈로우 및 우유 유도체 등은 예외)",
+    "regulation_source": "FDA 21 CFR 700.27"
+  },
+  {
+    "cas_no": "75-01-4",
+    "inci_name": "Vinyl chloride",
+    "kr_name": "비닐클로라이드 (염화비닐)",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "AEROSOL",
+    "conditions": "발암성 및 건강 문제로 에어로졸 화장품의 성분으로 사용 전면 금지",
+    "regulation_source": "FDA 21 CFR 700.14"
+  },
+  {
+    "cas_no": "",
+    "inci_name": "Zirconium-containing complexes",
+    "kr_name": "지르코늄 함유 복합체",
+    "status": "BANNED",
+    "max_concentration": null,
+    "product_type_scope": "AEROSOL",
+    "conditions": "동물 폐 독성 및 인체 피부 육아종 형성 위험으로 에어로졸 화장품에 사용 전면 금지",
+    "regulation_source": "FDA 21 CFR 700.16"
+  }
+]

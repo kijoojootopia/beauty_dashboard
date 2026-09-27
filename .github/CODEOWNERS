@@ -1,0 +1,7 @@
+# 실제 GitHub 계정을 정한 후 아래 주석의 @owner를 교체하고 활성화하세요.
+# * @platform-owner
+# /platform_core/ @platform-owner
+# /tab1_regulation/ @regulation-owner
+# /tab2_customs/ @customs-owner
+# /tab3_market/ @market-owner
+# 브랜치 보호에서 CODEOWNERS 승인과 main 직접 push 제한을 별도로 설정하세요.

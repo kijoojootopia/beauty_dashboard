@@ -1,0 +1,47 @@
+[
+  {
+    "stage_step": 1,
+    "task_id": "CN_REGULATORY_SCREENING",
+    "task_name": "성분 규제 적합성 검토",
+    "required_doc": "영문 전성분(INCI Name) 리스트, 성분별 함량(%), CAS 번호",
+    "estimated_days": 3,
+    "is_mandatory": true,
+    "guide_url": "https://www.nmpa.gov.cn"
+  },
+  {
+    "stage_step": 2,
+    "task_id": "CN_NEW_INGREDIENT_CHECK",
+    "task_name": "신원료 여부 및 IECIC 등재 확인",
+    "required_doc": "기사용화장품원료목록(IECIC) 대조 결과서, 미등재 시 신원료 안전성 평가 자료",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://www.nmpa.gov.cn"
+  },
+  {
+    "stage_step": 3,
+    "task_id": "CN_SAFETY_AND_PIF_PREP",
+    "task_name": "화장품 안전성 평가 보고서 및 PIF 준비",
+    "required_doc": "완제품 안전성 평가서(CPSR), 제조공정서(Flow Chart), 품질안전규격서",
+    "estimated_days": 30,
+    "is_mandatory": true,
+    "guide_url": "https://www.nmpa.gov.cn"
+  },
+  {
+    "stage_step": 4,
+    "task_id": "CN_LOCAL_AGENT_SETUP",
+    "task_name": "중국 현지 책임인(Agent) 지정 및 위임",
+    "required_doc": "현지 책임인 위임장(Letter of Authorization) 공증 및 아포스티유, 제조사 GMP 증명서",
+    "estimated_days": 14,
+    "is_mandatory": true,
+    "guide_url": "https://www.nmpa.gov.cn"
+  },
+  {
+    "stage_step": 5,
+    "task_id": "CN_NMPA_NOTIFY",
+    "task_name": "NMPA 온라인 시스템 등록 및 신고 번호 획득",
+    "required_doc": "NMPA 시스템 입력 정보, 중국어 라벨 시안, 지정 시험기관 검증 성적서",
+    "estimated_days": 10,
+    "is_mandatory": true,
+    "guide_url": "https://www.nmpa.gov.cn"
+  }
+]

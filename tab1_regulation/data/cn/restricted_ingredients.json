@@ -1,0 +1,3572 @@
+[
+    {
+        "cas_no": "",
+        "inci_name": "Alkyl(C12-C22)\ntrimonium chloride",
+        "kr_name": "알킬(C12-C22)트리메칠 암모늄 클로라이드",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 0.25%\n(b) 1. 세틸,옥타데실 트리메틸 염화암모늄：2.5% (단일 혹은 그 합으로 계산함)\n2.도코실 트리메틸 염화암모늄：5.0% (단일 혹은 세틸 트리메틸염화암모늄과 옥타데실트리메틸 염화 암모늄의 합으로 계산); 또한 세틸, 옥타데실트라이메틸암모늄클로라이드, 알킬트라이메틸암모늄클로라이드 각 농도의 합은 2.5% 미만이어야 함",
+        "product_type_scope": "(a) 씻어내지 않는 제품\n(b) 씻어내는 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzalkonium chloride, bromide and saccharinate",
+        "kr_name": "벤잘코늄클로라이드, 브로마이드 및 사카리네이트",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 총량 3% (벤잘코늄클로라이드로 계산)\n(b) 총량 0.1% (벤잘코늄클로라이드로 계산)",
+        "product_type_scope": "(a) 씻어내는 두발용 제품\n(b) 기타제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: (a) 제품에 사용된 벤잘코늄클로라이드, 브로마이드 및 사카리네이트가 C14 이하일 경우, 그 용량은 0.5% (벤잘코늄클로라이드로 계산)를 초과해서는 안됨",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "(1) Boric acid, borates and tetraborates with the exception of substances in table of prohibited substances",
+        "kr_name": "(1) 보릭애씨드, 보레이트 및 테트라보레이트(사용금지 물질표에 나열된 성분 제외)",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)총량 5%(붕산으로 계산)",
+        "product_type_scope": "(a)탤컴 파우더",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: (a)3세 이하 어린이 사용 제품에는 사용금지: 제품 중 유리 가용성 보레이트의 농도가 1.5%를 초과할 경우(보릭애씨드로 계산), 벗겨지거나 자극을 받은 피부에 사용하여서는 안 됨",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzoic acid Sodium benzoate",
+        "kr_name": "벤조익애씨드 및 소듐벤조에이트",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 2.5%（산으로 계산）",
+        "product_type_scope": "씻어내는 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Oxyquinoline, oxyquinoline sulfate",
+        "kr_name": "퀴놀린-8-올 및 8-하이드록시퀴놀리눔설페이트",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)총량 0.3% (염기로 계산)",
+        "product_type_scope": "(a) 씻어내는 두발용 제품 중, 과산화수소 안정제로 사용",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Phenoxyisopropanol",
+        "kr_name": "페녹이시소프로판올",
+        "status": "RESTRICTED",
+        "max_concentration": "0.02",
+        "product_type_scope": "(a) 씻어내는 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Polyacrylamides",
+        "kr_name": "폴리아크릴아마이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "(a) 씻어내지 않는 바디용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: (a) 제품 중 아크릴아마이드의 최대 잔류량 0.1mg/kg",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Salicylic acid",
+        "kr_name": "살리실릭애씨드",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 2.0%",
+        "product_type_scope": "(a) 씻어내지 않는 제품과 씻어내는 피부용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 샴푸를 제외하고 3세이하 어린이가 사용하는 제품에 사용금지",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Strontium peroxide",
+        "kr_name": "스트론튬퍼옥사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "4.5%（스트론튬으로 계산）",
+        "product_type_scope": "씻어내는 두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 모든 제품은 과산화수소를 방출하는 요구에 부합해야 함",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "3055-99-0",
+        "inci_name": "Laureth-9",
+        "kr_name": "라우레스-9",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 3.0 %",
+        "product_type_scope": "(a) 씻어내지 않는 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Trialkylamines, trialkanolamines   and their salts",
+        "kr_name": "트라이알킬아민, 트라이알칸올아민 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 총량 2.5%",
+        "product_type_scope": "(a) 씻어내지 않는 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 니트로화 시스템과 함께 사용하지 않는다,니트로아소민이 생성되지 않도록 한다, 최저순도:99%, 원료 중 2차 알킬아민의 최대함량은 0.5%, 제품 중 니트로아소민의 최대 함량은 50μg/kg, 질산염이 없는 용기에 보존할 것",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Quinine and its salts",
+        "kr_name": "퀴닌 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 총량 0.5% (퀴닌으로 계산)",
+        "product_type_scope": "(a) 씻어내는 두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Resorcinol",
+        "kr_name": "레조시놀",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "헤어로션 및 샴푸",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Selenium disulfide",
+        "kr_name": "셀레늄 다이설파이드",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "비듬제거 샴푸",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Strontium chloride",
+        "kr_name": "스트론튬클로라이드",
+        "status": "RESTRICTED",
+        "max_concentration": "2.1% (스트론튬으로 계산),기타 허가된 스트론튬 제품과 혼합 시, 스트론튬의 총 함량이 2.1%을 초과해서는 안 됨",
+        "product_type_scope": "샴푸와 안면에 사용하는 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Diaminopyrimidine oxide",
+        "kr_name": "다이아미노피리미딘옥사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Dimethylol   ethylene thiourea",
+        "kr_name": "다이메틸올에틸렌티오우레아",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 2%",
+        "product_type_scope": "(a) 두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: (a) 스프레이 용품에사용금지",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Etidronic acid and its salts(1-hydroxyethyli dene-di-phosphonic acid and its salts)",
+        "kr_name": "(1-하이드록티에틸리덴)다이포스포닉애씨드 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 총량 1.5%(에티드로산으로 계산)",
+        "product_type_scope": "(a) 두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hydrogen peroxide, and other compounds or mixtures that release hydrogen peroxide, including carbamide peroxide and zinc peroxide",
+        "kr_name": "과산화수소 및 과산화수소 생성물질",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 총량 12%(존재하거나 방출되는 H2O2로 계산)",
+        "product_type_scope": "(a) 두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Oxalic acid, its esters and alkaline salts",
+        "kr_name": "옥살릭애씨드, 그 에스텔류 및 알칼리 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 5%",
+        "product_type_scope": "두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Zinc pyrithione",
+        "kr_name": "징크피리치온",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "씻어내는 비듬제거 두발용 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Calcium hydroxide",
+        "kr_name": "칼슘하이드록사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 7%(수산화칼슘 중량으로 계산)",
+        "product_type_scope": "(a) 칼슘하이드록사이드와 구아니딘염을 함유한 두발 스트레이트 퍼머제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Inorganic sulfites and hydrogen sulfites",
+        "kr_name": "무기설파이트 및 하이드로젠설파이트",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 총량 0.67%（유리 SO2로 계산)",
+        "product_type_scope": "(a)  산화성 염색제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Lithium hydroxide",
+        "kr_name": "리튬하이드록사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)\n1. 2%(소듐하이드록사이드 중량으로 계산)(4)\n2. 4.5%(소듐하이드록사이드 중량으로 계산)(4)",
+        "product_type_scope": "(a) 두발 스트레이트 퍼머제\n1. 일반용\n2. 전문가용",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "(1) Thioglycollic acid and its salts",
+        "kr_name": "(1)티오글라이콜릭애씨드 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)\n1. 총량 8%（티오글라이콜릭애씨드로 계산）， pH7-9.5\n2.총량 11%（티오글라이콜릭애씨드로 계산），pH7-9.5",
+        "product_type_scope": "(a)퍼머용 제품\n1.  일반용\n2.  전문가용",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Silver nitrate",
+        "kr_name": "실버나이트레이트",
+        "status": "RESTRICTED",
+        "max_concentration": "0.04",
+        "product_type_scope": "속눈썹과 눈썹 염색용제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "(1) Alkali sulfides",
+        "kr_name": "(1)알칼리설파이드류",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 2%（유황으로 계산）",
+        "product_type_scope": "제모제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: pH≤12.7",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Strontium hydroxide",
+        "kr_name": "스트론튬하이드록사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "3.5% (스트론튬으로 계산)",
+        "product_type_scope": "제모제품의 pH조절제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: pH≤12.7",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Aluminium zirconium chloride hydroxide complexes;AlxZr(OH)y Clzand the aluminium zirconium chloride hydroxide glycine complexes",
+        "kr_name": "지르코늄 및 알루미늄 및 그 글라이신 화합물",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 20% (무수 알루미늄 지르코늄 클로라이드 히드록사이드로 계산)\n총량 5.4% (지르코늄으로 계산)",
+        "product_type_scope": "땀억제제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 알루미늄 원자수와 지르코늄 원자수의 비율이 2~10이어야 함, (Al+Zr)의 원자수와 염소의 원자수의 비율이 0.9~2여야 함, 스프레이 제품에 사용금지",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Zinc phenolsulfonate",
+        "kr_name": "징크페놀설포네이트",
+        "status": "RESTRICTED",
+        "max_concentration": "6% (무수물로 계산)",
+        "product_type_scope": "제취 제품, 땀 억제제 및 수렴수",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Formaldehyde",
+        "kr_name": "폼알데하이드",
+        "status": "RESTRICTED",
+        "max_concentration": "5% (폼알데하이드로 계산)",
+        "product_type_scope": "손(발)톱 강화 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 농도가 0.05%를 초과할 경우 폼알데하이드 함유로 표기해야 함",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Potassium  hydroxide, sodium hydroxide",
+        "kr_name": "포타슘하이드록사이드 또는 소듐하이드록사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 5% (중량으로 계산)(4)",
+        "product_type_scope": "(a) 손,발톱 보호 용매",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Nitromethane",
+        "kr_name": "니트로메탄",
+        "status": "RESTRICTED",
+        "max_concentration": "0.003",
+        "product_type_scope": "부식 방지제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Sodium nitrite",
+        "kr_name": "소듐나이트라이트",
+        "status": "RESTRICTED",
+        "max_concentration": "0.002",
+        "product_type_scope": "부식 방지제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 2차알킬 및(혹은) 3차알킬 혹은 기타 아질산을 형성하는 물질과 혼용금지",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Talc: hydrated magnesium silicate",
+        "kr_name": "탤크: 하이드레이티드마그네슘실리케이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "(a) 3세 이하 어린이가 사용하는 파우더 제품",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzyl alcohol",
+        "kr_name": "벤질 알코올",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "용제, 향수 및 향료",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "-Hydroxy  acids  and their salts, esters",
+        "kr_name": "알파-하이드록시애씨드 및 그 염류, 에스터류",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 6% (산으로 계산)",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: pH≥3.5\n(씻어내는 두발용 제품 제외）",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Ammonia",
+        "kr_name": "암모니아",
+        "status": "RESTRICTED",
+        "max_concentration": "6%(NH3로 계산)",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chloramine T",
+        "kr_name": "클로라민T",
+        "status": "RESTRICTED",
+        "max_concentration": "0.002",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chlorates of alkali metals",
+        "kr_name": "알칼리금속의 염소산염",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 3%",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Dichloromethane",
+        "kr_name": "다이클로로메테인",
+        "status": "RESTRICTED",
+        "max_concentration": "35%(1,1,1DDT와 혼용 시 총 농도가 35%를 초과해서는 안됨)",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 불순물의 함량이 0.2%를 초과해서는 안됨",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Dichlorophen",
+        "kr_name": "다이클로로펜",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Fatty acid dialkylamides and dialkanolamides",
+        "kr_name": "지방산다이알킬아마이드, 다이알칸올아마이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 니트로계와 함께 사용하지 않을 것; 니트로소아민의 형성을 피해야 함; 제품 중 2차 알킬아민의 최대함량은 0.5%이며,니트로소아민의 최대함량은 50μg/kg임;원료 중 2급 알킬아민의 최대 함량은 5%이며; 아질산염이 없는 용기에 보존하여야 함",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Monoalkylamines, monoalkanolamines and their salts",
+        "kr_name": "모노알킬아민 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 니트로계와 함께 사용하지 않고; 니트로소아민의 형성을 피해야 함; 최저 순도: 99%; 원료 중 2급 알킬아민의 최대함량은 0.5%이며; 제품 중 니트로소아민의 최대 함량은 50μg/kg임; 아질산염이 없는 용기에 보존하여야 함",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Musk ketone",
+        "kr_name": "머스크케톤",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)향수 1.4%",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Musk xylene",
+        "kr_name": "머스크자일렌",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)  향수  1.0%",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Water-soluble zinc salts with the exception of zinc\n4-hydroxybenzenesul phonate and zinc pyrithione",
+        "kr_name": "수용성 징크 염류(징크 4-하이드록시벤젠설포네이트와 징크피리치온 제외)",
+        "status": "RESTRICTED",
+        "max_concentration": "총량 1% (아연으로 계산)",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 3 (Restricted)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Bromo-2-nitropropane-1, 3-diol",
+        "kr_name": "2-브로모-2-나이트로프로판-1,3-디올",
+        "status": "RESTRICTED",
+        "max_concentration": "니트로소아민의 형성을 피해야 함",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "5-Bromo-5-nitro-1,3-dioxan e",
+        "kr_name": "5-브로모-5-나이트로-1,3-다이옥산",
+        "status": "RESTRICTED",
+        "max_concentration": "씻어내는 제품; 니트로소아민의 형성을 피해야 함",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "7-Ethylbicyclooxazolidine",
+        "kr_name": "7-에틸바이사이클로옥사졸리딘",
+        "status": "RESTRICTED",
+        "max_concentration": "점막에 접촉하는 제품에 사용금지",
+        "product_type_scope": "0.003",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Alkyl(C12-C22) trimethyl ammonium, bromide and chloride",
+        "kr_name": "알킬(C12-C22)트리메칠암모늄 브로마이드 및 클로라이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.1%",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzalkonium chloride, bromide and saccharinate",
+        "kr_name": "벤잘코늄클로라이드, 브로마이드 및 사카리네이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.1%（벤잘코늄클로라이드로 계산）",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 눈 부위 접촉 금지",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzethonium chloride",
+        "kr_name": "벤제토늄클로라이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzoic acid, its salts and esters",
+        "kr_name": "벤조익애씨드, 그 염류 및 에스터류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.5% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzyl alcohol",
+        "kr_name": "벤질알코올",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.01",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzylhemiformal",
+        "kr_name": "벤질헤미포르말",
+        "status": "RESTRICTED",
+        "max_concentration": "씻어내는 제품에만 사용가능",
+        "product_type_scope": "0.0015",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Bromochlorophene",
+        "kr_name": "브로모크로로펜",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chlorhexidine and its digluconate, diacetate and dihydrochloride",
+        "kr_name": "클로헥시딘과 그 디글루코네이트, 디아세테이트 및 디하이드로클로라이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.3% (클로헥시딘으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chlorobutanol",
+        "kr_name": "클로로부탄올",
+        "status": "RESTRICTED",
+        "max_concentration": "스프레이 제품에 사용금지",
+        "product_type_scope": "0.005",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 클로로부탄올 함유",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chlorophene",
+        "kr_name": "클로로펜",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.002",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chloroxylenol",
+        "kr_name": "클로로자일레놀",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.005",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Chlorphenesin",
+        "kr_name": "클로로펜신",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.003",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Climbazole",
+        "kr_name": "클림바졸",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.005",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts",
+        "kr_name": "데하이드로아세틱애씨드",
+        "status": "RESTRICTED",
+        "max_concentration": "스프레이 제품에 사용금지",
+        "product_type_scope": "총량 0.6% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Diazolidinyl urea",
+        "kr_name": "다이아졸리디닐우레아",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.005",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "3,3’-Dibromo-4,4’-hexamethylenedi oxydibenzamidine and its salts (including isethionate)",
+        "kr_name": "3,3'-다이브로모-4,4'-헥사메틸렌다이옥시다이벤자미딘 및 그 염류(이세티오네이트 포함)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.1%",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Dichlorobenzyl alcohol",
+        "kr_name": "다이클로로벤질 알코올",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.0015",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Dimethyl oxazolidine",
+        "kr_name": "디메칠옥사졸리딘",
+        "status": "RESTRICTED",
+        "max_concentration": "pH≥6",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "DMDM hydantoin",
+        "kr_name": "디엠디엠하이단토인",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.006",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Formaldehyde and paraformaldehyde",
+        "kr_name": "포름알데하이드, 파라포름알데하이드",
+        "status": "RESTRICTED",
+        "max_concentration": "스프레이 제품에 사용금지",
+        "product_type_scope": "총량 0.2% (유리 포름알데하이드로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Formic acid and its sodium salt",
+        "kr_name": "포믹애씨드 및 그 소듐염",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.5% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Glutaral",
+        "kr_name": "글루탈알",
+        "status": "RESTRICTED",
+        "max_concentration": "스프레이 제품에 사용금지",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 글루탈알 함유 (완제품의 글루탈알 농도가 0.05% 초과 시)",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1,6-Di(4-amidinophenoxy)-n-hexan e and its salts (including isethionate and p-hydroxybenzoate)",
+        "kr_name": "1,6-다이(4-아미디노페녹시)-n-엑산(헥사미딘) 및 그  염류(이세티오네이트 및 p-하이드록시벤조에이트 포함)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.1%",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hexetidine",
+        "kr_name": "헥시티딘",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Imidazolidinyl urea",
+        "kr_name": "이미다졸리다이닐우레아",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.006",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Inorganic sulfites and hydrogensulfites",
+        "kr_name": "무기 설파이트 및 하이드로젠설파이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.2% (유리SO2로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Iodopropynyl butylcarbamate",
+        "kr_name": "아이오도프로피닐 부틸카바메이트",
+        "status": "RESTRICTED",
+        "max_concentration": "(a) 씻어내는 제품, 3세 이하 어린이용 제품에 사용금지 (목욕제품과 샴푸 제외; 입술부위에 사용하는 제품에 사용금지)",
+        "product_type_scope": "(a) 0.02%",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 3세 이하 어린이 사용금지 (4)",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Methylisothiazolinone",
+        "kr_name": "메틸아이소티아졸리논",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.0001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Mixture of methylchloroisothiazolinone and methylisothiazolinone with magnesium chloride and magnesium nitrate",
+        "kr_name": "메틸클로로이소치아졸린 및 메틸이소치아졸린 혼합물",
+        "status": "RESTRICTED",
+        "max_concentration": "씻어내는 제품; 메틸이소치아졸린과 동시에 사용해서는 안됨",
+        "product_type_scope": "1.5e-05",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "o-Cymen-5-ol",
+        "kr_name": "4-아이소프로필-m-크레솔",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.001",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Biphenyl-2-ol and its salts",
+        "kr_name": "o-페닐페놀",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.2%(페놀로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Hydroxybenzoic acid and its salts and esters",
+        "kr_name": "4-하이드록시벤조익애씨드 및 그 염류 및 에스터류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "단일 에스테르: 0.4% (산으로 계산)； 혼합 에스테르: 0.8% (산으로 계산)；또한 그 프로필아세테이트 및 그 염류, n-부틸아세테이트 및 그 염류의 합은 각 각 0.14%를 초과해서는 안됨 (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Chloro-m-cresol",
+        "kr_name": "p-클로로-m-크레졸",
+        "status": "RESTRICTED",
+        "max_concentration": "점막에 접촉하는 제품에 사용금지",
+        "product_type_scope": "0.002",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Phenoxyethanol",
+        "kr_name": "페녹시에탄올",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.01",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Phenoxyisopropanol",
+        "kr_name": "페녹시이소프로판올",
+        "status": "RESTRICTED",
+        "max_concentration": "씻어내는 제품",
+        "product_type_scope": "0.01",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1-Hydroxy-4-methyl-6(2,4,4-trimet hylpentyl)2-pyridon and its monoethanolamine salt",
+        "kr_name": "피록톤올아민",
+        "status": "RESTRICTED",
+        "max_concentration": "(a)  씻어내는 제품",
+        "product_type_scope": "(a)  총량 1.0%",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Polyaminopropyl biguanide",
+        "kr_name": "폴리아미노프로필바이구아나이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.003",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Propionic acid and its salts",
+        "kr_name": "프로피오닉애씨드 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 2% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Salicylic acid and its salts",
+        "kr_name": "살리실릭애씨드 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "샴푸를 제외하고, 3세 이하 어린이가 사용하는 제품에 사용금지",
+        "product_type_scope": "총량 0.5% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 살리실릭애씨드 함유,  3세 이하 어린이 사용금지(5)",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Phenylmercuric salts (including borate)",
+        "kr_name": "페닐머큐리 및 그 염류 (보레이트 포함)",
+        "status": "RESTRICTED",
+        "max_concentration": "눈부위 화장품",
+        "product_type_scope": "총량 0.007% (Hg으로 계산), 본 규범 중 기타 수은화합물과 혼합 시, Hg의 최대 농도는 여전히 0.007%임",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 페닐머큐리 화합물 함유",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Silver chloride deposited on titanium dioxide",
+        "kr_name": "실버클로라이드",
+        "status": "RESTRICTED",
+        "max_concentration": "TiO2에 침전된 20% (w/w) AgCl, 3세 이하 어린이 사용 제품 및 눈 부위 및 입술 부위에 사용하는 제품에 사용금지",
+        "product_type_scope": "0.004%(AgCI로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Sodium hydroxymethylglycinate",
+        "kr_name": "소듐하이드록시메칠글리시네이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.005",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Sorbic acid (hexa-2,4-dienoic acid) and its salts",
+        "kr_name": "소르빅애씨드(헥사-2,4-디에노익 애씨드) 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.6% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Thimerosal",
+        "kr_name": "티메로살",
+        "status": "RESTRICTED",
+        "max_concentration": "눈 부위 화장품",
+        "product_type_scope": "총량 0.007% (Hg으로 계산), 본 규범 중 기타 수은화합물과 혼합할 경우, Hg의 최대 농도는 여전히 0.007%임",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 티메로살 함유",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Triclocarban",
+        "kr_name": "트리클로카반",
+        "status": "RESTRICTED",
+        "max_concentration": "순도기준 : 3,3‘,4,4’-4 테트라클로로아조벤젠이 1mg/kg 미만;  3,3‘,4,4’-테트라클로로아족시벤젠이 1mg/kg 미만",
+        "product_type_scope": "0.002",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Triclosan",
+        "kr_name": "트리클로산",
+        "status": "RESTRICTED",
+        "max_concentration": "손세정 비누, 목욕비누, 바디워시, 제취제 (비분사형), 파우더 및 컨실러, 네일 리무버. (네일 리무버의 사용 빈도는 2주에 1회 이상이어서는 안 됨)",
+        "product_type_scope": "0.003",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Undec-10-enoic acid and its salts",
+        "kr_name": "운데실레닉애씨드 및 그 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 0.2% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Zinc pyrithione",
+        "kr_name": "징크피리티온",
+        "status": "RESTRICTED",
+        "max_concentration": "씻어내는 제품",
+        "product_type_scope": "0.005",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 4 (Preservatives)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "3-Benzylidene camphor",
+        "kr_name": "3-벤질리덴캠퍼",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.02",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Methylbenzylidene camphor",
+        "kr_name": "4-메틸벤질리딘캠퍼",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.04",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzophenone-3",
+        "kr_name": "벤조페논-3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 벤조페논-3 함유",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Benzophenone-4 Benzophenone-5",
+        "kr_name": "2-하이드록시-메톡시벤조페논-5-설포닉애씨드 및 그의 소듐염",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 5% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Alpha-(2-oxoborn-3-ylidene)-toluene-4-sulfonic acid and its salts",
+        "kr_name": "벤질리덴캠퍼설포닉애씨드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 6% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Bis-ethylhexyloxyphenol methoxyphenyl triazine",
+        "kr_name": "비스에칠헥실옥시페놀메톡시페닐트리아진",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Butyl methoxydibenzoylmethane",
+        "kr_name": "부틸메톡시다이벤조일메테인",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.05",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Camphor benzalkonium methosulfate",
+        "kr_name": "캠퍼벤잘코늄메토설페이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.06",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Diethylamino  hydroxybenzoyl hexyl benzoate",
+        "kr_name": "디에칠아미노하이드록시벤조일헥실벤조에이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Diethylhexyl butamido triazone",
+        "kr_name": "다이에틸헥실부타미도트리아존",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Disodium phenyl dibenzimidazole tetrasulfonate",
+        "kr_name": "디소듐페닐디벤즈이미다졸테트라설포네이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "10% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Drometrizole trisiloxane",
+        "kr_name": "드로메트리졸트리실록산",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.15",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Ethylhexyl dimethyl PABA",
+        "kr_name": "에틸헥실다이메틸파바",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.08",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Ethylhexyl methoxycinnamate",
+        "kr_name": "에칠헥실메톡시신나메이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Ethylhexyl salicylate",
+        "kr_name": "에칠헥실살리실레이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.05",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Ethylhexyl triazone",
+        "kr_name": "에틸헥실트리아진",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.05",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Homosalate",
+        "kr_name": "호모살레이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Isoamyl p-methoxycinnamate",
+        "kr_name": "이소아밀-p-메톡시신나메이트",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Methylene  bis-benzotriazolyl tetramethylbutylphenol",
+        "kr_name": "메틸렌비스-벤조트리아졸일테트라메틸부틸페놀",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Octocrylene",
+        "kr_name": "옥토크릴렌",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "10% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "PEG-25 PABA",
+        "kr_name": "피이지-25 파바",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Phenylbenzimidazole-5-sulfonic acid and its potassium, sodium, and triethanolamine salts",
+        "kr_name": "2-페닐벤즈이미다졸-5-설포닉애씨드, 그의 포타슘염류, 소듐염류, 트리에탄올아민 염류",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 8% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Polyacrylamidomethyl benzylidene camphor",
+        "kr_name": "폴리아크릴아미도메틸벤질리덴캠퍼",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.06",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Polysilicone-15",
+        "kr_name": "폴리실리콘-15",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.1",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "3,3’-(1,4-Phenylenedimethylene)bis(7,7-dimethyl-2-oxobicyclo-[2.2.1]hept-1-yl-methanesulfonic acid) and its salts",
+        "kr_name": "테레프탈릴리덴디캠퍼설포닉애씨드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "총량 10% (산으로 계산)",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Titanium dioxide",
+        "kr_name": "티타늄디옥사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.25",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Zinc oxide",
+        "kr_name": "징크옥사이드",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "0.25",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 5 (Sunscreens)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "颜料绿 8",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "酸性绿 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "酸性黄 1",
+        "status": "RESTRICTED",
+        "max_concentration": "＋",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "食品黄 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "颜料黄 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "颜料橙 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "食品橙 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "溶剂红 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 4",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 112",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 7",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "갈색",
+        "kr_name": "颜料棕 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 5",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "分散黄 16",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "食品黄 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "酸性橙 6",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "酸性橙 7",
+        "status": "RESTRICTED",
+        "max_concentration": "＋",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 68",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 51",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 88",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 49",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 64",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 57",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 48",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 63",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "食品橙 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "食品黄 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 17",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 9",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "酸性橙 10",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 7",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 8",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 12",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 10",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 155",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "酸性黄 121",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 180",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "酸性黄 11",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "食品黄 5",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "食品黄 4",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "颜料黄 16",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "酸性黑 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "颜料黄 13",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "颜料黄 83",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "溶剂黄 29",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 163",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "食品黑 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "食品黑 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "直接橙 39",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "食品橙 5\n(β-胡萝卜素)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "食品橙6\n(8’-apo-β- 胡萝卜素- 8’-醛）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "食品橙7\n( 8’-apo-β-胡萝卜素 -8’-酸乙酯）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "食品橙 8\n(斑蝥黄)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "酸性蓝 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "食品蓝 5",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "食品绿 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "酸性蓝 7",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "食品蓝 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "酸性绿 9",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "酸性绿 22",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "碱性紫 14",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "碱性紫 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "酸性蓝 104",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "碱性蓝 26",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "食品绿 4",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 52",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "酸性紫 9",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 50",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "酸性黄 73",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "酸性橙 11",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 87",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "溶剂橙 16",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 98",
+        "status": "RESTRICTED",
+        "max_concentration": "＋",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 92",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 95",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "食品红 14",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "溶剂黄 33",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "食品黄 13",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "酸性紫 50",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "酸性黑 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "颜料紫 23",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 83",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "溶剂绿 7",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "分散紫 27",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "溶剂紫 13",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "酸性紫 43",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "溶剂绿 3",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "酸性绿 25",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "酸性蓝 80",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "酸性蓝 62",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "食品蓝 4",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "还原蓝 6",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "还原橙 7",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "还原蓝 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "食品蓝 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "还原红 1",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "还原紫 2",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "颜料紫 19",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 122",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "颜料蓝 16",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "颜料蓝 15",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "直接蓝 86",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "颜料绿 7",
+        "status": "RESTRICTED",
+        "max_concentration": "＋",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "天然黄6(8,8’-diapo,psi,psi-胡萝卜二酸）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "天然橙 4\n(胭脂树橙)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "天然黄 27\n(番茄红素)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "天然黄 26\n(β-阿朴胡萝卜素醛)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "玉红黄\n(3R-β-胡萝卜-3-醇）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "天然白 1\n(2-氨基-1,7- 二氢-6H-嘌呤-6-酮）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "天然黄 3\n(姜黄素)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "天然红 4\n(胭脂红)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "天然绿 3\n(叶绿酸-铜络合物)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料金属 1\n(铝, Al)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 24\n(碱式硫酸铝)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 19\n天然水合硅酸铝，\nA12O3.2SiO2.2H2O (所含的钙, 镁或铁碳酸盐类, 氢氧化铁, 石英砂, 云母等等属于杂质）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "颜料蓝 29\n(天青石)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 101,102 (氧化铁着色的硅酸铝)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 20\n(云母)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 21, 22\n(硫酸钡，BaSO4)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 14\n(氯氧化铋,BiOCl)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 18\n(碳酸钙, CaCO3)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 25\n(硫酸钙, CaSO4)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "颜料黑 6,7\n(炭黑)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "颜料黑9 骨炭\n(在封闭容器内, 灼烧动物骨头获得的细黑粉。 主要由磷酸钙组成）",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "食品黑 3\n(焦炭黑)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "颜料绿 17\n(三氧化二铬, Cr2O3)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "颜料绿 18 (Cr2O(OH)4)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "颜料蓝 28\n(氧化铝钴)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "갈색",
+        "kr_name": "颜料金属 2\n(铜,Cu)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "갈색",
+        "kr_name": "颜料金属 3\n(金, Au)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "氧化亚铁, FeO",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "颜料红 101,102\n(氧化铁, Fe2O3)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "颜料黄 42, 43 (FeO(OH).nH2O)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "흑색",
+        "kr_name": "颜料黑 11 (FeO+Fe2O3)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "颜料蓝 27\n(Fe4(Fe(CN)6)3+FeNH4Fe(CN)6)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 18\n(碳酸镁, MgCO3)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 26\n(滑石)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "자색",
+        "kr_name": "颜料紫 16\n(NH4MnP2O7)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "磷酸锰, Mn3(PO4)2.7H2O",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "银,Ag",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 6\n(二氧化钛, TiO2)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "颜料白 4\n(氧化锌, ZnO)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "酸性红 195",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: ＋",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "백색",
+        "kr_name": "硬脂酸铝, 锌, 镁, 钙盐",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "花色素苷 (矢车菊 色素, 芍药花色 素, 锦葵色素, 飞 燕草色素, 牵牛花 色素, 天竺葵色 素)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "적색",
+        "kr_name": "甜菜根红",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "녹색",
+        "kr_name": "溴甲酚绿",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "남색",
+        "kr_name": "溴百里酚蓝",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "귤색",
+        "kr_name": "辣椒红/辣椒玉红 素",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "갈색",
+        "kr_name": "焦糖",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "황색",
+        "kr_name": "乳黄素",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "＋",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "커피색",
+        "kr_name": "高梁红",
+        "status": "RESTRICTED",
+        "max_concentration": "＋",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "GALLA  RHOIS GALLNUT EXTRACT",
+        "kr_name": "五倍子(GALLA RHOIS)提取物(4)",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 6 (Colorants)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1,3-Bis-(2,4-diaminophenoxy)   propane HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.0%\n(유리기로 계산)",
+        "product_type_scope": "1,3-비스-(2,4-다이아미노페녹시)프로판에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 1.2%\n(유리기로 계산)",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1,3-Bis-(2,4-diaminophenoxy) propane",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "1,3-비스-(2,4-다이아미노페녹시)프로판",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.012",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1,5-Naphthalenediol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "1,5-나프탈렌다이올",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1-Hydroxyethyl 4,5-diaminopyrazole sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01125",
+        "product_type_scope": "1-하이드록시에틸 4,5-다이아미노피라졸설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "1-Naphthol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "1-나프톨",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,4-Diaminophenoxyethanol HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.02",
+        "product_type_scope": "2,4-다이아미노페녹시에탄올에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,4-Diaminophenoxyethanol sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "2.0%\n(염산염으로 계산)",
+        "product_type_scope": "2,4-다이아미노페녹시에탄올설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,6-Diaminopyridine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0015",
+        "product_type_scope": "2,6-다이아미노피리딘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,6-Diaminopyridine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.002%\n(유리기로 계산)",
+        "product_type_scope": "2,6-다이아미노피리딘설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,6-Dihydroxyethylaminotoluene",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "2,6-다이하이드록시에틸아미노톨루엔",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,6-Dimethoxy-3,5-pyridinediamine HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0025",
+        "product_type_scope": "2,6-다이메톡시-3,5-피리딘다이아민에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2,7-Naphthale nediol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "2,7-나프탈렌다이올",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Amino-3-hydroxypyridine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.003",
+        "product_type_scope": "2-아미노-3-하이드록스피리딘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Amino-4-hydroxyethylaminoanisole",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.5%\n(황산염으로 계산)",
+        "product_type_scope": "2-아미노-4-하이드록시에틸아미노아니솔설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Amino-4-hydroxyethylaminoanisole sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.5%\n(황산염으로 계산)",
+        "product_type_scope": "2-아미노-4-하이드록시에틸아미노아니솔설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Amino-6-chloro-4-nitrophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "2-아미노-6-클로로-4-나이트로페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.02",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Amino-6-chloro-4-nitrophenol HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.0%\n(유리기로 계산)",
+        "product_type_scope": "2-아미노-6-클로로-4-나이트로페놀에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 2.0%\n(유리기로 계산)",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Chloro-p-phenylenediamine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0005",
+        "product_type_scope": "2-클로로-p-페닐렌다이아민",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.001",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Chloro-p-phenylenediamine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "2-클로로-p-페닐렌다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Hydroxyethyl picramic acid",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "2-하이드록시에틸피크라믹애씨드",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.02",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Methyl-5-hydroxyethylaminophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "2-메틸-5-하이드록시에틸아미노페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "2-Methylresorcinol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "2-메틸레조시놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.018",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "3-Nitro-p-hydroxyethylaminophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.03",
+        "product_type_scope": "3-나이트로-p-하이드록시에틸아미노페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.0185",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Amino-2-hydroxytoluene",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "4-아미노-2-하이드록시톨루엔",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Amino-3-nitrophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "4-아미노-3-나이트로페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Amino-m-cresol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "4-아미노-m-크레솔",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Chlororesorcinol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "4-사이클로레조시놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Hydroxypropylamino-3-nitrophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.026",
+        "product_type_scope": "4-하이드록시프로필아미노-3-나이트로페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.026",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Nitro-o-phenylenediamine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "4-나이트로-o-페닐렌다이아민",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "4-Nitro-o-phenylenediamine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.5%\n(유리기로 계산)",
+        "product_type_scope": "4-나이트로-o-페닐렌다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "5-Amino-4-chloro-o-cresol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "5-아미노-4-클로로-o-크레솔에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "5-Amino-4-Chloro-o-Cresol HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.0%\n(유리기로 계산)",
+        "product_type_scope": "5-아미노-4-클로로-o-크레솔에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "5-Amino-6-chloro-o-cresol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "5-아미노-6-클로로-o-크레솔",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.005",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "6-Amino-m-cresol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.012",
+        "product_type_scope": "6-아미노-m-크레솔",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.024",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "6-Hydroxyindole",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "6-하이드록시인돌",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "6-Methoxy-2-methylamino-3-aminopyri dine HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.68\n(유리기로 계산)",
+        "product_type_scope": "6-메톡시-2-메틸아미노-3-아미노피리딘에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.68 \n(유리기로 계산)",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Acid Violet 43",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "산성자색43호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Basic orange 31",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.001",
+        "product_type_scope": "염기성등색31호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.002",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Basic red 51",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.001",
+        "product_type_scope": "염기성적색51호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.002",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Basic red 76",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "염기성적색76호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.02",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Basic yellow 87",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.001",
+        "product_type_scope": "염기성황색87호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.002",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Disperse Black 9",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "분산흑색9호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.003",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Disperse Violet 1",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "분산자색1호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.005",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "HC Orange No.1",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "에치씨등색1호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "HC Red No.1",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "에치씨적색1호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.005",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "HC Red No.3",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "에치씨적색3호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.005",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "HC Yellow No.2",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0075",
+        "product_type_scope": "에치씨황색2호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "HC Yellow No.4",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "",
+        "product_type_scope": "에치씨황색4호",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.015",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hydroxybenzomorpholine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "하이드록시벤조모폴린",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hydroxyethyl-2-nitro-p-toluidine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "하이드록시에틸-2-나이트로-p-톨루이딘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.01",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hydroxyethyl-3,4-methylenedioxyaniline HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "하이드록시에틸-3,4-메틸렌다이옥시아닐린에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hydroxyethyl-p-phenylenediamine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.015",
+        "product_type_scope": "하이드록시에틸-p-페닐렌다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Hydroxypropyl bis(N-hydroxyethyl-p- phenylenediamine) HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.4%\n(테트라하이드로클로라이드로 계산)",
+        "product_type_scope": "하이드록시프로필비스(N-하이드록시에틸-p-페닐렌다이아민)에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "m-Aminophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.01",
+        "product_type_scope": "m-아미노페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "m-Aminophenol HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.0%\n(유리기로 계산)",
+        "product_type_scope": "m-아미노페놀에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "m-Aminophenol sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "1.0%\n(유리기로 계산)",
+        "product_type_scope": "m-아미노페놀설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "N,N-bis(2-hydroxyethyl)-p-phenylenedi amine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "2.5%\n(황산염으로 계산)",
+        "product_type_scope": "N,N-비스(2-하이드록시에틸)-p-페닐렌다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "N-phenyl-p-phenylenediamine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.03",
+        "product_type_scope": "N-페닐-p-페닐렌다이아민",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "N-phenyl-p-phenylenediamine HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "3.0%\n(유리기로 계산)",
+        "product_type_scope": "N-페닐-p-페닐렌다이아민에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "N-phenyl-p-phenylenediamine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "3.0%\n(유리기로 계산)",
+        "product_type_scope": "N-페닐-p-페닐렌다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Aminophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.005",
+        "product_type_scope": "p-아미노페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Aminophenol HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.5%\n(유리기로 계산)",
+        "product_type_scope": "p-아미노페놀에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Aminophenol sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.5%\n(유리기로 계산)",
+        "product_type_scope": "p-아미노페놀설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Phenyl methyl pyrazolone",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0025",
+        "product_type_scope": "페닐메틸피라졸론",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Methylaminophenol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.68%\n(황산염으로 계산)",
+        "product_type_scope": "p-메틸아미노페놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Methylaminophenol sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0068",
+        "product_type_scope": "p-메틸아미노페놀설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Phenylenediamine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.02",
+        "product_type_scope": "p-페닐렌다이아민",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Phenylenediamine HCl",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "2.0%\n(유리기로 계산)",
+        "product_type_scope": "p-페닐렌다이아민에이치씨엘",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "p-Phenylenediamine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "2.0%\n(유리기로 계산)",
+        "product_type_scope": "p-페닐렌다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Resorcinol",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0125",
+        "product_type_scope": "레조시놀",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Sodium picramate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.0005",
+        "product_type_scope": "소듐피크라메이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.001",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Tetraaminopyrimidine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.025",
+        "product_type_scope": "테트라아미노피리미딘설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요 | 기타요건: 0.034",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Toluene-2,5-diamine",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "0.04",
+        "product_type_scope": "톨루엔-2,5-다이아민",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "Toluene-2,5-diamine sulfate",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "4.0%\n(유리기로 계산)",
+        "product_type_scope": "톨루엔-2,5-다이아민설페이트",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    },
+    {
+        "cas_no": "",
+        "inci_name": "",
+        "kr_name": "",
+        "status": "RESTRICTED",
+        "max_concentration": "표6의 요구사항에 부합하여야 함",
+        "product_type_scope": "기타 염모제품에 사용을 허가하는 착색제",
+        "conditions": "배합 한도 및 사용 조건 준수 필요",
+        "regulation_source": "China NMPA Safety Technical Specifications for Cosmetics (2015) - Table 7 (Hair Dyes)"
+    }
+]

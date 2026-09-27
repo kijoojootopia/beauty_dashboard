@@ -1,0 +1,1 @@
+{% extends 'platform_core/base.html' %}{% block content %}<div class="error-panel panel"><span class="eyebrow">{{ error.code }}</span><h1>{{ '페이지를 찾을 수 없어요' if error.code==404 else '요청을 완료하지 못했어요' }}</h1><p>{{ error.description }}</p><a class="button primary" href="{{ url_for('platform_core.home') }}">국가 선택으로 돌아가기</a></div>{% endblock %}

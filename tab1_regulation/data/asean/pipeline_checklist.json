@@ -1,0 +1,47 @@
+[
+  {
+    "stage_step": 1,
+    "task_id": "ASEAN_REGULATORY_SCREENING",
+    "task_name": "아세안 화장품 지침(ACD) 성분 적합성 검토",
+    "required_doc": "영문 전성분(INCI Name) 리스트, CAS 번호, 성분별 함량(%)",
+    "estimated_days": 3,
+    "is_mandatory": true,
+    "guide_url": "https://www.asean.org"
+  },
+  {
+    "stage_step": 2,
+    "task_id": "ASEAN_LOCAL_IMPORTER_SETUP",
+    "task_name": "진출국 현지 수입사 및 책임자(LTO/Local Representative) 지정",
+    "required_doc": "국가별 현지 영업허가 보유 수입사 계약서 및 위임장",
+    "estimated_days": 14,
+    "is_mandatory": true,
+    "guide_url": "https://www.asean.org"
+  },
+  {
+    "stage_step": 3,
+    "task_id": "ASEAN_PIF_PREP",
+    "task_name": "아세안 표준 제품정보파일(PIF) 및 안전성평가서(CPSR) 구축",
+    "required_doc": "아세안 표준 PIF 파트 I~V, CPSR(안전성평가서), 제조공정서",
+    "estimated_days": 25,
+    "is_mandatory": true,
+    "guide_url": "https://www.asean.org"
+  },
+  {
+    "stage_step": 4,
+    "task_id": "ASEAN_LABEL_REVIEW",
+    "task_name": "아세안 공통 라벨링 및 국가별 언어/경고문구 검토",
+    "required_doc": "다국어 라벨 시안, 전성분 표기, 국가별 필수 경고문구(인도네시아어/태국어 등)",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://www.asean.org"
+  },
+  {
+    "stage_step": 5,
+    "task_id": "ASEAN_NRA_NOTIFICATION",
+    "task_name": "타겟 국가별 식약청(NRA) 온라인 사전 신고",
+    "required_doc": "국가별 e-Submission 포털 입력 정보, PIF 요약본, 최종 라벨",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://www.asean.org"
+  }
+]

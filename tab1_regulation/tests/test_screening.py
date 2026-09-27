@@ -1,0 +1,65 @@
+import pytest
+from conftest import write_json,post
+from tab1_regulation.services.ingredient_parser import parse_csv,parse_text,percentage
+from tab1_regulation.services.screening_service import screen_rows,analyze
+from tab1_regulation.services.regulation_loader import load_regulations
+from tab1_regulation.services.roadmap_service import load_roadmap
+
+def test_csv_and_text_preserve_comma_names():
+    rows=parse_csv('inci_name,cas_no,concentration\n"1,2-Hexanediol",6920-22-5,0.5\n')
+    assert rows[0]["inci_name"]=="1,2-Hexanediol"
+    assert parse_text('1,2-Hexanediol\t0.5')[0]["concentration"]==0.5
+
+@pytest.mark.parametrize("value",["NaN","Infinity",-1,101,True,"not-a-number"])
+def test_invalid_percent_rejected(value):
+    with pytest.raises(ValueError):percentage(value)
+
+def test_limit_scope_cas_and_unknown():
+    rule={"inci_name":"TEST","cas_no":"111-11-1","product_type_scope":"ALL","max_concentration":1}
+    assert screen_rows([{"inci_name":"test","concentration":1}],[],[rule])[0]["result"]=="적합"
+    assert screen_rows([{"inci_name":"test","concentration":1.1}],[],[rule])[0]["result"]=="부적합"
+    assert screen_rows([{"inci_name":"test"}],[],[rule])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"test","cas_no":"999-99-9"}],[],[rule])[0]["result"]=="해당 없음"
+    assert screen_rows([{"inci_name":"test","concentration":0.1}],[rule],[])[0]["result"]=="부적합"
+    scoped={**rule,"product_type_scope":"rinse only","applicable_product_scopes":["rinse_off"]}
+    assert screen_rows([{"inci_name":"test"}],[scoped],[],"leave_on")[0]["result"]=="해당 없음"
+
+def test_natural_conditions_null_and_scope_need_review():
+    base={"inci_name":"TEST","product_type_scope":"ALL","max_concentration":1}
+    for rule in [{**base,"conditions":"예외 성분·합계량 조건"},{**base,"max_concentration":None},{**base,"product_type_scope":"원문 서술 범위"},{**base,"limit_basis":"group_total"}]:
+        assert screen_rows([{"inci_name":"TEST","concentration":0.5}],[],[rule])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"TEST"}],[{**base,"conditions":"특정 예외 존재"}],[])[0]["result"]=="확인 필요"
+
+def test_duplicate_ingredients_cannot_bypass_limit():
+    rule={"inci_name":"TEST","product_type_scope":"ALL","max_concentration":1}
+    result=screen_rows([{"inci_name":"TEST","concentration":0.8},{"inci_name":"test","concentration":0.8}],[],[rule])
+    assert all(r["result"]=="확인 필요" for r in result)
+
+def test_malformed_unquoted_csv_is_rejected():
+    with pytest.raises(ValueError,match="큰따옴표"):
+        parse_csv('inci_name,concentration\n1,2-Hexanediol,0.5')
+
+def test_empty_partial_and_broken_are_not_approval(app,rules):
+    with app.app_context():
+        write_json(app.config["REGULATION_DATA_ROOT"]/"us/prohibited_ingredients.json",[])
+        write_json(app.config["REGULATION_DATA_ROOT"]/"us/restricted_ingredients.json",[])
+        assert analyze("us",[{"inci_name":"Water"}])["state"]=="data_pending"
+        assert analyze("jp",[{"inci_name":"Test Limited","concentration":0.5}])["state"]=="ready"
+        write_json(rules/"restricted_ingredients.json",[])
+        assert load_regulations("jp")["state"]=="data_pending"
+        write_json(rules/"metadata.json",{"complete_lists":{"restricted":True}})
+        assert load_regulations("jp")["state"]=="ready"
+        (rules/"restricted_ingredients.json").write_text('{bad json')
+        assert load_regulations("jp")["state"]=="data_error"
+        (rules/"restricted_ingredients.json").unlink()
+        assert load_regulations("jp")["state"]=="data_pending"
+
+def test_roadmap_preserves_document_string(app,rules,client,owned):
+    with app.app_context():
+        roadmap=load_roadmap("jp")
+    assert len(roadmap["tasks"][0]["documents"])==1
+    assert roadmap["tasks"][0]["duration_label"]=="기간 확인 필요"
+    key=roadmap["tasks"][0]["documents"][0]["key"]
+    pid,product_id=owned
+    assert post(client,f"/products/{product_id}/tasks",{"task_id":key,"completed":"1"}).status_code==302
+    assert post(client,f"/products/{product_id}/tasks",{"task_id":"invented","completed":"1"}).status_code==400

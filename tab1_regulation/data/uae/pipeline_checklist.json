@@ -1,0 +1,47 @@
+[
+  {
+    "stage_step": 1,
+    "task_id": "UAE_LOCAL_REP",
+    "task_name": "현지 유통/수입 대리인(Local Importer) 지정 및 면허 검증",
+    "required_doc": "현지 수입업체 유효 사업자 등록증(Valid business license), 공식 유통 계약서, 위임장",
+    "estimated_days": 10,
+    "is_mandatory": true,
+    "guide_url": "https://moiat.gov.ae/en/services/issue-conformity-certificates-for-regulated-products"
+  },
+  {
+    "stage_step": 2,
+    "task_id": "UAE_ECAS_COC",
+    "task_name": "MoIAT 적합성 인증 (ECAS CoC 발급)",
+    "required_doc": "공인 시험소 성적서(Product test report), 전성분 배합표, 자유판매증명서(CFS), CGMP/ISO 22716",
+    "estimated_days": 7,
+    "is_mandatory": true,
+    "guide_url": "https://www.intertek.com/government/product-conformity/ecas-perfumes-cosmetics/"
+  },
+  {
+    "stage_step": 3,
+    "task_id": "UAE_MONTAJI_REG",
+    "task_name": "두바이 지자체 몬타지(Montaji) 제품 등록",
+    "required_doc": "제품 라벨 아트워크(Artwork), 성분 분석 보고서, MSDS, 유효한 MoIAT CoC 사본, GS1 바코드 증명서",
+    "estimated_days": 22,
+    "is_mandatory": true,
+    "guide_url": "https://www.dm.gov.ae/"
+  },
+  {
+    "stage_step": 4,
+    "task_id": "UAE_HALAL_COMPLIANCE",
+    "task_name": "할랄(Halal) 및 돼지 유래 원료 불포함 검증",
+    "required_doc": "돼지 유래 성분 불포함 선언서(Non-Porcine Statement), 원료사 할랄 인증서(해당 시)",
+    "estimated_days": 3,
+    "is_mandatory": true,
+    "guide_url": "https://www.gso.org.sa/store/standards/GSO:871899/GSO%201943:2024?lang=en"
+  },
+  {
+    "stage_step": 5,
+    "task_id": "UAE_LABELING_AUDIT",
+    "task_name": "아랍어·영어 이중 라벨링 및 포장 표시 감리",
+    "required_doc": "아랍어 병기 최종 단상자 및 용기 라벨 시안, 개봉 후 사용기간(PAO) 설정 증빙 자료",
+    "estimated_days": 5,
+    "is_mandatory": true,
+    "guide_url": "https://www.gso.org.sa/store/standards/GSO:871899/GSO%201943:2024?lang=en"
+  }
+]

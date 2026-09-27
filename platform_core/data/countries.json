@@ -1,0 +1,65 @@
+[
+  {
+    "code": "eac",
+    "name": "러시아(EAEU)",
+    "english": "Russia · EAEU",
+    "iso": "RU",
+    "currency": "RUB",
+    "x": 620,
+    "y": 153
+  },
+  {
+    "code": "eu",
+    "name": "유럽(EU)",
+    "english": "European Union",
+    "iso": "EU",
+    "currency": "EUR",
+    "x": 454,
+    "y": 187
+  },
+  {
+    "code": "uae",
+    "name": "UAE",
+    "english": "United Arab Emirates",
+    "iso": "AE",
+    "currency": "AED",
+    "x": 540,
+    "y": 287
+  },
+  {
+    "code": "us",
+    "name": "미국",
+    "english": "United States",
+    "iso": "US",
+    "currency": "USD",
+    "x": 177,
+    "y": 234
+  },
+  {
+    "code": "jp",
+    "name": "일본",
+    "english": "Japan",
+    "iso": "JP",
+    "currency": "JPY",
+    "x": 766,
+    "y": 262
+  },
+  {
+    "code": "cn",
+    "name": "중국",
+    "english": "China",
+    "iso": "CN",
+    "currency": "CNY",
+    "x": 669,
+    "y": 257
+  },
+  {
+    "code": "asean",
+    "name": "ASEAN",
+    "english": "ASEAN",
+    "iso": "ASEAN",
+    "currency": "USD",
+    "x": 655,
+    "y": 350
+  }
+]

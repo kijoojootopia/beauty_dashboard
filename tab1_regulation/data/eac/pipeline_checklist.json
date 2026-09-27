@@ -1,0 +1,65 @@
+[
+  {
+    "stage_step": 1,
+    "task_id": "EAEU_INGREDIENT_SCREENING",
+    "task_name": "원료 성분 사전 스크리닝 (구역 1 연동)",
+    "required_doc": "전성분표(INCI·CAS 번호), 완제품 내 성분 함량 자료, 부속서 1~5 대조 결과 및 농도·합산·사용 조건 검토 기록. 구역 1 CSV는 기본 원문 기준이며 최신 개정 미반영; CAS 검색만으로 이 단계를 완료 처리하지 않음.",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=16"
+  },
+  {
+    "stage_step": 2,
+    "task_id": "EAEU_PRODUCT_CLASSIFICATION",
+    "task_name": "제품 분류 및 적합성 평가 경로 결정",
+    "required_doc": "제품 설명서(용도·사용 부위·대상 연령), 부속서 12 해당 여부 검토 기록, 적합성 선언 또는 국가등록(SGR) 경로 선택 기록. 부속서 12 대상은 SGR, 그 외 규정 적용 화장품은 적합성 선언 경로로 구분.",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=257"
+  },
+  {
+    "stage_step": 3,
+    "task_id": "EAEU_LOCAL_APPLICANT",
+    "task_name": "EAEU 현지 신청 주체 확보",
+    "required_doc": "현지 신청자의 사업자 등록·자격 확인 자료, 수입 계약 또는 제조자 대리 권한을 확인하는 계약·위임 자료(신청 주체에 따라 해당 자료 준비).",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=12"
+  },
+  {
+    "stage_step": 4,
+    "task_id": "EAEU_SAFETY_TECHNICAL_DOCUMENTS",
+    "task_name": "안전성 시험 및 기술자료 준비",
+    "required_doc": "제품별 적용 시험항목 검토표, 해당 안전성 시험성적서, 제조관리 적합성 증빙, 표시한 효능의 입증 자료(해당 시). 시험 범위와 제출서류는 제품 및 평가 경로에 따라 확정.",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=12"
+  },
+  {
+    "stage_step": 5,
+    "task_id": "EAEU_LABEL_PACKAGING_REVIEW",
+    "task_name": "라벨·포장 및 표시 문구 검토",
+    "required_doc": "제품 라벨·포장 시안, 판매국 언어에 맞춘 표시 문구, 사용법·주의사항, 필수 표시사항 및 효능 표현 검토 기록.",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=10"
+  },
+  {
+    "stage_step": 6,
+    "task_id": "EAEU_DECLARATION_OR_SGR",
+    "task_name": "적합성 선언 등록 또는 국가등록(SGR) 취득",
+    "required_doc": "Step 2에서 선택한 경로의 신청·제출서류, 시험성적서, 라벨 자료, 신청자 자료 및 필요한 번역본; 완료 증빙은 등록된 적합성 선언 또는 SGR 증서 중 해당 문서. 두 경로를 모두 수행하는 단계가 아님.",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=12"
+  },
+  {
+    "stage_step": 7,
+    "task_id": "EAEU_EAC_RELEASE_MONITORING",
+    "task_name": "EAC 표시·출시 준비 및 사후 관리",
+    "required_doc": "EAC 표시를 반영한 최종 라벨·포장, 해당 적합성 문서. 실무 관리 자료: 제품·등록자료 일치 확인 기록, 판매국별 추가 요건·출고 검토 기록, 변경·불만·회수 대응 담당자 및 절차. 링크는 기본 원문의 EAC 표시 근거이며 국가별 추가 절차 전체를 포함하지 않음.",
+    "estimated_days": null,
+    "is_mandatory": true,
+    "guide_url": "https://eec.eaeunion.org/upload/medialibrary/3ee/TR-TS-Parfum.pdf#page=14"
+  }
+]

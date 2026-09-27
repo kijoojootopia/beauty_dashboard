@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.venv/
+junior/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+uploads/*
+!uploads/.gitkeep
+instance/*
+!instance/.gitkeep
+*.sqlite3
+*.db
+*.log
+.DS_Store
