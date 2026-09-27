@@ -10,11 +10,21 @@ def xml(rows,total=None):
     return (data+'</items>'+('' if total is None else f'<totalCount>{total}</totalCount>')+'</body></response>').encode()
 
 
-def test_export_annual_ignores_summary_and_validates_completeness(app,monkeypatch):
-    rows=[{'hsCd':'3304','year':f'2025.{i:02}','expDlr':'100'} for i in range(1,13)]
-    rows.append({'hsCd':'3304','year':'총계','expDlr':'1200'})
+@pytest.fixture
+def export_app(tmp_path):
+    from flask import Flask
+    app=Flask(__name__)
+    app.config.update(TESTING=True,API_CACHE_DIR=tmp_path/'cache',DATABASE=str(tmp_path/'unused.sqlite3'))
+    return app
+
+
+def test_export_annual_ignores_summary_and_validates_completeness(monkeypatch):
+    rows=[{'hsCode':code,'year':f'2025.{i:02}','expDlr':'100'}
+          for i in range(1,13) for code in ['3304101000','3304109000']]
+    rows.append({'hsCode':'-','year':'총계','expDlr':'2400'})
     monkeypatch.setattr(exports,'request_bytes',lambda *a,**kw:xml(rows))
-    assert exports.annual_total(2025,['3304'],'test-only')==1200
+    assert exports.annual_total(2025,['3304'],'test-only')==2400
+    assert exports.annual_total(2025,['330410'],'test-only')==2400
     monkeypatch.setattr(exports,'request_bytes',lambda *a,**kw:xml(rows[:10]))
     assert exports.annual_total(2025,['3304'],'test-only') is None
     monkeypatch.setattr(exports,'request_bytes',lambda *a,**kw:xml(rows[:2],99))
@@ -99,23 +109,64 @@ def test_live_errors_are_visible_without_zero(app,client,monkeypatch):
     assert '인증키' in client.get('/api/exports/fragment').text
 
 
-def test_export_country_ranking_covers_global_countries_once(app,monkeypatch):
+def test_export_country_ranking_covers_global_countries_once(export_app,monkeypatch):
     calls=[]
     def response(url,params):
         assert url==exports.COUNTRY_URL and params['cntyCd']
         iso=params['cntyCd'];calls.append(iso)
         values={'US':100,'DE':60,'VN':30,'TH':10}
         if iso not in values:return xml([])
-        return xml([{'statCd':iso,'hsCd':'3304','year':'2025','expDlr':values[iso]},
-                    {'statCd':iso,'hsCd':'3304','year':'총계','expDlr':values[iso]}])
+        return xml([{'statCd':iso,'hsCd':'330410','year':'2025.02','expDlr':values[iso]/2},
+                    {'statCd':iso,'hsCd':'330420','year':'2025.02','expDlr':values[iso]/2},
+                    {'statCd':'-','hsCd':'-','year':'총계','expDlr':values[iso]}])
     monkeypatch.setattr(exports,'request_bytes',response)
-    with app.app_context():
+    with export_app.app_context():
         rows=exports.rankings(2025,['3304'],'test-country-key')
         assert [row['country'] for row in rows]==['US','DE','VN','TH']
         assert sum(row['value'] for row in rows)==200
         assert len(calls)>200 and len(calls)==len(set(calls)) and 'EU' not in calls
         exports.rankings(2025,['3304'],'test-country-key')
         assert len(calls)==len(set(calls))  # 국가별 캐시 재사용
+
+
+def test_export_rejects_duplicate_wrong_country_and_inconsistent_summary():
+    row={'statCd':'AD','hsCd':'330410','year':'2025.02','expDlr':'10'}
+    summary={'statCd':'-','hsCd':'-','year':'총계','expDlr':'10'}
+    assert exports.export_amount([row,summary],2025,'3304','AD')==10
+    assert exports.export_amount([],2025,'3304','AD') is None
+    assert exports.export_amount([{**summary,'expDlr':'0'}],2025,'3304','AD')==0
+    for rows in ([row,row,summary], [row,summary,summary],
+                 [{**row,'statCd':'US'},summary], [row,{**summary,'expDlr':'11'}], [row]):
+        with pytest.raises(IntegrationError): exports.export_amount(rows,2025,'3304','AD')
+
+
+def test_export_overview_real_shape_and_home_fragments(export_app,monkeypatch):
+    from pathlib import Path
+    from jinja2 import FileSystemLoader
+    from tab3_market.routes import bp
+    export_app.config.update(CUSTOMS_API_KEY='synthetic-only',TRADE_END_YEAR='2025',TRADE_YEARS='2',
+                             COSMETICS_HS_CODES='3304',MARKET_DATA_ROOT=Path(export_app.config['DATABASE']).parent/'missing-data')
+    export_app.jinja_loader=FileSystemLoader(str(Path(__file__).parents[2]/'platform_core/templates'))
+    export_app.jinja_env.filters.update(number=lambda v:'—' if v is None else f'{v:,.1f}',
+                                       compact_number=lambda v:'—' if v is None else f'{v:,.0f}')
+    export_app.register_blueprint(bp)
+    def response(url,params):
+        year=int(params['strtYymm'][:4]);value=100 if year==2024 else 200
+        if url==exports.TOTAL_URL:
+            return xml([{'hsCode':'3304101000','year':f'{year}.{m:02}','expDlr':value} for m in range(1,13)]
+                       +[{'hsCode':'-','year':'총계','expDlr':value*12}])
+        if params['cntyCd']!='US': return xml([])
+        return xml([{'statCd':'US','hsCd':'330410','year':'2025.02','expDlr':'2400'},
+                    {'statCd':'-','hsCd':'-','year':'총계','expDlr':'2400'}])
+    monkeypatch.setattr(exports,'request_bytes',response)
+    client=export_app.test_client()
+    result=client.get('/api/exports/overview').json
+    assert result['state']==result['ranking_state']=='ready'
+    assert result['total_exports']==2400 and result['growth']==100
+    assert result['rankings'][0]['country']=='US'
+    assert '2,400' in client.get('/api/exports/fragment').text
+    assert '2,400' in client.get('/api/exports/rank-card').text
+    assert '2,400' in client.get('/api/exports/rankings-fragment').text
 
 
 def test_cache_retains_korean_text(app,tmp_path):
