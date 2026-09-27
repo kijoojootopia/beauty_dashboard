@@ -56,9 +56,18 @@ def test_unidentified_rules_do_not_break_loader(app,rules):
 
 def test_natural_conditions_null_and_scope_need_review():
     base={"inci_name":"TEST","product_type_scope":"ALL","max_concentration":1}
-    for rule in [{**base,"conditions":"예외 성분·합계량 조건"},{**base,"max_concentration":None},{**base,"product_type_scope":"원문 서술 범위"},{**base,"limit_basis":"group_total"}]:
+    assert screen_rows([{"inci_name":"TEST","concentration":0.5}],[],[{**base,"conditions":"사용 조건은 상세 참조"}])[0]["result"]=="적합"
+    assert screen_rows([{"inci_name":"TEST","concentration":1.5}],[],[{**base,"conditions":"사용 조건은 상세 참조"}])[0]["result"]=="부적합"
+    assert screen_rows([{"inci_name":"TEST","concentration":0.5}],[],[{**base,"product_type_scope":"원문 서술 범위"}])[0]["result"]=="적합"
+    for rule in [{**base,"max_concentration":None},{**base,"limit_basis":"group_total"}]:
         assert screen_rows([{"inci_name":"TEST","concentration":0.5}],[],[rule])[0]["result"]=="확인 필요"
-    assert screen_rows([{"inci_name":"TEST"}],[{**base,"conditions":"특정 예외 존재"}],[])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"TEST"}],[{**base,"conditions":"특정 예외 존재"}],[])[0]["result"]=="부적합"
+
+def test_multiple_registered_limits_use_only_certain_outcomes():
+    rule={"inci_name":"TEST","product_type_scope":"ALL","max_concentration":"0.5% for face; 2% for hair"}
+    assert screen_rows([{"inci_name":"TEST","concentration":0.4}],[],[rule])[0]["result"]=="적합"
+    assert screen_rows([{"inci_name":"TEST","concentration":1}],[],[rule])[0]["result"]=="확인 필요"
+    assert screen_rows([{"inci_name":"TEST","concentration":3}],[],[rule])[0]["result"]=="부적합"
 
 def test_duplicate_ingredients_cannot_bypass_limit():
     rule={"inci_name":"TEST","product_type_scope":"ALL","max_concentration":1}

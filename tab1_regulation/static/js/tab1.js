@@ -7,6 +7,11 @@ if(screeningExportUrl){
 const rows=document.getElementById('ingredient-rows');
 const add=document.getElementById('add-ingredient');
 if(add&&rows){add.addEventListener('click',()=>{if(rows.children.length>=500)return;const row=rows.querySelector('.ingredient-row').cloneNode(true);row.querySelectorAll('input').forEach(i=>i.value='');rows.append(row);row.querySelector('input').focus();});rows.addEventListener('click',event=>{const button=event.target.closest('.remove-row');if(!button)return;if(rows.children.length===1){button.parentElement.querySelectorAll('input').forEach(i=>i.value='');}else button.parentElement.remove();});}
+document.querySelectorAll('[data-select-csv]').forEach(button=>{
+ const form=button.closest('form'),upload=form.querySelector('[name=ingredients_csv]'),filename=form.querySelector('[data-csv-filename]');
+ button.addEventListener('click',()=>upload.click());
+ upload.addEventListener('change',()=>{filename.textContent=upload.files[0]?.name||'선택된 파일 없음';});
+});
 function applyRoadmapState(taskForm,isDone){
   taskForm.querySelector('[name=completed]').value=isDone?'0':'1';
   const control=taskForm.querySelector('button');
@@ -110,7 +115,7 @@ document.querySelectorAll('[data-preview-csv]').forEach(button=>{
    data.ingredients.slice(0,12).forEach(row=>{const tr=document.createElement('tr');[row.inci_name,row.cas_no,row.concentration===null?'미입력':row.concentration+'%'].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td);});tbody.append(tr);});table.append(tbody);preview.append(table);
    if(data.ingredients.length){const apply=document.createElement('button');apply.type='button';apply.className='button subtle small';apply.textContent=`확인한 ${data.ingredients.length}개 성분을 입력칸에 적용`;apply.addEventListener('click',()=>{
     if(!current){status.textContent='열 설정을 바꿨으니 미리보기를 다시 실행해 주세요.';return;}
-    const template=rows.querySelector('.ingredient-row').cloneNode(true);rows.replaceChildren();current.ingredients.forEach(item=>{const row=template.cloneNode(true);row.querySelector('[name=inci_name]').value=item.inci_name;row.querySelector('[name=cas_no]').value=item.cas_no;row.querySelector('[name=concentration]').value=item.concentration??'';rows.append(row);});upload.value='';form.querySelector('[name=ingredients_text]').value='';preview.replaceChildren();status.textContent='입력칸에 반영했습니다. 값을 확인한 뒤 저장하고 분석하기를 눌러 주세요.';current=null;
+    const template=rows.querySelector('.ingredient-row').cloneNode(true);rows.replaceChildren();current.ingredients.forEach(item=>{const row=template.cloneNode(true);row.querySelector('[name=inci_name]').value=item.inci_name;row.querySelector('[name=cas_no]').value=item.cas_no;row.querySelector('[name=concentration]').value=item.concentration??'';rows.append(row);});upload.value='';form.querySelector('[data-csv-filename]').textContent='선택된 파일 없음';form.querySelector('[name=ingredients_text]').value='';preview.replaceChildren();status.textContent='입력칸에 반영했습니다. 값을 확인한 뒤 저장하고 분석하기를 눌러 주세요.';current=null;
    });preview.append(apply);}
    status.textContent=data.message||`${data.ingredients.length}개 성분을 인식했습니다. 원본과 비교해 확인해 주세요.`;
   }catch(error){status.textContent=error.message;}finally{button.disabled=false;}

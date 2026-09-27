@@ -21,40 +21,48 @@ def rule_names(rule):
     return {norm(v) for v in [rule.get("inci_name"),rule.get("kr_name"),*(rule.get("aliases") or []),*(rule.get("synonyms") or [])] if v}
 
 def scope_applies(rule,scope):
-    if rule.get("product_type_scope")=="ALL":
+    if norm(rule.get("product_type_scope")) in {"all","all cosmetic products","cosmetic products","general"}:
         return True
     scopes=rule.get("applicable_product_scopes")
     if isinstance(scopes,list) and scopes and scope:
         return scope in scopes
     return None
 
+def registered_limits(value):
+    """Return the distinct percentage limits that can be read without guessing."""
+    if value is None:
+        return []
+    try:
+        parsed=percentage(value)
+        return [] if parsed is None else [parsed]
+    except ValueError:
+        text=unicodedata.normalize("NFKC",str(value))
+        values=[]
+        for token in re.findall(r"(?<![\d.])(\d+(?:[.,]\d+)?)\s*%",text):
+            number=float(token.replace(",","."))
+            if 0 <= number <= 100 and number not in values:
+                values.append(number)
+        return sorted(values)
+
 def evaluate_rule(row,rule,prohibited,scope):
     applies=scope_applies(rule,scope)
     if applies is False:
         return None
-    if applies is None:
-        return "확인 필요","제품 범위·용도 확인 필요"
-    if re.search(r"\b(except|other than|total|salts|derivatives)\b",rule.get("inci_name",""),re.I):
-        return "확인 필요","성분군·예외·합계량 원문 확인 필요"
-    # 공통 면책 문구를 특정 조건으로 혼동하지 않되 원본 일본 금지 규칙도 보수적으로 처리.
-    conditions=rule.get("conditions") or rule.get("conditions_kr")
-    if conditions and rule.get("conditions_verified") is not True:
-        return "확인 필요","서술형 조건을 검토해야 합니다. 원문과 적용 범위를 확인해 주세요."
     if prohibited:
-        return "부적합","등록된 적용 범위의 금지 규칙에 해당"
-    if rule.get("max_concentration") is None:
-        return "확인 필요","숫자 한도 미등록 · 원문 확인 필요"
+        return "부적합","금지 성분 목록에 일치"
     if rule.get("limit_basis") not in {None,"individual_percent"}:
         return "확인 필요","합계량 또는 단위 환산 검토 필요"
+    limits=registered_limits(rule.get("max_concentration"))
+    if not limits:
+        return "확인 필요","숫자 한도 미등록 · 원문 확인 필요"
     if row["concentration"] is None:
         return "확인 필요","최종 제품 내 배합량(%) 입력 필요"
-    try:
-        cap=percentage(rule["max_concentration"])
-    except ValueError:
-        return "확인 필요","한도 값 형식 확인 필요"
-    if row["concentration"]>cap:
-        return "부적합",f"등록 한도 {cap:g}% 초과"
-    return "적합",f"등록 한도 {cap:g}% 이내"
+    minimum,maximum=limits[0],limits[-1]
+    if row["concentration"]>maximum:
+        return "부적합",f"등록 한도 {maximum:g}% 초과"
+    if row["concentration"]<=minimum:
+        return "적합",f"등록 한도 {minimum:g}% 이내"
+    return "확인 필요",f"용도별 등록 한도 {minimum:g}~{maximum:g}% 중 적용값 확인 필요"
 
 def screen_rows(ingredients,prohibited,restricted,product_scope=None):
     results=[]
