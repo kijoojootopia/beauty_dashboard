@@ -11,6 +11,9 @@
 | `analyses_for(user_id, product_id)` | 최신순 분석 이력 |
 | `tasks_for` / `save_task` | 제품별 단계·문서 상태 |
 | `notes_for` / `save_notes` | 제품 메모 목록 조회 / 새 메모 추가·저장 행 반환 |
+| `update_note(user_id, product_id, note_id, notes)` | 소유권·메모 소속 확인 후 수정된 행 반환, 생성 시각 유지 |
+| `delete_note(user_id, product_id, note_id)` | 소유권·메모 소속 확인 후 삭제, 반환값 없음 |
+| `delete_product(user_id, product_id)` | 소유권 확인 후 메모·체크 기록·분석 이력·제품을 한 트랜잭션으로 삭제, 반환값 없음 |
 | `delete_project` | 소유권 확인 후 프로젝트와 연결 자료 트랜잭션 삭제 |
 | `save_bookmark` / `bookmarks_for` | 프로젝트 관심 정보 |
 | `copy_project` | 다른 국가의 새 프로젝트에 제품 입력만 복사 |
@@ -24,6 +27,12 @@ Tab 1은 입력 파싱·판정 후 공통 저장 함수를 호출합니다. Tab 
 
 
 ## API·권역 연결
+
+메모 수정은 `POST /products/<product_id>/notes/<note_id>/update`에 기존 저장과 같은 폼 필드 `notes`를 보냅니다. 삭제는 `POST /products/<product_id>/notes/<note_id>/delete`입니다. 두 경로 모두 로그인과 CSRF 토큰이 필요합니다. 소유하지 않은 제품, 없는 메모, 제품과 맞지 않는 메모는 404입니다.
+
+`Accept: application/json`이면 수정 성공은 `{"note": 수정된 메모 행}`, 삭제 성공은 `{"deleted": note_id}`를 반환합니다. 수정 내용은 공백 제거 후 1~5,000자이며 검증 실패는 `{"message": 오류 문구}`와 400입니다. 일반 폼 요청은 안내 메시지 후 해당 제품의 `#product-notes`로 이동합니다.
+
+Tab 1 담당자는 제품 삭제 POST 경로에서 인증된 사용자 ID로 `delete_product`를 호출하고, 삭제된 제품을 선택하지 않도록 프로젝트 화면으로 이동합니다. 삭제 버튼·확인창과 Tab 1 경로 연결은 Tab 1 담당 범위입니다. 다른 제품·프로젝트·프로젝트 관심 정보는 보존되며, 삭제 도중 오류가 나면 전체 삭제가 롤백됩니다.
 
 `workspace_context`가 프로젝트/쿼리의 `member_state`, `member_options`, `destination`과 `g.destination_member`를 설정합니다. ASEAN은 공통 규제와 목적국별 통계·관세를 구분합니다. `country_service.destination(country, member_state)`는 권역에 속하지 않는 목적국을 거부합니다.
 

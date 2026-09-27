@@ -100,6 +100,34 @@ def save_notes(user_id, product_id, notes):
         db.execute("INSERT INTO product_notes VALUES(?,?,?,?)",tuple(note.values()))
     return note
 
+def update_note(user_id, product_id, note_id, notes):
+    product_for(user_id, product_id)
+    with get_db() as db:
+        note=db.execute("SELECT * FROM product_notes WHERE id=? AND product_id=?",(note_id,product_id)).fetchone()
+        if note is None:
+            abort(404)
+        notes=notes.strip()
+        if not notes or len(notes)>5000:
+            raise ValueError("메모는 1~5,000자로 입력해 주세요.")
+        db.execute("UPDATE product_notes SET content=? WHERE id=? AND product_id=?",(notes,note_id,product_id))
+    return {**dict(note),"content":notes}
+
+
+def delete_note(user_id, product_id, note_id):
+    product_for(user_id, product_id)
+    with get_db() as db:
+        if db.execute("DELETE FROM product_notes WHERE id=? AND product_id=?",(note_id,product_id)).rowcount!=1:
+            abort(404)
+
+
+def delete_product(user_id, product_id):
+    with get_db() as db:
+        product_for(user_id, product_id)
+        for table in ("product_notes","task_states","analyses"):
+            db.execute(f"DELETE FROM {table} WHERE product_id=?",(product_id,))
+        db.execute("DELETE FROM products WHERE id=?",(product_id,))
+
+
 def delete_project(user_id, project_id):
     project_for(user_id, project_id)
     with get_db() as db:
