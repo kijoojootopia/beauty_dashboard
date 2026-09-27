@@ -70,6 +70,24 @@ def test_distributor_json_errors_and_missing_members(app):
         assert candidates("jp", None)["state"] == "data_error"
 
 
+def test_eu_distributors_follow_selected_member(app):
+    root = app.config["MARKET_DATA_ROOT"] / "eu"
+    def row(name):
+        return {"name": name, "source_url": "https://example.test/distributor",
+                "verified_at": "2026-01-01", "product_types": ["스킨케어"],
+                "channels": [], "brands": []}
+
+    write_json(root / "FR" / "distributors.json", {"state": "ready", "data": [row("Synthetic France Distributor")]})
+    write_json(root / "DE" / "distributors.json", {"state": "ready", "data": [row("Synthetic Germany Distributor")]})
+    with app.app_context():
+        for live in (False, True):
+            france = candidates("eu", None, "FR", live=live)
+            germany = candidates("eu", None, "DE", live=live)
+            assert [item["name"] for item in france["items"]] == ["Synthetic France Distributor"]
+            assert [item["name"] for item in germany["items"]] == ["Synthetic Germany Distributor"]
+        assert candidates("eu", None, "ES")["state"] == "data_pending"
+
+
 @pytest.mark.parametrize("section", ["distributors", "news"])
 @pytest.mark.parametrize("country,member", [("jp", ""), ("eu", "FR")])
 def test_bookmark_fragment_returns_to_market(monkeypatch, section, country, member):

@@ -11,12 +11,8 @@ def candidates(country, product, member_state="", live=True):
 
     root = Path(current_app.config["MARKET_DATA_ROOT"])
     path = root / country / "distributors.json"
-    if country == "asean":
+    if country in {"asean", "eu"}:
         path = root / country / member_state / "distributors.json"
-    elif country == "eu" and member_state:
-        specific = root / country / member_state / "distributors.json"
-        if specific.exists():
-            path = specific
     data = read_file(path, expected=dict)
     if data["state"] != "ready":
         return {"state": data["state"], "items": [], "message": data["message"]}

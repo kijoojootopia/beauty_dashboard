@@ -1,0 +1,36 @@
+{
+  "state": "ready",
+  "message": "북유럽 및 발트 3국 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Lyko (뤼코)",
+      "type": "Omnichannel Beauty Retailer",
+      "description": "스웨덴 기반 북유럽 1위 뷰티 전문 옴니채널 리테일러 및 직수입사",
+      "product_types": ["스킨케어", "비건뷰티", "선케어", "헤어케어"],
+      "channels": ["Lyko Omnichannel Stores", "Lyko Online"],
+      "brands": ["코스알엑스", "조선미녀", "달바"],
+      "source_url": "https://lyko.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Kicks (킥스)",
+      "type": "Beauty Chain",
+      "description": "스웨덴, 노르웨이, 핀란드 전역에 수백 개 매장을 둔 대표 뷰티 체인",
+      "product_types": ["스킨케어", "색조메이크업", "클렌징"],
+      "channels": ["Kicks Stores Across Sweden/Norway/Finland"],
+      "brands": ["클리니크", "어반디케이", "한국 인디 브랜드"],
+      "source_url": "https://kicks.se/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Madara Cosmetics B2B",
+      "type": "Clean Beauty Network",
+      "description": "라트비아·에스토니아·리투아니아 유통망 및 북유럽 클린뷰티 공급 네트워크",
+      "product_types": ["유기농 화장품", "클린뷰티 스킨케어"],
+      "channels": ["Baltic Retailers", "Organic Concept Shops"],
+      "brands": ["Madara Organic", "Nordic Eco Brands"],
+      "source_url": "https://madaracosmetics.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "state": "ready",
+  "message": "남유럽(스페인, 이탈리아 등) 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "MiiN Cosmetics",
+      "type": "K-Beauty Master Distributor",
+      "description": "스페인 바르셀로나 본사 기반으로 남유럽 전역 백화점/로드숍에 K-뷰티를 유통하는 최대 총판",
+      "product_types": ["스킨케어", "선케어", "클렌징밤", "마스크팩"],
+      "channels": ["MiiN Boutiques in Madrid/Barcelona/Milan", "El Corte Ingles"],
+      "brands": ["클레어스", "벤튼", "코스알엑스", "아로마티카"],
+      "source_url": "https://miin-cosmetics.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "K-Style (이탈리아)",
+      "type": "B2B Wholesale & Pharmacy Distributor",
+      "description": "이탈리아 밀라노 거점 K-뷰티 B2B 도매 및 약국·편집숍 전문 유통사",
+      "product_types": ["스킨케어", "더마코스메틱", "세럼"],
+      "channels": ["Italian Pharmacies", "Specialty Beauty Stores"],
+      "brands": ["아누아", "스킨1004", "조선미녀"],
+      "source_url": "https://k-style.it/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Primor (프리모르)",
+      "type": "Mass Beauty Drugstore",
+      "description": "스페인과 포르투갈 전역에 수백 개 매장을 둔 대형 가성비 뷰티 드럭스토어",
+      "product_types": ["스킨케어", "매스 메이크업", "바디케어"],
+      "channels": ["Primor Drugstores across Spain & Portugal"],
+      "brands": ["메이블린", "가르니에", "한국 가성비 기초 라인"],
+      "source_url": "https://www.primor.eu/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

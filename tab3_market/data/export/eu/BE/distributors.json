@@ -1,0 +1,36 @@
+{
+  "state": "ready",
+  "message": "서유럽(독일, 프랑스 등) 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Douglas (더글라스)",
+      "type": "Premium Beauty Retailer",
+      "description": "독일 본사 기반 유럽 전역 2,000개 이상의 매장을 보유한 프리미엄 뷰티 유통사",
+      "product_types": ["스킨케어", "선케어", "프리미엄 뷰티"],
+      "channels": ["Douglas Stores Europe", "Douglas Online"],
+      "brands": ["닥터자르트", "조선미녀", "에스티로더"],
+      "source_url": "https://www.douglas.de/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Cosmetique Totale",
+      "type": "Cosmeceutical Distributor",
+      "description": "네덜란드/벨기에/프랑스 거점의 코스메슈티컬 전문 유통사",
+      "product_types": ["더마코스메틱", "에스테틱 스킨케어", "클렌징"],
+      "channels": ["Cosmetique Totale Clinics", "B2B Pro Channels"],
+      "brands": ["Dermaceutic", "Skin Tech", "K-Derma Brands"],
+      "source_url": "https://cosmetique-totale.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Marionnaud (마리오노)",
+      "type": "Luxury Beauty Select Chain",
+      "description": "프랑스·오스트리아·스위스를 중심으로 전개되는 럭셔리 뷰티 셀렉트 체인",
+      "product_types": ["스킨케어", "향수", "럭셔리 메이크업"],
+      "channels": ["Marionnaud Boutiques across France/Austria"],
+      "brands": ["클라랑스", "시슬리", "한국 하이엔드 뷰티"],
+      "source_url": "https://www.marionnaud.fr/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}
