@@ -1,4 +1,4 @@
-from flask import Blueprint, abort, flash, g, redirect, render_template, request, url_for
+from flask import Blueprint, abort, flash, g, redirect, render_template, request, send_file, url_for
 from platform_core.services.auth_service import login_required
 from platform_core.services.workspace_service import workspace_context
 from platform_core.services import project_service as store
@@ -7,6 +7,7 @@ from .services.screening_service import analyze
 from .services.regulation_loader import load_regulations
 from .services.roadmap_service import apply_legacy_document_states, completed_task_ids, load_roadmap
 from .services.regulation_feed import load_feed
+from .services.screening_export import make_xlsx, screening_rows
 
 bp=Blueprint("tab1_regulation",__name__,template_folder="templates",static_folder="static",static_url_path="/regulation-assets")
 PRODUCT_TYPES={"leave_on":"스킨케어 · 씻어내지 않음","rinse_off":"클렌저 · 씻어냄","lip":"립 제품","eye":"눈 주위 제품","sunscreen":"선케어","other":"기타 · 범위 확인 필요"}
@@ -38,6 +39,16 @@ def index(country):
     return render_template("tab1_regulation/index.html",**ctx,tab="regulation",cards=cards,editing=editing,
         product_types=PRODUCT_TYPES,roadmap=roadmap,task_states=task_states,completed_stages=completed_stages,
         notes=store.notes_for(g.user["id"],selected["id"]) if selected else [],dataset=load_regulations(country),feed=load_feed(country,selected),summary=market_summary(country,ctx["member_state"],live=False))
+
+@bp.get("/projects/<project_id>/screening.xlsx")
+@login_required
+def export_screening(project_id):
+    from platform_core.services.country_service import get_country
+    project=store.project_for(g.user["id"],project_id)
+    rows=screening_rows(get_country(project["country"])["name"],store.products_for(g.user["id"],project_id),
+                        lambda product_id: store.analyses_for(g.user["id"],product_id))
+    return send_file(make_xlsx(rows),mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                     as_attachment=True,download_name=f"screening-{project_id[:8]}.xlsx")
 
 @bp.post("/projects/<project_id>/products/analyze")
 @login_required

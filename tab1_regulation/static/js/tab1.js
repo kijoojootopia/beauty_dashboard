@@ -1,4 +1,9 @@
 'use strict';
+const screeningExportUrl=document.querySelector('[data-screening-export-url]')?.dataset.screeningExportUrl;
+if(screeningExportUrl){
+ const link=document.querySelector('.workspace-heading .heading-actions a');
+ if(link){link.href=screeningExportUrl;link.lastChild.textContent=' 스크리닝 엑셀';}
+}
 const rows=document.getElementById('ingredient-rows');
 const add=document.getElementById('add-ingredient');
 if(add&&rows){add.addEventListener('click',()=>{if(rows.children.length>=500)return;const row=rows.querySelector('.ingredient-row').cloneNode(true);row.querySelectorAll('input').forEach(i=>i.value='');rows.append(row);row.querySelector('input').focus();});rows.addEventListener('click',event=>{const button=event.target.closest('.remove-row');if(!button)return;if(rows.children.length===1){button.parentElement.querySelectorAll('input').forEach(i=>i.value='');}else button.parentElement.remove();});}

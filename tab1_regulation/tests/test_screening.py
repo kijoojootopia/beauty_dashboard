@@ -134,3 +134,35 @@ def test_product_delete_and_note_controls(app,client,owned):
         assert get_db().execute("SELECT count(*) FROM products WHERE id=?",(product_id,)).fetchone()[0]==0
         assert get_db().execute("SELECT count(*) FROM product_notes WHERE product_id=?",(product_id,)).fetchone()[0]==0
         assert get_db().execute("SELECT count(*) FROM projects WHERE id=?",(project_id,)).fetchone()[0]==1
+
+
+def test_screening_export_downloads_excel_columns(client,owned):
+    from io import BytesIO
+    from xml.etree import ElementTree as ET
+    from zipfile import ZipFile
+
+    project_id,product_id=owned
+    response=client.get(f"/projects/{project_id}/screening.xlsx")
+    assert response.status_code==200
+    assert response.mimetype=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    assert ".xlsx" in response.headers["Content-Disposition"]
+    with ZipFile(BytesIO(response.data)) as workbook:
+        sheet=ET.fromstring(workbook.read("xl/worksheets/sheet1.xml"))
+    namespace={"x":"http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    values=[]
+    for row in sheet.findall(".//x:sheetData/x:row",namespace):
+        cells=[]
+        for cell in row.findall("x:c",namespace):
+            value=cell.find("x:is/x:t",namespace)
+            if value is None:
+                value=cell.find("x:v",namespace)
+            cells.append(value.text if value is not None else "")
+        values.append(cells)
+    assert values[0]==["제품명","국가·권역","분석일","성분명(INCI)","CAS 번호","배합량(%)","규제 유형","판정 결과","상세 조건"]
+    assert len(values)==2
+    assert values[1][0]=="테스트 크림"
+    assert values[1][3]=="Test Limited"
+    assert values[1][5]=="0.5"
+    assert values[1][7]=="적합"
+    page=client.get(f"/beauty/jp/regulation?project_id={project_id}&product_id={product_id}")
+    assert f'/projects/{project_id}/screening.xlsx'.encode() in page.data
