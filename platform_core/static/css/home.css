@@ -16,3 +16,155 @@
 
 @media(min-width:1101px){.globe-wrap{left:20%;right:23%;top:65px;bottom:65px}.stat-exports{width:205px}.stat-rank{max-height:280px}.stat-trend{bottom:50px}}
 @media(max-width:650px){.export-world{min-height:890px}.map-cards{top:350px;bottom:auto;grid-template-columns:repeat(2,minmax(0,1fr))}.map-cards .map-stat{min-height:150px}.map-cards .stat-rank,.map-cards .stat-trend{min-height:240px;max-height:300px}.map-cards .stat-exports strong{white-space:nowrap;font-size:23px}.map-cards .stat-unit{font-size:9px}.map-cards .stat-foot{font-size:9px}.map-cards .stat-rank b{white-space:nowrap;font-size:10px}}
+
+
+/* Interactive globe; the original SVG remains available if WebGL cannot load. */
+.globe-wrap {
+  z-index: 1;
+  display: block;
+}
+.globe-wrap > .world-map {
+  position: absolute;
+  inset: 0;
+}
+#export-globe {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.globe-wrap.is-ready #export-globe {
+  visibility: visible;
+  pointer-events: auto;
+}
+.globe-wrap.is-ready > .world-map {
+  display: none;
+}
+#export-globe canvas {
+  display: block;
+  cursor: grab;
+  touch-action: none;
+}
+#export-globe canvas:active {
+  cursor: grabbing;
+}
+#export-globe canvas:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: -3px;
+  border-radius: 16px;
+}
+.globe-marker-anchor {
+  pointer-events: none;
+}
+.globe-marker {
+  display: block;
+  transform: translate(0, 21px);
+  padding: 6px 12px;
+  border: 1px solid #dfd5f2;
+  border-radius: 999px;
+  background: #fffffff2;
+  box-shadow: 0 3px 10px #4d367216;
+  color: #665187;
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+a.globe-marker:hover,
+a.globe-marker:focus-visible {
+  border-color: var(--purple);
+  background: #eee7ff;
+}
+.globe-marker--kr {
+  transform: translate(0, -25px);
+  color: white;
+  border-color: #423565;
+  background: #423565;
+  pointer-events: none;
+}
+.globe-marker--jp {
+  transform: translate(22px, 18px);
+}
+.globe-marker--eu {
+  transform: translate(-12px, 25px);
+}
+.globe-marker--eac {
+  transform: translate(16px, -20px);
+}
+.globe-marker--cn {
+  transform: translate(-16px, 21px);
+}
+.globe-controls {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid #e3daef;
+  border-radius: 13px;
+  background: #fffffff0;
+  box-shadow: 0 4px 15px #4d36720a;
+  white-space: nowrap;
+}
+.globe-controls button {
+  min-width: 34px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background: transparent;
+  color: #665187;
+  font-size: 13px;
+}
+.globe-controls button:hover {
+  background: var(--lavender);
+}
+.map-bottom {
+  gap: 12px;
+  z-index: 2;
+}
+@media (max-width: 650px) {
+  .globe-wrap { left: 0; right: 0; }
+  .globe-controls { bottom: 0; }
+  .globe-controls button { min-height: 30px; }
+  .globe-marker { padding: 4px 8px; font-size: 10px; }
+  .map-cards { top: 370px; }
+  .export-world { min-height: 915px; }
+}
+
+/* Globe.GL 2.46.2 bundled styles, served locally for the existing CSP. */
+.scene-container .clickable {
+  cursor: pointer;
+}
+.float-tooltip-kap {
+  position: absolute;
+  width: max-content; /* prevent shrinking near right edge */
+  max-width: max(50%, 150px);
+  padding: 3px 5px;
+  border-radius: 3px;
+  font: 12px sans-serif;
+  color: #eee;
+  background: rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+
+.scene-nav-info {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+  color: slategrey;
+  opacity: 0.7;
+  font-size: 10px;
+  font-family: sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.scene-container canvas:focus {
+  outline: none;
+}
