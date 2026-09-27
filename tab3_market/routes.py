@@ -1,4 +1,5 @@
 from flask import Blueprint,abort,render_template
+from platform_core.routes import export_overview_context
 from platform_core.services.workspace_service import workspace_context
 from .services.market_service import market_summary,overview
 from .services.distributor_service import candidates
@@ -39,12 +40,12 @@ def live_section(country,section):
 
 @bp.get("/api/exports/fragment")
 def overview_fragment():
-    return render_template("platform_core/export_stats.html",overview=overview())
+    return render_template("platform_core/export_stats.html",**export_overview_context())
 
 @bp.get("/api/exports/rankings-fragment")
 def overview_rankings_fragment():
-    return render_template("platform_core/export_rankings.html",overview=overview(include_rankings=True))
+    return render_template("platform_core/export_rankings.html",**export_overview_context(include_rankings=True))
 
 @bp.get("/api/exports/rank-card")
 def overview_rank_card():
-    return render_template("platform_core/export_rank_card.html",overview=overview(include_rankings=True))
+    return render_template("platform_core/export_rank_card.html",**export_overview_context(include_rankings=True))

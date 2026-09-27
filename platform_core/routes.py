@@ -1,4 +1,5 @@
 import json
+from decimal import Decimal, ROUND_HALF_UP
 from flask import Blueprint, Response, abort, flash, g, redirect, render_template, request, session, url_for
 from .services.auth_service import register, authenticate, login_required, safe_next
 from .services.country_service import get_country
@@ -9,8 +10,40 @@ bp=Blueprint("platform_core",__name__,template_folder="templates",static_folder=
 @bp.get("/")
 @bp.get("/beauty")
 def home():
+    context=export_overview_context(live=False)
+    return render_template("platform_core/home.html",**context)
+
+def export_overview_context(live=True,include_rankings=False):
     from tab3_market.services.market_service import overview
-    return render_template("platform_core/home.html",overview=overview(live=False))
+    data=overview(live=live,include_rankings=include_rankings)
+    exchange=None
+    try:
+        from tab2_customs.services.customs_service import calculate_exchange
+        rate=calculate_exchange("1","USD","KRW")
+        exchange={"rate":Decimal(rate["rate"]),"as_of":rate["as_of"],"source":rate["source"]}
+    except (ValueError,KeyError,TypeError):
+        pass
+    for item in data.get("rankings",[]):
+        item["thousand_usd"]=item["value"]/1000
+        if exchange:
+            item["krw_label"]=_won_label(item["value"],exchange["rate"])
+    if exchange:
+        data["total_krw"]=_won_label(data.get("total_exports"),exchange["rate"])
+    return {"overview":data,"exchange":exchange}
+
+def _won_label(usd,rate):
+    if usd is None:
+        return None
+    won=(Decimal(str(usd))*rate).quantize(Decimal("1"),rounding=ROUND_HALF_UP)
+    trillion=Decimal("1000000000000")
+    eok=Decimal("100000000")
+    if won>=trillion:
+        whole=int(won//trillion)
+        remainder=int((won%trillion)//eok)
+        return f"{whole:,}조 {remainder:,}억 원" if remainder else f"{whole:,}조 원"
+    if won>=eok:
+        return f"{(won/eok).quantize(Decimal('0.1'),rounding=ROUND_HALF_UP):,}억 원"
+    return f"{(won/Decimal('10000')).quantize(Decimal('1'),rounding=ROUND_HALF_UP):,}만 원"
 
 @bp.route("/login",methods=["GET","POST"])
 def login():
