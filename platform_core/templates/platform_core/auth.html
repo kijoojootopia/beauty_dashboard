@@ -34,15 +34,20 @@
       {% endif %}
 
       <label>이메일
-        <input type="email" name="email" autocomplete="username" required maxlength="254" placeholder="you@brand.com" value="{{ request.form.get('email', '') }}">
+        <input type="email" name="email" autocomplete="username" required maxlength="254"
+               placeholder="you@brand.com" value="{{ request.form.get('email', '') }}">
       </label>
       <label>비밀번호
-        <input type="password" name="password" autocomplete="{{ 'new-password' if mode == 'signup' else 'current-password' }}" required minlength="{{ 10 if mode == 'signup' else 1 }}" maxlength="128" placeholder="{{ '10자 이상 입력해 주세요' if mode == 'signup' else '비밀번호를 입력해 주세요' }}">
+        <input type="password" name="password"
+               autocomplete="{{ 'new-password' if mode == 'signup' else 'current-password' }}"
+               required minlength="{{ 10 if mode == 'signup' else 1 }}" maxlength="128"
+               placeholder="{{ '10자 이상 입력해 주세요' if mode == 'signup' else '비밀번호를 입력해 주세요' }}">
       </label>
 
       {% if mode == 'signup' %}
       <label>비밀번호 확인
-        <input type="password" name="password_confirm" autocomplete="new-password" required minlength="10" maxlength="128">
+        <input type="password" name="password_confirm" autocomplete="new-password"
+               required minlength="10" maxlength="128">
       </label>
       {% endif %}
 
@@ -51,7 +56,9 @@
 
     <p class="auth-switch">
       {{ '이미 계정이 있나요?' if mode == 'signup' else '처음 방문하셨나요?' }}
-      <a href="{{ url_for('platform_core.login' if mode == 'signup' else 'platform_core.signup', next=next_url) }}">{{ '로그인' if mode == 'signup' else '회원가입' }}</a>
+      <a href="{{ url_for('platform_core.login' if mode == 'signup' else 'platform_core.signup', next=next_url) }}">
+        {{ '로그인' if mode == 'signup' else '회원가입' }}
+      </a>
     </p>
     <div class="note mini">이 계정은 실행 중인 이 앱에 저장됩니다. 첫 화면과 국가별 정보는 로그인 없이 둘러볼 수 있습니다.</div>
   </section>
