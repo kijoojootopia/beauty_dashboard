@@ -136,3 +136,26 @@ document.querySelectorAll('[data-feed-view]').forEach(button=>button.addEventLis
  const empty=panel.querySelector('[data-feed-empty]');
  if(empty)empty.hidden=cards.some(card=>!card.hidden);
 }));
+
+
+document.querySelectorAll('[data-market-summary-url]').forEach(async panel=>{
+ const status=panel.querySelector('[data-market-status]');
+ const format=value=>typeof value==='number'&&Number.isFinite(value)?value.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1}):'—';
+ panel.setAttribute('aria-busy','true');
+ try{
+  const response=await fetch(panel.dataset.marketSummaryUrl,{headers:{Accept:'application/json'}});
+  if(!response.ok||response.redirected)throw new Error('market request failed');
+  const data=await response.json();
+  if(!data||!['ready','data_pending','data_error'].includes(data.state))throw new Error('invalid market summary');
+  panel.querySelectorAll('[data-market-value]').forEach(el=>{el.textContent=format(data.state==='ready'?data[el.dataset.marketValue]:null);});
+  panel.querySelector('[data-market-unit]').textContent=data.state==='ready'?(data.latest?.unit||'단위 미확인'):'데이터 준비 중';
+  panel.querySelector('[data-market-source]').textContent=data.state==='ready'&&data.latest?[data.latest.period,data.latest.source].filter(Boolean).join(' · '):'';
+  status.textContent=data.state==='ready'?'':(data.message||'시장 통계 데이터 준비 중');
+  status.classList.toggle('error-text',data.state==='data_error');
+ }catch(error){
+  status.textContent='시장 통계를 갱신하지 못했습니다. 현재 표시는 기존 등록 데이터입니다.';
+  status.classList.add('error-text');
+ }finally{
+  panel.setAttribute('aria-busy','false');
+ }
+});
