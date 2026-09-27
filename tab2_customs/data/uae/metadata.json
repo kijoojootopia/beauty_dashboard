@@ -1,7 +1,8 @@
 {
-  "version": null,
-  "reviewed_at": null,
-  "source": null,
-  "source_url": null,
-  "last_collected_at": null
+  "version": "1.1",
+  "reviewed_at": "2026-09-27",
+  "source": "한국무역협회 (KITA)",
+  "source_url": "https://www.kita.net/",
+  "last_collected_at": "2026-09-27",
+  "complete_lists": true
 }

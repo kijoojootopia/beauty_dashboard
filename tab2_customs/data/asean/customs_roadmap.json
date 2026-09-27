@@ -1,1 +1,10 @@
-[]
+[{
+  "country_code": "ASEAN",
+  "country_name": "아세안 회원국",
+  "steps": [
+    { "step_order": 1, "title": "아세안 화장품 지침(ACD) 사전신고", "description": "수출국 보건당국에 제품 사전 통보(Notification) 및 제품정보파일(PIF)을 준비합니다.", "required_documents": ["ACD 등록 통지서", "전성분표"] },
+    { "step_order": 2, "title": "원산지증명서(Form AK / RCEP) 발급", "description": "FTA 0% 관세 혜택을 받기 위해 대한상공회의소 또는 관세청을 통해 원산지증명서를 발급받습니다.", "required_documents": ["Form AK 또는 RCEP 원산지증명서", "상업송장"] },
+    { "step_order": 3, "title": "현지 세관 수입신고 및 통관", "description": "수입국 세관에 신고하고 관세 감면 후 수입국 부가가치세(VAT)를 납부합니다.", "required_documents": ["수입신고필증"] },
+    { "step_order": 4, "title": "화장품 라벨링 및 시장 유통", "description": "ACD 규격에 맞는 라벨링 검수를 마치고 현지 유통을 시작합니다.", "required_documents": ["현지어 라벨 견본"] }
+  ]
+}]

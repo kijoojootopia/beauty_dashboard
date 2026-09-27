@@ -1,1 +1,12 @@
-[]
+[{
+  "hs_chapter": "3304",
+  "country_code": "JP",
+  "country_name": "일본",
+  "tariffs": [
+    { "hs_code": "3304.10.000", "description": "唇のメーキャップ用の調製品 (립 메이크업)", "general_rate": "5.8%", "fta_rate": "0%", "fta_type": "WTO / RCEP", "unit": "kg" },
+    { "hs_code": "3304.20.000", "description": "眼のメーキャップ用の調製品 (아이 메이크업)", "general_rate": "5.8%", "fta_rate": "0%", "fta_type": "WTO / RCEP", "unit": "kg" },
+    { "hs_code": "3304.30.000", "description": "マニキュア用又はペディキュア用の調製品 (네일 제품)", "general_rate": "5.8%", "fta_rate": "0%", "fta_type": "WTO / RCEP", "unit": "kg" },
+    { "hs_code": "3304.91.000", "description": "粉状のもの (파우더류)", "general_rate": "5.8%", "fta_rate": "0%", "fta_type": "WTO / RCEP", "unit": "kg" },
+    { "hs_code": "3304.99.000", "description": "その他の美容用調製品 (기타 스킨케어)", "general_rate": "Free", "fta_rate": "Free", "fta_type": "MFN 무관세 / WTO", "unit": "kg" }
+  ]
+}]

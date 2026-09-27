@@ -1,7 +1,9 @@
+
 {
-  "version": null,
-  "reviewed_at": null,
-  "source": null,
-  "source_url": null,
-  "last_collected_at": null
+  "version": "1.0",
+  "reviewed_at": "2026-09-27",
+  "source": "GACC & NMPA",
+  "source_url": "http://www.customs.gov.cn/",
+  "last_collected_at": "2026-09-27",
+  "complete_lists": true
 }

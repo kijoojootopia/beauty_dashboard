@@ -1,1 +1,11 @@
-[]
+[{
+  "country_code": "AE",
+  "country_name": "아랍에미리트",
+  "steps": [
+    { "step_order": 1, "title": "Montaji 시스템 제품 사전 등록", "description": "두바이 시청(DM) Montaji 시스템에 전성분 및 시험성적서를 업로드하여 사전 승인을 취득합니다.", "required_documents": ["Montaji 등록 승인서", "자유판매증명서(FSC)", "전성분 분석 성적서(COA)"] },
+    { "step_order": 2, "title": "MoIAT 적합성 인증서(ECAS) 취득", "description": "UAE 연방 화장품 안전 규격에 따라 지정 인증기관을 통해 적합성 인증서(CoC)를 발급받습니다.", "required_documents": ["ECAS 적합성 인증서"] },
+    { "step_order": 3, "title": "세관 포털 수입신고 (Mirsal-2)", "description": "세관 시스템에 화물 통관 신고서를 접수합니다.", "required_documents": ["상업송장", "한-UAE CEPA 원산지증명서"] },
+    { "step_order": 4, "title": "아랍어 라벨 심사 및 현장 검사", "description": "제품 포장에 아랍어 및 영어 병기 라벨이 규정대로 인쇄되어 있는지 검역관이 검사합니다.", "required_documents": ["아랍어 표기 라벨 견본"] },
+    { "step_order": 5, "title": "CEPA 면세 적용 및 VAT 납부", "description": "CEPA에 따라 관세 0%를 적용받고 부가가치세(VAT 5%) 납부 후 세관 반출 승인을 받습니다.", "required_documents": ["세금 납부 확인서", "세관 반출증"] }
+  ]
+}]
