@@ -21,7 +21,12 @@
     "stage_step": 3,
     "task_id": "ASEAN_PIF_PREP",
     "task_name": "아세안 표준 제품정보파일(PIF) 및 안전성평가서(CPSR) 구축",
-    "required_doc": "아세안 표준 PIF 파트 I~V, CPSR(안전성평가서), 제조공정서",
+    "required_doc": [
+      "아세안 표준 PIF 파트 I~V",
+      "CPSR(안전성평가서)",
+      "제조공정서"
+    ],
+    "legacy_required_doc": "아세안 표준 PIF 파트 I~V, CPSR(안전성평가서), 제조공정서",
     "estimated_days": 25,
     "is_mandatory": true,
     "guide_url": "https://www.asean.org"
@@ -39,7 +44,12 @@
     "stage_step": 5,
     "task_id": "ASEAN_NRA_NOTIFICATION",
     "task_name": "타겟 국가별 식약청(NRA) 온라인 사전 신고",
-    "required_doc": "국가별 e-Submission 포털 입력 정보, PIF 요약본, 최종 라벨",
+    "required_doc": [
+      "국가별 e-Submission 포털 입력 정보",
+      "PIF 요약본",
+      "최종 라벨"
+    ],
+    "legacy_required_doc": "국가별 e-Submission 포털 입력 정보, PIF 요약본, 최종 라벨",
     "estimated_days": 7,
     "is_mandatory": true,
     "guide_url": "https://www.asean.org"

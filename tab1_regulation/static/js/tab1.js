@@ -2,6 +2,84 @@
 const rows=document.getElementById('ingredient-rows');
 const add=document.getElementById('add-ingredient');
 if(add&&rows){add.addEventListener('click',()=>{if(rows.children.length>=500)return;const row=rows.querySelector('.ingredient-row').cloneNode(true);row.querySelectorAll('input').forEach(i=>i.value='');rows.append(row);row.querySelector('input').focus();});rows.addEventListener('click',event=>{const button=event.target.closest('.remove-row');if(!button)return;if(rows.children.length===1){button.parentElement.querySelectorAll('input').forEach(i=>i.value='');}else button.parentElement.remove();});}
+function applyRoadmapState(taskForm,isDone){
+  taskForm.querySelector('[name=completed]').value=isDone?'0':'1';
+  const control=taskForm.querySelector('button');
+  if(control.classList.contains('check-button')){
+   control.classList.toggle('checked',isDone);control.setAttribute('aria-pressed',String(isDone));
+   control.setAttribute('aria-label',`${control.getAttribute('aria-label').replace(/ 완료( 취소| 표시)?$/, '')} ${isDone?'완료 취소':'완료 표시'}`);
+  }else{
+   control.classList.toggle('primary',!isDone);control.classList.toggle('secondary',isDone);
+   control.lastChild.textContent=isDone?' 단계 완료 취소':' 이 단계 완료';
+  }
+}
+function updateRoadmapStage(card){
+ const checks=Array.from(card.querySelectorAll('.check-button'));
+ const stageForm=card.querySelector('.task-body>form');
+ const done=stageForm.querySelector('[name=completed]').value==='0'||(checks.length>0&&checks.every(button=>button.classList.contains('checked')));
+ const node=document.querySelector(`.timeline-step a[href="#${card.id}"]`);
+ if(node){
+  node.parentElement.classList.toggle('completed',done);
+  if(done)node.replaceChildren(stageForm.querySelector('svg').cloneNode(true));
+  else node.textContent=card.querySelector('.step-number').textContent.trim();
+ }
+}
+const localRoadmap=document.querySelector('[data-local-storage-key]');
+function readLocalRoadmap(){
+ const saved=JSON.parse(localStorage.getItem(localRoadmap.dataset.localStorageKey)||'{}');
+ if(!saved||typeof saved!=='object'||Array.isArray(saved))throw new Error('저장된 진행 상태를 읽을 수 없습니다.');
+ let migrated=false;
+ localRoadmap.querySelectorAll('[data-legacy-document-key]').forEach(card=>{
+  const keys=Array.from(card.querySelectorAll('.check-row form')).map(form=>form.querySelector('[name=task_id]').value);
+  if(saved[card.dataset.legacyDocumentKey]===true&&keys.length&&!keys.some(key=>Object.prototype.hasOwnProperty.call(saved,key))){
+   keys.forEach(key=>{saved[key]=true;});migrated=true;
+  }
+ });
+ if(migrated)localStorage.setItem(localRoadmap.dataset.localStorageKey,JSON.stringify(saved));
+ return saved;
+}
+function showRoadmapError(panel,message){
+ const status=panel.querySelector('[data-roadmap-status]');status.textContent=message;status.hidden=false;
+}
+if(localRoadmap){
+ try{
+  const saved=readLocalRoadmap();
+  localRoadmap.querySelectorAll('[data-local-task]').forEach(form=>applyRoadmapState(form,saved[form.querySelector('[name=task_id]').value]===true));
+  localRoadmap.querySelectorAll('.task-card').forEach(updateRoadmapStage);
+ }catch(error){showRoadmapError(localRoadmap,'브라우저의 진행 상태 저장소를 사용할 수 없습니다. 저장 설정을 확인해 주세요.');}
+}
+let roadmapSaveQueue=Promise.resolve();
+const unsavedRoadmapForms=new Set();
+document.querySelectorAll('.task-card form').forEach(form=>form.addEventListener('submit',event=>{
+ event.preventDefault();
+ const card=form.closest('.task-card'),panel=card.closest('.roadmap-panel');
+ const done=form.querySelector('[name=completed]').value==='1';
+ applyRoadmapState(form,done);
+ updateRoadmapStage(card);
+ const savedSuccessfully=()=>{
+  unsavedRoadmapForms.delete(form);
+  panel.querySelector('[data-roadmap-status]').hidden=unsavedRoadmapForms.size===0;
+ };
+ const saveFailed=()=>{
+  unsavedRoadmapForms.add(form);
+  showRoadmapError(panel,'저장하지 못한 변경이 있습니다. 연결 또는 브라우저 저장 설정을 확인한 뒤 해당 항목을 다시 눌러 주세요.');
+ };
+  if(form.hasAttribute('data-local-task')){
+   try{
+   const saved=readLocalRoadmap();saved[form.querySelector('[name=task_id]').value]=done;
+   localStorage.setItem(panel.dataset.localStorageKey,JSON.stringify(saved));
+   savedSuccessfully();
+   }catch(error){saveFailed();}
+   return;
+  }
+  const body=new FormData(form);body.set('completed',done?'1':'0');
+  roadmapSaveQueue=roadmapSaveQueue.then(async()=>{
+  const response=await fetch(form.action,{method:'POST',body,headers:{Accept:'application/json','X-Requested-With':'XMLHttpRequest'}});
+  if(!response.ok)throw new Error('저장에 실패했습니다.');
+  if(response.redirected&&new URL(response.url).pathname!==location.pathname)throw new Error('저장에 실패했습니다.');
+  savedSuccessfully();
+ }).catch(saveFailed);
+}));
 document.querySelectorAll('[data-product-view]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-product-view]').forEach(b=>b.classList.toggle('active',b===button));document.querySelectorAll('[data-product-card]').forEach(card=>{card.hidden=button.dataset.productView==='selected'&&card.dataset.productCard!==button.dataset.selected;if(!card.hidden&&button.dataset.productView==='selected')card.open=true;});}));
 document.querySelectorAll('[data-preview-csv]').forEach(button=>{
  let current=null;
