@@ -103,6 +103,35 @@ def save_notes(product_id):
         flash(str(error),"error")
     return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"],product_id=product_id,_anchor="product-notes"))
 
+@bp.post("/products/<product_id>/notes/<note_id>/update")
+@login_required
+def update_note(product_id,note_id):
+    product=store.product_for(g.user["id"],product_id)
+    project=store.project_for(g.user["id"],product["project_id"])
+    try:
+        note=store.update_note(g.user["id"],product_id,note_id,request.form.get("notes",""))
+        if request.headers.get("Accept")=="application/json":
+            return {"note":note}
+        flash("메모를 수정했습니다.","success")
+    except ValueError as error:
+        if request.headers.get("Accept")=="application/json":
+            return {"message":str(error)},400
+        flash(str(error),"error")
+    return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"],product_id=product_id,_anchor="product-notes"))
+
+
+@bp.post("/products/<product_id>/notes/<note_id>/delete")
+@login_required
+def delete_note(product_id,note_id):
+    product=store.product_for(g.user["id"],product_id)
+    project=store.project_for(g.user["id"],product["project_id"])
+    store.delete_note(g.user["id"],product_id,note_id)
+    if request.headers.get("Accept")=="application/json":
+        return {"deleted":note_id}
+    flash("메모를 삭제했습니다.","success")
+    return redirect(url_for("tab1_regulation.index",country=project["country"],project_id=project["id"],product_id=product_id,_anchor="product-notes"))
+
+
 @bp.post("/projects/<project_id>/bookmarks")
 @login_required
 def bookmark(project_id):

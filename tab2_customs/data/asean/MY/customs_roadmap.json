@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "title": "아세안 화장품 지침(ACD) 사전 등록",
+    "description": "아세안 화장품 규정(ACD)에 따라 수입국 보건당국(예: 베트남 DAV, 인도네시아 BPOM 등)에 제품 사전 통보(Notification)를 완료해야 합니다.",
+    "required_doc": [
+      "수입국 제품 등록 통지서",
+      "자유판매증명서(FSC 영사확인본)"
+    ],
+    "owner": "현지 수입자",
+    "guide_url": "https://atr.asean.org/"
+  },
+  {
+    "title": "제품정보파일(PIF) 비치 및 라벨링",
+    "description": "수출자는 제품정보파일(PIF)을 완비하여 수입자가 요청 시 제출할 수 있도록 대비해야 하며, 현지어 또는 영어로 ACD 규격 라벨을 부착합니다.",
+    "required_doc": [
+      "제품정보파일 (PIF)",
+      "전성분표 및 GMP 증명서"
+    ],
+    "owner": "수출자",
+    "guide_url": ""
+  },
+  {
+    "title": "FTA 원산지증명서 (C/O) 발급",
+    "description": "한-아세안(AKFTA), 한-베트남(VKFTA), 한-인니(CEPA) 등 관세 혜택을 적용받기 위해 대한상공회의소 또는 관세청에서 특혜 원산지증명서를 발급받습니다.",
+    "required_doc": [
+      "원산지증명서 (Form AK, Form VK 등)"
+    ],
+    "owner": "수출자",
+    "guide_url": "https://cert.korcham.net/"
+  },
+  {
+    "title": "현지 세관 수입신고 및 세금 납부",
+    "description": "수입국 세관에 통관 서류를 제출합니다. 원산지증명서를 통해 관세를 감면받은 후, 국가별 부가가치세(VAT)를 납부하여 통관을 완료합니다.",
+    "required_doc": [
+      "수입신고서",
+      "특혜 원산지증명서 원본",
+      "상업송장(CI)"
+    ],
+    "owner": "현지 수입자 및 관세사",
+    "guide_url": ""
+  }
+]

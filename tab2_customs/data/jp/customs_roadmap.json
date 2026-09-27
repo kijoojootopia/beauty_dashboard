@@ -1,10 +1,42 @@
-[{
-  "country_code": "JP",
-  "country_name": "일본",
-  "steps": [
-    { "step_order": 1, "title": "수입자 제조판매업 허가 및 수입신고", "description": "수입업자가 도도부현 지사로부터 화장품 제조판매업 허가를 보유해야 하며, 제품별 수입신고서를 사전 제출합니다.", "required_documents": ["제조판매업 허가증 사본", "전성분 분량표"] },
-    { "step_order": 2, "title": "전자 수입신고 (NACCS)", "description": "통관 정보처리시스템(NACCS)을 통해 수입신고서를 세관에 전송합니다.", "required_documents": ["수입신고서", "상업송장", "B/L"] },
-    { "step_order": 3, "title": "후생노동성 서류 심사 및 세관 검사", "description": "약기법(PMD Act) 기준 성분 배합한도를 대조하고, 포장 외부 일본어 법정 표시를 심사합니다.", "required_documents": ["일본어 법정 라벨 견본"] },
-    { "step_order": 4, "title": "소비세 납부 및 수입허가(Permit)", "description": "한국산은 무세(Free)가 적용되며, 일본 국내 소비세(10%) 납부 후 '수입허가서'가 교부됩니다.", "required_documents": ["소비세 영수증", "수입허가서"] }
-  ]
-}]
+[
+  {
+    "title": "화장품 제조판매업 허가 취득",
+    "description": "수입자가 일본 내 '화장품 제조판매업' 허가를 보유해야만 수입이 가능합니다. 수입 전 총괄제조판매책임자를 지정해야 합니다.",
+    "required_doc": [
+      "화장품 제조판매업 허가증 사본"
+    ],
+    "owner": "일본 현지 수입업자",
+    "guide_url": "https://www.pmda.go.jp/"
+  },
+  {
+    "title": "제조판매 신고 및 성분 검토",
+    "description": "수입 통관 전, 도도부현(지자체) 약무과에 '화장품 제조판매 届書(신고서)'를 제출하고 배합 금지/제한 성분이 없는지 확인받아야 합니다.",
+    "required_doc": [
+      "제조판매 届書(신고서)",
+      "전성분 분량표"
+    ],
+    "owner": "일본 현지 수입업자",
+    "guide_url": ""
+  },
+  {
+    "title": "NACCS 전자 수입신고 및 세관 검사",
+    "description": "일본 통관 정보처리시스템(NACCS)을 통해 수입신고를 진행하며, 약기법 위반 여부 및 서류 심사가 이루어집니다.",
+    "required_doc": [
+      "수입신고서",
+      "상업송장(CI)",
+      "선하증권(B/L)"
+    ],
+    "owner": "현지 관세사 및 수입자",
+    "guide_url": "https://www.customs.go.jp/"
+  },
+  {
+    "title": "일본어 법정 표시(라벨링) 및 소비세 납부",
+    "description": "통관 완료 후 또는 보세구역 내에서 약기법에 따른 '일본어 법정 라벨'을 반드시 부착해야 하며, 소비세(10%) 납부 후 유통됩니다.",
+    "required_doc": [
+      "일본어 법정 라벨 견본",
+      "수입허가통지서"
+    ],
+    "owner": "현지 수입업자",
+    "guide_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/index.html"
+  }
+]

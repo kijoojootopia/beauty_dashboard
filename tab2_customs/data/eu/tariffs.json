@@ -1,12 +1,67 @@
-[{
-  "hs_chapter": "3304",
-  "country_code": "EU",
-  "country_name": "유럽연합(EU)",
-  "tariffs": [
-    { "hs_code": "33041000", "description": "Lip make-up preparations (립 메이크업)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "33042000", "description": "Eye make-up preparations (아이 메이크업)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "33043000", "description": "Manicure or pedicure preparations (네일 제품)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "33049100", "description": "Powders (파우더류)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" },
-    { "hs_code": "33049900", "description": "Other skin care preparations (기타 스킨케어)", "general_rate": "0%", "fta_rate": "0%", "fta_type": "MFN 무관세 / 한-EU FTA", "unit": "kg" }
-  ]
-}]
+[
+  {
+    "origin": "KR",
+    "hs_code": "33041000",
+    "product_name": "Lip make-up preparations (립 메이크업)",
+    "rate_type": "협정·FTA세율",
+    "rate": 0,
+    "rate_unit": "%",
+    "agreement": "한-EU FTA",
+    "conditions": "원산지 증빙 불필요",
+    "as_of": "2026-09",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33042000",
+    "product_name": "Eye make-up preparations (아이 메이크업)",
+    "rate_type": "협정·FTA세율",
+    "rate": 0,
+    "rate_unit": "%",
+    "agreement": "한-EU FTA",
+    "conditions": "원산지 증빙 불필요",
+    "as_of": "2026-09",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33043000",
+    "product_name": "Manicure or pedicure (네일 제품)",
+    "rate_type": "협정·FTA세율",
+    "rate": 0,
+    "rate_unit": "%",
+    "agreement": "한-EU FTA",
+    "conditions": "원산지 증빙 불필요",
+    "as_of": "2026-09",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33049100",
+    "product_name": "Powders (파우더류)",
+    "rate_type": "협정·FTA세율",
+    "rate": 0,
+    "rate_unit": "%",
+    "agreement": "한-EU FTA",
+    "conditions": "원산지 증빙 불필요",
+    "as_of": "2026-09",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  },
+  {
+    "origin": "KR",
+    "hs_code": "33049900",
+    "product_name": "Other skin care (기타 스킨케어)",
+    "rate_type": "협정·FTA세율",
+    "rate": 0,
+    "rate_unit": "%",
+    "agreement": "한-EU FTA",
+    "conditions": "원산지 증빙 불필요",
+    "as_of": "2026-09",
+    "source": "한국무역협회(KITA)",
+    "source_url": "https://www.kita.net/"
+  }
+]

@@ -1,11 +1,43 @@
-[{
-  "country_code": "RU",
-  "country_name": "러시아(EAEU)",
-  "steps": [
-    { "step_order": 1, "title": "EAEU TR CU 적합성 평가 등록", "description": "EAEU 화장품 규정에 따라 적합성 선언(DoC) 또는 국가등록(SGR)을 완료합니다.", "required_documents": ["EAC 적합성 선언서(DoC)", "공인 시험성적서"] },
-    { "step_order": 2, "title": "EAC 마크 및 체스트니 즈낙(디지털 식별) 부착", "description": "제품에 EAC 규격 마크, 러시아어 라벨, 유통 이력 추적을 위한 체스트니 즈낙 바코드를 라벨링합니다.", "required_documents": ["러시아어 제품 라벨안", "식별 마킹 코드"] },
-    { "step_order": 3, "title": "연방관세청(FTS) 전자 수입신고", "description": "러시아 전자 통관 포털에 수입신고서(DT)를 제출합니다.", "required_documents": ["전자 수입신고서(DT)", "상업송장"] },
-    { "step_order": 4, "title": "EAEU 공통 관세 및 부가가치세(VAT) 납부", "description": "EAEU 공통 관세(6.5%)와 러시아 현지 부가가치세(VAT 20%)를 세관 계좌로 전자 납부합니다.", "required_documents": ["관세/세금 납부 영수증"] },
-    { "step_order": 5, "title": "세관 심사 완료 및 반출", "description": "심사가 종결되면 세관에서 '반출 허가'인을 날인하며 유통이 가능해집니다.", "required_documents": ["수입신고필증"] }
-  ]
-}]
+[
+  {
+    "title": "EAEU 현지 대리인 선임 및 성분 검토",
+    "description": "러시아 및 EAEU 국가에 등록된 법인을 '신청인'으로 지정하고 TR CU 009/2011 화장품 규정에 따른 금지/제한 성분을 검토합니다.",
+    "required_doc": [
+      "신청인 수권서(위임장)",
+      "전성분표 및 MSDS"
+    ],
+    "owner": "수출자 및 현지 대리인",
+    "guide_url": "https://eec.eaeunion.org/"
+  },
+  {
+    "title": "TR CU 인증 (DoC 또는 SGR) 발급",
+    "description": "일반 화장품은 적합성 선언(DoC)을, 미백/어린이용 등 특수 화장품은 국가등록(SGR)을 현지 지정 인증기관을 통해 취득합니다.",
+    "required_doc": [
+      "EAC 적합성 선언서(DoC) 또는 SGR",
+      "러시아 공인 시험성적서"
+    ],
+    "owner": "현지 인증 대행기관",
+    "guide_url": ""
+  },
+  {
+    "title": "EAC 마크 및 체스트니 즈낙(Chestny ZNAK) 부착",
+    "description": "패키지에 EAC 마크와 러시아어 라벨을 부착해야 하며, 유통 이력 추적을 위한 데이터 매트릭스 코드(체스트니 즈낙)를 의무적으로 마킹해야 합니다.",
+    "required_doc": [
+      "러시아어 규격 라벨 시안",
+      "체스트니 즈낙 식별 코드"
+    ],
+    "owner": "수출자 (생산 시설)",
+    "guide_url": "https://chestnyznak.ru/en/"
+  },
+  {
+    "title": "전자 수입신고(ED) 및 통관",
+    "description": "러시아 관세청 포털을 통해 전자 통관을 진행하며, EAEU 공통 관세와 러시아 부가가치세(VAT 20%)를 납부 후 반출합니다.",
+    "required_doc": [
+      "전자 수입신고서(DT)",
+      "상업송장(CI)",
+      "포장명세서(PL)"
+    ],
+    "owner": "현지 수입자 및 관세사",
+    "guide_url": "https://customs.gov.ru/"
+  }
+]
