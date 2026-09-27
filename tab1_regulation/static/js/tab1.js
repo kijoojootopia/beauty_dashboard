@@ -122,3 +122,17 @@ document.querySelectorAll('[data-preview-csv]').forEach(button=>{
  });
  button.closest('form').querySelector('[name=ingredients_csv]').addEventListener('change',()=>{current=null;button.closest('form').querySelector('[data-csv-preview]').replaceChildren();});
 });
+
+
+document.querySelectorAll('[data-feed-view]').forEach(button=>button.addEventListener('click',()=>{
+ const panel=button.closest('.feed-panel'),related=button.dataset.feedView==='related';
+ panel.querySelectorAll('[data-feed-view]').forEach(control=>{
+  const active=control===button;
+  control.classList.toggle('active',active);
+  control.setAttribute('aria-pressed',String(active));
+ });
+ const cards=Array.from(panel.querySelectorAll('[data-feed-related]'));
+ cards.forEach(card=>{card.hidden=related&&card.dataset.feedRelated!=='true';});
+ const empty=panel.querySelector('[data-feed-empty]');
+ if(empty)empty.hidden=cards.some(card=>!card.hidden);
+}));

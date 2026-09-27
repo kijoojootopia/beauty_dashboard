@@ -1,1 +1,65 @@
-[]
+[
+    {
+        "title":  "화장품 특정 성분 강조 표시 지침 개정",
+        "scope":  "administrative",
+        "ingredients":  [
+
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "공식 지침",
+        "published_at":  "2025-03-10",
+        "effective_at":  null,
+        "transition_end":  null,
+        "summary":  "특정 성분의 강조 표시는 유효성분으로 오인시키지 않도록 해야 합니다. 허용되는 강조 표시에는 배합 목적을 함께 기재하는 등 통지의 조건을 적용합니다. 종전 1985년 통지는 폐지되었습니다.",
+        "url":  "https://www.mhlw.go.jp/web/t_doc?dataId=00tc9762\u0026dataType=1\u0026pageNo=1",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    },
+    {
+        "title":  "시스테아민염산염의 화장품 배합 기준 추가",
+        "scope":  "ingredient",
+        "ingredients":  [
+                            "Cysteamine HCl",
+                            "Cysteamine Hydrochloride",
+                            "システアミン塩酸塩"
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "적용 중",
+        "published_at":  "2024-07-12",
+        "effective_at":  "2024-07-12",
+        "transition_end":  null,
+        "summary":  "두발에만 사용하는 씻어내는 헤어세팅 제품에 시스테아민염산염을 완제품 100g당 최대 8.63g까지 배합하는 기준이 추가되었습니다. 그 밖의 화장품에는 배합할 수 없습니다.",
+        "url":  "https://www.mhlw.go.jp/web/t_doc?dataId=00tc8641\u0026dataType=1\u0026pageNo=1",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    },
+    {
+        "title":  "시스테아민 함유 화장품 사용상 주의 통지",
+        "scope":  "ingredient",
+        "ingredients":  [
+                            "Cysteamine",
+                            "Cysteamine HCl",
+                            "Cysteamine Hydrochloride",
+                            "システアミン",
+                            "システアミン塩酸塩"
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "공식 지침",
+        "published_at":  "2024-07-12",
+        "effective_at":  null,
+        "transition_end":  null,
+        "summary":  "시스테아민 및 염류를 함유한 씻어내는 헤어세팅 제품의 사용상 주의를 개정했습니다. 배합량은 티오글리콜산 환산 7.0% 이하(시스테아민으로서 5.86% 이하)이며 원문의 추가 주의사항을 함께 확인해야 합니다.",
+        "url":  "https://www.mhlw.go.jp/web/t_doc?dataId=00tc8643\u0026dataType=1\u0026pageNo=1",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    }
+]

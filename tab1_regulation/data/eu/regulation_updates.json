@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "title":  "TPO의 화장품 사용 금지: 규정 (EU) 2025/877",
+        "scope":  "ingredient",
+        "ingredients":  [
+                            "Trimethylbenzoyl Diphenylphosphine Oxide",
+                            "75980-60-8"
+                        ],
+        "product_types":  [
+
+                          ],
+        "status":  "적용 중",
+        "published_at":  "2025-05-13",
+        "effective_at":  "2025-09-01",
+        "transition_end":  null,
+        "summary":  "TPO를 금지 목록인 부속서 II에 추가하고 기존 부속서 III의 허용 항목을 삭제했습니다. 표시된 시행일은 제2조의 적용 시작일입니다.",
+        "url":  "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32025R0877",
+        "uncertain":  false,
+        "reviewed_at":  "2026-09-27",
+        "collection_method":  "manual"
+    }
+]
