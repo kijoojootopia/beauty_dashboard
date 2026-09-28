@@ -4,16 +4,19 @@
 async function fetchTextWithRetry(url, options = {}) {
  for (let attempt = 0; attempt < 3; attempt++) {
   let retryable = true;
+  let delay = 2000 * (attempt + 1);
   try {
    const response = await fetch(url, {...options, signal: AbortSignal.timeout(60000)});
    if (!response.ok) {
     retryable = [408, 429, 500, 502, 503, 504].includes(response.status);
+    const retryAfter = Number(response.headers?.get('Retry-After'));
+    if (Number.isFinite(retryAfter) && retryAfter > 0) delay = Math.min(retryAfter, 120) * 1000;
     throw new Error(`HTTP ${response.status}`);
    }
    return await response.text();
   } catch (error) {
    if (!retryable || attempt === 2) throw error;
-   await new Promise(resolve => setTimeout(resolve, 2000 * (attempt + 1)));
+   await new Promise(resolve => setTimeout(resolve, delay));
   }
  }
 }

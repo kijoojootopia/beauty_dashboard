@@ -190,6 +190,12 @@ const failed = {ok: false, status: 503};
 (async () => {
  await check([failed, new TypeError('network unavailable'), ok], 3, 'complete');
  assert.deepEqual(delays, [2000, 4000]);
+ await check([{...failed, headers: {get: () => '60'}}, ok], 2, 'complete');
+ assert.equal(delays.at(-1), 60000);
+ await check([{...failed, headers: {get: () => 'invalid'}}, ok], 2, 'complete');
+ assert.equal(delays.at(-1), 2000);
+ await check([{...failed, headers: {get: () => '999999'}}, ok], 2, 'complete');
+ assert.equal(delays.at(-1), 120000);
  await check([{ok: true, text: async () => {throw new Error('body interrupted');}}, ok], 2, 'complete');
  await check([failed, failed, failed], 3, null, true);
  await check([{ok: false, status: 403}], 1, null, true);
@@ -229,3 +235,31 @@ const failed = {ok: false, status: 503};
     result=subprocess.run([node,'-'],input=script,text=True,encoding='utf-8',
                           cwd=root,capture_output=True,timeout=15)
     assert result.returncode==0,result.stdout+result.stderr
+
+
+@pytest.mark.parametrize('section',['fragment','rankings-fragment','rank-card'])
+def test_export_fragments_report_errors_and_recover(section,monkeypatch):
+    from flask import Flask
+    from jinja2 import FileSystemLoader
+    from pathlib import Path
+    from tab3_market import routes
+    app=Flask(__name__)
+    app.config['TESTING']=True
+    app.jinja_loader=FileSystemLoader(str(Path(__file__).parents[1]/'templates'))
+    app.jinja_env.filters['number']=lambda value: '—' if value is None else str(value)
+    app.register_blueprint(routes.bp)
+    data={'state':'data_error','message':'Synthetic upstream timeout','rankings':[],
+          'series':[],'total_exports':None,'growth':None,'period':'2025'}
+    monkeypatch.setattr(routes,'export_overview_context',
+                        lambda **kwargs: {'overview':data,'exchange':None})
+    client=app.test_client()
+    response=client.get('/api/exports/'+section)
+    assert response.status_code==503
+    assert response.headers['Retry-After']=='60'
+    data.update(state='ready',ranking_state='data_error')
+    assert client.get('/api/exports/'+section).status_code==(200 if section=='fragment' else 503)
+    data.update(ranking_state='ready',message='')
+    response=client.get('/api/exports/'+section)
+    assert response.status_code==200 and 'Retry-After' not in response.headers
+    data.update(state='data_pending',ranking_state='data_pending')
+    assert client.get('/api/exports/'+section).status_code==200
