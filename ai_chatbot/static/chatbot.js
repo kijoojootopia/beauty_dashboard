@@ -1,8 +1,7 @@
 (() => {
   "use strict";
   const loader = document.getElementById("ai-chatbot-loader");
-  const rail = document.querySelector(".rail-links");
-  if (!loader || !rail || document.getElementById("ai-chat-window")) return;
+  if (!loader || document.getElementById("ai-chat-window")) return;
   const authenticated = loader.dataset.authenticated === "true";
   const prefix = "beauport.chat.v1.";
   const storageKey = prefix + loader.dataset.session;
@@ -16,19 +15,11 @@
   let messages = Array.isArray(saved.messages) ? saved.messages.filter(item =>
     item && ["user", "assistant"].includes(item.role) && typeof item.content === "string" &&
     item.content.length > 0 && item.content.length <= (item.role === "user" ? 4000 : 24000)).slice(-40) : [];
-  let mode = ["open", "minimized", "closed"].includes(saved.mode) ? saved.mode : "closed";
+  let mode = saved.mode === "open" ? "open" : "minimized";
   let busy = false;
   let controller = null;
   let generation = 0;
   let rect = saved.rect;
-  const launcher = document.createElement("button");
-  launcher.type = "button";
-  launcher.className = "ai-chat-launcher";
-  launcher.setAttribute("aria-label", "AI 챗봇 열기");
-  launcher.title = "AI 챗봇";
-  launcher.setAttribute("aria-controls", "ai-chat-window");
-  launcher.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-8 8H4l1.4-4A8 8 0 1 1 20 11.5Z"/><path d="M8 11h.01M12 11h.01M16 11h.01" stroke-width="3" stroke-linecap="round"/></svg>';
-  rail.append(launcher);
   const panel = document.createElement("section");
   panel.id = "ai-chat-window";
   panel.className = "ai-chat-window";
@@ -46,20 +37,21 @@
         <button type="button" data-action="close" title="닫기" aria-label="챗봇 닫기">×</button>
       </div>
     </header>
-    <p class="ai-chat-info">프로젝트 자료는 자동으로 읽지 않습니다. 입력한 대화는 AI 답변 생성에 사용됩니다.</p>
+    <p class="ai-chat-info">등록된 대시보드 자료를 참고합니다. 질문과 조회 자료는 AI 답변 생성에 사용됩니다.</p>
     <div class="ai-chat-messages" role="log" aria-label="챗봇 대화" aria-live="polite" tabindex="0"></div>
     <p class="ai-chat-status" role="status"></p>
     <form class="ai-chat-compose">
       <label for="ai-chat-input">궁금한 내용을 입력하세요</label>
-      <textarea id="ai-chat-input" maxlength="4000" placeholder="어느 국가로 수출을 준비하고 계신가요?"></textarea>
+      <textarea id="ai-chat-input" maxlength="4000" placeholder="미국 수출 비중처럼 등록 자료를 물어보세요"></textarea>
       <div class="ai-chat-compose-row"><small>Enter 전송 · Shift+Enter 줄바꿈</small><button class="ai-chat-send" type="submit">보내기</button></div>
       <a class="ai-chat-login" hidden>로그인하고 대화하기</a>
     </form>
     <button class="ai-chat-resize" type="button" title="드래그 또는 방향키로 크기 조절" aria-label="챗봇 크기 조절: 방향키 또는 드래그">◢</button>`;
   const restore = document.createElement("button");
   restore.type = "button";
+  restore.setAttribute("aria-controls", "ai-chat-window");
   restore.className = "ai-chat-restore";
-  restore.textContent = "AI 챗봇 다시 열기";
+  restore.textContent = "AI 챗봇";
   document.body.append(panel, restore);
   const log = panel.querySelector(".ai-chat-messages");
   const status = panel.querySelector(".ai-chat-status");
@@ -104,13 +96,13 @@
   function setMode(next, focus = true) {
     mode = next;
     panel.hidden = next !== "open";
-    restore.hidden = next !== "minimized";
-    launcher.setAttribute("aria-expanded", String(next === "open"));
+    restore.hidden = next === "open";
+    restore.setAttribute("aria-expanded", String(next === "open"));
     fit(rect);
     persist();
     if (focus) {
       if (next === "open") (authenticated ? input : login).focus({preventScroll: true});
-      else (next === "minimized" ? restore : launcher).focus({preventScroll: true});
+      else restore.focus({preventScroll: true});
     }
   }
   function appendMessage(role, content) {
@@ -127,7 +119,7 @@
   function render() {
     log.replaceChildren();
     if (!messages.length) appendMessage("assistant", authenticated
-      ? "안녕하세요! 화장품 수출 준비에 대해 궁금한 점을 물어보세요."
+      ? "안녕하세요! 화장품 수출 통계와 등록 자료, 뷰포트 사용 방법을 물어보세요."
       : "로그인 후 AI 도우미와 대화할 수 있어요.");
     messages.forEach(item => appendMessage(item.role, item.content));
   }
@@ -141,9 +133,8 @@
     }
     return history;
   }
-  launcher.addEventListener("click", () => setMode(mode === "open" ? "closed" : "open"));
   restore.addEventListener("click", () => setMode("open"));
-  panel.querySelector('[data-action="close"]').addEventListener("click", () => setMode("closed"));
+  panel.querySelector('[data-action="close"]').addEventListener("click", () => setMode("minimized"));
   panel.querySelector('[data-action="minimize"]').addEventListener("click", () => setMode("minimized"));
   panel.querySelector('[data-action="reset"]').addEventListener("click", () => {
     if ((messages.length || input.value || busy) && !window.confirm("현재 대화를 지우고 새 대화를 시작할까요?")) return;
@@ -160,7 +151,7 @@
     if (authenticated) input.focus();
   });
   panel.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !event.isComposing) { event.preventDefault(); setMode("closed"); }
+    if (event.key === "Escape" && !event.isComposing) { event.preventDefault(); setMode("minimized"); }
   });
   input.addEventListener("input", persist);
   input.addEventListener("keydown", event => {
@@ -169,6 +160,14 @@
       form.requestSubmit();
     }
   });
+
+  function readableMessage(value, fallback) {
+    if (typeof value !== "string" || !value.trim()) return fallback;
+    // Older server responses or decoding failures must not leak mojibake into the UI.
+    if (/\?{2,}|\uFFFD/.test(value)) return fallback;
+    return value;
+  }
+
   form.addEventListener("submit", async event => {
     event.preventDefault();
     const question = input.value.trim();
@@ -185,7 +184,7 @@
     input.value = "";
     render();
     persist();
-    const timeout = window.setTimeout(() => requestController.abort(), 75000);
+    const timeout = window.setTimeout(() => requestController.abort(), 150000);
     try {
       const response = await fetch(loader.dataset.api, {
         method: "POST", credentials: "same-origin", signal: requestController.signal,
@@ -195,7 +194,7 @@
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
         if (response.status === 401) throw new Error("로그인이 만료되었습니다. 새로고침 후 로그인해 주세요.");
-        throw new Error(data.message || "답변을 받지 못했습니다. 잠시 후 다시 시도해 주세요.");
+        throw new Error(readableMessage(data.message, "답변을 받지 못했습니다. 잠시 후 다시 시도해 주세요."));
       }
       if (typeof data.reply !== "string" || !data.reply.trim()) throw new Error("답변이 비어 있습니다. 다시 시도해 주세요.");
       if (currentGeneration !== generation) return;
@@ -209,7 +208,7 @@
       if (!input.value) input.value = question;
       render();
       status.textContent = error.name === "AbortError" ? "응답 시간이 초과되었습니다. 다시 보내 주세요."
-        : error instanceof TypeError ? "서버에 연결할 수 없습니다. 연결을 확인하고 다시 보내 주세요." : error.message;
+        : error instanceof TypeError ? "서버에 연결할 수 없습니다. 연결을 확인하고 다시 보내 주세요." : readableMessage(error.message, "응답을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.");
     } finally {
       window.clearTimeout(timeout);
       if (currentGeneration === generation) {
