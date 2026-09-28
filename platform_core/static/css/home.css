@@ -65,7 +65,7 @@
   background: #fffffff2;
   box-shadow: 0 3px 10px #4d367216;
   color: #665187;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 550;
   line-height: 1.4;
   white-space: nowrap;
@@ -132,7 +132,7 @@ a.globe-marker:focus-visible {
   .globe-wrap { left: 0; right: 0; }
   .globe-controls { bottom: 0; }
   .globe-controls button { min-height: 30px; }
-  .globe-marker { padding: 4px 8px; font-size: 12px; }
+  .globe-marker { padding: 4px 8px; font-size: 15px; }
   .map-cards { top: 370px; }
   .export-world { min-height: 915px; }
 }
@@ -160,7 +160,7 @@ a.globe-marker:focus-visible {
   text-align: center;
   color: slategrey;
   opacity: 0.7;
-  font-size: 12px;
+  font-size: 15px;
   font-family: sans-serif;
   pointer-events: none;
   user-select: none;
@@ -367,27 +367,27 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   max-width:none; min-height:0; margin:0; border:0; border-radius:0; background:transparent;
 }
 .home-dashboard .home-globe-dock .globe-wrap { inset:26px 0 38px; height:auto; }
-.home-dashboard .home-globe-dock .map-topline { inset:5px 0 auto; justify-content:center; font-size:10px; }
-.home-dashboard .home-globe-dock .map-bottom { inset:auto 0 8px; font-size:11px; text-align:center; }
+.home-dashboard .home-globe-dock .map-topline { inset:5px 0 auto; justify-content:center; font-size:14px; }
+.home-dashboard .home-globe-dock .map-bottom { inset:auto 0 8px; font-size:14px; text-align:center; }
 .home-dashboard .home-globe-dock .globe-controls { bottom:38px; }
 .home-dashboard .map-stat { padding:20px; border-color:#e5dfef; background:rgba(255,255,255,.72); box-shadow:0 8px 28px #42356506; }
 .home-main .country-card,.home-main .export-all { background:rgba(255,255,255,.72); }
-.home-dashboard .map-stat h2 { font-size:17px; }
-.home-dashboard .map-stat p { font-size:13px; }
+.home-dashboard .map-stat h2 { font-size:22px; font-weight:700; }
+.home-dashboard .map-stat p { font-size:16px; }
 .home-dashboard .stat-exports strong { font-size:clamp(24px,1.8vw,32px); }
-.home-dashboard .stat-exports strong small { font-size:12px; }
+.home-dashboard .stat-exports strong small { font-size:15px; }
 .home-dashboard .krw-value { font-size:18px; }
-.home-dashboard .exchange-meta,.home-dashboard .stat-unit,.home-dashboard .stat-foot { font-size:11px; line-height:1.65; }
+.home-dashboard .exchange-meta,.home-dashboard .stat-unit,.home-dashboard .stat-foot { font-size:14px; line-height:1.65; }
 .home-dashboard .export-trend { height:150px; margin:18px 0 12px; }
 .home-dashboard .export-trend text { display:none; }
 .home-dashboard .export-trend polyline { stroke:#3683a6; stroke-width:3px; vector-effect:non-scaling-stroke; }
 .home-dashboard .export-trend circle { fill:#7960bd; }
 .home-dashboard .trend-values { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-bottom:14px; }
-.home-dashboard .trend-values dt { font-size:11px; }
-.home-dashboard .trend-values dd { font-size:12px; }
-.home-dashboard .rank-item { grid-template-columns:20px minmax(0,1fr); padding:9px 0 4px; font-size:13px; }
-.home-dashboard .rank-item b { grid-column:2; text-align:left; font-size:14px; }
-.home-dashboard .rank-item b small { display:inline-block; margin-left:4px; font-size:11px; }
+.home-dashboard .trend-values dt { font-size:14px; }
+.home-dashboard .trend-values dd { font-size:16px; }
+.home-dashboard .rank-item { grid-template-columns:20px minmax(0,1fr); padding:9px 0 4px; font-size:16px; font-weight:500; }
+.home-dashboard .rank-item b { grid-column:2; text-align:left; font-size:17px; font-weight:700; }
+.home-dashboard .rank-item b small { display:inline-block; margin-left:4px; font-size:14px; }
 .home-dashboard .rank-item b .rank-krw { display:block; margin-left:0; color:#655086; }
 .home-dashboard .rank-bar { height:auto; aspect-ratio:100 / 3; border-radius:4px; background:#f0edf6; }
 .home-dashboard .rank-bar:nth-of-type(5n+1) rect { fill:#3683a6; }
@@ -412,5 +412,5 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   .home-dashboard .stat-growth { grid-column:1; grid-row:3; }
   .home-dashboard .stat-trend { grid-column:1; grid-row:4; }
   .home-dashboard .stat-rank { grid-column:1; grid-row:5; }
-  .home-dashboard .home-globe-dock .map-bottom { font-size:10px; }
+  .home-dashboard .home-globe-dock .map-bottom { font-size:13px; }
 }
