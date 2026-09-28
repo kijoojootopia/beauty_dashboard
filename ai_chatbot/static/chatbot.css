@@ -1,11 +1,4 @@
 /* 챗봇 요소에만 적용합니다. */
-.rail-links .ai-chat-launcher {
-  width:42px;height:42px;display:grid;place-items:center;
-  border:0;border-radius:13px;background:transparent;color:#a4a0b4;padding:0;
-}
-.rail-links .ai-chat-launcher:hover,
-.rail-links .ai-chat-launcher[aria-expanded="true"] {background:var(--lavender,#eee9fc);color:var(--purple-deep,#6b50ca)}
-.ai-chat-launcher svg {width:23px;height:23px}
 .ai-chat-window {
   position:fixed;right:24px;bottom:24px;width:400px;height:560px;
   max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px);
@@ -38,8 +31,7 @@
 .ai-chat-send,.ai-chat-login {border:0;border-radius:9px;background:#8870e8;color:white;padding:7px 16px;display:inline-block;text-align:center}
 .ai-chat-resize {position:absolute;right:2px;bottom:2px;width:20px;height:20px;cursor:nwse-resize;touch-action:none;border:0;background:transparent;color:#868298;font-size:15px;padding:0}
 .ai-chat-restore {position:fixed;right:24px;bottom:24px;z-index:80;border:1px solid #e6e3ef;border-radius:30px;background:#fff;color:#6b50ca;padding:12px 20px;box-shadow:0 6px 25px #302b5420;font:inherit}
-.ai-chat-window :focus-visible,.ai-chat-restore:focus-visible,.ai-chat-launcher:focus-visible {outline:3px solid #a99aed;outline-offset:2px}
+.ai-chat-window :focus-visible,.ai-chat-restore:focus-visible {outline:3px solid #a99aed;outline-offset:2px}
 @media(max-width:650px) {
-  .rail-links .ai-chat-launcher {width:36px;height:36px}
   .ai-chat-restore {right:12px;bottom:12px}
 }
