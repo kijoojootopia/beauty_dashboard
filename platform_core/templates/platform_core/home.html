@@ -45,10 +45,22 @@
 </svg></div>
 <div class="map-bottom"><span id="globe-status" role="status"><span class="live-dot"></span> 지도 또는 아래 국가 카드를 눌러 목적국을 선택하세요</span><span>국가·권역 위치 및 연결선은 안내용</span></div></section>
 </section>
-<div class="home-heading"><p>다음 목적지를 선택하고 수출 준비를 시작하세요.</p><a class="quiet-link" href="{{ url_for('platform_core.projects') }}">내 프로젝트 이어가기 {{ icon('arrow') }}</a></div>
+<div class="home-heading">
+  <div class="home-heading-copy"><a class="brand-symbol" href="{{ url_for('platform_core.home') }}" aria-label="뷰우티 홈">b<span>•</span></a><p>다음 목적지를 선택하고 수출 준비를 시작하세요.</p></div>
+  <div class="home-heading-actions">
+    <nav class="home-shortcuts" aria-label="빠른 이동">
+      <a class="brand-symbol" href="{{ url_for('platform_core.home') }}" aria-label="뷰우티 홈">b<span>•</span></a>
+      <div class="rail-links">
+        <a href="{{ url_for('platform_core.home') }}" class="active" aria-label="홈으로 가기" title="홈으로 가기">{{ icon('globe') }}</a>
+        <a href="{{ url_for('platform_core.projects') }}" aria-label="내 프로젝트" title="내 프로젝트">{{ icon('folder') }}</a>
+      </div>
+    </nav>
+    <a class="quiet-link" href="{{ url_for('platform_core.projects') }}">내 프로젝트 이어가기 {{ icon('arrow') }}</a>
+  </div>
+</div>
 <div class="home-dashboard"><section class="export-world home-globe-dock" aria-label="수출 국가 선택 지도"><div class="map-topline">GLOBAL EXPORT MAP</div><div class="map-bottom">드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택</div></section><div class="map-stat-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_fragment') }}">{% include 'platform_core/export_stats.html' %}</div>
 <div class="map-rank-layer" data-live-section data-live-url="{{ url_for('tab3_market.overview_rank_card') }}">{% include 'platform_core/export_rank_card.html' %}</div></div>
-<div id="all-export-countries" data-live-section data-live-url="{{ url_for('tab3_market.overview_rankings_fragment') }}">{% include 'platform_core/export_rankings.html' %}</div>
 <div class="home-steps"><span>처음 시작하시나요?</span><p><b>01</b> 국가 선택</p><span>→</span><p><b>02</b> 프로젝트·제품 등록</p><span>→</span><p><b>03</b> 성분 분석·수출 준비</p></div>
 <section class="destinations" id="destinations" tabindex="-1"><div class="section-heading"><div><span class="eyebrow">EXPLORE DESTINATIONS</span><h2>당신의 제품이 만날 다음 시장</h2></div><span class="muted mini">7개 국가·지역</span></div><div class="country-grid">{% for c in countries %}<a class="country-card" data-country="{{ c.code }}" href="{{ url_for('tab1_regulation.index',country=c.code) }}"><span class="country-monogram country-{{ c.code }}">{{ 'AS' if c.code=='asean' else c.iso }}</span><span><strong>{{ c.name }}</strong><small>{{ c.english }}</small></span>{{ icon('arrow') }}</a>{% endfor %}</div></section>
+<div id="all-export-countries" data-live-section data-live-url="{{ url_for('tab3_market.overview_rankings_fragment') }}">{% include 'platform_core/export_rankings.html' %}</div>
 {% endblock %}

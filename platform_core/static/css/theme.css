@@ -77,6 +77,8 @@ table{font-size:18px}th{font-size:17px}th small,td small{font-size:16px}
 .rail .brand-symbol{display:block;text-align:center;width:42px;height:42px;margin:0 6px 0 0;font-size:32px;line-height:42px}
 .rail-links{flex-direction:row;gap:8px;margin:0}
 .rail-links a{width:42px;height:42px}
+.topbar-brand{display:flex;align-items:center;gap:16px}
+.topbar-brand .brand-symbol{flex:none;margin:0;font-size:32px;line-height:42px}
 .topbar{padding-right:190px;flex-wrap:wrap}
 .topbar>*{min-width:0}
 .account-links{white-space:normal;flex-wrap:wrap}

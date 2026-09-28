@@ -24,10 +24,8 @@
     <a class="skip-link" href="#main">
       본문으로 이동
     </a>
+    {% if request.endpoint != 'platform_core.home' %}
     <nav class="rail" aria-label="빠른 이동">
-      <a class="brand-symbol" href="{{ url_for('platform_core.home') }}" aria-label="뷰우티 홈">
-        b<span>•</span>
-      </a>
       <div class="rail-links">
         <a href="{{ url_for('platform_core.home') }}" class="{{ 'active' if request.endpoint=='platform_core.home' or (tab and not project) else '' }}" aria-label="홈으로 가기" title="홈으로 가기">
           {{ icon('globe') }}
@@ -37,9 +35,14 @@
         </a>
       </div>
     </nav>
+    {% endif %}
     <div class="app-shell">
       <header class="topbar">
-        <a class="wordmark" href="{{ url_for('platform_core.home') }}">
+        <div class="topbar-brand">
+          <a class="brand-symbol" href="{{ url_for('platform_core.home') }}" aria-label="뷰우티 홈">
+            b<span>•</span>
+          </a>
+          <a class="wordmark" href="{{ url_for('platform_core.home') }}">
           BEAUPORT
           <span class="brand-tagline">
             ONE VIEW BEYOND BORDERS
@@ -47,7 +50,8 @@
           <span class="brand-description">
             (국경을 넘어, 한눈에 보는 글로벌 뷰티 무역)
           </span>
-        </a>
+          </a>
+        </div>
         {% if tab %}
           <nav class="tabs" aria-label="작업 탭">
             {% for key,label,ico in [('regulation','규제·수출 준비','shield'),('customs','관세·통관','truck'),('market','시장·유통사','chart')] %}
