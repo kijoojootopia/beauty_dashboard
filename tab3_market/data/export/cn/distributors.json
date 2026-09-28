@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "중국 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Lily & Beauty (丽人丽妆)",
+      "type": "E-Commerce TP & Master Distributor",
+      "description": "중국 대표 전자상거래 플랫폼 내 화장품 카테고리 1위 운영대행(TP) 및 브랜드 총판 기업",
+      "product_types": ["스킨케어", "베이스메이크업", "클렌징", "마스크팩"],
+      "channels": ["Tmall", "Taobao", "JD.com", "Douyin"],
+      "brands": ["설화수", "후", "라네즈", "프리메라"],
+      "source_url": "https://www.lrlz.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Baozun (宝尊)",
+      "type": "Omni-Channel Operations & Distribution",
+      "description": "글로벌 나스닥 상장사로 온·오프라인 옴니채널 유통망 구축 및 크로스보더 전자상거래 운영 대행",
+      "product_types": ["스킨케어", "메이크업", "바디케어", "선케어"],
+      "channels": ["Tmall Global", "JD.com", "TikTok Shop"],
+      "brands": ["Lancome", "Estee Lauder", "K-Beauty Brands"],
+      "source_url": "https://www.baozun.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Joyoung / UCO (유코)",
+      "type": "Beauty E-Commerce Operator",
+      "description": "왕홍 라이브 방송 및 소셜 이커머스에 특화된 화장품 전문 온라인 유통·마케팅 기업",
+      "product_types": ["스킨케어", "마스크팩", "포인트메이크업"],
+      "channels": ["Tmall", "Kuaishou Live", "Douyin Live"],
+      "brands": ["메디힐", "코스알엑스", "클리오"],
+      "source_url": "https://www.uco.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

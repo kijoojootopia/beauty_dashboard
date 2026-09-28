@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "필리핀 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "SM Beauty (SM Store)",
+      "type": "Department Store Beauty Division",
+      "description": "필리핀 최대 유통 공룡 SM 그룹의 백화점 뷰티관으로 오프라인 유통의 절대적 거점",
+      "product_types": ["스킨케어", "메이크업", "바디미스트", "선케어"],
+      "channels": ["SM Supermalls Beauty Sections"],
+      "brands": ["이니스프리", "더페이스샵", "메이벨린"],
+      "source_url": "https://shopsm.com/collections/sm-beauty",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Watsons Philippines",
+      "type": "No.1 Drugstore & H&B Chain",
+      "description": "필리핀 전역 도서 지역까지 커버하는 독보적 1위 드럭스토어 체인",
+      "product_types": ["스킨케어", "미백크림", "선크림", "마스크팩"],
+      "channels": ["1,000+ Stores Nationwide"],
+      "brands": ["코스알엑스", "스네일화이트", "아누아"],
+      "source_url": "https://www.watsons.com.ph/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Robinsons Department Store",
+      "type": "National Retail Group",
+      "description": "SM과 더불어 필리핀 전역 메가몰을 독점하고 있는 2대 리테일 유통 그룹",
+      "product_types": ["스킨케어", "색조메이크업", "향수"],
+      "channels": ["Robinsons Malls", "Robinsons Beauty Stores"],
+      "brands": ["로레알", "클리오", "롬앤"],
+      "source_url": "https://www.robinsonsdepartmentstore.com.ph/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

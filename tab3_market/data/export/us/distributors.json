@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "미국 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Silicon2 (StyleKorean)",
+      "type": "Global B2B Wholesale / Aggregator",
+      "description": "미국 내 자체 풀필먼트 물류센터를 기반으로 K-뷰티 인디 브랜드를 대형 오프라인 리테일러에 벤더 납품하는 종합 플랫폼",
+      "product_types": ["스킨케어", "선케어", "클렌징", "마스크팩"],
+      "channels": ["Sephora US", "Ulta Beauty", "Target", "Amazon US"],
+      "brands": ["조선미녀", "아누아", "라운드랩", "코스알엑스"],
+      "source_url": "https://www.siliconii.net/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Soko Glam",
+      "type": "Curation Retailer & Distributor",
+      "description": "북미 2030 코덕 중심의 K-뷰티 큐레이션 전문 유통사로 초기 현지 바이럴 및 인지도 확보에 최적화",
+      "product_types": ["스킨케어", "세럼", "토너", "클렌징밤"],
+      "channels": ["Soko Glam D2C", "US Specialty Boutiques"],
+      "brands": ["Then I Met You", "클레어스", "한스킨"],
+      "source_url": "https://sokoglam.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Beauty Bridge",
+      "type": "B2B Wholesale Distributor",
+      "description": "미국 전역 살롱, 백화점, 드럭스토어, 이커머스 채널에 뷰티 브랜드를 대량 도매 공급하는 전문 유통사",
+      "product_types": ["스킨케어", "바디케어", "메이크업"],
+      "channels": ["Department Stores", "Salons & Spas", "Online Retailers"],
+      "brands": ["Dermalogica", "Peter Thomas Roth", "K-Beauty Brands"],
+      "source_url": "https://www.beautybridge.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

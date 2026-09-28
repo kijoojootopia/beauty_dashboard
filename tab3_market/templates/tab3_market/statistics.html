@@ -1,3 +1,107 @@
-{% from 'platform_core/macros.html' import icon,empty,bookmark %}
-<div class="section-heading"><div><span class="eyebrow">MARKET INTELLIGENCE</span><h2>{{ destination.name }} 시장 살펴보기</h2></div><span class="tag">{{ market.latest.period if market.latest else '데이터 준비 중' }}</span></div>{% if market.message %}<div class="note error">{{ market.message }}</div>{% endif %}<div class="market-stats">{% for label,value,unit in [('한국 화장품 수입액',market.korean_imports,market.latest.unit if market.latest else '단위 미등록'),('한국산 수입액 성장률',market.growth,'%'),('한국산 수입 점유율',market.share,'%')] %}<article class="panel"><span>{{ label }}</span><strong>{{ value|number }} <small>{{ unit }}</small></strong><p>{{ market.latest.period if market.latest else '집계 기간 미등록' }}</p></article>{% endfor %}</div>
-<div class="market-charts">{% if market.charts %}{% for chart in market.charts %}<section class="panel chart-panel"><div class="section-heading"><h3>{{ chart.title }}</h3><span class="mini muted">{{ chart.unit }}</span></div>{% if chart.points %}<svg viewBox="0 0 740 230" class="data-chart" role="img" aria-label="{{ chart.title }} 추이"><path class="chart-grid" d="M50 45H690M50 90H690M50 135H690M50 180H690"/>{% for segment in chart.segments %}<polyline points="{{ segment }}" fill="none" stroke="#8870E8" stroke-width="3"/>{% endfor %}{% for point in chart.points %}<circle cx="{{ point.x }}" cy="{{ point.y }}" r="5" fill="#8870e8"><title>{{ point.label }}: {{ point.value|number }} {{ chart.unit }}</title></circle><text x="{{ point.x }}" y="211" text-anchor="middle">{{ point.label }}</text>{% endfor %}<text x="50" y="25">{{ chart.maximum|number }}</text><text x="28" y="184">0</text></svg><details class="chart-data"><summary>수치 표 보기</summary><table><thead><tr><th>기간</th><th>{{ chart.title }} ({{ chart.unit }})</th></tr></thead><tbody>{% for row in market.series %}<tr><td>{{ row.period }}</td><td>{{ row[chart.key]|number }}</td></tr>{% endfor %}</tbody></table></details>{% else %}{{ empty('이 지표의 값이 없습니다','누락된 값은 0으로 대체하지 않습니다.','chart') }}{% endif %}<p class="mini muted">보고국 · {{ market.latest.export_reporter if chart.key=='korea_exports' else market.latest.reporter }} / {{ market.latest.hs_scope }} · HS {{ market.latest.hs_version }}<br>출처 · {{ market.latest.export_source if chart.key=='korea_exports' else market.latest.source }} · {{ market.latest.coverage }}</p></section>{% endfor %}{% else %}{% for title in ['화장품 수입액 추이','한국 화장품 수입액','한국산 수입 점유율 추이'] %}<section class="panel chart-panel"><h3>{{ title }}</h3>{{ empty('시장 통계 데이터 준비 중','기간·품목 범위·단위·보고국이 확인된 데이터를 등록해 주세요.','chart') }}</section>{% endfor %}{% endif %}</div><p class="mini muted">한국산 수입 점유율은 목적국의 화장품 수입 중 한국산 비중입니다. 현지 전체 소매시장 점유율을 의미하지 않습니다.</p>
+{% from 'platform_core/macros.html' import empty %}
+{% macro amount(value) -%}
+  {% if value is not none %}{{ "%.2f"|format(value) }} <small>억 달러</small>{% else %}—{% endif %}
+{%- endmacro %}
+{% macro percent(value) -%}
+  {% if value is not none %}{{ "%.1f"|format(value) }}<small>%</small>{% else %}—{% endif %}
+{%- endmacro %}
+
+<div class="section-heading">
+  <div><span class="eyebrow">MARKET INTELLIGENCE</span><h2>{{ destination.name }} 시장 살펴보기</h2></div>
+  <span class="tag">2026년 1~8월 기준</span>
+</div>
+{% if market.message %}
+<p class="market-data-notice{% if market.state == 'data_error' %} is-error{% endif %}" role="status">{{ market.message }}</p>
+{% endif %}
+<div class="market-stats">
+  <article class="panel market-kpi">
+    <span>한국 화장품 수입액</span>
+    <strong>{{ amount(market.amount_eok) }}</strong>
+    <p>2026년 1월~8월 누계 · USD</p>
+    <p class="market-kpi-note">한국 → {{ destination.name }} 수출액 기준<br>1억 달러 = 100,000,000달러</p>
+    {% if market.amount_eok is none %}<p>해당 기간 자료 미등록</p>{% endif %}
+  </article>
+  <article class="panel market-kpi market-achievement">
+    <span>전년도 연간 실적 대비 달성률</span>
+    <div class="market-donut">
+      {% if market.achievement is not none %}
+      <svg viewBox="0 0 132 132" aria-hidden="true">
+        <circle class="market-donut-track" cx="66" cy="66" r="53"/>
+        <circle class="market-donut-value" cx="66" cy="66" r="53" pathLength="100"
+                stroke-dasharray="{{ market.achievement_fill }} 100"/>
+      </svg>
+      {% else %}
+      <svg viewBox="0 0 132 132" aria-hidden="true"><circle class="market-donut-track" cx="66" cy="66" r="53"/></svg>
+      {% endif %}
+      <strong>{{ percent(market.achievement) }}</strong>
+    </div>
+    <p>2026년 1~8월 누계 / 2025년 연간 실적</p>
+    <p class="market-kpi-note">계산 방법 · 2026년 1~8월 수출액 ÷<br>2025년 연간 수출액 × 100</p>
+    {% if market.achievement is none %}<p>달성률 자료 미등록</p>{% elif market.achievement > 100 %}<p>전년도 연간 실적 초과 달성</p>{% endif %}
+  </article>
+  <article class="panel market-kpi">
+    <span>한국 화장품 수출 중 해당국 비중</span>
+    <strong>{{ percent(market.export_share) }}</strong>
+    <p>현재 2026년 1~8월 누계</p>
+    <p class="market-kpi-note">계산 방법 · 해당국 대상 한국 화장품 수출액 ÷<br>한국 전체 화장품 수출액 × 100</p>
+    {% if market.export_share is none %}<p>해당 기간 자료 미등록</p>{% endif %}
+  </article>
+</div>
+
+<div class="market-charts market-history">
+{% for chart in market.charts %}
+  <section class="panel chart-panel">
+    <div class="section-heading">
+      <div><h3>{{ chart.title }}</h3><p class="market-chart-period">2021~2025년 · 연간 실적</p></div>
+      <span class="tag">{{ chart.unit }}</span>
+    </div>
+    {% if chart.points %}
+    <svg viewBox="0 0 640 266" class="market-series-chart" role="img" aria-label="{{ chart.title }} 2021~2025년 {{ '막대차트' if chart.key == 'amount' else '선차트' }}">
+      <title>{{ destination.name }} · {{ chart.title }} · 단위 {{ chart.unit }}</title>
+      {% if chart.key == 'amount' %}
+      <defs><linearGradient id="market-bar-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8870e8"/><stop offset="100%" stop-color="#d1c5fa"/></linearGradient></defs>
+      {% endif %}
+      {% for tick in chart.ticks %}
+      <path class="chart-grid" d="M64 {{ tick.y }}H600"/>
+      <text class="market-axis-label" x="53" y="{{ tick.y+4 }}" text-anchor="end">{{ "%.1f"|format(tick.value) }}</text>
+      {% endfor %}
+      {% for year in chart.years %}
+      <text class="market-axis-label" x="{{ year.x }}" y="246" text-anchor="middle">{{ year.label }}</text>
+      {% endfor %}
+      {% if chart.key == 'share' %}
+      {% for segment in chart.segments %}<polyline class="market-share-line" points="{{ segment }}"/>{% endfor %}
+      {% endif %}
+      {% for point in chart.points %}
+      {% if chart.key == 'amount' %}
+      <rect class="market-amount-bar" x="{{ point.x-24 }}" y="{{ point.y }}" width="48" height="{{ point.height }}" rx="6">
+        <title>{{ point.label }}년 · {{ "%.5f"|format(point.value) }}억 달러 ({{ "{:,.0f}".format(point.value*100000000) }} USD)</title>
+      </rect>
+      {% else %}
+      <circle class="market-share-point" cx="{{ point.x }}" cy="{{ point.y }}" r="5">
+        <title>{{ point.label }}년 · {{ "%.1f"|format(point.value) }}%</title>
+      </circle>
+      {% endif %}
+      <text class="market-point-label" x="{{ point.x }}" y="{{ point.y-12 }}" text-anchor="middle">{{ ("%.2f" if chart.key == 'amount' else "%.1f")|format(point.value) }}{{ '%' if chart.key == 'share' else '' }}</text>
+      {% endfor %}
+    </svg>
+    <details class="chart-data">
+      <summary>연도별 수치와 출처 보기</summary>
+      <table>
+        <thead><tr><th>기간</th><th>{{ chart.unit }}</th><th>출처</th></tr></thead>
+        <tbody>{% for row in market.series %}
+          <tr><td>{{ row.period }}년</td><td>{% if row[chart.key] is not none %}{{ ("%.5f" if chart.key == 'amount' else "%.1f")|format(row[chart.key]) }}{% else %}자료 미등록{% endif %}</td>
+          <td>{% if row.source_url|safe_url %}<a href="{{ row.source_url|safe_url }}" target="_blank" rel="noopener noreferrer">KCII</a>{% else %}—{% endif %}</td></tr>
+        {% endfor %}</tbody>
+      </table>
+    </details>
+    {% else %}
+      {{ empty('시장 통계 자료 미등록', '해당 국가의 연간 자료가 등록되면 이곳에 표시됩니다.', 'chart') }}
+    {% endif %}
+    <p class="mini muted">{% if chart.key == 'amount' %}한국 측 수출통계 기준 · 2021~2025년 연간 수출액<br>2026년 1~8월 누계는 상단에 별도로 표시합니다.{% else %}해당국 대상 한국 화장품 수출액 ÷ 한국 전체 화장품 수출액 × 100<br>비중은 제공된 KCII 자료의 수치를 사용합니다.{% endif %}</p>
+  </section>
+{% endfor %}
+</div>
+<p class="mini muted market-source">
+  금액 기준 · 한국 측의 해당국 대상 화장품 수출통계. 비중은 목적국 전체 화장품 수입시장 점유율이 아닙니다.
+  {% if market.current and market.current.source_url|safe_url %}<a href="{{ market.current.source_url|safe_url }}" target="_blank" rel="noopener noreferrer">2026년 자료 출처 · KCII</a>{% endif %}
+</p>

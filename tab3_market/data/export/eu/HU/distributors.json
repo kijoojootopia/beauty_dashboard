@@ -1,0 +1,36 @@
+{
+  "state": "ready",
+  "message": "중·동유럽(폴란드, 체코 등) 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Notino (노티노)",
+      "type": "E-Commerce Mega Vendor",
+      "description": "체코 본사 기반 유럽 전역(중동유럽 압도적 1위) 최대 뷰티 전문 이커머스 메가 벤더",
+      "product_types": ["스킨케어", "향수", "선케어", "더마코스메틱"],
+      "channels": ["Notino Pan-European E-Commerce", "Notino Hub Stores"],
+      "brands": ["조선미녀", "코스알엑스", "라로슈포제"],
+      "source_url": "https://www.notino.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Hebe (헤베)",
+      "type": "H&B Store Chain",
+      "description": "폴란드 1위 H&B 스토어로 K-뷰티 전용 섹션을 운영하며 중동유럽 전역 배송망 보유",
+      "product_types": ["스킨케어", "마스크팩", "K-뷰티 전용 섹션"],
+      "channels": ["300+ Hebe Stores in Poland", "Hebe Online"],
+      "brands": ["클레어스", "토니모리", "메디힐", "조선미녀"],
+      "source_url": "https://www.hebe.pl/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Rossmann Poland",
+      "type": "Mass Drugstore Mega Chain",
+      "description": "폴란드 오프라인 뷰티 시장 점유율 1위 드럭스토어 메가 체인",
+      "product_types": ["스킨케어", "바디케어", "선크림", "클렌징"],
+      "channels": ["1,500+ Rossmann Stores across Poland"],
+      "brands": ["니베아", "가르니에", "한국 스킨케어 라인"],
+      "source_url": "https://www.rossmann.pl/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}
