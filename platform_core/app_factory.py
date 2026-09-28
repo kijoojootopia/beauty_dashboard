@@ -22,7 +22,7 @@ def create_app(test_config=None):
         except FileExistsError:
             pass
         secret=keyfile.read_text().strip()
-    app.config.update(SECRET_KEY=secret,DATABASE=os.getenv("DATABASE_PATH") or str(root/"instance/beauty.sqlite3"),
+    app.config.update(SECRET_KEY=secret,DATABASE=os.getenv("DATABASE_PATH") or os.getenv("DATABASE_URL") or str(root/"instance/beauty.sqlite3"),
         MAX_CONTENT_LENGTH=2*1024*1024,SESSION_COOKIE_HTTPONLY=True,SESSION_COOKIE_SAMESITE="Lax",
         SESSION_COOKIE_SECURE=os.getenv("COOKIE_SECURE","").lower()=="true",PERMANENT_SESSION_LIFETIME=timedelta(hours=12),
         REGULATION_DATA_ROOT=root/"tab1_regulation/data",CUSTOMS_DATA_ROOT=root/"tab2_customs/data",

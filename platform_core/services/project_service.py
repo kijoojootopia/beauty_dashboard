@@ -49,7 +49,7 @@ def products_for(user_id, project_id):
 
 def analyses_for(user_id, product_id):
     product_for(user_id, product_id)
-    return [{**dict(r),"snapshot":json.loads(r["snapshot"])} for r in get_db().execute("SELECT * FROM analyses WHERE product_id=? ORDER BY created_at DESC, rowid DESC",(product_id,))]
+    return [{**dict(r),"snapshot":json.loads(r["snapshot"])} for r in get_db().execute("SELECT * FROM analyses WHERE product_id=? ORDER BY created_at DESC, id DESC",(product_id,))]
 
 def save_product_analysis(user_id, project_id, payload, snapshot, product_id=None):
     project=project_for(user_id, project_id)
@@ -88,7 +88,7 @@ def save_task(user_id, product_id, task_id, completed):
 
 def notes_for(user_id, product_id):
     product_for(user_id,product_id)
-    return [dict(r) for r in get_db().execute("SELECT * FROM product_notes WHERE product_id=? ORDER BY created_at DESC,rowid DESC",(product_id,))]
+    return [dict(r) for r in get_db().execute("SELECT * FROM product_notes WHERE product_id=? ORDER BY created_at DESC,id DESC",(product_id,))]
 
 def save_notes(user_id, product_id, notes):
     product_for(user_id, product_id)
@@ -156,7 +156,7 @@ def save_bookmark(user_id, project_id, kind, title, url):
     if kind not in {"distributor","news","regulation"} or not title.strip() or len(title)>300 or len(url)>2000 or parsed.scheme not in {"https","http"} or not parsed.netloc:
         raise ValueError("저장할 정보의 제목과 웹 주소를 확인해 주세요.")
     with get_db() as db:
-        db.execute("INSERT OR IGNORE INTO bookmarks VALUES(?,?,?,?,?,?)",(uuid4().hex,project_id,kind,title,url,now()))
+        db.execute("INSERT INTO bookmarks VALUES(?,?,?,?,?,?) ON CONFLICT DO NOTHING",(uuid4().hex,project_id,kind,title,url,now()))
 
 def export_project(user_id, project_id):
     project=project_for(user_id,project_id)
