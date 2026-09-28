@@ -5,27 +5,47 @@
 [GitHub 저장소](https://github.com/kijoojootopia/beauty_dashboard) · [실행 방법](#1-바로-실행하기--windows--vs-code) · [데이터 출처](#데이터-출처) · [기능](#2-구현-상태)
 
 <p align="center">
-  <img src="docs/screenshots/home-desktop.png" alt="뷰우티 대시보드 메인 화면" width="100%">
+  <img src="docs/screenshots/2026-09-28%20204749.png" alt="대시보드 메인 화면" width="100%">
 </p>
 
 <p align="center"><sub>메인 화면 미리보기 · 통계는 API 연결 및 데이터 설정에 따라 달라집니다.</sub></p>
 
 ## 프로젝트 목표
 
-국가별 화장품 성분 규제와 수출 준비 항목을 제품·프로젝트별로 관리하고, 관세·환율·무역 통계·시장 정보를 함께 살펴 수출 준비를 돕습니다. Python과 Flask로 만든 4인 팀 프로젝트이며, 현재는 로컬에서 실행할 수 있습니다.
+국가별 화장품 성분 규제와 수출 준비 항목을 제품·프로젝트별로 관리하고, 관세·환율·무역 통계·시장 정보를 함께 살펴 수출 준비를 돕는 Python·Flask 기반 4인 팀 프로젝트입니다. [Render 데모 주소](https://beauty-dashboard-fjxq.onrender.com/)에서 확인할 수 있으며, 로컬 실행 방법도 아래에 안내합니다.
 
 ## 데이터 출처
 
-| 데이터 | 출처와 사용 방식 |
-|---|---|
-| 성분 규제·수출 준비·관세·통관 | 팀이 관리하는 국가별 JSON 파일. 공식 원문과 검토 정보는 각 자료의 `metadata.json` 및 [데이터 계약](docs/data_contracts.md) 참고 |
-| 한국 수출 통계 | [관세청 품목별 수출입실적](https://www.data.go.kr/data/15101609/openapi.do), API 키 설정 시 조회 |
-| 목적국의 한국산 수입·시장 점유율 | [UN Comtrade](https://comtradeplus.un.org/), API 키 설정 시 조회 |
-| 환율 | [ExchangeRate-API](https://www.exchangerate-api.com/), API 키 설정 시 조회 |
-| 해외시장 기사 | [KOTRA 해외시장뉴스](https://www.data.go.kr/data/15034831/openapi.do), API 키 설정 시 조회 |
-| 유통사 후보·선택적 CSV 열 분류 | [OpenAI API](https://platform.openai.com/api-keys), 기능 사용 및 API 키 설정 시 조회 |
+서비스는 **외부 API에서 실행 시 받아오는 데이터**와 **팀이 국가별 자료를 확인해 저장소에 등록한 데이터**를 함께 사용합니다.
 
-외부 API 키가 없어도 실행할 수 있습니다. 이 경우 저장소에 포함된 등록 JSON을 사용하며, 데이터가 없거나 조회에 실패한 경우 임의의 값을 만들지 않고 준비 중 또는 오류로 표시합니다. API 키 설정은 [API 설정 안내](docs/api_setup.md)를 참고하세요.
+### 외부 API
+
+| 제공처 / API | 사용 데이터 | 설정 키 |
+|---|---|---|
+| [관세청 품목별 수출입실적(GW)](https://www.data.go.kr/data/15101609/openapi.do) | 한국의 품목별 수출액·연도별 추이 | `CUSTOMS_API_KEY` |
+| [관세청 품목별 국가별 수출입실적(GW)](https://www.data.go.kr/data/15100475/openapi.do) | 국가별 한국 수출 시장 현황 | `CUSTOMS_COUNTRY_API_KEY` |
+| [UN Comtrade 개발자 포털](https://comtradedeveloper.un.org/) | 목적국이 보고한 한국산 화장품 수입액·점유율·연도별 추이 | `COMTRADE_API_KEY` |
+| [대한무역투자진흥공사(KOTRA) 해외시장뉴스](https://www.data.go.kr/data/15034831/openapi.do) | 목적국별 해외시장 기사 | `KOTRA_API_KEY` |
+| [OpenAI API](https://platform.openai.com/api-keys) | 유통사 후보 웹 검색, 사용자가 선택한 경우 CSV 열 분류 | `OPENAI_API_KEY` |
+| [ExchangeRate-API](https://www.exchangerate-api.com/) | Tab 2 환율 조회·환산 | `EXCHANGE_API_KEY` |
+
+관세청 API는 품목별 합계와 국가별 상세 조회에 두 서비스를 사용합니다. 서비스별 신청·승인과 키 설정은 [API 설정 안내](docs/api_setup.md)를 참고하세요. API 키가 없으면 연결 API 대신 저장소의 등록 데이터를 사용하거나 `데이터 준비 중`으로 표시합니다.
+
+### 국가별 1차 자료와 저장 위치
+
+규제 성분·수출 준비 로드맵은 아래 국가별 폴더의 JSON으로 관리합니다. 각 폴더에는 성분 금지·제한 목록, 로드맵, 데이터 상태 파일이 포함됩니다. 화면의 상세 근거는 해당 JSON의 출처 필드에서 확인할 수 있습니다.
+
+| 국가 / 권역 | 참고하는 1차 자료 | 저장소 데이터 |
+|---|---|---|
+| 러시아(EAEU) | [EAEU 기술규정 포털](https://eec.eaeunion.org/), TR TS 009/2011 향수·화장품 안전 기술규정 | [`tab1_regulation/data/eac/`](tab1_regulation/data/eac/) |
+| 유럽연합(EU) | [화장품 규정 (EC) No 1223/2009](https://eur-lex.europa.eu/eli/reg/2009/1223/oj), [CosIng 성분 데이터베이스](https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en) | [`tab1_regulation/data/eu/`](tab1_regulation/data/eu/) |
+| UAE | 화면 자료 목록의 CosIng Annex II·III 및 [GSO 표준 포털](https://www.gso.org.sa/)의 GCC 화장품 표준 GSO 1943:2024 | [`tab1_regulation/data/uae/`](tab1_regulation/data/uae/) |
+| 미국 | [FDA 금지·제한 성분 안내](https://www.fda.gov/cosmetics/cosmetics-laws-regulations/prohibited-restricted-ingredients-cosmetics), [색소 허용 목록](https://www.fda.gov/cosmetics/cosmetic-ingredient-names/color-additives-permitted-use-cosmetics), MoCRA 자료 및 California Proposition 65 목록 | [`tab1_regulation/data/us/`](tab1_regulation/data/us/) |
+| 일본 | 팀이 정리한 일본 화장품 원문·성분 목록과 수출 로드맵 자료 | [`tab1_regulation/data/jp/`](tab1_regulation/data/jp/) |
+| 중국 | 팀이 등록한 화장품안전기술규범 성분 자료 | [`tab1_regulation/data/cn/`](tab1_regulation/data/cn/) |
+| ASEAN | [태국 FDA의 ASEAN 화장품 조화 자료](https://cosmetic.fda.moph.go.th/asean-cosmetic-harmonization/) 및 ASEAN Cosmetic Directive 부속서 | [`tab1_regulation/data/asean/`](tab1_regulation/data/asean/) |
+
+관세율과 통관 로드맵은 [국가별 Tab 2 JSON](tab2_customs/data/)에서 관리하며, 화면에 등록된 출처는 각 항목의 URL을 표시합니다. 현재 규제 데이터의 일부 `metadata.json`에는 출처 URL·검토일이 등록되지 않았습니다. 따라서 저장소의 데이터가 최신 공식 규정 전체를 반영한다고 보장하지 않으며, 실제 수출 전에는 링크된 원문과 최신 개정 여부를 확인해야 합니다. 데이터 파일 구조는 [데이터 계약](docs/data_contracts.md), 파일별 경로는 [국가 코드와 데이터 위치](#5-7개-국가-코드와-데이터-넣는-위치)를 참고하세요.
 
 ## 목차
 
@@ -35,7 +55,7 @@
 - [데이터 파일 위치](#5-7개-국가-코드와-데이터-넣는-위치)
 - [운영 범위와 제한](#8-운영-범위와-후속-작업)
 
-회원가입·로그인·저장·3개 탭이 연결되어 있습니다. 규제·관세 데이터는 팀이 관리하고, 수출·수입 통계·환율·시장 기사·유통사 검색은 `.env`의 API 키로 연결합니다.
+회원가입·로그인·저장·3개 탭이 연결되어 있습니다. 규제·관세 데이터는 팀이 관리하고, 수출·수입 통계·환율·시장 기사·유통사 검색은 로컬 `.env` 또는 배포 환경 변수에 설정한 API 키로 조회합니다.
 
 ## 1. 바로 실행하기 — Windows / VS Code
 
@@ -81,7 +101,7 @@ python3 -m venv .venv
 
 - 첫 실행에 API 키가 필요하지 않습니다. `.env.example`의 인증키는 비어 있고 품목·모델 등 기본 설정만 포함합니다. 키 입력과 화면별 연결은 [API 설정](docs/api_setup.md)을 보세요.
 - `SECRET_KEY`를 비워 두면 `instance/secret.key`에 무작위 키를 생성하고 다음 실행에도 재사용합니다.
-- 계정과 작업 내용은 `instance/beauty.sqlite3`에 저장됩니다. **이 파일을 지우면 저장 내용이 사라집니다.**
+- 기본 로컬 실행에서는 계정과 작업 내용이 `instance/beauty.sqlite3`에 저장됩니다. `DATABASE_URL`을 설정하면 PostgreSQL을 사용합니다. **로컬 SQLite 파일을 지우면 그 파일에 저장된 내용이 사라집니다.**
 - 회원가입 후 사용할 수 있으며 기본 관리자·공용 테스트 계정은 없습니다.
 - VS Code Python 확장에서 `junior` 인터프리터를 선택하면 `F5 → 뷰우티 · Flask`로 실행할 수 있습니다.
 - 5000번 포트가 사용 중이면 명령 끝에 `--port 5001`을 붙이고 주소의 포트도 바꾸세요.
@@ -89,19 +109,19 @@ python3 -m venv .venv
 
 ## 2. 구현 상태
 
-| 영역 | 이번 버전에서 동작하는 기능 | 후속 연결 |
+| 영역 | 현재 구현된 기능 | 남은 작업 |
 |---|---|---|
-| 첫 화면 | 지도·7개 목적지, 관세청 한국 수출액·비교 성장률·연도별 선그래프·주요 수출 시장 막대그래프·전체 국가 표 | 서비스 활용 승인·키 입력 |
-| 계정·저장 | 회원가입·로그인·로그아웃, 비밀번호 해시, CSRF, 소유권 검사, SQLite 영속 저장 | 이메일 인증·비밀번호 복구·운영 인프라 |
-| 프로젝트 | EU·ASEAN 목적 회원국 선택, 여러 제품, 다른 국가로 복사, JSON 내보내기·프로젝트 삭제 | 내보낸 JSON의 자동 복원·팀 공유 |
-| Tab 1 | CSV 열 자동 인식·선택적 AI 분류·미리보기, 판정, 분석 이력, 확대된 로드맵, 문서·단계 체크, 별도 메모 목록·화면 이동 없는 저장 | 국가별 규칙 검토·입력, 공식 공지 자동 수집 |
-| Tab 2 | 팀 JSON 기반 일반·FTA 관세율 조회·통관 단계, ExchangeRate-API 환율 계산 | 국가별 관세·통관 데이터 입력 |
-| Tab 3 | UN Comtrade 한국산 수입액·성장률·수입 점유율·추이, OpenAI 웹 검색 유통사 후보, KOTRA 기사 | 제공처 키 입력·실제 계정 승인 확인 |
-| 관심 정보 | 유통사·기사·규제 공지 저장과 저장 해제 | 제공처별 데이터 확보 |
+| 첫 화면 | SVG 세계 지도와 목적지 선택, 관세청 API 기반 한국 수출 통계·국가별 순위·추이 표시 | 배포 환경의 키·승인·API 응답 상태 점검 |
+| 계정·저장 | 회원가입·로그인·로그아웃, 비밀번호 해시, CSRF 보호, 사용자별 접근 검사. 로컬 SQLite와 `DATABASE_URL` 기반 PostgreSQL 사용 지원 | 이메일 인증·비밀번호 재설정, 배포 DB 백업·복구 절차 확인 |
+| 프로젝트·제품 | 프로젝트 및 제품 저장, EU·ASEAN 실제 회원국 선택, 다른 국가로 프로젝트 복사, JSON 내보내기, 프로젝트 삭제 | JSON 가져오기·복원, 여러 사용자의 팀 공유 |
+| Tab 1 · 성분·수출 준비 | 성분 직접 입력·CSV 열 자동 인식·미리보기, 선택형 OpenAI 열 분류, 등록 규칙 기반 판정과 분석 이력, 로드맵 단계·문서 체크, 메모 저장 | 국가별 규제 원문·검토일 보완, 공식 규제 변경 자동 수집 |
+| Tab 2 · 관세·통관 | 팀이 등록한 국가별 JSON으로 일반·FTA 관세율과 통관 로드맵 표시, ExchangeRate-API 환율 조회·환산 | 국가별 자료의 최신성·출처 검토 및 누락 자료 보완 |
+| Tab 3 · 시장 정보 | UN Comtrade 수입 통계, KOTRA 해외시장뉴스, OpenAI 웹 검색 기반 유통사 후보 연동 | 배포 환경의 API 이용 승인·키·호출 한도 확인, 검색 후보의 담당자 검토 |
+| 관심 정보 | 유통사 후보·기사·규제 공지를 사용자별로 저장·해제 | 저장 정보를 팀 계정 간 공유하는 기능 |
 
-**사용자가 제공한 기존 규제·데이터를 보존합니다.** API 키가 없으면 등록 JSON을 사용하며, 값이 없으면 `데이터 준비 중`, 손상되거나 API 연결에 실패하면 오류를 표시합니다. 임의의 규제나 통계를 만들지 않습니다. 화면 상단 Tab 1에는 KPI 카드를 두지 않고 시장 요약을 오른쪽에 배치했습니다.
+앱은 [Render 데모 주소](https://beauty-dashboard-fjxq.onrender.com/)로 배포되어 있습니다. 이 저장소에는 해당 배포의 환경 변수, 실제 DB 연결 방식, 백업 설정이 포함되어 있지 않으므로 배포 환경의 운영 상태는 별도로 확인해야 합니다. 외부 API 연동은 구현되어 있으며, 배포 환경에 유효한 키와 이용 승인이 설정된 경우 조회합니다. 키가 없으면 기능에 따라 저장소 JSON을 사용하거나 `데이터 준비 중`으로 표시하고, 오류 응답은 오류로 표시합니다. 앱은 규제나 통계를 임의로 만들어 채우지 않습니다.
 
-Portflow의 정확한 도구는 확인되지 않아 외부 키가 필요 없는 SVG 개략 지도를 사용합니다. 별도의 지도 CDN·프런트 빌드·Node.js 설치가 필요하지 않습니다. 글꼴은 Pretendard Variable로 통일하고 자체 포함했습니다. [글꼴 라이선스](platform_core/static/fonts/pretendard/LICENSE.txt)를 함께 배포합니다.
+규제 JSON은 국가별 원문 전체 및 최신 개정이 모두 검토되었다는 의미가 아닙니다. 특히 원문 링크나 검토일이 비어 있는 자료는 실제 수출 판단 전에 공식 출처에서 다시 확인해야 합니다. 화면 지도는 개략 SVG이며, 글꼴은 자체 포함한 Pretendard Variable을 사용합니다([라이선스](platform_core/static/fonts/pretendard/LICENSE.txt)).
 
 ## 3. 사용하는 순서
 
@@ -121,7 +141,7 @@ Portflow의 정확한 도구는 확인되지 않아 외부 키가 필요 없는 
 
 | 담당자 | 전용 폴더 | 책임 |
 |---|---|---|
-| 1번 | `platform_core/` | 공통 디자인·지도·계정·프로젝트·SQLite·통합 |
+| 1번 | `platform_core/` | 공통 디자인·지도·계정·프로젝트·DB(SQLite/PostgreSQL)·통합 |
 | 2번 | `tab1_regulation/` | 성분·판정·규제 피드·수출 로드맵 |
 | 3번 | `tab2_customs/` | 관세·통관·환율 |
 | 4번 | `tab3_market/` | 시장·수출·유통사·기사 |
@@ -244,9 +264,9 @@ ASEAN 목적국은 요청한 10개국(태국·베트남·인도네시아·싱가
 
 ## 8. 운영 범위와 후속 작업
 
-이 패키지는 팀의 **로컬 개발 실행용**입니다. `--debug` 서버를 외부에 공개하지 마세요. 서비스 배포 시 HTTPS, 영속 DB/백업, 운영 서버, 접근·요청 제한, 계정 복구 정책을 별도 구성해야 합니다. `COOKIE_SECURE=true`는 HTTPS 환경에서 설정합니다.
+이 프로젝트는 **로컬 개발 실행과 Render 데모 배포**를 제공합니다. 로컬의 `--debug` 서버는 개발용이므로 외부에 공개하지 마세요. 앱은 `DATABASE_URL`로 PostgreSQL 연결을 지원하지만, 배포 환경에서 실제 사용 중인 DB·영속성·백업 여부는 이 저장소만으로 확인할 수 없습니다. 정식 운영 전에는 HTTPS 쿠키 설정(`COOKIE_SECURE=true`), DB 백업·복구, 접근·요청 제한, 계정 복구 절차를 점검해야 합니다.
 
-공식 규제 최신성 검토와 관세 데이터 제작은 팀에서 수행합니다. 이번에 연결한 통계·환율·기사·AI API는 유효한 키를 `.env`에 넣고 새로고침하면 조회합니다. 환율은 실제 키로 응답을 확인했으며, 나머지 API의 발급 계정 승인·한도는 공식 요청 형식과 모의 응답으로만 검증했습니다. 규제 공지 자동 수집 확장 지점은 아직 미구현입니다.
+공식 규제의 최신성 검토와 관세 자료 관리는 팀에서 수행합니다. 통계·환율·기사·AI API 연동 코드는 구현되어 있으며, 실제 표시 여부는 배포 환경의 키·이용 승인·호출 한도에 달려 있습니다. 환율 API는 실제 키 응답과 환산을 확인했으며, 다른 API는 모의 응답으로 요청·오류 처리를 검증했습니다. 배포 환경에서 각 API 키의 현재 유효성과 승인 상태까지 확인한 것은 아닙니다. 규제 공지 자동 수집은 아직 구현되지 않았습니다.
 
 **기본 통계 범위는 HS 3304입니다.** 한국 화장품 전체 범위와 동일하다고 가정하지 않습니다. 팀이 사용할 화장품 HS 목록을 `COSMETICS_HS_CODES`에 설정하면 수출과 수입 통계가 같은 범위로 바뀝니다. 기본 기간은 최근 완료된 5개년이며 화면에 기간·단위·범위를 표시합니다.
 
