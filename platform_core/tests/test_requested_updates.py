@@ -101,21 +101,25 @@ def test_delete_product_owned_atomic_and_isolated(app,client,owned):
             store.save_notes(owner,product_id,'보존 확인')
             store.save_task(owner,product_id,'test-task',True)
         store.save_bookmark(owner,pid,'news','보존 기사','https://example.test')
-        before=store.export_project(owner,pid)
+        def export_state():
+            state=store.export_project(owner,pid)
+            state.pop('exported_at')
+            return state
+        before=export_state()
         with pytest.raises(NotFound):
             store.delete_product(owner+100,product)
-        assert store.export_project(owner,pid)==before
+        assert export_state()==before
         db.execute("CREATE TEMP TRIGGER fail_delete BEFORE DELETE ON products BEGIN SELECT RAISE(ABORT, 'test failure'); END")
         with pytest.raises(sqlite3.IntegrityError):
             store.delete_product(owner,product)
-        assert store.export_project(owner,pid)==before
+        assert export_state()==before
         db.execute('DROP TRIGGER fail_delete')
         store.delete_product(owner,product)
         for table in ['product_notes','task_states','analyses']:
             assert db.execute(f'SELECT count(*) FROM {table} WHERE product_id=?',(product,)).fetchone()[0]==0
         with pytest.raises(NotFound):
             store.product_for(owner,product)
-        after=store.export_project(owner,pid)
+        after=export_state()
         assert after['project']==before['project']
         assert after['bookmarks']==before['bookmarks']
         assert after['products']==[p for p in before['products'] if p['id']==other]
