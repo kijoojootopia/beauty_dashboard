@@ -40,12 +40,22 @@ def live_section(country,section):
 
 @bp.get("/api/exports/fragment")
 def overview_fragment():
-    return render_template("platform_core/export_stats.html",**export_overview_context())
+    return export_fragment("export_stats.html")
 
 @bp.get("/api/exports/rankings-fragment")
 def overview_rankings_fragment():
-    return render_template("platform_core/export_rankings.html",**export_overview_context(include_rankings=True))
+    return export_fragment("export_rankings.html",include_rankings=True)
 
 @bp.get("/api/exports/rank-card")
 def overview_rank_card():
-    return render_template("platform_core/export_rank_card.html",**export_overview_context(include_rankings=True))
+    return export_fragment("export_rank_card.html",include_rankings=True)
+
+
+def export_fragment(template,include_rankings=False):
+    context=export_overview_context(include_rankings=include_rankings)
+    data=context['overview']
+    html=render_template("platform_core/"+template,**context)
+    if data.get('state')=='data_error' or (include_rankings and data.get('ranking_state')=='data_error'):
+        # The integration cache retains failures for 60 seconds.
+        return html,503,{'Retry-After':'60'}
+    return html
