@@ -183,39 +183,24 @@ async function initializeGlobe() {
 
 initializeGlobe();
 
-// Native scrolling drives only the heading; WebGL loading is independent.
+// Move the existing globe to the dashboard after the intro leaves the screen.
 function initializeHomeIntro() {
   const intro = document.querySelector('.home-intro');
   if (!intro) return;
-  const copy = intro.querySelector('.intro-copy');
-  const shade = intro.querySelector('.intro-shade');
   const scene = intro.querySelector('.intro-scene');
   const wrapper = intro.querySelector('.globe-wrap');
   const dock = document.querySelector('.home-globe-dock');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!scene || !wrapper || !dock) return;
   let pending = false;
   const update = () => {
     pending = false;
-    const distance = Math.max(1, intro.offsetHeight - intro.querySelector('.intro-scene').offsetHeight);
-    const bounds = intro.getBoundingClientRect();
-    const docked = bounds.bottom <= window.innerHeight * 0.6;
-    if (dock && wrapper.parentElement !== (docked ? dock : scene)) {
-      (docked ? dock : scene).append(wrapper);
+    const pastIntro = intro.getBoundingClientRect().bottom <= 0;
+    intro.classList.toggle('is-past-intro', pastIntro);
+    const destination = pastIntro ? dock : scene;
+    if (wrapper.parentElement !== destination) {
+      destination.append(wrapper);
       document.dispatchEvent(new Event('globe-dock-change'));
     }
-    intro.classList.toggle('is-past-intro', bounds.bottom <= 0);
-    intro.classList.toggle('has-scrolled', bounds.top < -16);
-    const progress = Math.max(0, Math.min(1, -bounds.top / distance));
-    // Keep a faint globe visible before scrolling reveals the central heading.
-    const reveal = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (progress - 0.28) / 0.35));
-    shade.style.opacity = reducedMotion.matches ? 0.8 : 0.8 - Math.min(1, progress / 0.45) * 0.3;
-    copy.style.opacity = reveal;
-    copy.style.transform = `translateY(${(1 - reveal) * 48}px)`;
-    // Blend the departing dark scene into the page over a short scroll distance.
-    const exit = reducedMotion.matches ? 0 : Math.max(0, Math.min(1,
-      (window.innerHeight * 0.35 - bounds.bottom) / (window.innerHeight * 0.25)));
-    scene.style.opacity = 1 - exit;
-    scene.style.filter = exit > 0 ? `blur(${exit * 10}px)` : 'none';
   };
   const schedule = () => {
     if (!pending) {
@@ -223,10 +208,8 @@ function initializeHomeIntro() {
       requestAnimationFrame(update);
     }
   };
-  intro.classList.add('is-scroll-ready');
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule);
-  reducedMotion.addEventListener('change', schedule);
   update();
 }
 initializeHomeIntro();

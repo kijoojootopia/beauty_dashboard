@@ -269,21 +269,16 @@ a.globe-marker:focus-visible {
 body:has(.home-intro) .topbar { position:absolute; top:0; left:76px; right:0; z-index:8; background:#000; border-color:#222; color:#fff; }
 body:has(.home-intro) .rail { background:#000; border-color:#222; }
 body:has(.home-intro:not(.is-past-intro)) .rail { visibility:hidden; pointer-events:none; }
-body:has(.home-intro.is-past-intro) .rail { background:#fff; border-color:var(--line); }
-body:has(.home-intro:not(.has-scrolled)) .topbar,
-body:has(.home-intro:not(.has-scrolled)) .rail > *,
-.home-intro:not(.has-scrolled) .intro-skip { visibility:hidden; }
-body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
-.home-intro { position:relative; margin:0 0 20px -76px; background:var(--bg); }
-.home-intro::after {
-  content:""; position:absolute; inset:auto 0 -1px; height:140px; z-index:7;
-  background:linear-gradient(to bottom,transparent,var(--bg));
-  backdrop-filter:blur(12px); mask-image:linear-gradient(to bottom,transparent,#000 85%);
-  pointer-events:none;
+.home-intro { position:relative; height:100svh; margin:0 0 20px -76px; background:var(--bg); }
+body:has(.home-intro.is-past-intro) .rail {
+  position:fixed; inset:12px 20px auto auto; z-index:30; width:auto; height:auto;
+  flex-direction:row; padding:4px 8px; background:#fff; border:1px solid var(--line);
+  border-radius:14px; box-shadow:0 6px 20px #32215312;
 }
-.home-intro.is-scroll-ready { height:200svh; }
+body:has(.home-intro.is-past-intro) .rail .brand-symbol { display:none; }
+body:has(.home-intro.is-past-intro) .rail-links { flex-direction:row; gap:8px; margin:0; }
 .home-intro .intro-scene {
-  position:sticky; top:0; height:100svh; min-height:480px;
+  position:relative; height:100%; min-height:480px;
   border:0; border-radius:0; background:#000;
 }
 .home-intro .globe-wrap { inset:0; height:auto; }
@@ -300,13 +295,11 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 .home-dashboard .rank-item { padding:9px 0 5px; font-size:13px; }
 .home-dashboard .rank-item b { font-size:14px; }
 .home-intro .world-map { max-width:none; }
-.intro-shade { position:absolute; inset:0; z-index:4; background:rgba(0,0,0,.5); pointer-events:none; }
-.is-scroll-ready .intro-shade { background:#000; opacity:.8; }
-.home-intro:not(.is-scroll-ready) .intro-shade { background:rgba(0,0,0,.8); }
+.intro-shade { position:absolute; inset:0; z-index:4; background:rgba(0,0,0,.65); pointer-events:none; }
 .intro-copy {
   position:absolute; inset:0; z-index:5; display:flex; flex-direction:column;
   justify-content:center; align-items:center; padding:32px; text-align:center;
-  color:white; pointer-events:none; opacity:0;
+  color:white; pointer-events:none;
 }
 .intro-copy .eyebrow { color:#d9ceff; font-size:11px; letter-spacing:3px; }
 .intro-copy h1 { margin:22px 0; font-size:clamp(36px,5.5vw,84px); line-height:1.2; letter-spacing:-2px; }
@@ -333,12 +326,12 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 }
 @media(max-width:650px) {
   .home-intro { margin-left:-50px; }
-  .home-intro::after { height:100px; }
   .home-main .home-globe-dock { height:400px; width:calc(100% - 32px); }
   .home-globe-dock .globe-wrap { inset:40px 0 80px; }
   .home-globe-dock .map-bottom { font-size:10px; }
   .home-intro .intro-scene { border-radius:0; min-height:400px; }
   body:has(.home-intro) .topbar { left:50px; }
+  body:has(.home-intro.is-past-intro) .rail { inset:10px 12px auto auto; }
   .intro-copy { padding:24px; }
   .intro-copy h1 span { display:block; }
   .intro-copy .eyebrow { font-size:9px; letter-spacing:1.7px; }
@@ -346,9 +339,6 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   .intro-skip { top:120px; right:18px; font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .intro-copy { opacity:1; }
-  .home-intro.is-scroll-ready { height:auto; }
-  .home-intro .intro-scene { position:relative; }
   .home-intro .map-routes path { animation:none; }
 }
 /* Statistics surround the same interactive globe on a single light surface. */

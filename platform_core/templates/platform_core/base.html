@@ -29,7 +29,7 @@
         b<span>•</span>
       </a>
       <div class="rail-links">
-        <a href="{{ url_for('platform_core.home') }}" class="{{ 'active' if request.endpoint=='platform_core.home' or (tab and not project) else '' }}" aria-label="수출 국가 선택" title="수출 국가 선택">
+        <a href="{{ url_for('platform_core.home') }}" class="{{ 'active' if request.endpoint=='platform_core.home' or (tab and not project) else '' }}" aria-label="홈으로 가기" title="홈으로 가기">
           {{ icon('globe') }}
         </a>
         <a href="{{ url_for('platform_core.projects') }}" class="{{ 'active' if request.endpoint in ['platform_core.projects','platform_core.bookmarks'] or project else '' }}" aria-label="내 프로젝트" title="내 프로젝트">
