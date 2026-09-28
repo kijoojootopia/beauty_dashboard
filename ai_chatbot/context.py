@@ -52,24 +52,41 @@ def load_context(plan):
             result["amount_definition"] = "amount는 억 달러, amount_usd는 달러"
         elif topic == "regulations":
             term = plan["ingredient"].strip()
-            if not term:
-                return {"state": "clarify", "message": "조회할 성분명(INCI) 또는 CAS 번호를 알려 주세요."}
             result = load_regulations(country)
-            needle = term.casefold()
-            for key in ("prohibited", "restricted"):
-                rows = result.get(key, [])
-                result[key] = [row for row in rows if needle in json.dumps(
-                    {k: row.get(k) for k in ("inci_name", "kr_name", "cas_no", "aliases")},
-                    ensure_ascii=False).casefold()]
+            if not term:
+                result["summary_scope"] = "등록 규제의 일부 예시이며 전체 규제 목록이나 적합 판정이 아닙니다."
+                result["counts"] = {key: len(result.get(key, [])) for key in ("prohibited", "restricted")}
+                for key in ("prohibited", "restricted"):
+                    result[key] = result.get(key, [])[:3]
+                result["preparation"] = load_roadmap(country, plan["product_type"] or None)
+            else:
+                needle = term.casefold()
+                for key in ("prohibited", "restricted"):
+                    rows = result.get(key, [])
+                    result[key] = [row for row in rows if needle in json.dumps(
+                        {k: row.get(k) for k in ("inci_name", "kr_name", "cas_no", "aliases")},
+                        ensure_ascii=False).casefold()]
             result["lookup_note"] = "검색 결과가 없다는 것은 허용 또는 적합 판정이 아닙니다."
         elif topic == "roadmap":
             if country == "us" and not plan["product_type"]:
-                return {"state": "clarify", "message": "일반 화장품인지 선케어 제품인지 알려 주세요."}
-            result = load_roadmap(country, plan["product_type"] or None)
+                result = {"state": "ready", "scope": "제품 유형 미지정: 두 등록 경로의 개요",
+                          "general": load_roadmap(country, "general"),
+                          "sunscreen": load_roadmap(country, "sunscreen")}
+            else:
+                result = load_roadmap(country, plan["product_type"] or None)
+            if country == "eu":
+                result["scope_note"] = "EU 공통 등록 수출 준비 자료입니다. 프랑스 등 회원국 고유 추가 요건을 모두 확인한 것은 아닙니다."
         elif topic == "tariffs":
             if not re.fullmatch(r"\d{6,12}", plan["hs_code"]) or not re.fullmatch(r"[A-Z]{2}", plan["origin"]):
-                return {"state": "clarify", "message": "HS 코드(6~12자리)와 원산지 국가를 알려 주세요."}
-            result = lookup_tariffs(country, plan["origin"], plan["hs_code"])
+                from flask import current_app
+                from platform_core.services.data_loader import read_data
+                dataset = read_data(current_app.config["CUSTOMS_DATA_ROOT"], country, "tariffs.json")
+                result = {"state": dataset["state"], "message": dataset["message"],
+                          "examples": dataset["data"][:5],
+                          "scope_note": "등록 관세 예시입니다. 각 행의 HS 코드·원산지·협정 조건을 표시하고 사용자 품목에 적용된다고 단정하지 마세요.",
+                          "next_question": "정확한 적용 세율에는 HS 코드와 원산지가 필요합니다."}
+            else:
+                result = lookup_tariffs(country, plan["origin"], plan["hs_code"])
         elif topic == "customs":
             result = load_customs(country)
         elif topic == "news":
@@ -174,3 +191,48 @@ def direct_market_answer(question, history):
     if selected.get("source_url"):
         reply += "\n출처: " + selected["source_url"]
     return reply
+
+def normalize_plan(plan, question):
+    """명시된 국가명과 ISO 코드를 기존 서비스의 권역/회원국 계약으로 변환합니다."""
+    from platform_core.services.country_service import MEMBER_GROUPS, COUNTRIES
+    plan = dict(plan)
+    aliases = {"미국": ("us", ""), "일본": ("jp", ""), "중국": ("cn", ""),
+               "러시아": ("eac", ""), "아랍에미리트": ("uae", ""),
+               "유럽": ("eu", ""), "아세안": ("asean", "")}
+    for group, members in MEMBER_GROUPS.items():
+        for code, name in members.items():
+            aliases[name] = (group, code)
+    matched = {value for name, value in aliases.items() if name in question}
+    if len(matched) == 1:
+        plan["country"], plan["member_state"] = matched.pop()
+    else:
+        raw = plan["country"].strip()
+        if raw in aliases:
+            plan["country"], plan["member_state"] = aliases[raw]
+        else:
+            iso = raw.upper()
+            for group, members in MEMBER_GROUPS.items():
+                if iso in members:
+                    plan["country"], plan["member_state"] = group, iso
+                    break
+            else:
+                for country in COUNTRIES:
+                    if iso in {country["code"].upper(), country.get("iso", "").upper()}:
+                        plan["country"] = country["code"]
+                        break
+    member = plan["member_state"].strip()
+    for group, members in MEMBER_GROUPS.items():
+        if member.upper() in members:
+            plan["country"], plan["member_state"] = group, member.upper()
+            break
+        for iso, name in members.items():
+            if member == name:
+                plan["country"], plan["member_state"] = group, iso
+                break
+    if len(matched) <= 1 and plan["topic"] in {"general", "usage"} and plan["country"]:
+        compact = re.sub(r"\s+", "", question)
+        if any(word in compact for word in ("수출준비", "수출절차", "수출방법")):
+            plan["topic"] = "roadmap"
+        elif any(word in compact for word in ("규제", "금지성분", "제한성분")):
+            plan["topic"] = "regulations"
+    return plan

@@ -42,7 +42,7 @@
     <p class="ai-chat-status" role="status"></p>
     <form class="ai-chat-compose">
       <label for="ai-chat-input">궁금한 내용을 입력하세요</label>
-      <textarea id="ai-chat-input" maxlength="4000" placeholder="미국 수출 비중처럼 등록 자료를 물어보세요"></textarea>
+      <textarea id="ai-chat-input" maxlength="4000" placeholder="화장품 수출 준비, 국가별 규제·시장 정보를 물어보세요"></textarea>
       <div class="ai-chat-compose-row"><small>Enter 전송 · Shift+Enter 줄바꿈</small><button class="ai-chat-send" type="submit">보내기</button></div>
       <a class="ai-chat-login" hidden>로그인하고 대화하기</a>
     </form>
@@ -54,7 +54,13 @@
   restore.textContent = "AI 챗봇";
   document.body.append(panel, restore);
   const log = panel.querySelector(".ai-chat-messages");
+  let activeTurn = null;
   const status = panel.querySelector(".ai-chat-status");
+  // Keep the conversation viewport stable while status messages change.
+  status.style.display = "block";
+  status.style.minHeight = "24px";
+  log.style.scrollbarGutter = "stable";
+  log.style.overflowAnchor = "none";
   const input = panel.querySelector("textarea");
   const form = panel.querySelector("form");
   const send = panel.querySelector(".ai-chat-send");
@@ -113,15 +119,26 @@
     label.className = "ai-chat-message-label";
     label.textContent = role === "user" ? "나" : "BEAUPORT AI";
     bubble.append(label, document.createTextNode(content));
-    log.append(bubble);
-    log.scrollTop = log.scrollHeight;
+    (activeTurn || log).append(bubble);
+    return bubble;
   }
   function render() {
+    activeTurn = null;
     log.replaceChildren();
     if (!messages.length) appendMessage("assistant", authenticated
       ? "안녕하세요! 화장품 수출 통계와 등록 자료, 뷰포트 사용 방법을 물어보세요."
       : "로그인 후 AI 도우미와 대화할 수 있어요.");
     messages.forEach(item => appendMessage(item.role, item.content));
+    requestAnimationFrame(() => { log.scrollTop = log.scrollHeight; });
+  }
+  function scrollConversation(bubble, toBottom = false) {
+    if (panel.hidden) return;
+    requestAnimationFrame(() => {
+      if (!bubble.isConnected || panel.hidden) return;
+      const top = toBottom ? log.scrollHeight
+        : log.scrollTop + bubble.getBoundingClientRect().top - log.getBoundingClientRect().top - 16;
+      log.scrollTo({top, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    });
   }
   function historyForRequest() {
     const history = [];
@@ -179,10 +196,18 @@
     busy = true;
     send.disabled = true;
     status.textContent = "답변을 작성하고 있어요…";
+    if (!messages.length) log.replaceChildren();
     messages.push({role: "user", content: question});
     messages = messages.slice(-40);
     input.value = "";
-    render();
+    if (activeTurn) activeTurn.style.minHeight = "";
+    activeTurn = document.createElement("div");
+    activeTurn.style.cssText = "display:flex;flex-direction:column;gap:12px;flex-shrink:0";
+    activeTurn.style.minHeight = Math.max(0, log.clientHeight - 32) + "px";
+    log.append(activeTurn);
+    const requestTurn = activeTurn;
+    const questionBubble = appendMessage("user", question);
+    scrollConversation(questionBubble);
     persist();
     const timeout = window.setTimeout(() => requestController.abort(), 150000);
     try {
@@ -202,11 +227,13 @@
       messages = messages.slice(-40);
       appendMessage("assistant", data.reply);
       status.textContent = "";
+      // Keep the latest question at the top; its reply grows directly below it.
     } catch (error) {
       if (currentGeneration !== generation) return;
       messages.pop();
       if (!input.value) input.value = question;
-      render();
+      requestTurn.remove();
+      if (activeTurn === requestTurn) activeTurn = null;
       status.textContent = error.name === "AbortError" ? "응답 시간이 초과되었습니다. 다시 보내 주세요."
         : error instanceof TypeError ? "서버에 연결할 수 없습니다. 연결을 확인하고 다시 보내 주세요." : readableMessage(error.message, "응답을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.");
     } finally {
@@ -249,6 +276,10 @@
   }
   makeHandle(drag, false);
   makeHandle(resize, true);
+  const turnObserver = new ResizeObserver(() => {
+    if (activeTurn && !panel.hidden) activeTurn.style.minHeight = Math.max(0, log.clientHeight - 32) + "px";
+  });
+  turnObserver.observe(log);
   const onResize = () => { fit(rect); persist(); };
   window.addEventListener("resize", onResize);
   window.visualViewport?.addEventListener("resize", onResize);
