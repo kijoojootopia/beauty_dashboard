@@ -4,3 +4,15 @@
 @media(max-width:650px){.tariff-form{gap:12px}.tariff-form label{font-size:11px}.tariff-form input{font-size:11px}.customs-step dl{grid-template-columns:60px 1fr}.customs-step{gap:10px}}
 
 .customs-step h3{font-size:16px}.customs-step p,.customs-step dl{font-size:14px}.generic-flow{font-size:14px}.generic-flow small{font-size:12px}
+
+/* Larger labels and distinct results for the shared dashboard theme. */
+.tariff-form label,.tariff-form input{font-size:15px}
+.currency-panel .note,.currency-result,.currency-result p{font-size:15px}
+.currency-result{background:linear-gradient(135deg,#f9edf7,#eaedff)}.currency-result strong{font-size:28px;color:var(--purple-deep)}
+.customs-step h3{font-size:19px}.customs-step p,.customs-step dl{font-size:16px}
+.generic-flow{background:#f5f6ff;color:var(--ink);font-size:16px}.generic-flow small{font-size:14px}
+@media(max-width:650px){.tariff-form label,.tariff-form input{font-size:14px}}
+
+.tariff-form label,.tariff-form input,.currency-panel .note,.currency-result,.currency-result p,.customs-step p,.customs-step dl,.generic-flow{font-size:18px}
+.currency-result strong{font-size:32px}.customs-step h3{font-size:23px}.generic-flow small{font-size:16px}
+@media(max-width:650px){.tariff-form label,.tariff-form input,.currency-panel .note,.currency-result p,.customs-step p,.customs-step dl,.generic-flow{font-size:16px}}

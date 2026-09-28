@@ -34,7 +34,7 @@ HS·원산지별 등록 관세율 비교, 통관 절차와 환율 환산을 제�
 
 ## 이번 수정
 
-관세·통관은 팀 JSON으로 유지하고 ASEAN 목적국별 경로를 읽습니다. 한국수출입은행 인증키로 환율을 조회하며 휴일 이전 영업일·100통화 고시 단위를 처리합니다.
+관세·통관은 팀 JSON으로 유지하고 ASEAN 목적국별 경로를 읽습니다. ExchangeRate-API 인증키로 KRW 기준 환율을 조회하며 API의 실제 갱신일을 표시합니다.
 
 [UI·ASEAN·API 변경 기록](docs/changes/002-requested-updates.md)
 
