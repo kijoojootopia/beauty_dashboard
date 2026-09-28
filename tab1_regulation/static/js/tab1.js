@@ -140,15 +140,18 @@ document.querySelectorAll('[data-feed-view]').forEach(button=>button.addEventLis
 
 document.querySelectorAll('[data-market-summary-url]').forEach(async panel=>{
  const status=panel.querySelector('[data-market-status]');
- const format=value=>typeof value==='number'&&Number.isFinite(value)?value.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1}):'—';
+ const format=(value,key)=>typeof value==='number'&&Number.isFinite(value)?value.toLocaleString('en-US',{minimumFractionDigits:key==='amount_eok'?2:1,maximumFractionDigits:key==='amount_eok'?2:1}):'—';
  panel.setAttribute('aria-busy','true');
  try{
   const response=await fetch(panel.dataset.marketSummaryUrl,{headers:{Accept:'application/json'}});
   if(!response.ok||response.redirected)throw new Error('market request failed');
   const data=await response.json();
   if(!data||!['ready','data_pending','data_error'].includes(data.state))throw new Error('invalid market summary');
-  panel.querySelectorAll('[data-market-value]').forEach(el=>{el.textContent=format(data.state==='ready'?data[el.dataset.marketValue]:null);});
-  panel.querySelector('[data-market-unit]').textContent=data.state==='ready'?(data.latest?.unit||'단위 미확인'):'데이터 준비 중';
+  panel.querySelectorAll('[data-market-value]').forEach(el=>{const key=el.dataset.marketValue;el.textContent=format(data.state==='ready'?data[key]:null,key);});
+  panel.querySelectorAll('[data-market-missing]').forEach(el=>{el.hidden=data.state==='ready'&&data[el.dataset.marketMissing]!=null;});
+  const achievement=data.state==='ready'?data.achievement:null;
+  const achieved=panel.querySelector('[data-market-achieved]');
+  if(achieved)achieved.hidden=achievement==null||achievement<=100;
   panel.querySelector('[data-market-source]').textContent=data.state==='ready'&&data.latest?[data.latest.period,data.latest.source].filter(Boolean).join(' · '):'';
   status.textContent=data.state==='ready'?'':(data.message||'시장 통계 데이터 준비 중');
   status.classList.toggle('error-text',data.state==='data_error');
