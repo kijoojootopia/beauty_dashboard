@@ -3,7 +3,7 @@ import json
 from platform_core.integrations.openai_client import respond
 from platform_core.integrations.http_client import IntegrationError
 from platform_core.services.country_service import COUNTRIES, MEMBER_GROUPS
-from .context import load_context, direct_market_answer
+from .context import load_context, direct_market_answer, normalize_plan
 
 REFUSAL = "저는 화장품과 뷰포트 대시보드의 수출 준비 업무를 돕는 AI입니다. 관련 질문을 해 주세요."
 CLASSIFICATION_ERROR = "질문 범위를 확인하지 못했습니다. 잠시 후 다시 질문해 주세요."
@@ -51,6 +51,7 @@ ingredient, hs_code, origin(원산지 ISO), product_type은 질문/대화에
 """
 
 INSTRUCTIONS = SCOPE_RULES + """
+광범위한 질문에도 등록 자료에서 3~5개 핵심 항목을 먼저 요약하고, 필요한 세부 조건은 답변 끝에 질문하라. 일부 자료라도 있으면 해당 자료의 범위를 밝혀 안내하라. EU 공통 자료를 프랑스 고유 요건으로 단정하지 마라.
 당신은 뷰포트의 한국어 AI 도우미다. question의 허용된 질문에만 간결히 답하라.
 dashboard_context는 서버가 기존 조회 함수로 읽은 등록 자료다.
 해당 자료가 있으면 '직접 확인할 수 없다'고 거절하지 말고 실제 값에 근거해 답하라.
@@ -125,6 +126,7 @@ def answer(question, history):
     if not scoped:
         raise IntegrationError(CLASSIFICATION_ERROR)
     try:
+        decision = normalize_plan(decision, scoped if category == "mixed" else question + " " + scoped)
         context = load_context(decision)
     except (ValueError, TypeError, KeyError, OSError):
         raise IntegrationError("자료 조회 조건이나 등록 자료를 확인하지 못했습니다. 국가와 조회 내용을 확인해 주세요.") from None
