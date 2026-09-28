@@ -65,7 +65,7 @@
   background: #fffffff2;
   box-shadow: 0 3px 10px #4d367216;
   color: #665187;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 550;
   line-height: 1.4;
   white-space: nowrap;
@@ -132,7 +132,7 @@ a.globe-marker:focus-visible {
   .globe-wrap { left: 0; right: 0; }
   .globe-controls { bottom: 0; }
   .globe-controls button { min-height: 30px; }
-  .globe-marker { padding: 4px 8px; font-size: 12px; }
+  .globe-marker { padding: 4px 8px; font-size: 15px; }
   .map-cards { top: 370px; }
   .export-world { min-height: 915px; }
 }
@@ -160,7 +160,7 @@ a.globe-marker:focus-visible {
   text-align: center;
   color: slategrey;
   opacity: 0.7;
-  font-size: 12px;
+  font-size: 15px;
   font-family: sans-serif;
   pointer-events: none;
   user-select: none;
@@ -266,25 +266,21 @@ a.globe-marker:focus-visible {
 /* One existing globe forms the scroll introduction; no duplicated WebGL scene. */
 .home-main { max-width:none; padding:0; }
 .home-main > :not(.home-intro) { margin-left:clamp(16px,4vw,55px); margin-right:clamp(16px,4vw,55px); }
-body:has(.home-intro) .topbar { position:absolute; top:0; left:76px; right:0; z-index:8; background:#000; border-color:#222; color:#fff; }
-body:has(.home-intro) .rail { background:#000; border-color:#222; }
+body:has(.home-intro) .topbar { position:absolute; top:0; left:76px; right:0; z-index:8; background:#ffffffed; border-color:var(--line); color:var(--ink); }
+body:has(.home-intro) .rail { background:#fff; border-color:var(--line); }
 body:has(.home-intro:not(.is-past-intro)) .rail { visibility:hidden; pointer-events:none; }
-body:has(.home-intro.is-past-intro) .rail { background:#fff; border-color:var(--line); }
-body:has(.home-intro:not(.has-scrolled)) .topbar,
-body:has(.home-intro:not(.has-scrolled)) .rail > *,
-.home-intro:not(.has-scrolled) .intro-skip { visibility:hidden; }
-body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
-.home-intro { position:relative; margin:0 0 20px -76px; background:var(--bg); }
-.home-intro::after {
-  content:""; position:absolute; inset:auto 0 -1px; height:140px; z-index:7;
-  background:linear-gradient(to bottom,transparent,var(--bg));
-  backdrop-filter:blur(12px); mask-image:linear-gradient(to bottom,transparent,#000 85%);
-  pointer-events:none;
+.home-intro { position:relative; height:100svh; margin:0 0 20px -76px; background:var(--bg); }
+body:has(.home-intro.is-past-intro) .rail {
+  position:fixed; inset:12px 20px auto auto; z-index:30; width:auto; height:auto;
+  flex-direction:row; padding:4px 8px; background:#fff; border:1px solid var(--line);
+  border-radius:14px; box-shadow:0 6px 20px #32215312;
 }
-.home-intro.is-scroll-ready { height:200svh; }
+body:has(.home-intro.is-past-intro) .rail .brand-symbol { display:none; }
+body:has(.home-intro.is-past-intro) .rail-links { flex-direction:row; gap:8px; margin:0; }
 .home-intro .intro-scene {
-  position:sticky; top:0; height:100svh; min-height:480px;
-  border:0; border-radius:0; background:#000;
+  position:relative; height:100%; min-height:480px;
+  border:0; border-radius:0;
+  background:radial-gradient(ellipse at 16% 62%,#ffebf0a8,transparent 46%),linear-gradient(180deg,#879bb9 0%,#c6d0e1 24%,#f8f8fb 51%,#f8edf5 74%,var(--bg) 100%);
 }
 .home-intro .globe-wrap { inset:0; height:auto; }
 .home-intro .globe-wrap { max-width:1100px; margin-inline:auto; }
@@ -300,20 +296,18 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 .home-dashboard .rank-item { padding:9px 0 5px; font-size:13px; }
 .home-dashboard .rank-item b { font-size:14px; }
 .home-intro .world-map { max-width:none; }
-.intro-shade { position:absolute; inset:0; z-index:4; background:rgba(0,0,0,.5); pointer-events:none; }
-.is-scroll-ready .intro-shade { background:#000; opacity:.8; }
-.home-intro:not(.is-scroll-ready) .intro-shade { background:rgba(0,0,0,.8); }
+.intro-shade { position:absolute; inset:0; z-index:4; background:rgba(255,255,255,.08); pointer-events:none; }
 .intro-copy {
   position:absolute; inset:0; z-index:5; display:flex; flex-direction:column;
   justify-content:center; align-items:center; padding:32px; text-align:center;
-  color:white; pointer-events:none; opacity:0;
+  color:var(--ink); pointer-events:none;
 }
-.intro-copy .eyebrow { color:#d9ceff; font-size:11px; letter-spacing:3px; }
+.intro-copy .eyebrow { color:var(--purple-deep); font-size:14px; letter-spacing:3px; }
 .intro-copy h1 { margin:22px 0; font-size:clamp(36px,5.5vw,84px); line-height:1.2; letter-spacing:-2px; }
-.intro-copy h1 span { color:#d3c3ff; }
-.intro-copy p { color:#eee9f8; font-size:clamp(14px,1.4vw,18px); }
-.intro-skip { position:absolute; top:28px; right:28px; z-index:6; color:white; font-size:13px; }
-.intro-scroll { position:absolute; bottom:34px; left:0; right:0; z-index:5; text-align:center; color:#eee9f8; font-size:10px; letter-spacing:3px; pointer-events:none; }
+.intro-copy h1 span { color:var(--purple-deep); }
+.intro-copy p { color:#39415f; font-size:clamp(17px,1.5vw,21px); }
+.intro-skip { position:absolute; top:28px; right:28px; z-index:6; color:var(--ink); font-size:15px; }
+.intro-scroll { position:absolute; bottom:34px; left:0; right:0; z-index:5; text-align:center; color:var(--ink); font-size:15px; letter-spacing:3px; pointer-events:none; }
 .intro-scroll span { display:block; margin-top:10px; font-size:24px; }
 .home-intro .map-topline { display:none; }
 .intro-skip { top:120px; }
@@ -333,12 +327,12 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
 }
 @media(max-width:650px) {
   .home-intro { margin-left:-50px; }
-  .home-intro::after { height:100px; }
   .home-main .home-globe-dock { height:400px; width:calc(100% - 32px); }
   .home-globe-dock .globe-wrap { inset:40px 0 80px; }
   .home-globe-dock .map-bottom { font-size:10px; }
   .home-intro .intro-scene { border-radius:0; min-height:400px; }
   body:has(.home-intro) .topbar { left:50px; }
+  body:has(.home-intro.is-past-intro) .rail { inset:10px 12px auto auto; }
   .intro-copy { padding:24px; }
   .intro-copy h1 span { display:block; }
   .intro-copy .eyebrow { font-size:9px; letter-spacing:1.7px; }
@@ -346,9 +340,6 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   .intro-skip { top:120px; right:18px; font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .intro-copy { opacity:1; }
-  .home-intro.is-scroll-ready { height:auto; }
-  .home-intro .intro-scene { position:relative; }
   .home-intro .map-routes path { animation:none; }
 }
 /* Statistics surround the same interactive globe on a single light surface. */
@@ -367,27 +358,30 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   max-width:none; min-height:0; margin:0; border:0; border-radius:0; background:transparent;
 }
 .home-dashboard .home-globe-dock .globe-wrap { inset:26px 0 38px; height:auto; }
-.home-dashboard .home-globe-dock .map-topline { inset:5px 0 auto; justify-content:center; font-size:10px; }
-.home-dashboard .home-globe-dock .map-bottom { inset:auto 0 8px; font-size:11px; text-align:center; }
+/* Reparenting the globe into the dashboard should read as an arrival, not a jump. */
+.home-dashboard .home-globe-dock .globe-wrap { animation:globe-arrive .9s cubic-bezier(.22,1,.36,1) both; }
+@keyframes globe-arrive { from { opacity:0; transform:translateX(36px) scale(.96); } to { opacity:1; transform:translateX(0) scale(1); } }
+.home-dashboard .home-globe-dock .map-topline { inset:5px 0 auto; justify-content:center; font-size:14px; }
+.home-dashboard .home-globe-dock .map-bottom { inset:auto 0 8px; font-size:14px; text-align:center; }
 .home-dashboard .home-globe-dock .globe-controls { bottom:38px; }
 .home-dashboard .map-stat { padding:20px; border-color:#e5dfef; background:rgba(255,255,255,.72); box-shadow:0 8px 28px #42356506; }
 .home-main .country-card,.home-main .export-all { background:rgba(255,255,255,.72); }
-.home-dashboard .map-stat h2 { font-size:17px; }
-.home-dashboard .map-stat p { font-size:13px; }
+.home-dashboard .map-stat h2 { font-size:22px; font-weight:700; }
+.home-dashboard .map-stat p { font-size:16px; }
 .home-dashboard .stat-exports strong { font-size:clamp(24px,1.8vw,32px); }
-.home-dashboard .stat-exports strong small { font-size:12px; }
+.home-dashboard .stat-exports strong small { font-size:15px; }
 .home-dashboard .krw-value { font-size:18px; }
-.home-dashboard .exchange-meta,.home-dashboard .stat-unit,.home-dashboard .stat-foot { font-size:11px; line-height:1.65; }
+.home-dashboard .exchange-meta,.home-dashboard .stat-unit,.home-dashboard .stat-foot { font-size:14px; line-height:1.65; }
 .home-dashboard .export-trend { height:150px; margin:18px 0 12px; }
 .home-dashboard .export-trend text { display:none; }
 .home-dashboard .export-trend polyline { stroke:#3683a6; stroke-width:3px; vector-effect:non-scaling-stroke; }
 .home-dashboard .export-trend circle { fill:#7960bd; }
 .home-dashboard .trend-values { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-bottom:14px; }
-.home-dashboard .trend-values dt { font-size:11px; }
-.home-dashboard .trend-values dd { font-size:12px; }
-.home-dashboard .rank-item { grid-template-columns:20px minmax(0,1fr); padding:9px 0 4px; font-size:13px; }
-.home-dashboard .rank-item b { grid-column:2; text-align:left; font-size:14px; }
-.home-dashboard .rank-item b small { display:inline-block; margin-left:4px; font-size:11px; }
+.home-dashboard .trend-values dt { font-size:14px; }
+.home-dashboard .trend-values dd { font-size:16px; }
+.home-dashboard .rank-item { grid-template-columns:20px minmax(0,1fr); padding:9px 0 4px; font-size:16px; font-weight:500; }
+.home-dashboard .rank-item b { grid-column:2; text-align:left; font-size:17px; font-weight:700; }
+.home-dashboard .rank-item b small { display:inline-block; margin-left:4px; font-size:14px; }
 .home-dashboard .rank-item b .rank-krw { display:block; margin-left:0; color:#655086; }
 .home-dashboard .rank-bar { height:auto; aspect-ratio:100 / 3; border-radius:4px; background:#f0edf6; }
 .home-dashboard .rank-bar:nth-of-type(5n+1) rect { fill:#3683a6; }
@@ -412,5 +406,54 @@ body:has(.home-intro:not(.has-scrolled)) .rail { border-color:#000; }
   .home-dashboard .stat-growth { grid-column:1; grid-row:3; }
   .home-dashboard .stat-trend { grid-column:1; grid-row:4; }
   .home-dashboard .stat-rank { grid-column:1; grid-row:5; }
-  .home-dashboard .home-globe-dock .map-bottom { font-size:10px; }
+  .home-dashboard .home-globe-dock .map-bottom { font-size:13px; }
 }
+
+/* Readable white cards continue the sky-toned introduction. */
+.home-main .home-dashboard{background:linear-gradient(125deg,#fef7fc,#f7f8ff 48%,#eef1ff);border-color:var(--line)}
+.home-dashboard .map-stat,.home-main .country-card,.home-main .export-all{background:#fff;border-color:var(--line)}
+.home-dashboard .map-stat h2{font-size:24px}.home-dashboard .map-stat p{font-size:17px}
+.home-dashboard .exchange-meta,.home-dashboard .stat-unit,.home-dashboard .stat-foot,.home-dashboard .mini{font-size:15px;color:var(--muted)}
+.home-dashboard .trend-values dt,.home-dashboard .trend-values dd{font-size:16px}.home-dashboard .section-line a{font-size:15px}
+.home-dashboard .rank-item{font-size:17px}.home-dashboard .rank-item b{font-size:18px}.home-dashboard .rank-item b small{font-size:15px}
+.home-dashboard .rank-bar:nth-of-type(5n+1) rect,.home-dashboard .rank-bar:nth-of-type(5n+4) rect{fill:var(--purple)}
+.home-dashboard .rank-bar:nth-of-type(5n+2) rect,.home-dashboard .rank-bar:nth-of-type(5n+5) rect{fill:var(--pink)}
+.home-dashboard .export-trend polyline{stroke:var(--purple)}.home-dashboard .export-trend circle{fill:var(--pink)}
+.home-dashboard .home-globe-dock .map-topline,.home-dashboard .home-globe-dock .map-bottom{font-size:15px;color:var(--muted)}
+.globe-marker{border-color:var(--line);color:var(--ink);font-size:16px}.globe-marker--kr{background:var(--purple-deep);border-color:var(--purple-deep);color:#fff}
+.globe-controls button,.home-heading p,.home-steps,.home-steps p,.home-steps b{font-size:15px}
+.country-card strong{font-size:17px}.country-card small{font-size:15px}.country-monogram{background:var(--lavender);color:var(--purple-deep);font-size:14px}
+.export-all th,.export-all td,.export-all td small,.export-pagination p{font-size:15px}
+@media(max-width:650px){.intro-copy .eyebrow{font-size:12px}.intro-skip,.intro-scroll{font-size:13px}.home-dashboard .map-stat h2{font-size:22px}.home-dashboard .map-stat p,.home-dashboard .rank-item,.home-dashboard .rank-item b{font-size:16px}.home-dashboard .home-globe-dock .map-bottom{font-size:14px}.country-card strong{font-size:15px}.country-card small{font-size:13px}.home-heading p{font-size:15px}}
+
+/* Export figures and the full ranking stay readable on a presentation screen. */
+.home-heading p,.home-steps,.home-steps p,.home-steps b,.globe-controls button{font-size:18px}
+.home-dashboard .map-stat h2{font-size:27px}.home-dashboard .map-stat p,.home-dashboard .rank-item,.home-dashboard .rank-item b{font-size:19px}
+.home-dashboard .stat-exports strong small,.home-dashboard .stat-unit,.home-dashboard .stat-foot,.home-dashboard .mini,.home-dashboard .exchange-meta,.home-dashboard .trend-values dt,.home-dashboard .trend-values dd,.home-dashboard .rank-item b small,.home-dashboard .section-line a,.home-dashboard .home-globe-dock .map-topline,.home-dashboard .home-globe-dock .map-bottom{font-size:17px}
+.country-card strong{font-size:21px}.country-card small{font-size:17px}
+.export-all summary{font-size:22px;line-height:1.45}.export-all summary span:last-child,.export-all>.mini,.export-pagination p{font-size:17px;color:var(--muted)}
+.export-all th,.export-all td,.export-all td strong{font-size:20px;line-height:1.55}.export-all th small,.export-all td small{font-size:17px}.export-all th{background:#eef1ff}.export-all th,.export-all td{padding-top:20px;padding-bottom:20px}.export-all td strong{font-weight:700}
+@media(max-width:650px){.home-dashboard .map-stat h2{font-size:24px}.home-dashboard .map-stat p,.home-dashboard .rank-item,.home-dashboard .rank-item b,.home-heading p,.home-steps,.home-steps p,.home-steps b{font-size:16px}.home-dashboard .stat-unit,.home-dashboard .stat-foot,.home-dashboard .exchange-meta,.home-dashboard .rank-item b small{font-size:15px}.country-card strong{font-size:18px}.country-card small{font-size:15px}.export-all summary{font-size:20px}.export-all summary span:last-child,.export-all>.mini,.export-pagination p{font-size:15px}.export-all td,.export-all td strong{font-size:18px}.export-all td small{font-size:16px}}
+
+/* Keep the globe inside the viewport before the shorter intro ends. */
+html:has(.home-intro){overflow-anchor:none}
+body:has(.home-intro) .topbar{display:none}
+body:has(.home-intro:not(.is-past-intro)) .rail{visibility:hidden;pointer-events:none}
+body:has(.home-intro.is-past-intro) .rail{inset:18px 20px auto auto;padding:4px 8px}
+body:has(.home-intro.is-past-intro) .rail .brand-symbol{display:block}
+.home-intro{height:200svh;margin-left:0;margin-bottom:0}
+.home-intro .intro-scene{position:sticky;top:0;height:100svh;min-height:0}
+.home-intro .globe-wrap{inset:auto 12% -53svh;height:78svh;transform:translateY(calc(var(--intro-progress,0) * -61svh));max-width:none;will-change:transform}
+.home-intro .intro-copy{justify-content:flex-start;padding-top:clamp(85px,15svh,170px);opacity:calc(1 - var(--intro-progress,0))}
+.home-intro .intro-copy h1{max-width:100%}
+.home-intro .intro-scroll{bottom:30px}
+.home-heading{justify-content:flex-start;flex-wrap:wrap;gap:16px 32px;margin-top:30px}
+.home-heading-copy,.home-heading-actions{display:flex;align-items:center;gap:18px}
+.home-heading-copy .brand-symbol{flex:none;margin:0;font-size:32px;line-height:42px}
+.home-heading-actions{margin-left:auto}
+.home-shortcuts{display:flex;align-items:center;gap:8px;padding:4px 8px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 6px 20px #32215312}
+.home-shortcuts .brand-symbol{width:42px;height:42px;margin:0 6px 0 0;text-align:center;font-size:32px;line-height:42px}
+.home-shortcuts .rail-links{flex-direction:row;gap:8px;margin:0}
+.home-heading-actions .quiet-link{white-space:nowrap}
+@media(max-width:650px){.home-intro{margin-left:0}.home-intro .globe-wrap{inset:auto -22% -53svh;height:78svh}.home-intro .intro-copy{padding-top:16svh}.home-heading-actions{margin-left:0;flex-wrap:wrap}.home-shortcuts .rail-links a{width:36px;height:36px}.home-shortcuts .brand-symbol{width:36px;height:36px;font-size:27px;line-height:36px}}
+@media(prefers-reduced-motion:reduce){.home-intro .globe-wrap{transform:none}}

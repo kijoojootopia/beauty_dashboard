@@ -55,20 +55,23 @@ def test_comtrade_reporter_partner_and_missing_values(app,monkeypatch):
         assert all(row['total_imports'] is None and row['korean_imports'] is None for row in data['series'])
 
 
-def test_fx_weekend_fallback_and_100_unit(app,monkeypatch):
+def test_fx_exchange_rate_api_conversion(app,monkeypatch):
     app.config.update(EXCHANGE_API_KEY='test-only')
     calls=[]
-    def response(url,params):
-        calls.append(params)
-        if len(calls)==1:return []
-        assert 'oapi.koreaexim.go.kr' in url
-        return [{'result':1,'cur_unit':'JPY(100)','deal_bas_r':'900.00'},{'result':1,'cur_unit':'USD','deal_bas_r':'1,300.00'}]
+    def response(url,headers):
+        calls.append(url)
+        assert url=='https://v6.exchangerate-api.com/v6/latest/KRW'
+        assert headers['Authorization']=='Bearer test-only'
+        return {'result':'success','base_code':'KRW','time_last_update_unix':1756080000,
+                'conversion_rates':{'KRW':1,'JPY':0.1,'USD':0.001,'VND':20,'CNY':0.005}}
     monkeypatch.setattr(exchange_client,'request_json',response)
     from tab2_customs.services.customs_service import calculate_exchange
     with app.app_context():
-        assert calculate_exchange('900','KRW','JPY')['amount']=='100.00'
-        assert calculate_exchange('1','USD','KRW')['amount']=='1300.00'
-    assert len(calls)==2
+        assert calculate_exchange('100','KRW','JPY')['amount']=='10.00'
+        assert calculate_exchange('1','USD','KRW')['amount']=='1000.00'
+        assert calculate_exchange('100','KRW','VND')['amount']=='2000.00'
+        assert calculate_exchange('1','CNY','KRW')['amount']=='200.00'
+    assert len(calls)==1
 
 
 @pytest.mark.parametrize('country_name,search_name',[

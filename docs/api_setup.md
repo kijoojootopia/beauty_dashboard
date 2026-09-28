@@ -9,13 +9,13 @@
 | `CUSTOMS_API_KEY` | [관세청 품목별 수출입실적(GW)](https://www.data.go.kr/data/15101609/openapi.do) 서비스키 | 첫 화면 한국 수출액·성장률·연도별 선그래프 |
 | `CUSTOMS_COUNTRY_API_KEY` | [관세청 품목별 국가별 수출입실적(GW)](https://www.data.go.kr/data/15100475/openapi.do) 서비스키 | 첫 화면 주요 수출 시장 막대그래프·전체 국가 표 |
 | `COMTRADE_API_KEY` | [UN Comtrade](https://comtradeplus.un.org/) 개발자 API subscription key | Tab 3 선택 국가의 한국산 수입액·수입액 성장률·점유율·추이 |
-| `EXCHANGE_API_KEY` | [한국수출입은행 OpenAPI](https://www.koreaexim.go.kr/ir/HPHKIR055M01)에서 발급받은 인증키 | Tab 2 환율 계산기 |
+| `EXCHANGE_API_KEY` | [ExchangeRate-API](https://www.exchangerate-api.com/)에서 발급받은 인증키 | Tab 2 환율 계산기 |
 | `KOTRA_API_KEY` | [KOTRA 해외시장뉴스](https://www.data.go.kr/data/15034831/openapi.do) 서비스키 | Tab 3 선택 국가의 화장품 기사 |
 | `OPENAI_API_KEY` | [OpenAI API](https://platform.openai.com/api-keys) 키 | Tab 3 유통사 웹 검색·Tab 1 선택적 CSV 열 분류 |
 
 관세청 두 서비스와 KOTRA는 각각 활용 신청·승인이 필요합니다. 같은 공공데이터포털 키로 두 관세청 서비스가 승인되어 있다면 `CUSTOMS_COUNTRY_API_KEY`는 비워도 됩니다. `CUSTOMS_API_KEY`를 대신 사용합니다. 공공데이터포털 키는 Decoding/Encoding 형식을 처리하되 Decoding 키 입력을 권장합니다.
 
-**환율 API는 공공데이터포털의 일반 서비스키를 넣는 방식이 아닙니다.** 한국수출입은행에서 발급받은 `authkey`를 `EXCHANGE_API_KEY`에 넣으세요. 현재 엔드포인트는 `https://oapi.koreaexim.go.kr/site/program/financial/exchangeJSON`입니다. [공공데이터포털 안내](https://www.data.go.kr/data/3068846/openapi.do)에서도 제공처의 발급 절차를 확인할 수 있습니다.
+환율은 [ExchangeRate-API](https://www.exchangerate-api.com/docs/standard-requests)의 KRW 기준 응답을 사용합니다. 이 서비스에서 발급받은 키를 루트 `.env`의 `EXCHANGE_API_KEY`에 넣으세요. 서버에서 Bearer 인증으로 호출하며 키를 브라우저에 보내지 않습니다.
 
 키가 없는 서비스는 기존 등록 JSON을 표시합니다. 키가 있어도 인증·활용 승인·호출 한도·제공처 장애 때문에 실패하면 화면에 오류를 표시합니다. 실패를 0원/0%로 바꾸거나 샘플 데이터를 실제 데이터처럼 표시하지 않습니다.
 
@@ -63,7 +63,7 @@ OpenAI 요청은 `store=false`이며 유통사 검색에는 실제 처방 대신
 
 ## 환율·관세·기사
 
-환율은 수출입은행 매매기준율을 사용하며 주말·미제공일은 최근 10일 중 제공된 이전 영업일을 찾습니다. JPY(100), IDR(100)처럼 100통화 단위를 반영하고 실제 기준일을 표시합니다. 제공하지 않는 통화는 임의 환율로 계산하지 않습니다.
+환율은 ExchangeRate-API의 KRW 기준값을 사용하며 API가 알려준 실제 갱신일을 표시합니다. 각 통화의 값을 원화 기준 1통화 가격으로 변환해 계산합니다. 제공하지 않는 통화나 잘못된 값은 임의 환율로 계산하지 않습니다. 무료 요금제의 환율은 하루에 한 번 갱신됩니다.
 
 관세는 외부 API를 호출하지 않습니다. 팀에서 `tab2_customs/data/<country>/tariffs.json`을 작성합니다. ASEAN은 `asean/VN/`, `asean/TH/`처럼 실제 목적국별로 작성합니다. 나머지 회원국 자료가 없으면 준비 중으로 표시합니다. 10개 목적국별 입력용 빈 파일을 준비했으며, 다른 국가의 세율로 대신하지 않습니다.
 
@@ -75,4 +75,4 @@ KOTRA는 실제 목적국 이름과 화장품 검색어로 조회하고 제목·
 
 수출·수입·기사 캐시는 6시간, 환율 1시간, 유통사 후보 24시간입니다. 국가별 결과도 캐시하며 같은 조회를 동시에 요청해도 중복 호출을 억제합니다. 오류는 60초 후 다시 조회합니다. 키/HS/기간/모델 등 조회 기준이 바뀌면 새로운 캐시를 사용합니다. 강제로 갱신하려면 앱을 종료하고 `instance/api_cache` 폴더만 지운 후 재실행하세요. `beauty.sqlite3`나 `secret.key`는 지우지 않습니다.
 
-현재 검증은 공식 문서의 요청·응답 필드를 사용한 모의 응답 및 브라우저 테스트입니다. 실제 발급 키의 승인/과금/제공처 응답까지 검증한 것은 아닙니다. 키를 입력한 후 각 화면의 기간·출처·오류 메시지로 연결 상태를 확인하세요.
+환율은 실제 키로 제공처 응답과 계산을 확인했습니다. 나머지 API는 공식 문서의 요청·응답 필드를 사용한 모의 응답 및 브라우저 테스트이며, 실제 발급 키의 승인/과금/제공처 응답까지 검증한 것은 아닙니다. 키를 입력한 후 각 화면의 기간·출처·오류 메시지로 연결 상태를 확인하세요.
