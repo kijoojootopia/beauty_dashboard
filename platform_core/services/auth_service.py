@@ -1,7 +1,6 @@
 import hashlib
 import re
 import secrets
-import sqlite3
 import time
 from datetime import datetime, timezone
 from functools import wraps
@@ -11,7 +10,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from .database import get_db
 
 def now():
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return datetime.now(timezone.utc).isoformat(timespec="microseconds")
 
 def register(email, name, password):
     email = email.strip().lower()
@@ -22,13 +21,16 @@ def register(email, name, password):
         raise ValueError("이름은 1~50자로 입력해 주세요.")
     if not 10 <= len(password) <= 128:
         raise ValueError("비밀번호는 10~128자로 입력해 주세요.")
+    db = get_db()
     try:
-        with get_db() as db:
-            cursor = db.execute("INSERT INTO users(email,name,password_hash,created_at) VALUES(?,?,?,?)",
-                                (email, name, generate_password_hash(password), now()))
-        return cursor.lastrowid
-    except sqlite3.IntegrityError:
-        raise ValueError("가입 정보를 확인해 주세요. 이미 가입했다면 로그인해 주세요.") from None
+        with db:
+            db.execute("INSERT INTO users(email,name,password_hash,created_at) VALUES(?,?,?,?)",
+                       (email, name, generate_password_hash(password), now()))
+        return db.execute("SELECT id FROM users WHERE email=?", (email,)).fetchone()["id"]
+    except Exception as error:
+        if db.is_integrity_error(error):
+            raise ValueError("가입 정보를 확인해 주세요. 이미 가입했다면 로그인해 주세요.") from None
+        raise
 
 def authenticate(email, password, address):
     email = email.strip().lower()
@@ -45,7 +47,7 @@ def authenticate(email, password, address):
     started = attempt["window_started"] if attempt and time.time()-attempt["window_started"]<900 else time.time()
     count = attempt["count"]+1 if attempt and started==attempt["window_started"] else 1
     with db:
-        db.execute("INSERT OR REPLACE INTO login_attempts VALUES(?,?,?)",(key,count,started))
+        db.execute("INSERT INTO login_attempts VALUES(?,?,?) ON CONFLICT(attempt_key) DO UPDATE SET count=excluded.count, window_started=excluded.window_started",(key,count,started))
     raise ValueError("이메일 또는 비밀번호를 확인해 주세요.")
 
 def csrf_token():
