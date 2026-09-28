@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "인도네시아 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Sociolla (소시올라)",
+      "type": "Beauty-Tech Omni-Channel Distributor",
+      "description": "인도네시아 1위 뷰티 전문 유통 테크 플랫폼으로 수입, 물류, 오프라인 직영 유통 총괄",
+      "product_types": ["스킨케어", "선케어", "클렌징", "비건뷰티"],
+      "channels": ["Sociolla Flagship Malls", "SOCO App", "Lippo Mall"],
+      "brands": ["코스알엑스", "조선미녀", "아누아", "달바"],
+      "source_url": "https://www.sociolla.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "PT Mitra Adiperkasa (MAP Club)",
+      "type": "Conglomerate Retail Operator",
+      "description": "인도네시아 최대 리테일 대기업으로 세포라 인니 및 주요 백화점 뷰티관 독점 전개",
+      "product_types": ["프리미엄 스킨케어", "메이크업", "향수"],
+      "channels": ["Sephora Indonesia", "SOGO", "Seibu", "Galeries Lafayette"],
+      "brands": ["라네즈", "설화수", "에스티로더"],
+      "source_url": "https://www.map.co.id/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Watsons Indonesia",
+      "type": "Mass H&B Chain",
+      "description": "인도네시아 전역 대도시 및 중소도시 몰에 입점된 핵심 드럭스토어 체인",
+      "product_types": ["스킨케어", "마스크팩", "더마케어"],
+      "channels": ["Watsons Stores Nationwide"],
+      "brands": ["가히", "메디힐", "토니모리"],
+      "source_url": "https://www.watsons.co.id/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

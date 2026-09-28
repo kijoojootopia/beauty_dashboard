@@ -40,16 +40,19 @@ def test_comtrade_reporter_partner_and_missing_values(app,monkeypatch):
         year=params['period']
         return {'data':[{'reporterCode':704,'period':year,'cmdCode':'3304','classificationCode':'H6','flowCode':'M','partnerCode':partner,'primaryValue':val} for partner,val in [(0,100),(410,20 if year==2024 else 24)]]}
     monkeypatch.setattr(comtrade,'request_json',response)
-    from tab3_market.services.market_service import market_summary
     with app.app_context():
-        data=market_summary('asean','VN');assert data['growth']==20 and data['share']==24 and data['korean_imports']==24
-        assert data['charts'][1]['key']=='korean_imports'
+        data=comtrade.fetch('VN')
+        assert data['state']=='ready'
+        assert [row['total_imports'] for row in data['series']]==[100,100]
+        assert [row['korean_imports'] for row in data['series']]==[20,24]
     assert all(c['reporterCode']==704 and c['partnerCode']=='0,410' and c['flowCode']=='M' for c in calls)
     assert calls[0]['period']==2024
     app.config.update(COMTRADE_API_KEY='test-missing')
     monkeypatch.setattr(comtrade,'request_json',lambda *a,**kw:{'data':[]})
     with app.app_context():
-        data=market_summary('asean','VN');assert data['state']=='data_pending' and data['share'] is None
+        data=comtrade.fetch('VN')
+        assert data['state']=='data_pending'
+        assert all(row['total_imports'] is None and row['korean_imports'] is None for row in data['series'])
 
 
 def test_fx_weekend_fallback_and_100_unit(app,monkeypatch):

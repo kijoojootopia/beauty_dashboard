@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "러시아 및 유라시아(EAC) 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Beauty2B (Бьюти2Б)",
+      "type": "Master B2B Distributor",
+      "description": "러시아 및 CIS 전역 리테일 체인과 이커머스에 K-뷰티를 대량 수입 공급하는 대표적 전문사",
+      "product_types": ["스킨케어", "세럼", "선케어", "클렌징"],
+      "channels": ["L'Etoile", "Gold Apple", "Wildberries", "Ozon"],
+      "brands": ["조선미녀", "아누아", "달바", "코스알엑스"],
+      "source_url": "https://beauty2b.ru/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Gold Apple (Золотое Яблоко)",
+      "type": "Direct Import / Premium Retailer",
+      "description": "러시아 1위 프리미엄 뷰티 체인으로 감도 높은 글로벌 인디 브랜드를 본사에서 직접 소싱 및 직수입",
+      "product_types": ["스킨케어", "더마코스메틱", "향수", "메이크업"],
+      "channels": ["Gold Apple Flagship Stores", "Gold Apple Online"],
+      "brands": ["탬버린즈", "논픽션", "헤라", "에스트라"],
+      "source_url": "https://goldapple.ru/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "L'Etoile (Л'Этуаль)",
+      "type": "Mass Retail Chain",
+      "description": "러시아 전역에 가장 많은 오프라인 매장을 보유한 대형 리테일러로 대량 사입 및 매대 전개",
+      "product_types": ["스킨케어", "마스크팩", "바디케어", "색조화장품"],
+      "channels": ["러시아 전역 1,000+ 매장", "L'Etoile Marketplace"],
+      "brands": ["이니스프리", "토니모리", "미샤", "홀리카홀리카"],
+      "source_url": "https://letu.ru/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

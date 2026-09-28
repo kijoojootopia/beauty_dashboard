@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "일본 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "2020 Co., Ltd. (이공이공)",
+      "type": "Master Distributor / Licensee",
+      "description": "화장품 제조판매업 라이선스 보유사로 후생성 성분 검사, 수입 라벨링, 버라이어티숍 벤더 입점 총괄",
+      "product_types": ["스킨케어", "베이스메이크업", "선케어"],
+      "channels": ["Loft", "Plaza", "Don Quijote", "AtCosme"],
+      "brands": ["VT코스메틱", "롬앤", "티르티르"],
+      "source_url": "https://2020.ne.jp/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "MOST Co., Ltd. (모스트)",
+      "type": "B2B Export & Vendor",
+      "description": "K-뷰티 브랜드를 일본 오프라인 메가 벤더 라인을 통해 대형 버라이어티숍 및 드럭스토어에 납품",
+      "product_types": ["스킨케어", "마스크팩", "포인트메이크업"],
+      "channels": ["Matsumoto Kiyoshi", "Sundrug", "Loft"],
+      "brands": ["메디힐", "조선미녀", "스킨푸드"],
+      "source_url": "https://mostinc.co.kr/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "ARATA (아라타 메가벤더)",
+      "type": "Mega Wholesaler / Vendor",
+      "description": "일본 전역의 오프라인 체인을 장악한 최대 소비재 도매상으로 대량 유통 볼륨 확보에 필수적 경로",
+      "product_types": ["스킨케어", "바디케어", "헤어케어", "선케어"],
+      "channels": ["일본 전역 드럭스토어", "편의점", "대형마트"],
+      "brands": ["Kao", "Shiseido", "글로벌 브랜드"],
+      "source_url": "https://www.arata-gr.jp/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

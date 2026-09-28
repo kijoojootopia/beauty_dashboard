@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "브루나이 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Guardian Brunei",
+      "type": "Chain Pharmacy & H&B",
+      "description": "브루나이 내에서 가장 체계적인 수입·통관 인프라와 매장을 보유한 대표 체인",
+      "product_types": ["스킨케어", "선케어", "더마화장품"],
+      "channels": ["Guardian Brunei Outlets"],
+      "brands": ["세타필", "심플", "아벤느"],
+      "source_url": "https://guardian.com.bn/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Guan Hup Group",
+      "type": "FMCG Trading & Distribution",
+      "description": "브루나이 현지 대형 소비재 무역사로 항만 통관부터 소매점 납품 전반을 대행",
+      "product_types": ["스킨케어", "바디케어", "생필품/위생용품"],
+      "channels": ["Supermarkets", "Department Stores", "Pharmacies"],
+      "brands": ["글로벌 FMCG 브랜드", "수입 화장품 라인"],
+      "source_url": "https://guanhup.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Paloma Brunei",
+      "type": "Prestige Beauty Retailer",
+      "description": "브루나이 내 프리미엄 화장품 및 향수, 고기능성 스킨케어 수입 전문 유통사",
+      "product_types": ["프리미엄 스킨케어", "향수", "럭셔리 뷰티"],
+      "channels": ["Paloma Specialty Boutiques"],
+      "brands": ["디올", "샤넬", "프리미엄 수입 뷰티"],
+      "source_url": "https://palomabrunei.com/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}

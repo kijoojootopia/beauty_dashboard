@@ -1,1 +1,36 @@
-[]
+{
+  "state": "ready",
+  "message": "싱가포르 화장품 주요 유통사 목록입니다.",
+  "data": [
+    {
+      "name": "Luxasia (룩사시아)",
+      "type": "Regional Prestige Beauty Distributor",
+      "description": "싱가포르 본사 기반 아시아 15개국 옴니채널 유통망을 쥔 아태지역 1위 뷰티 전문 유통사",
+      "product_types": ["프리미엄 스킨케어", "향수", "더마코스메틱"],
+      "channels": ["Sephora SG", "Tangs", "Takashimaya", "Changi Airport"],
+      "brands": ["SK-II", "La Prairie", "K-Beauty Prestige"],
+      "source_url": "https://www.luxasia.com/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Guardian Singapore",
+      "type": "Leading Pharmacy & H&B Chain",
+      "description": "싱가포르 전역 주거지와 쇼핑몰에 거미줄처럼 깔려 있는 1위 드럭스토어 체인",
+      "product_types": ["스킨케어", "선케어", "더마/약국화장품"],
+      "channels": ["100+ Guardian Stores across Singapore"],
+      "brands": ["아벤느", "코스알엑스", "바이오더마"],
+      "source_url": "https://www.guardian.com.sg/",
+      "verified_at": "2026-09-27"
+    },
+    {
+      "name": "Novela (노벨라)",
+      "type": "Multi-Brand Beauty Boutique",
+      "description": "싱가포르 중심 쇼핑몰에 위치한 프리미엄 스킨케어·향수 멀티 브랜드숍 체인",
+      "product_types": ["스킨케어", "에센스", "럭셔리 뷰티"],
+      "channels": ["Novela Boutiques (IMM, SingPost Centre)"],
+      "brands": ["설화수", "랑콤", "헬레나루빈스타인"],
+      "source_url": "https://www.novela.com.sg/",
+      "verified_at": "2026-09-27"
+    }
+  ]
+}
