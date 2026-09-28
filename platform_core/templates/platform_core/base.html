@@ -24,7 +24,7 @@
     <a class="skip-link" href="#main">
       본문으로 이동
     </a>
-    <aside class="rail">
+    <nav class="rail" aria-label="빠른 이동">
       <a class="brand-symbol" href="{{ url_for('platform_core.home') }}" aria-label="뷰우티 홈">
         b<span>•</span>
       </a>
@@ -36,7 +36,7 @@
           {{ icon('folder') }}
         </a>
       </div>
-    </aside>
+    </nav>
     <div class="app-shell">
       <header class="topbar">
         <a class="wordmark" href="{{ url_for('platform_core.home') }}">

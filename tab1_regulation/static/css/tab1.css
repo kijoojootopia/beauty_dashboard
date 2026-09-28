@@ -14,3 +14,26 @@
 #product-notes .memo-icon{width:40px;height:40px;border-radius:12px;background:var(--lavender);display:grid;place-items:center;color:var(--purple);flex:0 0 auto}
 #product-notes .memo-icon svg{width:20px;height:20px}
 
+/* Keep analysis details legible within the shared dashboard palette. */
+.workspace-aside h2{font-size:21px}.workspace-aside .empty-state strong{font-size:16px}.workspace-aside .empty-state p{font-size:14px}
+.segmented{background:#eef0fb}.segmented button{font-size:14px;color:var(--muted)}
+.product-title strong{font-size:18px}.product-title small,.analysis-date,.analysis-meta{font-size:14px}
+.screening-table th{font-size:14px}.screening-table td{font-size:15px}.table-note,.rule-detail,.rule-detail p{font-size:14px}
+.history>summary,.history-entry>summary,.product-form-panel>summary .mini,.ingredient-header,.ingredient-header small{font-size:14px}
+.product-form-panel>summary{font-size:18px}.ingredient-row input{font-size:15px}.ingredient-row input::placeholder{font-size:14px}
+.input-alternative,input[type=file],.form-bottom>p{font-size:15px}.upload-zone{background:#f5f6ff;border-color:#b9c0fa}
+.step-node,.timeline-step>.mini,.document-nodes,.task-card>summary>.tag,.aside-foot{font-size:14px}
+.timeline-step strong,.roadmap-panel .timeline-step strong{font-size:16px}.roadmap-panel .timeline-step{min-width:190px}.roadmap-panel .timeline-step strong{max-width:165px}
+.roadmap-panel .timeline-step>.mini,.roadmap-panel .document-nodes,.roadmap-panel .task-guidance{font-size:14px}
+.task-card>summary,.roadmap-panel .task-card>summary{font-size:17px}.task-card>summary>.tag{white-space:nowrap;flex-shrink:0}.check-row,.roadmap-panel .check-row{font-size:16px;color:var(--ink)}
+.roadmap-panel .task-body .mini,.roadmap-panel .task-body .text-link,#product-notes .note-delete-link{font-size:15px}
+.market-mini{background:linear-gradient(135deg,#fff,#f1f3ff)}.market-mini .mini-stat>span,.market-mini .mini-stat strong small,.market-mini .mini-stat>p,.market-mini>.text-link{font-size:14px;color:var(--muted)}
+@media(max-width:650px){.segmented{flex-wrap:wrap}.segmented button{font-size:13px}.product-title strong{font-size:16px}.ingredient-row input{font-size:14px}.ingredient-row input::placeholder{font-size:13px}.ingredient-header{font-size:13px}.roadmap-panel .timeline-step{min-width:160px}.roadmap-panel .timeline-step strong{max-width:140px;font-size:15px}.roadmap-panel .task-card>summary{font-size:16px}.roadmap-panel>.section-heading>.tag{font-size:13px}}
+
+.workspace-aside h2{font-size:25px}.workspace-aside .empty-state strong,.product-title strong,.product-form-panel>summary{font-size:20px}
+.segmented button,.product-title small,.analysis-date,.analysis-meta,.table-note,.rule-detail,.rule-detail p,.history>summary,.history-entry>summary,.ingredient-header,.ingredient-header small,.timeline-step>.mini,.document-nodes,.aside-foot,.market-mini .mini-stat>span,.market-mini .mini-stat strong small,.market-mini .mini-stat>p{font-size:16px}
+.screening-table th,.screening-table td,.ingredient-row input,.input-alternative,input[type=file],.form-bottom>p,.check-row,.roadmap-panel .check-row{font-size:18px}
+.ingredient-row input::placeholder,.roadmap-panel .timeline-step>.mini,.roadmap-panel .document-nodes,.roadmap-panel .task-guidance,.roadmap-panel .task-body .mini,.roadmap-panel .task-body .text-link{font-size:16px}
+.roadmap-panel .timeline-step{min-width:210px}.roadmap-panel .timeline-step strong{max-width:180px;font-size:18px}.task-card>summary,.roadmap-panel .task-card>summary{font-size:19px}.task-card>summary>.tag{font-size:15px}
+@media(max-width:650px){.ingredient-row input,.screening-table th,.screening-table td{font-size:16px}.ingredient-row input::placeholder,.ingredient-header,.segmented button{font-size:15px}.roadmap-panel .timeline-step{min-width:180px}.roadmap-panel .timeline-step strong{max-width:150px;font-size:16px}.roadmap-panel .task-card>summary{font-size:17px}}
+

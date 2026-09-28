@@ -102,7 +102,8 @@ async function initializeGlobe() {
     material.shininess = 12;
     const controls = globe.controls();
     const radius = globe.getGlobeRadius();
-    controls.autoRotate = false;
+    controls.autoRotate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    controls.autoRotateSpeed = 0.35;
     controls.enableRotate = !container.closest('.home-intro');
     controls.enableZoom = !container.closest('.home-intro');
     controls.enablePan = false;
@@ -110,6 +111,7 @@ async function initializeGlobe() {
       const interactive = Boolean(container.closest('.home-globe-dock'));
       controls.enableRotate = interactive;
       controls.enableZoom = interactive;
+      controls.autoRotate = !interactive && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       status.textContent = interactive
         ? '드래그하여 회전 · 휠로 확대/축소 · 국가 이름을 눌러 선택'
         : '스크롤하여 국가 선택 지도로 이동하세요';
@@ -183,20 +185,23 @@ async function initializeGlobe() {
 
 initializeGlobe();
 
-// Move the existing globe to the dashboard after the intro leaves the screen.
+// Move the existing globe as the dashboard map heading enters view.
 function initializeHomeIntro() {
   const intro = document.querySelector('.home-intro');
   if (!intro) return;
   const scene = intro.querySelector('.intro-scene');
   const wrapper = intro.querySelector('.globe-wrap');
   const dock = document.querySelector('.home-globe-dock');
-  if (!scene || !wrapper || !dock) return;
+  const mapHeading = dock?.querySelector('.map-topline');
+  if (!scene || !wrapper || !dock || !mapHeading) return;
   let pending = false;
   const update = () => {
     pending = false;
     const pastIntro = intro.getBoundingClientRect().bottom <= 0;
+    const progress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, intro.offsetHeight - window.innerHeight)));
+    intro.style.setProperty('--intro-progress', progress);
     intro.classList.toggle('is-past-intro', pastIntro);
-    const destination = pastIntro ? dock : scene;
+    const destination = mapHeading.getBoundingClientRect().top <= window.innerHeight / 2 ? dock : scene;
     if (wrapper.parentElement !== destination) {
       destination.append(wrapper);
       document.dispatchEvent(new Event('globe-dock-change'));
