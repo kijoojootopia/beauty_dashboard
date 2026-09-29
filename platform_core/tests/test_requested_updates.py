@@ -101,21 +101,25 @@ def test_delete_product_owned_atomic_and_isolated(app,client,owned):
             store.save_notes(owner,product_id,'보존 확인')
             store.save_task(owner,product_id,'test-task',True)
         store.save_bookmark(owner,pid,'news','보존 기사','https://example.test')
-        before=store.export_project(owner,pid)
+        def export_state():
+            state=store.export_project(owner,pid)
+            state.pop('exported_at')
+            return state
+        before=export_state()
         with pytest.raises(NotFound):
             store.delete_product(owner+100,product)
-        assert store.export_project(owner,pid)==before
+        assert export_state()==before
         db.execute("CREATE TEMP TRIGGER fail_delete BEFORE DELETE ON products BEGIN SELECT RAISE(ABORT, 'test failure'); END")
         with pytest.raises(sqlite3.IntegrityError):
             store.delete_product(owner,product)
-        assert store.export_project(owner,pid)==before
+        assert export_state()==before
         db.execute('DROP TRIGGER fail_delete')
         store.delete_product(owner,product)
         for table in ['product_notes','task_states','analyses']:
             assert db.execute(f'SELECT count(*) FROM {table} WHERE product_id=?',(product,)).fetchone()[0]==0
         with pytest.raises(NotFound):
             store.product_for(owner,product)
-        after=store.export_project(owner,pid)
+        after=export_state()
         assert after['project']==before['project']
         assert after['bookmarks']==before['bookmarks']
         assert after['products']==[p for p in before['products'] if p['id']==other]
@@ -128,3 +132,134 @@ def test_banned_review_is_red_restricted_review_yellow(app):
         html=render_template('tab1_regulation/screening_table.html',snapshot=snapshot)
         assert '<span class="status bad">확인 필요</span>' in html
         assert '<span class="status warning">확인 필요</span>' in html
+
+
+def test_gunicorn_keeps_map_requests_independent_of_slow_statistics():
+    import runpy
+    from pathlib import Path
+    config=runpy.run_path(str(Path(__file__).parents[2]/'gunicorn.conf.py'))
+    assert config['worker_class']=='gthread'
+    assert config['workers']==1  # Existing in-process cache locks remain shared.
+    assert config['threads']>=4  # Three statistics requests must leave room for assets.
+
+
+def test_live_requests_recover_and_preserve_export_pagination():
+    import shutil
+    import subprocess
+    from pathlib import Path
+    node=shutil.which('node')
+    if not node:
+        pytest.skip('Node.js is required to execute the browser recovery check')
+    root=Path(__file__).parents[2]
+    script=r'''
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const source = fs.readFileSync('platform_core/static/js/app.js', 'utf8');
+const delays = [];
+const status = {setAttribute() {}};
+const rows = Array.from({length: 203}, () => ({}));
+const range = {};
+const panel = {dataset: {currentPage: '5'}, open: true,
+ querySelectorAll: selector => selector === '[data-export-row]' ? rows : [],
+ querySelector: () => range};
+const container = {dataset: {liveUrl: '/rankings'}, append() {},
+ querySelector: () => panel, innerHTML: 'previous result'};
+let live = false;
+const context = vm.createContext({console, AbortSignal,
+ setTimeout: (resolve, delay) => {delays.push(delay); resolve();},
+ location: {hash: ''}, window: {addEventListener() {}},
+ document: {addEventListener() {}, createElement: () => status,
+ querySelectorAll: selector => live && selector === '[data-live-section]' ? [container] : []}});
+vm.runInContext(source, context);
+async function check(responses, expectedCalls, expectedResult, fails = false) {
+ let calls = 0;
+ context.fetch = async (url, options) => {
+  assert(options.signal instanceof AbortSignal);
+  const value = responses[calls++];
+  if (value instanceof Error) throw value;
+  return value;
+ };
+ const result = vm.runInContext("fetchTextWithRetry('/test')", context);
+ if (fails) await assert.rejects(result);
+ else assert.equal(await result, expectedResult);
+ assert.equal(calls, expectedCalls);
+}
+const ok = {ok: true, text: async () => 'complete'};
+const failed = {ok: false, status: 503};
+(async () => {
+ await check([failed, new TypeError('network unavailable'), ok], 3, 'complete');
+ assert.deepEqual(delays, [2000, 4000]);
+ await check([{...failed, headers: {get: () => '60'}}, ok], 2, 'complete');
+ assert.equal(delays.at(-1), 60000);
+ await check([{...failed, headers: {get: () => 'invalid'}}, ok], 2, 'complete');
+ assert.equal(delays.at(-1), 2000);
+ await check([{...failed, headers: {get: () => '999999'}}, ok], 2, 'complete');
+ assert.equal(delays.at(-1), 120000);
+ await check([{ok: true, text: async () => {throw new Error('body interrupted');}}, ok], 2, 'complete');
+ await check([failed, failed, failed], 3, null, true);
+ await check([{ok: false, status: 403}], 1, null, true);
+ live = true;
+ let calls = 0;
+ context.fetch = async () => ++calls === 1 ? failed : ok;
+ vm.runInContext(source, context);
+ await new Promise(setImmediate);
+ assert.equal(calls, 2);
+ assert.equal(container.innerHTML, 'complete');
+ assert.equal(panel.open, true);
+ assert.equal(panel.dataset.currentPage, '5');
+ assert.equal(rows.filter(row => !row.hidden).length, 3);
+ assert.equal(range.textContent, '전체 203개국 중 201–203위');
+ context.fetch = async () => failed;
+ vm.runInContext(source, context);
+ await new Promise(setImmediate);
+ assert.equal(container.innerHTML, 'complete');
+ assert.match(status.textContent, /다시 시도/);
+ // Execute the actual globe map-loading path, with the same retry helper.
+ const wrapper = {classList: {remove() {}}};
+ const globeContainer = {dataset: {mapUrl: '/world.json'}, closest: () => wrapper,
+  replaceChildren() {}};
+ context.document.getElementById = id => id === 'export-globe' ? globeContainer : status;
+ context.document.querySelector = () => null;
+ context.document.querySelectorAll = () => [];
+ context.window.Globe = true;
+ let mapCalls = 0;
+ context.fetch = async () => ++mapCalls === 1 ? failed : {ok: true, text: async () => '{}'};
+ context.console = {warn: (message, error) => assert.match(error.message, /Invalid world map/)};
+ vm.runInContext(fs.readFileSync('platform_core/static/js/globe.js', 'utf8'), context);
+ await new Promise(setImmediate);
+ assert.equal(mapCalls, 2);
+ assert.match(status.textContent, /지구본을 불러오지 못했습니다/);
+})().catch(error => {console.error(error); process.exitCode = 1;});
+'''
+    result=subprocess.run([node,'-'],input=script,text=True,encoding='utf-8',
+                          cwd=root,capture_output=True,timeout=15)
+    assert result.returncode==0,result.stdout+result.stderr
+
+
+@pytest.mark.parametrize('section',['fragment','rankings-fragment','rank-card'])
+def test_export_fragments_report_errors_and_recover(section,monkeypatch):
+    from flask import Flask
+    from jinja2 import FileSystemLoader
+    from pathlib import Path
+    from tab3_market import routes
+    app=Flask(__name__)
+    app.config['TESTING']=True
+    app.jinja_loader=FileSystemLoader(str(Path(__file__).parents[1]/'templates'))
+    app.jinja_env.filters['number']=lambda value: '—' if value is None else str(value)
+    app.register_blueprint(routes.bp)
+    data={'state':'data_error','message':'Synthetic upstream timeout','rankings':[],
+          'series':[],'total_exports':None,'growth':None,'period':'2025'}
+    monkeypatch.setattr(routes,'export_overview_context',
+                        lambda **kwargs: {'overview':data,'exchange':None})
+    client=app.test_client()
+    response=client.get('/api/exports/'+section)
+    assert response.status_code==503
+    assert response.headers['Retry-After']=='60'
+    data.update(state='ready',ranking_state='data_error')
+    assert client.get('/api/exports/'+section).status_code==(200 if section=='fragment' else 503)
+    data.update(ranking_state='ready',message='')
+    response=client.get('/api/exports/'+section)
+    assert response.status_code==200 and 'Retry-After' not in response.headers
+    data.update(state='data_pending',ranking_state='data_pending')
+    assert client.get('/api/exports/'+section).status_code==200

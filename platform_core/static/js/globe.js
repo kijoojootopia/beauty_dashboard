@@ -30,9 +30,7 @@ async function initializeGlobe() {
   try {
     if (!window.Globe) throw new Error('Globe library unavailable');
     status.textContent = '회전 가능한 지구본을 불러오는 중입니다…';
-    const response = await fetch(container.dataset.mapUrl, { signal: AbortSignal.timeout(15000) });
-    if (!response.ok) throw new Error('World map unavailable');
-    const world = await response.json();
+    const world = JSON.parse(await fetchTextWithRetry(container.dataset.mapUrl));
     if (world.type !== 'FeatureCollection' || !world.features?.length) {
       throw new Error('Invalid world map');
     }

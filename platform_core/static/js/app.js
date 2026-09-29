@@ -1,4 +1,25 @@
 'use strict';
+
+// Retry only transient GET failures, including a stalled response body.
+async function fetchTextWithRetry(url, options = {}) {
+ for (let attempt = 0; attempt < 3; attempt++) {
+  let retryable = true;
+  let delay = 2000 * (attempt + 1);
+  try {
+   const response = await fetch(url, {...options, signal: AbortSignal.timeout(60000)});
+   if (!response.ok) {
+    retryable = [408, 429, 500, 502, 503, 504].includes(response.status);
+    const retryAfter = Number(response.headers?.get('Retry-After'));
+    if (Number.isFinite(retryAfter) && retryAfter > 0) delay = Math.min(retryAfter, 120) * 1000;
+    throw new Error(`HTTP ${response.status}`);
+   }
+   return await response.text();
+  } catch (error) {
+   if (!retryable || attempt === 2) throw error;
+   await new Promise(resolve => setTimeout(resolve, delay));
+  }
+ }
+}
 document.querySelectorAll('[data-submit-change]').forEach(el=>el.addEventListener('change',()=>el.form.requestSubmit()));
 document.querySelectorAll('[data-country-select]').forEach(el=>{
  const update=()=>el.closest('form').querySelectorAll('[data-member-group]').forEach(field=>{
@@ -42,7 +63,7 @@ document.addEventListener('click',event=>{
 
 document.querySelectorAll('[data-live-section]').forEach(async container=>{
  const status=document.createElement('p');status.className='live-status';status.setAttribute('role','status');status.textContent='최신 자료를 불러오는 중입니다…';container.append(status);
- try{const response=await fetch(container.dataset.liveUrl,{headers:{Accept:'text/html'}});if(!response.ok)throw new Error();const html=await response.text();
+ try{const html=await fetchTextWithRetry(container.dataset.liveUrl,{headers:{Accept:'text/html'}});
  const previous=container.querySelector('[data-export-pages]');
  const page=previous?.dataset.currentPage||1,open=previous?.open;
  container.innerHTML=html;
